@@ -1,0 +1,776 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5030420C1AE7BECA00CA5B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420B1AE7BECA00CA5B9B /* main.m */; };
+		5030420F1AE7BECA00CA5B9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420E1AE7BECA00CA5B9B /* AppDelegate.m */; };
+		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
+		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
+		503042571AE7BF0D00CA5B9B /* ButtonStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042301AE7BF0D00CA5B9B /* ButtonStyler.m */; };
+		503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042321AE7BF0D00CA5B9B /* ColourManager.m */; };
+		503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */; };
+		5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */; };
+		5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042371AE7BF0D00CA5B9B /* FontAwesome.otf */; };
+		5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042391AE7BF0D00CA5B9B /* FormDetails.m */; };
+		5030425E1AE7BF0D00CA5B9B /* FOUCONBD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5030423C1AE7BF0D00CA5B9B /* FOUCONBD.otf */; };
+		5030425F1AE7BF0D00CA5B9B /* FOUCONDM.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5030423D1AE7BF0D00CA5B9B /* FOUCONDM.otf */; };
+		503042601AE7BF0D00CA5B9B /* FOUCONEB.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5030423E1AE7BF0D00CA5B9B /* FOUCONEB.otf */; };
+		503042611AE7BF0D00CA5B9B /* FOUCONMD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 5030423F1AE7BF0D00CA5B9B /* FOUCONMD.otf */; };
+		503042621AE7BF0D00CA5B9B /* FOUCONRG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042401AE7BF0D00CA5B9B /* FOUCONRG.otf */; };
+		503042631AE7BF0D00CA5B9B /* FOUCONRI.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042411AE7BF0D00CA5B9B /* FOUCONRI.otf */; };
+		503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */; };
+		503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042441AE7BF0D00CA5B9B /* ImageManager.m */; };
+		503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042461AE7BF0D00CA5B9B /* MerchantServer.m */; };
+		503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042481AE7BF0D00CA5B9B /* NavigationViewController.m */; };
+		503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */; };
+		503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */; };
+		5030426A1AE7BF0D00CA5B9B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424E1AE7BF0D00CA5B9B /* Reachability.m */; };
+		5030426B1AE7BF0D00CA5B9B /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042501AE7BF0D00CA5B9B /* StyleKit.m */; };
+		5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042521AE7BF0D00CA5B9B /* PaymentFormViewController.m */; };
+		5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042541AE7BF0D00CA5B9B /* TimeManager.m */; };
+		5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */; };
+		503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5030426F1AE7BFB100CA5B9B /* Main.storyboard */; };
+		503E19EA1AE9256000CB4784 /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503E19E91AE9256000CB4784 /* Paypoint.framework */; };
+		504DD8501AE93765000C47B9 /* CardDetailsFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */; };
+		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
+		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
+		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
+		504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */; };
+		504DD8671AE94D85000C47B9 /* MerchantPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */; };
+		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
+		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
+		5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D21AE7ED8D00D41911 /* UIKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		50510DC51AE7F3DC00A6256B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		503042061AE7BECA00CA5B9B /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		5030420D1AE7BECA00CA5B9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		5030420E1AE7BECA00CA5B9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		503042161AE7BECA00CA5B9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		503042191AE7BECA00CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		503042241AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		503042251AE7BECA00CA5B9B /* MerchantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantTests.m; sourceTree = "<group>"; };
+		5030422F1AE7BF0D00CA5B9B /* ButtonStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonStyler.h; sourceTree = "<group>"; };
+		503042301AE7BF0D00CA5B9B /* ButtonStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonStyler.m; sourceTree = "<group>"; };
+		503042311AE7BF0D00CA5B9B /* ColourManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourManager.h; sourceTree = "<group>"; };
+		503042321AE7BF0D00CA5B9B /* ColourManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourManager.m; sourceTree = "<group>"; };
+		503042331AE7BF0D00CA5B9B /* EnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentManager.h; sourceTree = "<group>"; };
+		503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentManager.m; sourceTree = "<group>"; };
+		503042351AE7BF0D00CA5B9B /* FeedbackBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackBubble.h; sourceTree = "<group>"; };
+		503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackBubble.m; sourceTree = "<group>"; };
+		503042371AE7BF0D00CA5B9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
+		503042381AE7BF0D00CA5B9B /* FormDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormDetails.h; sourceTree = "<group>"; };
+		503042391AE7BF0D00CA5B9B /* FormDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormDetails.m; sourceTree = "<group>"; };
+		5030423C1AE7BF0D00CA5B9B /* FOUCONBD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONBD.otf; sourceTree = "<group>"; };
+		5030423D1AE7BF0D00CA5B9B /* FOUCONDM.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONDM.otf; sourceTree = "<group>"; };
+		5030423E1AE7BF0D00CA5B9B /* FOUCONEB.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONEB.otf; sourceTree = "<group>"; };
+		5030423F1AE7BF0D00CA5B9B /* FOUCONMD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONMD.otf; sourceTree = "<group>"; };
+		503042401AE7BF0D00CA5B9B /* FOUCONRG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRG.otf; sourceTree = "<group>"; };
+		503042411AE7BF0D00CA5B9B /* FOUCONRI.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRI.otf; sourceTree = "<group>"; };
+		503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoundConExtBol.ttf; sourceTree = "<group>"; };
+		503042431AE7BF0D00CA5B9B /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
+		503042441AE7BF0D00CA5B9B /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
+		503042451AE7BF0D00CA5B9B /* MerchantServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantServer.h; sourceTree = "<group>"; };
+		503042461AE7BF0D00CA5B9B /* MerchantServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantServer.m; sourceTree = "<group>"; };
+		503042471AE7BF0D00CA5B9B /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
+		503042481AE7BF0D00CA5B9B /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
+		503042491AE7BF0D00CA5B9B /* NSString+strip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+strip.h"; sourceTree = "<group>"; };
+		5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+strip.m"; sourceTree = "<group>"; };
+		5030424B1AE7BF0D00CA5B9B /* OutcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutcomeViewController.h; sourceTree = "<group>"; };
+		5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutcomeViewController.m; sourceTree = "<group>"; };
+		5030424D1AE7BF0D00CA5B9B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		5030424E1AE7BF0D00CA5B9B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		5030424F1AE7BF0D00CA5B9B /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
+		503042501AE7BF0D00CA5B9B /* StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKit.m; sourceTree = "<group>"; };
+		503042511AE7BF0D00CA5B9B /* PaymentFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormViewController.h; sourceTree = "<group>"; };
+		503042521AE7BF0D00CA5B9B /* PaymentFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormViewController.m; sourceTree = "<group>"; };
+		503042531AE7BF0D00CA5B9B /* TimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeManager.h; sourceTree = "<group>"; };
+		503042541AE7BF0D00CA5B9B /* TimeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeManager.m; sourceTree = "<group>"; };
+		503042551AE7BF0D00CA5B9B /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
+		503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
+		503042701AE7BFB100CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		503E19E91AE9256000CB4784 /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paypoint.framework; sourceTree = "<group>"; };
+		504DD84E1AE93765000C47B9 /* CardDetailsFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailsFieldsManager.h; sourceTree = "<group>"; };
+		504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailsFieldsManager.m; sourceTree = "<group>"; };
+		504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorManager.h; sourceTree = "<group>"; };
+		504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkErrorManager.m; sourceTree = "<group>"; };
+		504DD8561AE941BC000C47B9 /* FormFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFieldsViewController.h; sourceTree = "<group>"; };
+		504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewController.m; sourceTree = "<group>"; };
+		504DD85A1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormViewControllerAnimationManager.h; sourceTree = "<group>"; };
+		504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormViewControllerAnimationManager.m; sourceTree = "<group>"; };
+		504DD85E1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFieldsViewControllerAnimationManager.h; sourceTree = "<group>"; };
+		504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewControllerAnimationManager.m; sourceTree = "<group>"; };
+		504DD8651AE94D85000C47B9 /* MerchantPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantPaymentManager.h; sourceTree = "<group>"; };
+		504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantPaymentManager.m; sourceTree = "<group>"; };
+		5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		5081F3D21AE7ED8D00D41911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		503042031AE7BECA00CA5B9B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */,
+				5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */,
+				503E19EA1AE9256000CB4784 /* Paypoint.framework in Frameworks */,
+				5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		503041FD1AE7BEC900CA5B9B = {
+			isa = PBXGroup;
+			children = (
+				503E19E91AE9256000CB4784 /* Paypoint.framework */,
+				5081F3D21AE7ED8D00D41911 /* UIKit.framework */,
+				5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */,
+				5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */,
+				503042081AE7BECA00CA5B9B /* Merchant */,
+				503042221AE7BECA00CA5B9B /* MerchantTests */,
+				503042071AE7BECA00CA5B9B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		503042071AE7BECA00CA5B9B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				503042061AE7BECA00CA5B9B /* Merchant.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		503042081AE7BECA00CA5B9B /* Merchant */ = {
+			isa = PBXGroup;
+			children = (
+				5030426F1AE7BFB100CA5B9B /* Main.storyboard */,
+				503042901AE7C20900CA5B9B /* AppDelegate */,
+				5030427F1AE7C1A300CA5B9B /* ButtonStyler */,
+				503042911AE7C21E00CA5B9B /* Managers */,
+				503042921AE7C22400CA5B9B /* Views */,
+				503042931AE7C23100CA5B9B /* Model */,
+				503042941AE7C23900CA5B9B /* ViewControllers */,
+				503042961AE7C25000CA5B9B /* Networking */,
+				503042951AE7C24200CA5B9B /* UIKitExtensions */,
+				5030428C1AE7C1F200CA5B9B /* StyleKit */,
+				503042091AE7BECA00CA5B9B /* Supporting Files */,
+			);
+			path = Merchant;
+			sourceTree = "<group>";
+		};
+		503042091AE7BECA00CA5B9B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				503042181AE7BECA00CA5B9B /* LaunchScreen.xib */,
+				503042161AE7BECA00CA5B9B /* Images.xcassets */,
+				503042831AE7C1BC00CA5B9B /* Fonts */,
+				5030420A1AE7BECA00CA5B9B /* Info.plist */,
+				5030420B1AE7BECA00CA5B9B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		503042221AE7BECA00CA5B9B /* MerchantTests */ = {
+			isa = PBXGroup;
+			children = (
+				503042251AE7BECA00CA5B9B /* MerchantTests.m */,
+				503042231AE7BECA00CA5B9B /* Supporting Files */,
+			);
+			path = MerchantTests;
+			sourceTree = "<group>";
+		};
+		503042231AE7BECA00CA5B9B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				503042241AE7BECA00CA5B9B /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5030427F1AE7C1A300CA5B9B /* ButtonStyler */ = {
+			isa = PBXGroup;
+			children = (
+				5030422F1AE7BF0D00CA5B9B /* ButtonStyler.h */,
+				503042301AE7BF0D00CA5B9B /* ButtonStyler.m */,
+			);
+			name = ButtonStyler;
+			sourceTree = "<group>";
+		};
+		503042801AE7C1A900CA5B9B /* ColourManager */ = {
+			isa = PBXGroup;
+			children = (
+				503042311AE7BF0D00CA5B9B /* ColourManager.h */,
+				503042321AE7BF0D00CA5B9B /* ColourManager.m */,
+			);
+			name = ColourManager;
+			sourceTree = "<group>";
+		};
+		503042811AE7C1AE00CA5B9B /* EnvironmentManager */ = {
+			isa = PBXGroup;
+			children = (
+				503042331AE7BF0D00CA5B9B /* EnvironmentManager.h */,
+				503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */,
+			);
+			name = EnvironmentManager;
+			sourceTree = "<group>";
+		};
+		503042821AE7C1B400CA5B9B /* FeedbackBubble */ = {
+			isa = PBXGroup;
+			children = (
+				503042351AE7BF0D00CA5B9B /* FeedbackBubble.h */,
+				503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */,
+			);
+			name = FeedbackBubble;
+			sourceTree = "<group>";
+		};
+		503042831AE7C1BC00CA5B9B /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				503042371AE7BF0D00CA5B9B /* FontAwesome.otf */,
+				5030423C1AE7BF0D00CA5B9B /* FOUCONBD.otf */,
+				5030423D1AE7BF0D00CA5B9B /* FOUCONDM.otf */,
+				5030423E1AE7BF0D00CA5B9B /* FOUCONEB.otf */,
+				5030423F1AE7BF0D00CA5B9B /* FOUCONMD.otf */,
+				503042401AE7BF0D00CA5B9B /* FOUCONRG.otf */,
+				503042411AE7BF0D00CA5B9B /* FOUCONRI.otf */,
+				503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		503042841AE7C1C200CA5B9B /* FormDetails */ = {
+			isa = PBXGroup;
+			children = (
+				503042381AE7BF0D00CA5B9B /* FormDetails.h */,
+				503042391AE7BF0D00CA5B9B /* FormDetails.m */,
+			);
+			name = FormDetails;
+			sourceTree = "<group>";
+		};
+		503042861AE7C1CE00CA5B9B /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				503042431AE7BF0D00CA5B9B /* ImageManager.h */,
+				503042441AE7BF0D00CA5B9B /* ImageManager.m */,
+			);
+			name = ImageManager;
+			sourceTree = "<group>";
+		};
+		503042871AE7C1D400CA5B9B /* MerchantServer */ = {
+			isa = PBXGroup;
+			children = (
+				503042451AE7BF0D00CA5B9B /* MerchantServer.h */,
+				503042461AE7BF0D00CA5B9B /* MerchantServer.m */,
+			);
+			name = MerchantServer;
+			sourceTree = "<group>";
+		};
+		503042881AE7C1DA00CA5B9B /* NavigationViewController */ = {
+			isa = PBXGroup;
+			children = (
+				503042471AE7BF0D00CA5B9B /* NavigationViewController.h */,
+				503042481AE7BF0D00CA5B9B /* NavigationViewController.m */,
+			);
+			name = NavigationViewController;
+			sourceTree = "<group>";
+		};
+		503042891AE7C1E000CA5B9B /* NSString+strip */ = {
+			isa = PBXGroup;
+			children = (
+				503042491AE7BF0D00CA5B9B /* NSString+strip.h */,
+				5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */,
+			);
+			name = "NSString+strip";
+			sourceTree = "<group>";
+		};
+		5030428A1AE7C1E600CA5B9B /* OutcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5030424B1AE7BF0D00CA5B9B /* OutcomeViewController.h */,
+				5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */,
+			);
+			name = OutcomeViewController;
+			sourceTree = "<group>";
+		};
+		5030428B1AE7C1EC00CA5B9B /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				5030424D1AE7BF0D00CA5B9B /* Reachability.h */,
+				5030424E1AE7BF0D00CA5B9B /* Reachability.m */,
+			);
+			name = Reachability;
+			sourceTree = "<group>";
+		};
+		5030428C1AE7C1F200CA5B9B /* StyleKit */ = {
+			isa = PBXGroup;
+			children = (
+				5030424F1AE7BF0D00CA5B9B /* StyleKit.h */,
+				503042501AE7BF0D00CA5B9B /* StyleKit.m */,
+			);
+			name = StyleKit;
+			sourceTree = "<group>";
+		};
+		5030428D1AE7C1F700CA5B9B /* PaymentFormViewController */ = {
+			isa = PBXGroup;
+			children = (
+				503042511AE7BF0D00CA5B9B /* PaymentFormViewController.h */,
+				503042521AE7BF0D00CA5B9B /* PaymentFormViewController.m */,
+			);
+			name = PaymentFormViewController;
+			sourceTree = "<group>";
+		};
+		5030428E1AE7C1FE00CA5B9B /* TimeManager */ = {
+			isa = PBXGroup;
+			children = (
+				503042531AE7BF0D00CA5B9B /* TimeManager.h */,
+				503042541AE7BF0D00CA5B9B /* TimeManager.m */,
+			);
+			name = TimeManager;
+			sourceTree = "<group>";
+		};
+		5030428F1AE7C20300CA5B9B /* WelcomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				503042551AE7BF0D00CA5B9B /* WelcomeViewController.h */,
+				503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */,
+			);
+			name = WelcomeViewController;
+			sourceTree = "<group>";
+		};
+		503042901AE7C20900CA5B9B /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				5030420D1AE7BECA00CA5B9B /* AppDelegate.h */,
+				5030420E1AE7BECA00CA5B9B /* AppDelegate.m */,
+			);
+			name = AppDelegate;
+			sourceTree = "<group>";
+		};
+		503042911AE7C21E00CA5B9B /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				503042801AE7C1A900CA5B9B /* ColourManager */,
+				503042811AE7C1AE00CA5B9B /* EnvironmentManager */,
+				503042861AE7C1CE00CA5B9B /* ImageManager */,
+				5030428E1AE7C1FE00CA5B9B /* TimeManager */,
+				504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */,
+				504DD8551AE940E2000C47B9 /* NetworkErrorManager */,
+				504DD8631AE94C3E000C47B9 /* AnimationManagers */,
+				504DD8681AE94D88000C47B9 /* MerchantPaymentManager */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		503042921AE7C22400CA5B9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				503042821AE7C1B400CA5B9B /* FeedbackBubble */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		503042931AE7C23100CA5B9B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				503042841AE7C1C200CA5B9B /* FormDetails */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		503042941AE7C23900CA5B9B /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				503042881AE7C1DA00CA5B9B /* NavigationViewController */,
+				5030428F1AE7C20300CA5B9B /* WelcomeViewController */,
+				504DD8621AE94BD2000C47B9 /* Form */,
+				5030428A1AE7C1E600CA5B9B /* OutcomeViewController */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		503042951AE7C24200CA5B9B /* UIKitExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				503042891AE7C1E000CA5B9B /* NSString+strip */,
+			);
+			name = UIKitExtensions;
+			sourceTree = "<group>";
+		};
+		503042961AE7C25000CA5B9B /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				503042871AE7C1D400CA5B9B /* MerchantServer */,
+				5030428B1AE7C1EC00CA5B9B /* Reachability */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */ = {
+			isa = PBXGroup;
+			children = (
+				504DD84E1AE93765000C47B9 /* CardDetailsFieldsManager.h */,
+				504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */,
+			);
+			name = CardDetailsFieldsManager;
+			sourceTree = "<group>";
+		};
+		504DD8551AE940E2000C47B9 /* NetworkErrorManager */ = {
+			isa = PBXGroup;
+			children = (
+				504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */,
+				504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */,
+			);
+			name = NetworkErrorManager;
+			sourceTree = "<group>";
+		};
+		504DD8591AE941BF000C47B9 /* FormFieldsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				504DD8561AE941BC000C47B9 /* FormFieldsViewController.h */,
+				504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */,
+			);
+			name = FormFieldsViewController;
+			sourceTree = "<group>";
+		};
+		504DD85D1AE94790000C47B9 /* PaymentFormAnimationManager */ = {
+			isa = PBXGroup;
+			children = (
+				504DD85A1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.h */,
+				504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */,
+			);
+			name = PaymentFormAnimationManager;
+			sourceTree = "<group>";
+		};
+		504DD8611AE949EC000C47B9 /* FormFieldsViewControllerAnimationManager */ = {
+			isa = PBXGroup;
+			children = (
+				504DD85E1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.h */,
+				504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */,
+			);
+			name = FormFieldsViewControllerAnimationManager;
+			sourceTree = "<group>";
+		};
+		504DD8621AE94BD2000C47B9 /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				504DD8591AE941BF000C47B9 /* FormFieldsViewController */,
+				5030428D1AE7C1F700CA5B9B /* PaymentFormViewController */,
+			);
+			name = Form;
+			sourceTree = "<group>";
+		};
+		504DD8631AE94C3E000C47B9 /* AnimationManagers */ = {
+			isa = PBXGroup;
+			children = (
+				504DD8641AE94C52000C47B9 /* PaymentForm */,
+			);
+			name = AnimationManagers;
+			sourceTree = "<group>";
+		};
+		504DD8641AE94C52000C47B9 /* PaymentForm */ = {
+			isa = PBXGroup;
+			children = (
+				504DD8611AE949EC000C47B9 /* FormFieldsViewControllerAnimationManager */,
+				504DD85D1AE94790000C47B9 /* PaymentFormAnimationManager */,
+			);
+			name = PaymentForm;
+			sourceTree = "<group>";
+		};
+		504DD8681AE94D88000C47B9 /* MerchantPaymentManager */ = {
+			isa = PBXGroup;
+			children = (
+				504DD8651AE94D85000C47B9 /* MerchantPaymentManager.h */,
+				504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */,
+			);
+			name = MerchantPaymentManager;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		503042051AE7BECA00CA5B9B /* Merchant */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 503042291AE7BECA00CA5B9B /* Build configuration list for PBXNativeTarget "Merchant" */;
+			buildPhases = (
+				503042021AE7BECA00CA5B9B /* Sources */,
+				503042031AE7BECA00CA5B9B /* Frameworks */,
+				503042041AE7BECA00CA5B9B /* Resources */,
+				50510DC51AE7F3DC00A6256B /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Merchant;
+			productName = Merchant;
+			productReference = 503042061AE7BECA00CA5B9B /* Merchant.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		503041FE1AE7BEC900CA5B9B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0630;
+				ORGANIZATIONNAME = Paypoint;
+				TargetAttributes = {
+					503042051AE7BECA00CA5B9B = {
+						CreatedOnToolsVersion = 6.3;
+					};
+				};
+			};
+			buildConfigurationList = 503042011AE7BEC900CA5B9B /* Build configuration list for PBXProject "Merchant" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 503041FD1AE7BEC900CA5B9B;
+			productRefGroup = 503042071AE7BECA00CA5B9B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				503042051AE7BECA00CA5B9B /* Merchant */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		503042041AE7BECA00CA5B9B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503042601AE7BF0D00CA5B9B /* FOUCONEB.otf in Resources */,
+				503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */,
+				5030425E1AE7BF0D00CA5B9B /* FOUCONBD.otf in Resources */,
+				5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */,
+				503042621AE7BF0D00CA5B9B /* FOUCONRG.otf in Resources */,
+				503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */,
+				5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */,
+				503042631AE7BF0D00CA5B9B /* FOUCONRI.otf in Resources */,
+				5030425F1AE7BF0D00CA5B9B /* FOUCONDM.otf in Resources */,
+				503042611AE7BF0D00CA5B9B /* FOUCONMD.otf in Resources */,
+				503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		503042021AE7BECA00CA5B9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
+				5030426B1AE7BF0D00CA5B9B /* StyleKit.m in Sources */,
+				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
+				5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */,
+				504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */,
+				503042571AE7BF0D00CA5B9B /* ButtonStyler.m in Sources */,
+				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
+				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
+				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,
+				5030420F1AE7BECA00CA5B9B /* AppDelegate.m in Sources */,
+				503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */,
+				504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */,
+				5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */,
+				5030426A1AE7BF0D00CA5B9B /* Reachability.m in Sources */,
+				5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */,
+				5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */,
+				5030420C1AE7BECA00CA5B9B /* main.m in Sources */,
+				504DD8501AE93765000C47B9 /* CardDetailsFieldsManager.m in Sources */,
+				504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */,
+				504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */,
+				5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */,
+				504DD8671AE94D85000C47B9 /* MerchantPaymentManager.m in Sources */,
+				503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		503042181AE7BECA00CA5B9B /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				503042191AE7BECA00CA5B9B /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		5030426F1AE7BFB100CA5B9B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				503042701AE7BFB100CA5B9B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		503042271AE7BECA00CA5B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		503042281AE7BECA00CA5B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5030422A1AE7BECA00CA5B9B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Merchant",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Development-ghzvlbfqtyylivhdrukhheoxbeyw/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Merchant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5030422B1AE7BECA00CA5B9B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Merchant",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Development-ghzvlbfqtyylivhdrukhheoxbeyw/Build/Products/Debug-iphoneos",
+					"$(PROJECT_DIR)",
+				);
+				INFOPLIST_FILE = Merchant/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		503042011AE7BEC900CA5B9B /* Build configuration list for PBXProject "Merchant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				503042271AE7BECA00CA5B9B /* Debug */,
+				503042281AE7BECA00CA5B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		503042291AE7BECA00CA5B9B /* Build configuration list for PBXNativeTarget "Merchant" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5030422A1AE7BECA00CA5B9B /* Debug */,
+				5030422B1AE7BECA00CA5B9B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 503041FE1AE7BEC900CA5B9B /* Project object */;
+}
