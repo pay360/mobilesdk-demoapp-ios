@@ -38,7 +38,9 @@
         }
         
         if (token.length > 0) {
-            c = [[PPOCredentials alloc] initWithID:INSTALLATION_ID withToken:token];
+            c = [PPOCredentials new];
+            c.installationID = INSTALLATION_ID;
+            c.token = token;
         }
         
         completion(c, error);

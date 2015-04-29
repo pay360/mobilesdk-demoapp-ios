@@ -38,37 +38,40 @@
 
 +(PPOPayment*)buildPaymentExampleWithDetails:(FormDetails*)form {
     
-    PPOBillingAddress *address = [[PPOBillingAddress alloc] initWithFirstLine:nil
-                                                               withSecondLine:nil
-                                                                withThirdLine:nil
-                                                               withFourthLine:nil
-                                                                     withCity:nil
-                                                                   withRegion:nil
-                                                                 withPostcode:nil
-                                                              withCountryCode:nil];
+    PPOBillingAddress *address = [PPOBillingAddress new];
+    address.line1 = nil;
+    address.line2 = nil;
+    address.line3 = nil;
+    address.line4 = nil;
+    address.city = nil;
+    address.region = nil;
+    address.postcode = nil;
+    address.countryCode = nil;
     
-    NSString *genericRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
+    PPOTransaction *transaction = [PPOTransaction new];
+    transaction.currency = @"GBP";
+    transaction.amount = @100;
+    transaction.transactionDescription = @"A desc";
+    transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
+    transaction.isDeferred = @NO;
     
-    PPOTransaction *transaction = [[PPOTransaction alloc] initWithCurrency:@"GBP"
-                                                                withAmount:@100
-                                                           withDescription:@"A description"
-                                                     withMerchantReference:genericRef
-                                                                isDeferred:NO];
+    PPOCreditCard *card = [PPOCreditCard new];
+    card.pan = form.cardNumber;
+    card.cvv = form.cvv;
+    card.expiry = form.expiry;
+    card.cardHolderName = @"Dai Jones";
     
+    PPOPayment *payment = [PPOPayment new];
+    payment.transaction = transaction;
+    payment.card = card;
+    payment.address = address;
     
-    PPOCreditCard *card = [[PPOCreditCard alloc] initWithPan:form.cardNumber
-                                        withSecurityCodeCode:form.cvv
-                                                  withExpiry:form.expiry
-                                          withCardholderName:@"Dai Jones"];
-    
-    return [[PPOPayment alloc] initWithTransaction:transaction
-                                          withCard:card
-                                withBillingAddress:address];
+    return payment;
 }
 
 -(void)attemptPayment:(PPOPayment*)payment {
     
-    NSError *invalid = [self.paymentManager validatePayment:payment];
+    NSError *invalid = [PPOPaymentValidator validatePayment:payment];
     
     if (invalid) {
         [self.delegate paymentManager:self didFailWithError:invalid];
@@ -94,7 +97,7 @@
 
 -(void)attemptPayment:(PPOPayment*)payment withCredentials:(PPOCredentials*)credentials {
     
-    NSError *invalidCredentials = [self.paymentManager validateCredentials:credentials];
+    NSError *invalidCredentials = [PPOPaymentValidator validateCredentials:credentials];
     
     if (invalidCredentials) {
         [self.delegate paymentManager:self didFailWithError:invalidCredentials];
