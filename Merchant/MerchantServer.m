@@ -15,7 +15,7 @@
     __block NSString *token;
     __block PPOCredentials *c;
     
-    NSURL *url = [NSURL URLWithString:@"https://ppmobilesdkstub.herokuapp.com/merchant/getToken"];
+    NSURL *url = [NSURL URLWithString:@"http://localhost:5000/merchant/getToken"];
         
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
