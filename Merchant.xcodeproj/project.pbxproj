@@ -35,13 +35,14 @@
 		5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042541AE7BF0D00CA5B9B /* TimeManager.m */; };
 		5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */; };
 		503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5030426F1AE7BFB100CA5B9B /* Main.storyboard */; };
-		503E19EA1AE9256000CB4784 /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 503E19E91AE9256000CB4784 /* Paypoint.framework */; };
 		504DD8501AE93765000C47B9 /* CardDetailsFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */; };
 		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
 		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
 		504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */; };
 		504DD8671AE94D85000C47B9 /* MerchantPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */; };
+		50717B7F1AFA57CE00CCFF1B /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50717B7E1AFA57CE00CCFF1B /* Paypoint.framework */; };
+		50717B821AFA57F400CCFF1B /* PaypointResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 50717B801AFA57E900CCFF1B /* PaypointResources.bundle */; };
 		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
 		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
 		5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D21AE7ED8D00D41911 /* UIKit.framework */; };
@@ -109,7 +110,6 @@
 		503042551AE7BF0D00CA5B9B /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		503042701AE7BFB100CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		503E19E91AE9256000CB4784 /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paypoint.framework; sourceTree = "<group>"; };
 		504DD84E1AE93765000C47B9 /* CardDetailsFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailsFieldsManager.h; sourceTree = "<group>"; };
 		504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailsFieldsManager.m; sourceTree = "<group>"; };
 		504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorManager.h; sourceTree = "<group>"; };
@@ -122,6 +122,8 @@
 		504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewControllerAnimationManager.m; sourceTree = "<group>"; };
 		504DD8651AE94D85000C47B9 /* MerchantPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantPaymentManager.h; sourceTree = "<group>"; };
 		504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantPaymentManager.m; sourceTree = "<group>"; };
+		50717B7E1AFA57CE00CCFF1B /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paypoint.framework; sourceTree = "<group>"; };
+		50717B801AFA57E900CCFF1B /* PaypointResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PaypointResources.bundle; path = Paypoint.framework/PaypointResources.bundle; sourceTree = "<group>"; };
 		5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5081F3D21AE7ED8D00D41911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -134,7 +136,7 @@
 			files = (
 				5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */,
 				5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */,
-				503E19EA1AE9256000CB4784 /* Paypoint.framework in Frameworks */,
+				50717B7F1AFA57CE00CCFF1B /* Paypoint.framework in Frameworks */,
 				5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -145,12 +147,8 @@
 		503041FD1AE7BEC900CA5B9B = {
 			isa = PBXGroup;
 			children = (
-				503E19E91AE9256000CB4784 /* Paypoint.framework */,
-				5081F3D21AE7ED8D00D41911 /* UIKit.framework */,
-				5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */,
-				5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */,
-				503042081AE7BECA00CA5B9B /* Merchant */,
-				503042221AE7BECA00CA5B9B /* MerchantTests */,
+				5092F37B1AFA52BB004FFF62 /* Targets */,
+				5092F37A1AFA52B0004FFF62 /* LinkedFrameworks */,
 				503042071AE7BECA00CA5B9B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -508,6 +506,35 @@
 			name = MerchantPaymentManager;
 			sourceTree = "<group>";
 		};
+		5092F3791AFA52AA004FFF62 /* Paypoint */ = {
+			isa = PBXGroup;
+			children = (
+				50717B801AFA57E900CCFF1B /* PaypointResources.bundle */,
+				50717B7E1AFA57CE00CCFF1B /* Paypoint.framework */,
+			);
+			name = Paypoint;
+			sourceTree = "<group>";
+		};
+		5092F37A1AFA52B0004FFF62 /* LinkedFrameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5092F3791AFA52AA004FFF62 /* Paypoint */,
+				5081F3D21AE7ED8D00D41911 /* UIKit.framework */,
+				5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */,
+				5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */,
+			);
+			name = LinkedFrameworks;
+			sourceTree = "<group>";
+		};
+		5092F37B1AFA52BB004FFF62 /* Targets */ = {
+			isa = PBXGroup;
+			children = (
+				503042081AE7BECA00CA5B9B /* Merchant */,
+				503042221AE7BECA00CA5B9B /* MerchantTests */,
+			);
+			name = Targets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -566,6 +593,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50717B821AFA57F400CCFF1B /* PaypointResources.bundle in Resources */,
 				503042601AE7BF0D00CA5B9B /* FOUCONEB.otf in Resources */,
 				503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */,
 				5030425E1AE7BF0D00CA5B9B /* FOUCONBD.otf in Resources */,
@@ -724,6 +752,8 @@
 					"$(PROJECT_DIR)/Merchant",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Development-ghzvlbfqtyylivhdrukhheoxbeyw/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
+					/Users/robertnash/Code/Paypoint/Paypoint/build,
+					/Users/robertnash/asdf,
 				);
 				INFOPLIST_FILE = Merchant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -741,6 +771,8 @@
 					"$(PROJECT_DIR)/Merchant",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/Development-ghzvlbfqtyylivhdrukhheoxbeyw/Build/Products/Debug-iphoneos",
 					"$(PROJECT_DIR)",
+					/Users/robertnash/Code/Paypoint/Paypoint/build,
+					/Users/robertnash/asdf,
 				);
 				INFOPLIST_FILE = Merchant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
