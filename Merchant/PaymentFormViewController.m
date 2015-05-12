@@ -152,24 +152,12 @@
         UITextField *textField;
         
         switch (code) {
-            case PPOErrorNotInitialised: break;
-            case PPOErrorBadRequest: break;
-            case PPOErrorAuthenticationFailed: break;
-            case PPOErrorClientTokenExpired: break;
-            case PPOErrorUnauthorisedRequest: break;
-            case PPOErrorTransactionProcessingFailed: break;
-            case PPOErrorServerFailure: break;
             case PPOErrorLuhnCheckFailed: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
             case PPOErrorCardExpiryDateInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_EXPIRY]; break;
-            case PPOErrorClientTokenInvalid: break;
             case PPOErrorCardPanLengthInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
             case PPOErrorCVVInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CVV]; break;
-            case PPOErrorCurrencyInvalid: break;
-            case PPOErrorPaymentAmountInvalid: break;
-            case PPOErrorInstallationIDInvalid: break;
-            case PPOErrorSuppliedBaseURLInvalid: break;
-            case PPOErrorCredentialsNotFound: break;
-            case PPOErrorUnknown: break;
+            default:
+                break;
         }
         
         if (textField) {
