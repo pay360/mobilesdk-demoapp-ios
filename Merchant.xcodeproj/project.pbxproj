@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5030420C1AE7BECA00CA5B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420B1AE7BECA00CA5B9B /* main.m */; };
-		5030420F1AE7BECA00CA5B9B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420E1AE7BECA00CA5B9B /* AppDelegate.m */; };
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
 		503042571AE7BF0D00CA5B9B /* ButtonStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042301AE7BF0D00CA5B9B /* ButtonStyler.m */; };
@@ -41,11 +40,13 @@
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
 		504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */; };
 		504DD8671AE94D85000C47B9 /* MerchantPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */; };
-		50717B7F1AFA57CE00CCFF1B /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50717B7E1AFA57CE00CCFF1B /* Paypoint.framework */; };
-		50717B821AFA57F400CCFF1B /* PaypointResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 50717B801AFA57E900CCFF1B /* PaypointResources.bundle */; };
+		50717B841AFA596C00CCFF1B /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50717B831AFA596C00CCFF1B /* Paypoint.framework */; };
+		50717B871AFA598300CCFF1B /* PaypointResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 50717B851AFA597800CCFF1B /* PaypointResources.bundle */; };
 		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
 		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
 		5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D21AE7ED8D00D41911 /* UIKit.framework */; };
+		508F40EB1AFD123B00CF2AAA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F40E91AFD122B00CF2AAA /* MessageUI.framework */; };
+		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -66,7 +67,6 @@
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5030420D1AE7BECA00CA5B9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		5030420E1AE7BECA00CA5B9B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		503042161AE7BECA00CA5B9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		503042191AE7BECA00CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		503042241AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -122,11 +122,13 @@
 		504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewControllerAnimationManager.m; sourceTree = "<group>"; };
 		504DD8651AE94D85000C47B9 /* MerchantPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantPaymentManager.h; sourceTree = "<group>"; };
 		504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantPaymentManager.m; sourceTree = "<group>"; };
-		50717B7E1AFA57CE00CCFF1B /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paypoint.framework; sourceTree = "<group>"; };
-		50717B801AFA57E900CCFF1B /* PaypointResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PaypointResources.bundle; path = Paypoint.framework/PaypointResources.bundle; sourceTree = "<group>"; };
+		50717B831AFA596C00CCFF1B /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Paypoint.framework; path = ../Paypoint/build/Paypoint.framework; sourceTree = "<group>"; };
+		50717B851AFA597800CCFF1B /* PaypointResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PaypointResources.bundle; path = ../Paypoint/build/Paypoint.framework/PaypointResources.bundle; sourceTree = "<group>"; };
 		5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5081F3D21AE7ED8D00D41911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		508F40E91AFD122B00CF2AAA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,9 +136,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				508F40EB1AFD123B00CF2AAA /* MessageUI.framework in Frameworks */,
 				5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */,
 				5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */,
-				50717B7F1AFA57CE00CCFF1B /* Paypoint.framework in Frameworks */,
+				50717B841AFA596C00CCFF1B /* Paypoint.framework in Frameworks */,
 				5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -362,7 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				5030420D1AE7BECA00CA5B9B /* AppDelegate.h */,
-				5030420E1AE7BECA00CA5B9B /* AppDelegate.m */,
+				50D495131B0237CD004AD686 /* AppDelegate.m */,
 			);
 			name = AppDelegate;
 			sourceTree = "<group>";
@@ -509,8 +512,8 @@
 		5092F3791AFA52AA004FFF62 /* Paypoint */ = {
 			isa = PBXGroup;
 			children = (
-				50717B801AFA57E900CCFF1B /* PaypointResources.bundle */,
-				50717B7E1AFA57CE00CCFF1B /* Paypoint.framework */,
+				50717B851AFA597800CCFF1B /* PaypointResources.bundle */,
+				50717B831AFA596C00CCFF1B /* Paypoint.framework */,
 			);
 			name = Paypoint;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				5092F3791AFA52AA004FFF62 /* Paypoint */,
 				5081F3D21AE7ED8D00D41911 /* UIKit.framework */,
 				5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */,
+				508F40E91AFD122B00CF2AAA /* MessageUI.framework */,
 				5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */,
 			);
 			name = LinkedFrameworks;
@@ -546,6 +550,7 @@
 				503042031AE7BECA00CA5B9B /* Frameworks */,
 				503042041AE7BECA00CA5B9B /* Resources */,
 				50510DC51AE7F3DC00A6256B /* Embed Frameworks */,
+				50D495101B023240004AD686 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -593,7 +598,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50717B821AFA57F400CCFF1B /* PaypointResources.bundle in Resources */,
+				50717B871AFA598300CCFF1B /* PaypointResources.bundle in Resources */,
 				503042601AE7BF0D00CA5B9B /* FOUCONEB.otf in Resources */,
 				503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */,
 				5030425E1AE7BF0D00CA5B9B /* FOUCONBD.otf in Resources */,
@@ -610,11 +615,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		50D495101B023240004AD686 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/tools/bump_build_number.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		503042021AE7BECA00CA5B9B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50D495141B0237CD004AD686 /* AppDelegate.m in Sources */,
 				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
 				5030426B1AE7BF0D00CA5B9B /* StyleKit.m in Sources */,
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
@@ -624,7 +646,6 @@
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,
-				5030420F1AE7BECA00CA5B9B /* AppDelegate.m in Sources */,
 				503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */,
 				504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */,
 				5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */,
@@ -758,7 +779,9 @@
 				INFOPLIST_FILE = Merchant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -777,7 +800,9 @@
 				INFOPLIST_FILE = Merchant/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LINK_WITH_STANDARD_LIBRARIES = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
