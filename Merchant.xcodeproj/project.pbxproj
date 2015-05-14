@@ -49,19 +49,6 @@
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		50510DC51AE7F3DC00A6256B /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		503042061AE7BECA00CA5B9B /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -549,8 +536,6 @@
 				503042021AE7BECA00CA5B9B /* Sources */,
 				503042031AE7BECA00CA5B9B /* Frameworks */,
 				503042041AE7BECA00CA5B9B /* Resources */,
-				50510DC51AE7F3DC00A6256B /* Embed Frameworks */,
-				50D495101B023240004AD686 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -614,22 +599,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		50D495101B023240004AD686 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/tools/bump_build_number.sh \"${PROJECT_DIR}/${INFOPLIST_FILE}\"";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		503042021AE7BECA00CA5B9B /* Sources */ = {
