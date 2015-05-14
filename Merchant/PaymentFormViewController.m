@@ -26,6 +26,10 @@
     
     self.title = @"Details";
     
+    /*
+     *A value of £100 assigned to the UI here, just for aesthetics
+     *The true payment value is delievered via the model, which is built when the payment is initiated via the paynow button pressed action.
+     */
     self.amountLabel.text = @"£100";
     
     self.amountLabel.textColor = [ColourManager ppBlue];
@@ -37,9 +41,13 @@
 
 -(IBAction)payNowButtonPressed:(UIButton *)sender {
     
-    BOOL noNetwork = [[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable;
+    /*
+     *Nothing will happen if this button is pressed, and the animation is still underway.
+     *It should be impossible to press the button when the animation is in progress, because a view is placed on top of the button, which blocks gestures.
+     *But an animation state check is being done here anyway.
+    */
     
-    if (noNetwork) {
+    if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
         
         [[[UIAlertView alloc] initWithTitle:@"Error"
                                     message:@"There is no internet connection"
@@ -57,14 +65,21 @@
     
 }
 
-#pragma mark - Payment Manager
+#pragma mark - MerchantPaymentManager
 
+/*
+ *The merchant is responsible for obtaining credentials via paypoint.
+ *The 'MerchantPaymentManager' class is a dedicated class for handling credentials acquisition.
+ *Credentials are acquired and retained in memory by the 'MerchantPaymentManager' class. So the merchant manager subsequently liases with the PaypointSDK, and reports back to this controller, vis it's delegate.
+ */
 -(MerchantPaymentManager *)paymentManager {
     if (_paymentManager == nil) {
         _paymentManager = [[MerchantPaymentManager alloc] initWithDelegate:self];
     }
     return _paymentManager;
 }
+
+#pragma mark - MerchantPaymentManager Delegate
 
 -(void)paymentManager:(MerchantPaymentManager *)manager willAttemptPayment:(PPOPayment *)payment {
     [self.animationManager hideFeedbackBubble];
@@ -82,19 +97,9 @@
     [self handleError:error];
 }
 
-#pragma mark - Storyboard
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"OutcomeViewControllerSegueID"] && [sender isKindOfClass:[PPOOutcome class]]) {
-        
-        PPOOutcome *outcome = (PPOOutcome*)sender;
-        OutcomeViewController *controller = segue.destinationViewController;
-        controller.outcome = outcome;
-        
-    }
-    
-}
+
+
 
 #pragma mark - Error Handling
 
@@ -177,6 +182,20 @@
         _animationManager.paypointLogoImageView = self.paypointLogoImageView;
     }
     return _animationManager;
+}
+
+#pragma mark - Storyboard
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"OutcomeViewControllerSegueID"] && [sender isKindOfClass:[PPOOutcome class]]) {
+        
+        PPOOutcome *outcome = (PPOOutcome*)sender;
+        OutcomeViewController *controller = segue.destinationViewController;
+        controller.outcome = outcome;
+        
+    }
+    
 }
 
 @end

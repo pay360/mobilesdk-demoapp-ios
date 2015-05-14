@@ -25,10 +25,22 @@
 }
 
 -(PPOPaymentManager *)paymentManager {
+    
     if (_paymentManager == nil) {
+        
+        /*
+         *A selection of environments are available. 
+         *Envionrments differ by baseURL.
+         *A list of baseURL's are accessible via 'PPOEnvironment' keys.
+         */
         PPOEnvironment currentEnvironment = [EnvironmentManager currentEnvironment];
         
-        NSURL *baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:currentEnvironment];
+        /*
+         *Alternatively, a custom URL can be passed in here.
+         */
+        NSURL *baseURL;
+        
+        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:currentEnvironment];
         
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
         
@@ -36,17 +48,20 @@
     return _paymentManager;
 }
 
+/*
+ *Here is an example payment, containing some random values, for testing.
+ */
 +(PPOPayment*)buildPaymentExampleWithDetails:(FormDetails*)form {
     
     PPOBillingAddress *address = [PPOBillingAddress new];
-    address.line1 = nil;
-    address.line2 = nil;
-    address.line3 = nil;
-    address.line4 = nil;
-    address.city = nil;
-    address.region = nil;
-    address.postcode = nil;
-    address.countryCode = nil;
+    address.line1 = @"Street 1";
+    address.line2 = @"Street 2";
+    address.line3 = @"Street 3";
+    address.line4 = @"Street 4";
+    address.city = @"City";
+    address.region = @"Region";
+    address.postcode = @"Postcode";
+    address.countryCode = @"Country Code";
     
     PPOTransaction *transaction = [PPOTransaction new];
     transaction.currency = @"GBP";
@@ -71,6 +86,10 @@
 
 -(void)attemptPayment:(PPOPayment*)payment {
     
+    /*
+     *Payments require fresh credentials, each time a payment request is made.
+     *Optional validation can be performed here, before we begin this process.
+     */
     NSError *invalid = [PPOPaymentValidator validatePayment:payment];
     
     if (invalid) {
@@ -97,15 +116,11 @@
 
 -(void)attemptPayment:(PPOPayment*)payment withCredentials:(PPOCredentials*)credentials {
     
-    NSError *invalidCredentials = [PPOPaymentValidator validateCredentials:credentials];
-    
-    if (invalidCredentials) {
-        [self.delegate paymentManager:self didFailWithError:invalidCredentials];
-        return;
-    }
-    
     __weak typeof (self) weakSelf = self;
     
+    /*
+     *The PaypointSDK performs paramater validation, to the best extent possible, before any network request is made.
+     */
     [self.paymentManager makePayment:payment
                      withCredentials:credentials
                          withTimeOut:60.0f
