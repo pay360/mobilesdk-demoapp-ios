@@ -110,7 +110,7 @@
                                         <rect key="frame" x="178" y="122" width="170" height="44"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                                         <connections>
                                             <action selector="textFieldEditingChanged:forEvent:" destination="Hvy-su-ZqX" eventType="editingChanged" id="Kgi-9o-CRH"/>
                                         </connections>
