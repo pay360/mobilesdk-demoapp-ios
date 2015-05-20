@@ -124,7 +124,7 @@
         else if ([NetworkErrorManager noNetwork:error]) {
             
             [[[UIAlertView alloc] initWithTitle:@"Error"
-                                        message:@"Something went wrong with the Network. There may have been a response timeout. Please check you are connected to the internet."
+                                        message:@"Please check your internet or data connection and try again."
                                        delegate:nil
                               cancelButtonTitle:@"Dismiss"
                               otherButtonTitles:nil, nil]
@@ -159,7 +159,7 @@
         switch (code) {
             case PPOErrorLuhnCheckFailed: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
             case PPOErrorCardExpiryDateInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_EXPIRY]; break;
-            case PPOErrorCardPanLengthInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
+            case PPOErrorCardPanInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
             case PPOErrorCVVInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CVV]; break;
             default:
                 break;
