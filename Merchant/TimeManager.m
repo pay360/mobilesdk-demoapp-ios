@@ -32,17 +32,32 @@
     NSMutableArray *dateCollector = [NSMutableArray new];
     
     NSDate *date;
+    NSCalendar *currentCalendar;
+    NSDateComponents *dateComponents;
     
-    for (NSInteger i = 0; i < months; i++) {
-        NSCalendar *currentCalendar = [NSCalendar currentCalendar];
-        NSDateComponents *dateComponents = [currentCalendar components:
-                                            NSCalendarUnitHour |
-                                            NSCalendarUnitMinute |
-                                            NSCalendarUnitYear |
-                                            NSCalendarUnitMonth |
-                                            NSCalendarUnitDay
+    currentCalendar = [NSCalendar currentCalendar];
+    dateComponents = [currentCalendar components:
+                      NSCalendarUnitHour |
+                      NSCalendarUnitMinute |
+                      NSCalendarUnitYear |
+                      NSCalendarUnitMonth |
+                      NSCalendarUnitDay
+                                        fromDate:now];
+    
+    date = [currentCalendar dateFromComponents:dateComponents];
+    if (date) [dateCollector addObject:date];
+    
+    for (NSInteger i = 1; i < months; i++) {
+        currentCalendar = [NSCalendar currentCalendar];
+        dateComponents = [currentCalendar components:
+                          NSCalendarUnitHour |
+                          NSCalendarUnitMinute |
+                          NSCalendarUnitYear |
+                          NSCalendarUnitMonth |
+                          NSCalendarUnitDay
                                             fromDate:now];
-        dateComponents.month += (i+1);
+        
+        dateComponents.month += (i);
         date = [currentCalendar dateFromComponents:dateComponents];
         if (date) [dateCollector addObject:date];
     }
