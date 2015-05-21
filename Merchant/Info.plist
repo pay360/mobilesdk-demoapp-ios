@@ -24,13 +24,7 @@
 	<true/>
 	<key>UIAppFonts</key>
 	<array>
-		<string>FOUCONBD</string>
-		<string>FOUCONEB</string>
-		<string>FOUCONDM</string>
-		<string>FOUCONRG</string>
-		<string>FOUCONMD</string>
 		<string>FoundConExtBol</string>
-		<string>FOUCONRI</string>
 		<string>FontAwesome</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
