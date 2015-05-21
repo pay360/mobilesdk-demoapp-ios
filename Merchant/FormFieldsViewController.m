@@ -23,6 +23,7 @@
     
     for (UITextField *textField in self.textFields) {
         textField.textColor = [ColourManager ppBlue];
+        textField.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
         
         UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
         textField.leftView = paddingView;
@@ -33,6 +34,7 @@
     
     for (UILabel *titleLabel in self.titleLabels) {
         titleLabel.textColor = blue;
+        titleLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
     }
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
@@ -43,7 +45,6 @@
 
 -(void)backgroundTapped:(UITapGestureRecognizer*)gesture {
     [self.view endEditing:YES];
-    self.navigationItem.rightBarButtonItem = nil;
 }
 
 #pragma mark - FormDetails
@@ -68,14 +69,17 @@
 
 -(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
     self.form.cardNumber = cardNumber;
+    [self.animationManager hideFeedbackBubble];
 }
 
 -(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
     self.form.cvv = cvv;
+    [self.animationManager hideFeedbackBubble];
 }
 
 -(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
     self.form.expiry = expiryDate;
+    [self.animationManager hideFeedbackBubble];
 }
 
 -(IBAction)textFieldEditingChanged:(UITextField *)sender forEvent:(UIEvent *)event {

@@ -11,7 +11,6 @@
 #import "OutcomeViewController.h"
 #import "NetworkErrorManager.h"
 #import "ColourManager.h"
-#import "ButtonStyler.h"
 #import "MerchantPaymentManager.h"
 
 @interface PaymentFormViewController () <PaymentManagerDelegate>
@@ -28,18 +27,18 @@
     
     /*
      *A value of £100 assigned to the UI here, just for aesthetics
-     *The true payment value is delievered via the model, which is built when the payment is initiated via the paynow button pressed action.
+     *The true payment value is delievered via the model, which is built when the payment is initiated (via the paynow button pressed action).
      */
     self.amountLabel.text = @"£100";
-    
     self.amountLabel.textColor = [ColourManager ppBlue];
-        
-    [ButtonStyler styleButton:self.payNowButton];
+    self.amountLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 40];
 }
 
 #pragma mark - Actions
 
--(IBAction)payNowButtonPressed:(UIButton *)sender {
+-(IBAction)payNowButtonPressed:(UIBarButtonItem *)button {
+    
+    [self.view endEditing:YES];
     
     /*
      *Nothing will happen if this button is pressed, and the animation is still underway.
@@ -96,10 +95,6 @@
 -(void)paymentManager:(MerchantPaymentManager *)manager didFailWithError:(NSError *)error {
     [self handleError:error];
 }
-
-
-
-
 
 #pragma mark - Error Handling
 

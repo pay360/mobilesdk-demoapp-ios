@@ -10,7 +10,6 @@
 		5030420C1AE7BECA00CA5B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420B1AE7BECA00CA5B9B /* main.m */; };
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
-		503042571AE7BF0D00CA5B9B /* ButtonStyler.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042301AE7BF0D00CA5B9B /* ButtonStyler.m */; };
 		503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042321AE7BF0D00CA5B9B /* ColourManager.m */; };
 		503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */; };
 		5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */; };
@@ -58,8 +57,6 @@
 		503042191AE7BECA00CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		503042241AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		503042251AE7BECA00CA5B9B /* MerchantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantTests.m; sourceTree = "<group>"; };
-		5030422F1AE7BF0D00CA5B9B /* ButtonStyler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonStyler.h; sourceTree = "<group>"; };
-		503042301AE7BF0D00CA5B9B /* ButtonStyler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonStyler.m; sourceTree = "<group>"; };
 		503042311AE7BF0D00CA5B9B /* ColourManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourManager.h; sourceTree = "<group>"; };
 		503042321AE7BF0D00CA5B9B /* ColourManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourManager.m; sourceTree = "<group>"; };
 		503042331AE7BF0D00CA5B9B /* EnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentManager.h; sourceTree = "<group>"; };
@@ -156,7 +153,6 @@
 			children = (
 				5030426F1AE7BFB100CA5B9B /* Main.storyboard */,
 				503042901AE7C20900CA5B9B /* AppDelegate */,
-				5030427F1AE7C1A300CA5B9B /* ButtonStyler */,
 				503042911AE7C21E00CA5B9B /* Managers */,
 				503042921AE7C22400CA5B9B /* Views */,
 				503042931AE7C23100CA5B9B /* Model */,
@@ -196,15 +192,6 @@
 				503042241AE7BECA00CA5B9B /* Info.plist */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		5030427F1AE7C1A300CA5B9B /* ButtonStyler */ = {
-			isa = PBXGroup;
-			children = (
-				5030422F1AE7BF0D00CA5B9B /* ButtonStyler.h */,
-				503042301AE7BF0D00CA5B9B /* ButtonStyler.m */,
-			);
-			name = ButtonStyler;
 			sourceTree = "<group>";
 		};
 		503042801AE7C1A900CA5B9B /* ColourManager */ = {
@@ -611,7 +598,6 @@
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
 				5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */,
 				504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */,
-				503042571AE7BF0D00CA5B9B /* ButtonStyler.m in Sources */,
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,

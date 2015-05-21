@@ -14,7 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UILabel *loadingMessageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *paypointLogoImageView;
-@property (weak, nonatomic) IBOutlet UIButton *payNowButton;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *payNowButton;
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *animationManager;
 
 @end

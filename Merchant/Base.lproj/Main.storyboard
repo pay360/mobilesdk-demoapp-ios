@@ -24,7 +24,6 @@
             <string>FoundryContext-Regular</string>
             <string>FoundryContext-Regular</string>
             <string>FoundryContext-Regular</string>
-            <string>FoundryContext-Regular</string>
         </mutableArray>
         <mutableArray key="FontAwesome.otf">
             <string>FontAwesome</string>
@@ -137,22 +136,8 @@
                                     <constraint firstItem="Xnc-dm-aZD" firstAttribute="leading" secondItem="stx-RV-E4F" secondAttribute="leading" id="zSO-h6-Teu"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="trn-LV-b0s">
-                                <rect key="frame" x="452" y="536" width="132" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="132" id="6oy-ov-Mp4"/>
-                                    <constraint firstAttribute="height" constant="44" id="KCW-BC-6rD"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="18"/>
-                                <state key="normal" title="PAY NOW">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="payNowButtonPressed:" destination="Hvy-su-ZqX" eventType="touchUpInside" id="ZXE-oP-4aK"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£ 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAs-Dh-phl">
-                                <rect key="frame" x="559" y="495" width="25" height="21"/>
+                                <rect key="frame" x="559" y="559" width="25" height="21"/>
                                 <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -187,24 +172,28 @@
                             <constraint firstItem="dt5-p4-akc" firstAttribute="leading" secondItem="5uF-Um-0e8" secondAttribute="leading" id="EWS-fo-ozG"/>
                             <constraint firstAttribute="trailing" secondItem="dt5-p4-akc" secondAttribute="trailing" id="J8q-Vq-g19"/>
                             <constraint firstItem="YOV-oe-2YB" firstAttribute="leading" secondItem="5uF-Um-0e8" secondAttribute="leadingMargin" id="Ogm-rx-N4s"/>
-                            <constraint firstItem="YAo-PT-0yj" firstAttribute="top" secondItem="trn-LV-b0s" secondAttribute="bottom" constant="20" id="Ukf-aA-opg"/>
+                            <constraint firstItem="YAo-PT-0yj" firstAttribute="top" secondItem="KAs-Dh-phl" secondAttribute="bottom" constant="20" id="TT8-cD-UFw"/>
                             <constraint firstItem="stx-RV-E4F" firstAttribute="trailing" secondItem="5uF-Um-0e8" secondAttribute="trailingMargin" id="Wog-8b-yeX"/>
                             <constraint firstItem="dt5-p4-akc" firstAttribute="top" secondItem="5uF-Um-0e8" secondAttribute="top" id="YuA-ZC-T2t"/>
+                            <constraint firstItem="KAs-Dh-phl" firstAttribute="trailing" secondItem="5uF-Um-0e8" secondAttribute="trailingMargin" id="e3A-b6-Io4"/>
                             <constraint firstItem="YAo-PT-0yj" firstAttribute="top" secondItem="dt5-p4-akc" secondAttribute="bottom" id="gsr-SZ-QIz"/>
-                            <constraint firstItem="trn-LV-b0s" firstAttribute="trailing" secondItem="5uF-Um-0e8" secondAttribute="trailingMargin" id="h1E-bx-QlA"/>
                             <constraint firstItem="stx-RV-E4F" firstAttribute="leading" secondItem="5uF-Um-0e8" secondAttribute="leadingMargin" id="pfV-z6-br8"/>
-                            <constraint firstItem="dIc-fc-liF" firstAttribute="trailing" secondItem="KAs-Dh-phl" secondAttribute="trailing" id="r7B-0f-PhP"/>
                             <constraint firstItem="stx-RV-E4F" firstAttribute="top" secondItem="59b-dS-A8v" secondAttribute="bottom" constant="20" id="uUr-rs-XpW"/>
-                            <constraint firstItem="trn-LV-b0s" firstAttribute="top" secondItem="KAs-Dh-phl" secondAttribute="bottom" constant="20" id="vNr-lg-RZ9"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="oHP-Z5-iyw"/>
+                    <navigationItem key="navigationItem" id="oHP-Z5-iyw">
+                        <barButtonItem key="rightBarButtonItem" title="Pay Now" id="2Qr-At-etI">
+                            <connections>
+                                <action selector="payNowButtonPressed:" destination="Hvy-su-ZqX" id="jc5-GN-ahJ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountLabel" destination="KAs-Dh-phl" id="ZsU-vZ-RXk"/>
                         <outlet property="loadingMessageLabel" destination="36q-9B-nvh" id="nXR-8f-9K2"/>
                         <outlet property="loadingView" destination="dt5-p4-akc" id="OSz-6y-aV7"/>
-                        <outlet property="payNowButton" destination="trn-LV-b0s" id="WlH-mn-qcP"/>
+                        <outlet property="payNowButton" destination="2Qr-At-etI" id="ZnH-sf-RK8"/>
                         <outlet property="paypointLogoImageView" destination="YOV-oe-2YB" id="71c-n0-KVV"/>
                         <outletCollection property="titleLabels" destination="Xnc-dm-aZD" id="D8i-7i-gtG"/>
                         <outletCollection property="titleLabels" destination="fWw-0D-Zu5" id="kMt-rg-rON"/>

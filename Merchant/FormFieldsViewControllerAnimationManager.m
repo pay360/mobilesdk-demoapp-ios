@@ -11,6 +11,7 @@
 
 #define SHIFT_LEFT -6.0f
 #define SHIFT_RIGHT 300.0
+#define REMOVE_VIEW(view) [view removeFromSuperview], view = nil
 
 @interface FormFieldsViewControllerAnimationManager ()
 @property (nonatomic, strong) FeedbackBubble *bubble;
@@ -21,17 +22,18 @@
 
 #pragma mark - FeedbackBuble
 
+-(BOOL)feedbackBubbleShowing {
+    return self.feedbackBubbleLeadingEdgeConstraint.constant < 0;
+}
+
 -(void)hideFeedbackBubble {
     
-    BOOL isShowing = (self.feedbackBubbleLeadingEdgeConstraint.constant < 0);
-    
-    if (isShowing) {
+    if ([self feedbackBubbleShowing]) {
         self.feedbackBubbleLeadingEdgeConstraint.constant = SHIFT_RIGHT;
         [UIView animateWithDuration:.3 animations:^{
             [self.rootView layoutIfNeeded];
         } completion:^(BOOL finished) {
-            [self.bubble removeFromSuperview];
-            self.bubble = nil;
+            REMOVE_VIEW(self.bubble);
         }];
     }
     
@@ -39,9 +41,7 @@
 
 -(void)showFeedbackBubbleWithText:(NSString*)text withCompletion:(void(^)(void))completion {
     
-    BOOL isShowing = (self.feedbackBubbleLeadingEdgeConstraint.constant < 0);
-    
-    if (self.bubble && isShowing) {
+    if (self.bubble && [self feedbackBubbleShowing]) {
         self.bubble.feedbackText = text;
         if (completion) completion();
         return;
