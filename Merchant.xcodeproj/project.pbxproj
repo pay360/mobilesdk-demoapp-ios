@@ -49,8 +49,6 @@
 		5030420D1AE7BECA00CA5B9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		503042161AE7BECA00CA5B9B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		503042191AE7BECA00CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		503042241AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		503042251AE7BECA00CA5B9B /* MerchantTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MerchantTests.m; sourceTree = "<group>"; };
 		503042311AE7BF0D00CA5B9B /* ColourManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourManager.h; sourceTree = "<group>"; };
 		503042321AE7BF0D00CA5B9B /* ColourManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourManager.m; sourceTree = "<group>"; };
 		503042331AE7BF0D00CA5B9B /* EnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentManager.h; sourceTree = "<group>"; };
@@ -161,23 +159,6 @@
 				503042831AE7C1BC00CA5B9B /* Fonts */,
 				5030420A1AE7BECA00CA5B9B /* Info.plist */,
 				5030420B1AE7BECA00CA5B9B /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		503042221AE7BECA00CA5B9B /* MerchantTests */ = {
-			isa = PBXGroup;
-			children = (
-				503042251AE7BECA00CA5B9B /* MerchantTests.m */,
-				503042231AE7BECA00CA5B9B /* Supporting Files */,
-			);
-			path = MerchantTests;
-			sourceTree = "<group>";
-		};
-		503042231AE7BECA00CA5B9B /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				503042241AE7BECA00CA5B9B /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -490,7 +471,6 @@
 			isa = PBXGroup;
 			children = (
 				503042081AE7BECA00CA5B9B /* Merchant */,
-				503042221AE7BECA00CA5B9B /* MerchantTests */,
 			);
 			name = Targets;
 			sourceTree = "<group>";
