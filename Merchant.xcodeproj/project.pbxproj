@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		24659DF52A426669CA03954F /* libPods-UITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FE3D4957D6A840784811D00 /* libPods-UITests.a */; };
 		5030420C1AE7BECA00CA5B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420B1AE7BECA00CA5B9B /* main.m */; };
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
@@ -28,8 +27,6 @@
 		5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042541AE7BF0D00CA5B9B /* TimeManager.m */; };
 		5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */; };
 		503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5030426F1AE7BFB100CA5B9B /* Main.storyboard */; };
-		50309DCE1B0F6CBF00E9180E /* UITestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = 50309DCD1B0F6CBF00E9180E /* UITestCase.m */; };
-		50309DD21B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.m in Sources */ = {isa = PBXBuildFile; fileRef = 50309DD11B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.m */; };
 		504DD8501AE93765000C47B9 /* CardDetailsFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */; };
 		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
 		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
@@ -46,19 +43,7 @@
 		50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50F2212E1B14AE690031AF1B /* FOUCONRG.otf */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		50429CD41B0F693800A75107 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 503041FE1AE7BEC900CA5B9B /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 503042051AE7BECA00CA5B9B;
-			remoteInfo = Merchant;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		41E624E867E020718E0BC109 /* Pods-UITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.release.xcconfig"; sourceTree = "<group>"; };
-		4FE3D4957D6A840784811D00 /* libPods-UITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		503042061AE7BECA00CA5B9B /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -96,12 +81,6 @@
 		503042551AE7BF0D00CA5B9B /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		503042701AE7BFB100CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		50309DCC1B0F6CBF00E9180E /* UITestCase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITestCase.h; sourceTree = "<group>"; };
-		50309DCD1B0F6CBF00E9180E /* UITestCase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITestCase.m; sourceTree = "<group>"; };
-		50309DD01B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "KIFUITestActor+PaymentForm.h"; sourceTree = "<group>"; };
-		50309DD11B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "KIFUITestActor+PaymentForm.m"; sourceTree = "<group>"; };
-		50429CCE1B0F693800A75107 /* UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		50429CD11B0F693800A75107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		504DD84E1AE93765000C47B9 /* CardDetailsFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailsFieldsManager.h; sourceTree = "<group>"; };
 		504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailsFieldsManager.m; sourceTree = "<group>"; };
 		504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorManager.h; sourceTree = "<group>"; };
@@ -122,7 +101,6 @@
 		508F40E91AFD122B00CF2AAA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50F2212E1B14AE690031AF1B /* FOUCONRG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRG.otf; sourceTree = "<group>"; };
-		C414727DC365C5EAF678AB8D /* Pods-UITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UITests/Pods-UITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,32 +116,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50429CCB1B0F693800A75107 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				24659DF52A426669CA03954F /* libPods-UITests.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		1B02B3AF86CC6424DB0C6DB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4FE3D4957D6A840784811D00 /* libPods-UITests.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2B71EC30C257E3A79889F431 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				C414727DC365C5EAF678AB8D /* Pods-UITests.debug.xcconfig */,
-				41E624E867E020718E0BC109 /* Pods-UITests.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		503041FD1AE7BEC900CA5B9B = {
@@ -172,7 +132,6 @@
 				5092F37B1AFA52BB004FFF62 /* Targets */,
 				5092F37A1AFA52B0004FFF62 /* LinkedFrameworks */,
 				503042071AE7BECA00CA5B9B /* Products */,
-				2B71EC30C257E3A79889F431 /* Pods */,
 				1B02B3AF86CC6424DB0C6DB0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -181,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				503042061AE7BECA00CA5B9B /* Merchant.app */,
-				50429CCE1B0F693800A75107 /* UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -419,42 +377,6 @@
 			name = Networking;
 			sourceTree = "<group>";
 		};
-		50309DCF1B0F6CD000E9180E /* UITestCase */ = {
-			isa = PBXGroup;
-			children = (
-				50309DCC1B0F6CBF00E9180E /* UITestCase.h */,
-				50309DCD1B0F6CBF00E9180E /* UITestCase.m */,
-			);
-			name = UITestCase;
-			sourceTree = "<group>";
-		};
-		50309DD31B0F6D1200E9180E /* PaymentForm */ = {
-			isa = PBXGroup;
-			children = (
-				50309DD01B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.h */,
-				50309DD11B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.m */,
-			);
-			name = PaymentForm;
-			sourceTree = "<group>";
-		};
-		50429CCF1B0F693800A75107 /* UITests */ = {
-			isa = PBXGroup;
-			children = (
-				50309DD31B0F6D1200E9180E /* PaymentForm */,
-				50309DCF1B0F6CD000E9180E /* UITestCase */,
-				50429CD01B0F693800A75107 /* Supporting Files */,
-			);
-			path = UITests;
-			sourceTree = "<group>";
-		};
-		50429CD01B0F693800A75107 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				50429CD11B0F693800A75107 /* Info.plist */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,7 +482,6 @@
 			isa = PBXGroup;
 			children = (
 				503042081AE7BECA00CA5B9B /* Merchant */,
-				50429CCF1B0F693800A75107 /* UITests */,
 			);
 			name = Targets;
 			sourceTree = "<group>";
@@ -585,26 +506,6 @@
 			productReference = 503042061AE7BECA00CA5B9B /* Merchant.app */;
 			productType = "com.apple.product-type.application";
 		};
-		50429CCD1B0F693800A75107 /* UITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 50429CD81B0F693800A75107 /* Build configuration list for PBXNativeTarget "UITests" */;
-			buildPhases = (
-				23C39095C5ACF085FA620528 /* Check Pods Manifest.lock */,
-				50429CCA1B0F693800A75107 /* Sources */,
-				50429CCB1B0F693800A75107 /* Frameworks */,
-				50429CCC1B0F693800A75107 /* Resources */,
-				8AF15F2EB9EB5733572B8BC1 /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				50429CD51B0F693800A75107 /* PBXTargetDependency */,
-			);
-			name = UITests;
-			productName = UITests;
-			productReference = 50429CCE1B0F693800A75107 /* UITests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -616,10 +517,6 @@
 				TargetAttributes = {
 					503042051AE7BECA00CA5B9B = {
 						CreatedOnToolsVersion = 6.3;
-					};
-					50429CCD1B0F693800A75107 = {
-						CreatedOnToolsVersion = 6.3.2;
-						TestTargetID = 503042051AE7BECA00CA5B9B;
 					};
 				};
 			};
@@ -637,7 +534,6 @@
 			projectRoot = "";
 			targets = (
 				503042051AE7BECA00CA5B9B /* Merchant */,
-				50429CCD1B0F693800A75107 /* UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -657,47 +553,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50429CCC1B0F693800A75107 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		23C39095C5ACF085FA620528 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		8AF15F2EB9EB5733572B8BC1 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UITests/Pods-UITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		503042021AE7BECA00CA5B9B /* Sources */ = {
@@ -729,24 +585,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		50429CCA1B0F693800A75107 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50309DCE1B0F6CBF00E9180E /* UITestCase.m in Sources */,
-				50309DD21B0F6D0F00E9180E /* KIFUITestActor+PaymentForm.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		50429CD51B0F693800A75107 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 503042051AE7BECA00CA5B9B /* Merchant */;
-			targetProxy = 50429CD41B0F693800A75107 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		503042181AE7BECA00CA5B9B /* LaunchScreen.xib */ = {
@@ -896,46 +735,6 @@
 			};
 			name = Release;
 		};
-		50429CD61B0F693800A75107 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C414727DC365C5EAF678AB8D /* Pods-UITests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cc1a2c22-dab4-4910-bbc2-687b9283e251";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Merchant.app/Merchant";
-			};
-			name = Debug;
-		};
-		50429CD71B0F693800A75107 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41E624E867E020718E0BC109 /* Pods-UITests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = UITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cc1a2c22-dab4-4910-bbc2-687b9283e251";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Merchant.app/Merchant";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -953,15 +752,6 @@
 			buildConfigurations = (
 				5030422A1AE7BECA00CA5B9B /* Debug */,
 				5030422B1AE7BECA00CA5B9B /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		50429CD81B0F693800A75107 /* Build configuration list for PBXNativeTarget "UITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				50429CD61B0F693800A75107 /* Debug */,
-				50429CD71B0F693800A75107 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
