@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *paypointLogo;
 @property (weak, nonatomic) IBOutlet UIView *logoContainer;
 @property (weak, nonatomic) IBOutlet UIView *splashView;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *demoButton;
 @end
 
 @implementation WelcomeViewController
@@ -22,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.demoButton.accessibilityLabel = @"DemoButton";
     self.paypointLabel.textColor = [ColourManager ppBlue];
     
 }

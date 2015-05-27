@@ -26,6 +26,7 @@
 	<array>
 		<string>FoundConExtBol</string>
 		<string>FontAwesome</string>
+		<string>FOUNDCONRG</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

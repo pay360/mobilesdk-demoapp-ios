@@ -31,6 +31,8 @@
                                                                             target:self
                                                                             action:@selector(restartButtonPressed:)];
     
+    self.navigationItem.leftBarButtonItem.accessibilityLabel = @"RestartButton";
+    
     self.tickLabel.text = @"\uF00C";
     self.tickLabel.textColor = [ColourManager ppYellow];
     

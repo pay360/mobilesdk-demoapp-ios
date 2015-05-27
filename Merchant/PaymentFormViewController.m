@@ -24,6 +24,7 @@
     [super viewDidLoad];
     
     self.title = @"Details";
+    self.payNowButton.accessibilityLabel = @"PayNowButton";
     
     /*
      *A value of £100 assigned to the UI here, just for aesthetics
@@ -61,7 +62,7 @@
         [self.paymentManager attemptPayment:payment];
         
     }
-    
+        
 }
 
 #pragma mark - MerchantPaymentManager

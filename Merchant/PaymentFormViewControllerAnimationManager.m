@@ -20,6 +20,7 @@
     self = [super init];
     if (self) {
         _animationState = LOADING_ANIMATION_STATE_ENDED;
+        _loadingView.accessibilityLabel = @"LoadingView";
     }
     return self;
 }
