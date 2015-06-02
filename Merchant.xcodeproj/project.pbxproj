@@ -34,7 +34,6 @@
 		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
 		504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */; };
-		504DD8671AE94D85000C47B9 /* MerchantPaymentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */; };
 		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
 		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
 		5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D21AE7ED8D00D41911 /* UIKit.framework */; };
@@ -93,8 +92,6 @@
 		504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormViewControllerAnimationManager.m; sourceTree = "<group>"; };
 		504DD85E1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFieldsViewControllerAnimationManager.h; sourceTree = "<group>"; };
 		504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewControllerAnimationManager.m; sourceTree = "<group>"; };
-		504DD8651AE94D85000C47B9 /* MerchantPaymentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantPaymentManager.h; sourceTree = "<group>"; };
-		504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantPaymentManager.m; sourceTree = "<group>"; };
 		5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5081F3D21AE7ED8D00D41911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -328,7 +325,6 @@
 				504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */,
 				504DD8551AE940E2000C47B9 /* NetworkErrorManager */,
 				504DD8631AE94C3E000C47B9 /* AnimationManagers */,
-				504DD8681AE94D88000C47B9 /* MerchantPaymentManager */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -446,15 +442,6 @@
 				504DD85D1AE94790000C47B9 /* PaymentFormAnimationManager */,
 			);
 			name = PaymentForm;
-			sourceTree = "<group>";
-		};
-		504DD8681AE94D88000C47B9 /* MerchantPaymentManager */ = {
-			isa = PBXGroup;
-			children = (
-				504DD8651AE94D85000C47B9 /* MerchantPaymentManager.h */,
-				504DD8661AE94D85000C47B9 /* MerchantPaymentManager.m */,
-			);
-			name = MerchantPaymentManager;
 			sourceTree = "<group>";
 		};
 		5092F3791AFA52AA004FFF62 /* Paypoint */ = {
@@ -580,7 +567,6 @@
 				504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */,
 				504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */,
 				5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */,
-				504DD8671AE94D85000C47B9 /* MerchantPaymentManager.m in Sources */,
 				503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
