@@ -85,73 +85,85 @@
         
     } else if (self.animationManager.animationState == LOADING_ANIMATION_STATE_ENDED) {
         
-        PPOBillingAddress *address = [PPOBillingAddress new];
-        address.line1 = @"Street 1";
-        address.line2 = @"Street 2";
-        address.line3 = @"Street 3";
-        address.line4 = @"Street 4";
-        address.city = @"City";
-        address.region = @"Region";
-        address.postcode = @"Postcode";
-        address.countryCode = @"Country Code";
+        PPOPayment *payment = [self buildPaymentExample];
         
-        PPOTransaction *transaction = [PPOTransaction new];
-        transaction.currency = @"GBP";
-        transaction.amount = @100;
-        transaction.transactionDescription = @"A desc";
-        transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
-        transaction.isDeferred = @NO;
-        
-        PPOCreditCard *card = [PPOCreditCard new];
-        card.pan = self.form.cardNumber;
-        card.cvv = self.form.cvv;
-        card.expiry = self.form.expiry;
-        card.cardHolderName = @"Dai Jones";
-        
-        PPOPayment *payment = [PPOPayment new];
-        payment.transaction = transaction;
-        payment.card = card;
-        payment.address = address;
-        
-        self.currentPayment = payment;
-        
-        /*
-         *Payments require fresh credentials, each time a payment request is made.
-         *Optional validation can be performed here, before we begin this process.
-         */
-        NSError *invalid = [PPOPaymentValidator validatePayment:payment];
-        
-        if (invalid) {
-            [self handleError:invalid];
-            return;
-        }
-        
-        [self.animationManager hideFeedbackBubble];
-        [self.animationManager beginLoadingAnimation];
-        
-        __weak typeof (self) weakSelf = self;
-        
-        [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
-            
-            weakSelf.credentials = credentials;
-            
-            if (retrievalError) {
-                [weakSelf handleError:retrievalError];
-                return;
-            }
-            
-            /*
-             *The PaypointSDK performs paramater validation, to the best extent possible, before any network request is made.
-             */
-            [weakSelf.paymentManager makePayment:payment
-                                 withCredentials:credentials
-                                     withTimeOut:60.0f
-                                  withCompletion:[weakSelf paymentCompletionHandler]];
-            
-        }];
+        [self makePayment:payment];
         
     }
         
+}
+
+-(void)makePayment:(PPOPayment*)payment {
+    
+    self.currentPayment = payment;
+    
+    /*
+     *Payments require fresh credentials, each time a payment request is made.
+     *Optional validation can be performed here, before we begin this process.
+     */
+    NSError *invalid = [PPOValidator validatePayment:payment];
+    
+    if (invalid) {
+        [self handleError:invalid];
+        return;
+    }
+    
+    [self.animationManager hideFeedbackBubble];
+    [self.animationManager beginLoadingAnimation];
+    
+    __weak typeof (self) weakSelf = self;
+    
+    [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
+        
+        weakSelf.credentials = credentials;
+        
+        if (retrievalError) {
+            [weakSelf handleError:retrievalError];
+            return;
+        }
+        
+        /*
+         *The PaypointSDK performs paramater validation, to the best extent possible, before any network request is made.
+         */
+        [weakSelf.paymentManager makePayment:payment
+                             withCredentials:credentials
+                                 withTimeOut:30.0f
+                              withCompletion:[weakSelf paymentCompletionHandler]];
+        
+    }];
+    
+}
+
+-(PPOPayment*)buildPaymentExample {
+    PPOBillingAddress *address = [PPOBillingAddress new];
+    address.line1 = @"Street 1";
+    address.line2 = @"Street 2";
+    address.line3 = @"Street 3";
+    address.line4 = @"Street 4";
+    address.city = @"City";
+    address.region = @"Region";
+    address.postcode = @"Postcode";
+    address.countryCode = @"Country Code";
+    
+    PPOTransaction *transaction = [PPOTransaction new];
+    transaction.currency = @"GBP";
+    transaction.amount = @100;
+    transaction.transactionDescription = @"A desc";
+    transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
+    transaction.isDeferred = @NO;
+    
+    PPOCreditCard *card = [PPOCreditCard new];
+    card.pan = self.form.cardNumber;
+    card.cvv = self.form.cvv;
+    card.expiry = self.form.expiry;
+    card.cardHolderName = @"Dai Jones";
+    
+    PPOPayment *payment = [PPOPayment new];
+    payment.transaction = transaction;
+    payment.card = card;
+    payment.address = address;
+    
+    return payment;
 }
 
 -(void(^)(PPOOutcome *outcome, NSError *paymentError))paymentCompletionHandler {
@@ -179,25 +191,26 @@
         
         if (paypointSpecificError) {
             
-            NSString *message = [error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey];
-            
-            [weakSelf.animationManager showFeedbackBubbleWithText:message
-                                                   withCompletion:[weakSelf handlePaypointFeedback:error]];
-            
-            
-            
-        }
-        else if ([NetworkErrorManager noNetwork:error]) {
-            
-            NSString *message = @"It looks like your internet connection dropped out. Would you like to check the status of your payment?";
-            
-            [self displayPaymentQueryOption:error withMessage:message];
+            if (error.code == PPOErrorSessionTimedOut) {
+                
+                NSString *message = @"The payment session timed out before we had a chance to determine the outcome of your payment. Would you like to check the status of your payment now ?";
+                
+                [self displayPaymentQueryOptionWithMessage:message];
+                
+            } else {
+                
+                NSString *message = [error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey];
+                
+                [weakSelf.animationManager showFeedbackBubbleWithText:message
+                                                       withCompletion:[weakSelf handlePaypointFeedback:error]];
+                
+            }
             
         } else {
             
-            NSString *message = @"We were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?";
+            NSString *message = @"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?";
             
-            [self displayPaymentQueryOption:error withMessage:message];
+            [self displayPaymentQueryOptionWithMessage:message];
             
         }
         
@@ -205,7 +218,7 @@
     
 }
 
--(void)displayPaymentQueryOption:(NSError*)error withMessage:(NSString*)message {
+-(void)displayPaymentQueryOptionWithMessage:(NSString*)message {
     
     __weak typeof(self) weakSelf = self;
     
