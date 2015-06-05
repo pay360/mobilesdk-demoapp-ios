@@ -231,9 +231,8 @@
     action = [UIAlertAction actionWithTitle:@"Check Status"
                                       style:UIAlertActionStyleDestructive
                                     handler:^(UIAlertAction *action) {
-                                        [weakSelf.paymentManager paymentOutcome:weakSelf.currentPayment
-                                                                withCredentials:weakSelf.credentials
-                                                                 withCompletion:[weakSelf paymentCompletionHandler]];
+                                        id completion = [weakSelf paymentCompletionHandler];
+                                        [weakSelf.paymentManager queryPayment:weakSelf.currentPayment withCredentials:weakSelf.credentials withCompletion:completion];
                                     }];
     
     [alert addAction:action];
