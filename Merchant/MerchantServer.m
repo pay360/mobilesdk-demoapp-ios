@@ -15,13 +15,13 @@
     __block NSString *token;
     __block PPOCredentials *c;
     
-    NSURL *url = [NSURL URLWithString:@"http://localhost:5000/merchant/getToken"];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:5000/merchant/getToken/%@", INSTALLATION_ID]];
         
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0f];
     
-    [request setHTTPMethod:@"POST"];
+    [request setHTTPMethod:@"GET"];
     
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]
                                                           delegate:nil
