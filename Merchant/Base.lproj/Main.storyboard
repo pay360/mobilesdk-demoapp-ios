@@ -244,53 +244,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3z9-Yi-qjn">
-                                <rect key="frame" x="171" y="246" width="258" height="108"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3z9-Yi-qjn">
+                                <rect key="frame" x="171.5" y="247" width="257" height="106"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2U-ku-ZzU">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="104.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant Ref:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4V-DS-ZOs">
-                                        <rect key="frame" x="0.0" y="29" width="107" height="21"/>
+                                        <rect key="frame" x="0.0" y="28" width="106.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Transaction ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-4Q-ojk">
-                                        <rect key="frame" x="0.0" y="58" width="112" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-4Q-ojk">
+                                        <rect key="frame" x="0.0" y="57" width="111.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOL-JB-s2O">
-                                        <rect key="frame" x="0.0" y="87" width="66" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOL-JB-s2O">
+                                        <rect key="frame" x="0.0" y="85" width="65.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** 4938" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-T0-3go">
-                                        <rect key="frame" x="122" y="0.0" width="136" height="21"/>
+                                        <rect key="frame" x="121" y="0.0" width="136" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A7KpS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If3-lU-KyP">
-                                        <rect key="frame" x="122" y="29" width="54" height="21"/>
+                                        <rect key="frame" x="121" y="28" width="53.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="109293" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-f4-Dgp">
-                                        <rect key="frame" x="122" y="58" width="61" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109293" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-f4-Dgp">
+                                        <rect key="frame" x="121" y="57" width="61" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="£100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0N-UG-caf">
-                                        <rect key="frame" x="122" y="87" width="41" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0N-UG-caf">
+                                        <rect key="frame" x="121" y="85" width="40.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -325,8 +325,8 @@
                                     <constraint firstItem="zwd-4Q-ojk" firstAttribute="leading" secondItem="F4V-DS-ZOs" secondAttribute="leading" id="wQn-Ed-eUV"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-eZ-fhV">
-                                <rect key="frame" x="153" y="84" width="294" height="120"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-eZ-fhV">
+                                <rect key="frame" x="153" y="85" width="294" height="120"/>
                                 <accessibility key="accessibilityConfiguration" label="TickLogo"/>
                                 <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="120"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -365,8 +365,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
-                                <rect key="frame" x="178" y="225" width="244" height="150"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
+                                <rect key="frame" x="179" y="225" width="241" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="150"/>
@@ -375,8 +375,8 @@
                                             <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="7:10" id="PML-C1-GOO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="PayPoint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
-                                        <rect key="frame" x="113" y="32" width="131" height="39"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPoint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
+                                        <rect key="frame" x="113" y="33" width="128" height="37.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Demi" family="Foundry Context" pointSize="32"/>
                                         <color key="textColor" red="0.1333333333" green="0.22195129080000001" blue="0.52703445474999999" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
