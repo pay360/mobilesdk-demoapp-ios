@@ -12,6 +12,13 @@
 
 @implementation FormDetails
 
+-(NSString *)timeout {
+    if (_timeout == nil) {
+        _timeout = @"60";
+    }
+    return _timeout;
+}
+
 -(BOOL)isComplete {
     
     NSString *entry;

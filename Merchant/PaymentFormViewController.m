@@ -17,7 +17,6 @@
 @interface PaymentFormViewController ()
 @property (nonatomic, strong) PPOPaymentManager *paymentManager;
 @property (nonatomic, strong) PPOPayment *currentPayment;
-@property (nonatomic, strong) PPOCredentials *credentials;
 @end
 
 @implementation PaymentFormViewController
@@ -36,9 +35,7 @@
         /*
          *Alternatively, a custom URL can be passed in here.
          */
-        NSURL *baseURL;
-        
-        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:currentEnvironment];
+        NSURL *baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:currentEnvironment];
         
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
         
@@ -98,7 +95,7 @@
     self.currentPayment = payment;
     
     /*
-     *Payments require fresh credentials, each time a payment request is made.
+     *Payments require credentials.
      *Optional validation can be performed here, before we begin this process.
      */
     NSError *invalid = [PPOValidator validatePayment:payment];
@@ -115,19 +112,18 @@
     
     [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
         
-        weakSelf.credentials = credentials;
-        
         if (retrievalError) {
             [weakSelf handleError:retrievalError];
             return;
         }
         
+        payment.credentials = credentials;
+        
         /*
          *The PaypointSDK performs paramater validation, to the best extent possible, before any network request is made.
          */
         [weakSelf.paymentManager makePayment:payment
-                             withCredentials:credentials
-                                 withTimeOut:30.0f
+                                 withTimeOut:self.form.timeout.doubleValue
                               withCompletion:[weakSelf paymentCompletionHandler]];
         
     }];
@@ -166,11 +162,11 @@
     return payment;
 }
 
--(void(^)(PPOOutcome *outcome, NSError *paymentError))paymentCompletionHandler {
+-(void(^)(PPOOutcome *outcome))paymentCompletionHandler {
     __weak typeof (self) weakSelf = self;
-    return ^ (PPOOutcome *outcome, NSError *paymentError) {
-        if (paymentError) {
-            [weakSelf handleError:paymentError];
+    return ^ (PPOOutcome *outcome) {
+        if (outcome.error) {
+            [weakSelf handleError:outcome.error];
         } else {
             [weakSelf.animationManager endLoadingAnimationWithCompletion:^{
                 [weakSelf performSegueWithIdentifier:@"OutcomeViewControllerSegueID" sender:outcome];
@@ -191,26 +187,35 @@
         
         if (paypointSpecificError) {
             
-            if (error.code == PPOErrorSessionTimedOut) {
-                
-                NSString *message = @"The payment session timed out before we had a chance to determine the outcome of your payment. Would you like to check the status of your payment now ?";
-                
-                [self displayPaymentQueryOptionWithMessage:message];
-                
-            } else {
-                
-                NSString *message = [error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey];
-                
-                [weakSelf.animationManager showFeedbackBubbleWithText:message
-                                                       withCompletion:[weakSelf handlePaypointFeedback:error]];
-                
+            switch (error.code) {
+                case PPOErrorMasterSessionTimedOut: {
+                    NSString *message = @"Would you like to check the status of this payment ?";
+                    
+                    [self displayPaymentQueryOptionWithMessage:message withTitle:@"Session Timeout"];
+                }
+                    break;
+                    
+                case PPOErrorPaymentProcessing: {
+                    NSString *message = @"Would you like to check the status of this payment again ?";
+                    
+                    [self displayPaymentQueryOptionWithMessage:message withTitle:@"Payment In Progress"];
+                }
+                        break;
+                    
+                default: {
+                    NSString *message = [error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey];
+                    
+                    [weakSelf.animationManager showFeedbackBubbleWithText:message
+                                                           withCompletion:[weakSelf handlePaypointFeedback:error]];
+                }
+                    break;
             }
             
         } else {
             
             NSString *message = @"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?";
             
-            [self displayPaymentQueryOptionWithMessage:message];
+            [self displayPaymentQueryOptionWithMessage:message withTitle:@"Error"];
             
         }
         
@@ -218,11 +223,11 @@
     
 }
 
--(void)displayPaymentQueryOptionWithMessage:(NSString*)message {
+-(void)displayPaymentQueryOptionWithMessage:(NSString*)message withTitle:(NSString*)title {
     
     __weak typeof(self) weakSelf = self;
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
@@ -232,7 +237,7 @@
                                       style:UIAlertActionStyleDestructive
                                     handler:^(UIAlertAction *action) {
                                         id completion = [weakSelf paymentCompletionHandler];
-                                        [weakSelf.paymentManager queryPayment:weakSelf.currentPayment withCredentials:weakSelf.credentials withCompletion:completion];
+                                        [weakSelf.paymentManager queryPayment:weakSelf.currentPayment withCompletion:completion];
                                     }];
     
     [alert addAction:action];

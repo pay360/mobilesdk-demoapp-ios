@@ -11,6 +11,8 @@
 
 @interface FormFieldsViewController : UIViewController
 
+// The UI logic for the payment form has been pushed up into this superclass, away from 'PaymentFormViewController'. Mainly so that it does not clutter the payment logic. Hopefully this makes the code easier read.
+
 @property (strong, nonatomic) IBOutletCollection(UITextField) NSArray *textFields;
 @property (nonatomic, strong) FormDetails *form;
 

@@ -82,17 +82,25 @@
     [self.animationManager hideFeedbackBubble];
 }
 
+-(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
+    self.form.timeout = timeout;
+    [self.animationManager hideFeedbackBubble];
+}
+
 -(IBAction)textFieldEditingChanged:(UITextField *)sender forEvent:(UIEvent *)event {
     
     switch (sender.tag) {
+            
         case TEXT_FIELD_TYPE_CARD_NUMBER: {
             self.form.cardNumber = sender.text;
             [self.fieldsManager reformatAsCardNumber:sender];
         }
             break;
+            
         case TEXT_FIELD_TYPE_CVV:
             self.form.cvv = sender.text;
             break;
+
         default:
             break;
     }

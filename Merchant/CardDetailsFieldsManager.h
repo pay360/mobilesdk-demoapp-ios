@@ -11,7 +11,8 @@
 typedef enum : NSUInteger {
     TEXT_FIELD_TYPE_CARD_NUMBER,
     TEXT_FIELD_TYPE_EXPIRY,
-    TEXT_FIELD_TYPE_CVV
+    TEXT_FIELD_TYPE_CVV,
+    TEXT_FIELD_TYPE_TIMEOUT
 } TEXT_FIELD_TYPE;
 
 @class CardDetailsFieldsManager;
@@ -19,6 +20,7 @@ typedef enum : NSUInteger {
 -(void)cardDetailsFieldsManager:(CardDetailsFieldsManager*)manager didUpdateCardNumber:(NSString*)cardNumber;
 -(void)cardDetailsFieldsManager:(CardDetailsFieldsManager*)manager didUpdateExpiryDate:(NSString*)expiryDate;
 -(void)cardDetailsFieldsManager:(CardDetailsFieldsManager*)manager didUpdateCVV:(NSString*)cvv;
+-(void)cardDetailsFieldsManager:(CardDetailsFieldsManager*)manager didUpdateTimeout:(NSString*)timeout;
 @end
 
 @interface CardDetailsFieldsManager : NSObject <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
