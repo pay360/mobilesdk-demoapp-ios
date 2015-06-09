@@ -7,7 +7,7 @@
 //
 
 #import "FormDetails.h"
-#import <Paypoint/PPOLuhn.h>
+#import <Paypoint/PPOValidator.h>
 #import "NSString+strip.h"
 
 @implementation FormDetails
@@ -21,33 +21,16 @@
 
 -(BOOL)isComplete {
     
-    NSString *entry;
+    NSError *error = [PPOValidator validateCardPan:self.cardNumber];
+    if (error) return NO;
     
-    entry = [self.expiry stripWhitespace];
+    error = [PPOValidator validateCardCVV:self.cvv];
+    if (error) return NO;
     
-    if (entry == nil || entry.length == 0) {
-        return NO;
-    }
+    error = [PPOValidator validateCardExpiry:self.expiry];
+    if (error) return NO;
     
-    entry = [self.cvv stripWhitespace];
-    
-    if (entry == nil || entry.length < 3 || entry.length > 4) {
-        return NO;
-    }
-    
-    entry = [self.cardNumber stripWhitespace];
-    
-    if (entry.length < 15 || entry.length > 19) {
-        return NO;
-    }
-    
-//    entry = [self.currency stripWhitespace];
-//    
-//    if (entry == nil || entry.length == 0) {
-//        return NO;
-//    }
-    
-    return [PPOLuhn validateString:entry];
+    return YES;
 }
 
 @end

@@ -93,7 +93,7 @@
 -(void)makePayment:(PPOPayment*)payment {
     
     self.currentPayment = payment;
-    
+        
     /*
      *Payments require credentials.
      *Optional validation can be performed here, before we begin this process.
@@ -179,43 +179,26 @@
 
 -(void)handleError:(NSError*)error {
     
-    BOOL paypointSpecificError = (error && error.domain == PPOPaypointSDKErrorDomain);
-    
     __weak typeof(self) weakSelf = self;
+    
+    BOOL isPaymentError = error && [error.domain isEqualToString:PPOPaymentErrorDomain];
+    BOOL isLocalValidationError = error && [error.domain isEqualToString:PPOLocalValidationErrorDomain];
     
     [self.animationManager endLoadingAnimationWithCompletion:^{
         
-        if (paypointSpecificError) {
+        if (isPaymentError) {
             
-            switch (error.code) {
-                case PPOErrorMasterSessionTimedOut: {
-                    NSString *message = @"Would you like to check the status of this payment ?";
-                    
-                    [self displayPaymentQueryOptionWithMessage:message withTitle:@"Session Timeout"];
-                }
-                    break;
-                    
-                case PPOErrorPaymentProcessing: {
-                    NSString *message = @"Would you like to check the status of this payment again ?";
-                    
-                    [self displayPaymentQueryOptionWithMessage:message withTitle:@"Payment In Progress"];
-                }
-                        break;
-                    
-                default: {
-                    NSString *message = [error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey];
-                    
-                    [weakSelf.animationManager showFeedbackBubbleWithText:message
-                                                           withCompletion:[weakSelf handlePaypointFeedback:error]];
-                }
-                    break;
-            }
+            [weakSelf handlePaymentError:error];
+            
+        } else if (isLocalValidationError) {
+            
+            [weakSelf.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                                                   withCompletion:[weakSelf shakeUIForValidationError:error]];
             
         } else {
             
-            NSString *message = @"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?";
-            
-            [self displayPaymentQueryOptionWithMessage:message withTitle:@"Error"];
+            [self displayPaymentQueryOptionWithMessage:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?"
+                                             withTitle:@"Error"];
             
         }
         
@@ -253,20 +236,41 @@
     
 }
 
--(void(^)(void))handlePaypointFeedback:(NSError*)error {
+-(void)handlePaymentError:(NSError*)error {
+    
+    switch (error.code) {
+        case PPOPaymentErrorMasterSessionTimedOut: {
+            [self displayPaymentQueryOptionWithMessage:@"Would you like to check the status of this payment ?" withTitle:@"Session Timeout"];
+        }
+            break;
+            
+        case PPOPaymentErrorPaymentProcessing: {
+            [self displayPaymentQueryOptionWithMessage:@"Would you like to check the status of this payment again ?" withTitle:@"Payment In Progress"];
+        }
+            break;
+            
+        default: {
+            [self displayPaymentQueryOptionWithMessage:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?" withTitle:@"Error"];
+        }
+            break;
+    }
+    
+}
+
+-(void(^)(void))shakeUIForValidationError:(NSError*)error {
     
     __weak typeof(self) weakSelf = self;
     
     return ^ {
-        PPOErrorCode code = error.code;
+        
+        PPOLocalValidationError code = error.code;
         
         UITextField *textField;
         
         switch (code) {
-            case PPOErrorLuhnCheckFailed: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
-            case PPOErrorCardExpiryDateInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_EXPIRY]; break;
-            case PPOErrorCardPanInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
-            case PPOErrorCVVInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CVV]; break;
+            case PPOLocalValidationErrorCardPanInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
+            case PPOLocalValidationErrorCardExpiryDateInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_EXPIRY]; break;
+            case PPOLocalValidationErrorCVVInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CVV]; break;
             default:
                 break;
         }
