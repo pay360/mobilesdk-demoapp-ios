@@ -101,7 +101,7 @@
     NSError *invalid = [PPOValidator validatePayment:payment];
     
     if (invalid) {
-        [self handleError:invalid];
+        [self handleErrorGeneratedByPaymentsSDK:invalid];
         return;
     }
     
@@ -113,7 +113,7 @@
     [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
         
         if (retrievalError) {
-            [weakSelf handleError:retrievalError];
+            [weakSelf handleErrorGeneratedByMerchantDemoApp:retrievalError];
             return;
         }
         
@@ -166,7 +166,7 @@
     __weak typeof (self) weakSelf = self;
     return ^ (PPOOutcome *outcome) {
         if (outcome.error) {
-            [weakSelf handleError:outcome.error];
+            [weakSelf handleErrorGeneratedByPaymentsSDK:outcome.error];
         } else {
             [weakSelf.animationManager endLoadingAnimationWithCompletion:^{
                 [weakSelf performSegueWithIdentifier:@"OutcomeViewControllerSegueID" sender:outcome];
@@ -177,7 +177,29 @@
 
 #pragma mark - Error Handling
 
--(void)handleError:(NSError*)error {
+-(void)handleErrorGeneratedByMerchantDemoApp:(NSError*)error {
+    
+    [self.animationManager endLoadingAnimationWithCompletion:^{
+        
+        if ([error.domain isEqualToString:NSURLErrorDomain]) {
+            
+            [self displayMessage:@"The attempt to retrieve your Paypoint credentials failed with a network error. Please check your signal."
+                       withTitle:@"Credentials Acquisition"
+     withDestructiveButtonAction:nil];
+            
+        } else {
+            
+            [self displayMessage:error.localizedDescription
+                       withTitle:@"Credentials Acquisition"
+     withDestructiveButtonAction:nil];
+            
+        }
+        
+    }];
+    
+}
+
+-(void)handleErrorGeneratedByPaymentsSDK:(NSError*)error {
     
     __weak typeof(self) weakSelf = self;
     
@@ -195,10 +217,17 @@
             [weakSelf.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                                                    withCompletion:[weakSelf shakeUIForValidationError:error]];
             
+        } else if ([error.domain isEqualToString:NSURLErrorDomain]) {
+            
+            [self displayMessage:@"Please check your signal."
+                       withTitle:@"Network Error"
+     withDestructiveButtonAction:[self queryPaymentAction]];
+            
         } else {
             
-            [self displayPaymentQueryOptionWithMessage:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?"
-                                             withTitle:@"Error"];
+            [self displayMessage:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?"
+                       withTitle:@"Error"
+     withDestructiveButtonAction:nil];
             
         }
         
@@ -206,24 +235,29 @@
     
 }
 
--(void)displayPaymentQueryOptionWithMessage:(NSString*)message withTitle:(NSString*)title {
+-(UIAlertAction*)queryPaymentAction {
     
     __weak typeof(self) weakSelf = self;
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Check Status"
+                                                     style:UIAlertActionStyleDestructive
+                                                   handler:^(UIAlertAction *action) {
+                                                       id completion = [weakSelf paymentCompletionHandler];
+                                                       [weakSelf.paymentManager queryPayment:weakSelf.currentPayment withCompletion:completion];
+                                                   }];
+    
+    return action;
+}
+
+-(void)displayMessage:(NSString*)message withTitle:(NSString*)title withDestructiveButtonAction:(UIAlertAction*)action {
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
                                                                    message:message
                                                             preferredStyle:UIAlertControllerStyleAlert];
     
-    UIAlertAction *action;
-    
-    action = [UIAlertAction actionWithTitle:@"Check Status"
-                                      style:UIAlertActionStyleDestructive
-                                    handler:^(UIAlertAction *action) {
-                                        id completion = [weakSelf paymentCompletionHandler];
-                                        [weakSelf.paymentManager queryPayment:weakSelf.currentPayment withCompletion:completion];
-                                    }];
-    
-    [alert addAction:action];
+    if (action) {
+        [alert addAction:action];
+    }
     
     action = [UIAlertAction actionWithTitle:@"Dismiss"
                                       style:UIAlertActionStyleCancel
@@ -240,17 +274,22 @@
     
     switch (error.code) {
         case PPOPaymentErrorMasterSessionTimedOut: {
-            [self displayPaymentQueryOptionWithMessage:@"Would you like to check the status of this payment ?" withTitle:@"Session Timeout"];
+            [self displayMessage:@"Would you like to check the status of this payment ?"
+                       withTitle:@"Session Timeout"
+     withDestructiveButtonAction:[self queryPaymentAction]];
         }
             break;
             
         case PPOPaymentErrorPaymentProcessing: {
-            [self displayPaymentQueryOptionWithMessage:@"Would you like to check the status of this payment again ?" withTitle:@"Payment In Progress"];
+            [self displayMessage:@"Would you like to check the status of this payment again ?"
+                       withTitle:@"Payment In Progress"
+     withDestructiveButtonAction:[self queryPaymentAction]];
         }
             break;
             
         default: {
-            [self.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey] withCompletion:nil];
+            [self.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                                               withCompletion:nil];
         }
             break;
     }
