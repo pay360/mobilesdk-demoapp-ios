@@ -250,7 +250,7 @@
             break;
             
         default: {
-            [self displayPaymentQueryOptionWithMessage:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?" withTitle:@"Error"];
+            [self.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey] withCompletion:nil];
         }
             break;
     }
