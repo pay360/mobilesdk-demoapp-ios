@@ -40,9 +40,11 @@
 		508F40EB1AFD123B00CF2AAA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F40E91AFD122B00CF2AAA /* MessageUI.framework */; };
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
 		50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50F2212E1B14AE690031AF1B /* FOUCONRG.otf */; };
+		55DD575DF7137283D5E4650F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		11DD9E16EE5436A898267B55 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		503042061AE7BECA00CA5B9B /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +100,8 @@
 		508F40E91AFD122B00CF2AAA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50F2212E1B14AE690031AF1B /* FOUCONRG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRG.otf; sourceTree = "<group>"; };
+		634D5C8FC38E16517A523F19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E812B9A072370A3B32C4CF9D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +114,7 @@
 				504C9CF21B1766F7007C0F32 /* Paypoint.framework in Frameworks */,
 				5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */,
 				5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */,
+				55DD575DF7137283D5E4650F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,6 +124,7 @@
 		1B02B3AF86CC6424DB0C6DB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				634D5C8FC38E16517A523F19 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -130,6 +136,7 @@
 				5092F37A1AFA52B0004FFF62 /* LinkedFrameworks */,
 				503042071AE7BECA00CA5B9B /* Products */,
 				1B02B3AF86CC6424DB0C6DB0 /* Frameworks */,
+				653A396F6693444099A64ACB /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -473,6 +480,15 @@
 			name = Targets;
 			sourceTree = "<group>";
 		};
+		653A396F6693444099A64ACB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E812B9A072370A3B32C4CF9D /* Pods.debug.xcconfig */,
+				11DD9E16EE5436A898267B55 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -480,9 +496,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 503042291AE7BECA00CA5B9B /* Build configuration list for PBXNativeTarget "Merchant" */;
 			buildPhases = (
+				002DFF259C2C798E915A046A /* Check Pods Manifest.lock */,
 				503042021AE7BECA00CA5B9B /* Sources */,
 				503042031AE7BECA00CA5B9B /* Frameworks */,
 				503042041AE7BECA00CA5B9B /* Resources */,
+				90A4670D9883C42B141E740D /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -541,6 +559,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		002DFF259C2C798E915A046A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		90A4670D9883C42B141E740D /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		503042021AE7BECA00CA5B9B /* Sources */ = {
@@ -675,6 +726,7 @@
 		};
 		5030422A1AE7BECA00CA5B9B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E812B9A072370A3B32C4CF9D /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -699,6 +751,7 @@
 		};
 		5030422B1AE7BECA00CA5B9B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11DD9E16EE5436A898267B55 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
