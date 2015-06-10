@@ -125,7 +125,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-Ar-GUT" userLabel="Timeout TextField" customClass="FormField">
-                                        <rect key="frame" x="356" y="121" width="113.5" height="44"/>
+                                        <rect key="frame" x="356" y="121" width="121.5" height="44"/>
                                         <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -136,7 +136,7 @@
                                 <constraints>
                                     <constraint firstItem="fWw-0D-Zu5" firstAttribute="top" secondItem="dIc-fc-liF" secondAttribute="bottom" constant="20" id="1ac-l6-1UB"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="leading" secondItem="g16-bF-lby" secondAttribute="trailing" constant="8" id="7Zi-ey-vZG"/>
-                                    <constraint firstItem="g16-bF-lby" firstAttribute="width" secondItem="ZGR-Ar-GUT" secondAttribute="width" multiplier="1.5" id="9iH-xc-YNi"/>
+                                    <constraint firstItem="g16-bF-lby" firstAttribute="width" secondItem="ZGR-Ar-GUT" secondAttribute="width" multiplier="1.4" id="9iH-xc-YNi"/>
                                     <constraint firstItem="dIc-fc-liF" firstAttribute="leading" secondItem="stx-RV-E4F" secondAttribute="leading" id="ATW-7j-nJb"/>
                                     <constraint firstAttribute="trailing" secondItem="dIc-fc-liF" secondAttribute="trailing" id="Etz-Bl-L8p"/>
                                     <constraint firstItem="g16-bF-lby" firstAttribute="height" secondItem="ZGR-Ar-GUT" secondAttribute="height" id="KCm-ME-Zxl"/>
@@ -160,7 +160,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£ 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAs-Dh-phl">
-                                <rect key="frame" x="559" y="559" width="24.5" height="20.5"/>
+                                <rect key="frame" x="559.5" y="559" width="24.5" height="20.5"/>
                                 <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
