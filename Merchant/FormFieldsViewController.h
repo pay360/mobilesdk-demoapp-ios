@@ -17,5 +17,4 @@
 @interface FormFieldsViewController : UIViewController
 @property (strong, nonatomic) IBOutletCollection(FormField) NSArray *textFields;
 @property (nonatomic, strong) FormDetails *form;
-@property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
 @end

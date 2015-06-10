@@ -17,6 +17,7 @@
 @interface PaymentFormViewController ()
 @property (nonatomic, strong) PPOPaymentManager *paymentManager;
 @property (nonatomic, strong) PPOPayment *currentPayment;
+@property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
 @end
 
 @implementation PaymentFormViewController
@@ -81,7 +82,7 @@
     self.title = @"Details";
     self.payNowButton.accessibilityLabel = @"PayNowButton";
     
-    self.amountLabel.text = self.currentPayment.transaction.amount.stringValue;
+    self.amountLabel.text = [@"£" stringByAppendingString:self.currentPayment.transaction.amount.stringValue];
     self.amountLabel.textColor = [ColourManager ppBlue];
     self.amountLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 40];
 }
@@ -351,14 +352,14 @@
 #pragma mark - PaymentFormViewControllerAnimationManager
 
 -(PaymentFormViewControllerAnimationManager *)animationManager {
-    if (_animationManager == nil) {
-        _animationManager = [[PaymentFormViewControllerAnimationManager alloc] init];
-        _animationManager.rootView = self.view;
-        _animationManager.loadingView = self.loadingView;
-        _animationManager.loadingMessageLabel = self.loadingMessageLabel;
-        _animationManager.paypointLogoImageView = self.paypointLogoImageView;
+    if (_paymentFormAnimationManager == nil) {
+        _paymentFormAnimationManager = [[PaymentFormViewControllerAnimationManager alloc] init];
+        _paymentFormAnimationManager.rootView = self.view;
+        _paymentFormAnimationManager.loadingView = self.loadingView;
+        _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
+        _paymentFormAnimationManager.paypointLogoImageView = self.paypointLogoImageView;
     }
-    return _animationManager;
+    return _paymentFormAnimationManager;
 }
 
 #pragma mark - Storyboard

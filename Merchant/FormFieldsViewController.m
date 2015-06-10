@@ -13,7 +13,8 @@
 
 @interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
-@property (nonatomic, strong) FormFieldsViewControllerAnimationManager *animationManager;
+@property (nonatomic, strong) FormFieldsViewControllerAnimationManager *formFieldsAnimationManager;
+@property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
 @end
 
 @implementation FormFieldsViewController
@@ -23,8 +24,8 @@
     
     self.form = [FormDetails new];
     
-    self.animationManager = [FormFieldsViewControllerAnimationManager new];
-    self.animationManager.rootView = self.view;
+    self.formFieldsAnimationManager = [FormFieldsViewControllerAnimationManager new];
+    self.formFieldsAnimationManager.rootView = self.view;
     
     //This is the delegate of each text field.
     self.fieldsManager = [PaymentEntryFieldsManager new];
@@ -58,7 +59,7 @@
             break;
     }
     
-    [self.animationManager hideFeedbackBubble];
+    [self.formFieldsAnimationManager hideFeedbackBubble];
     
 }
 
@@ -72,22 +73,22 @@
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
     self.form.cardNumber = cardNumber;
-    [self.animationManager hideFeedbackBubble];
+    [self.formFieldsAnimationManager hideFeedbackBubble];
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
     self.form.cvv = cvv;
-    [self.animationManager hideFeedbackBubble];
+    [self.formFieldsAnimationManager hideFeedbackBubble];
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
     self.form.expiry = expiryDate;
-    [self.animationManager hideFeedbackBubble];
+    [self.formFieldsAnimationManager hideFeedbackBubble];
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
     self.form.timeout = timeout;
-    [self.animationManager hideFeedbackBubble];
+    [self.formFieldsAnimationManager hideFeedbackBubble];
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager textFieldDidEndEditing:(FormField *)textField {
