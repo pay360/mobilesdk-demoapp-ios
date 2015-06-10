@@ -101,7 +101,8 @@
     NSError *invalid = [PPOValidator validatePayment:payment];
     
     if (invalid) {
-        [self handleErrorGeneratedByPaymentsSDK:invalid];
+        PPOOutcome *outcome = [[PPOOutcome alloc] initWithError:invalid forPayment:payment];
+        [self handleOutcomeGeneratedByPaymentsSDK:outcome];
         return;
     }
     
@@ -166,7 +167,7 @@
     __weak typeof (self) weakSelf = self;
     return ^ (PPOOutcome *outcome) {
         if (outcome.error) {
-            [weakSelf handleErrorGeneratedByPaymentsSDK:outcome.error];
+            [weakSelf handleOutcomeGeneratedByPaymentsSDK:outcome];
         } else {
             [weakSelf.animationManager endLoadingAnimationWithCompletion:^{
                 [weakSelf performSegueWithIdentifier:@"OutcomeViewControllerSegueID" sender:outcome];
@@ -199,25 +200,25 @@
     
 }
 
--(void)handleErrorGeneratedByPaymentsSDK:(NSError*)error {
+-(void)handleOutcomeGeneratedByPaymentsSDK:(PPOOutcome*)outcome {
     
     __weak typeof(self) weakSelf = self;
     
-    BOOL isPaymentError = error && [error.domain isEqualToString:PPOPaymentErrorDomain];
-    BOOL isLocalValidationError = error && [error.domain isEqualToString:PPOLocalValidationErrorDomain];
+    BOOL isPaymentError = outcome.error && [outcome.error.domain isEqualToString:PPOPaymentErrorDomain];
+    BOOL isLocalValidationError = outcome.error && [outcome.error.domain isEqualToString:PPOLocalValidationErrorDomain];
     
     [self.animationManager endLoadingAnimationWithCompletion:^{
         
         if (isPaymentError) {
             
-            [weakSelf handlePaymentError:error];
+            [weakSelf handlePaymentOutcome:outcome];
             
         } else if (isLocalValidationError) {
             
-            [weakSelf.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
-                                                   withCompletion:[weakSelf shakeUIForValidationError:error]];
+            [weakSelf.animationManager showFeedbackBubbleWithText:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                                                   withCompletion:[weakSelf shakeUIForValidationError:outcome.error]];
             
-        } else if ([error.domain isEqualToString:NSURLErrorDomain]) {
+        } else if ([outcome.error.domain isEqualToString:NSURLErrorDomain]) {
             
             [self displayMessage:@"Please check your signal."
                        withTitle:@"Network Error"
@@ -242,8 +243,24 @@
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"Check Status"
                                                      style:UIAlertActionStyleDestructive
                                                    handler:^(UIAlertAction *action) {
-                                                       id completion = [weakSelf paymentCompletionHandler];
-                                                       [weakSelf.paymentManager queryPayment:weakSelf.currentPayment withCompletion:completion];
+                                                       [weakSelf.paymentManager queryPayment:weakSelf.currentPayment
+                                                                              withCompletion:[weakSelf paymentCompletionHandler]];
+                                                   }];
+    
+    return action;
+}
+
+-(UIAlertAction*)reattemptPayment:(PPOPayment*)payment {
+    
+    __weak typeof(self) weakSelf = self;
+    
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Yes"
+                                                     style:UIAlertActionStyleDestructive
+                                                   handler:^(UIAlertAction *action) {
+                                                       [weakSelf.animationManager hideFeedbackBubble];
+                                                       [weakSelf.paymentManager makePayment:payment
+                                                                                withTimeOut:weakSelf.form.timeout.doubleValue
+                                                                             withCompletion:[weakSelf paymentCompletionHandler]];
                                                    }];
     
     return action;
@@ -270,9 +287,9 @@
     
 }
 
--(void)handlePaymentError:(NSError*)error {
+-(void)handlePaymentOutcome:(PPOOutcome*)outcome {
     
-    switch (error.code) {
+    switch (outcome.error.code) {
         case PPOPaymentErrorMasterSessionTimedOut: {
             [self displayMessage:@"Would you like to check the status of this payment ?"
                        withTitle:@"Session Timeout"
@@ -288,11 +305,22 @@
             break;
             
         default: {
-            [self.animationManager showFeedbackBubbleWithText:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
-                                               withCompletion:nil];
+            //__weak typeof(self) weakSelf = self;
+            [self.animationManager showFeedbackBubbleWithText:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                                               withCompletion:^{
+//                                                   if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+//                                                       [weakSelf retryPayment:outcome.payment];
+//                                                   }
+                                               }];
         }
             break;
     }
+    
+}
+
+-(void)retryPayment:(PPOPayment*)payment {
+    
+    [self displayMessage:@"Would you like to retry this payment ?" withTitle:@"Payment Failed" withDestructiveButtonAction:[self reattemptPayment:payment]];
     
 }
 
