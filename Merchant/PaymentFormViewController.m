@@ -14,7 +14,10 @@
 #import "MerchantServer.h"
 #import "EnvironmentManager.h"
 
-@interface PaymentFormViewController ()
+#define UI_ALERT_CHECK_STATUS 1
+#define UI_ALERT_TRY_AGAIN 2
+
+@interface PaymentFormViewController () <UIAlertViewDelegate>
 @property (nonatomic, strong) PPOPaymentManager *paymentManager;
 @property (nonatomic, strong) PPOPayment *currentPayment;
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
@@ -192,15 +195,22 @@
         
         if ([error.domain isEqualToString:NSURLErrorDomain]) {
             
-            [self displayMessage:@"The attempt to retrieve your Paypoint credentials failed with a network error. Please check your signal."
-                       withTitle:@"Credentials Acquisition"
-     withDestructiveButtonAction:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials Acquisition"
+                                                            message:@"The attempt to retrieve your Paypoint credentials failed with a network error. Please check your signal."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil, nil];
+            
+            [alert show];
             
         } else {
             
-            [self displayMessage:error.localizedDescription
-                       withTitle:@"Credentials Acquisition"
-     withDestructiveButtonAction:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials Acquisition"
+                                                            message:error.localizedDescription
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
             
         }
         
@@ -228,15 +238,25 @@
             
         } else if ([outcome.error.domain isEqualToString:NSURLErrorDomain]) {
             
-            [self displayMessage:@"Please check your signal."
-                       withTitle:@"Network Error"
-     withDestructiveButtonAction:[self queryPaymentAction]];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
+                                                            message:@"Please check your signal."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:@"Check Status", nil];
+            
+            alert.tag = UI_ALERT_CHECK_STATUS;
+            [alert show];
             
         } else {
             
-            [self displayMessage:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?"
-                       withTitle:@"Error"
-     withDestructiveButtonAction:nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:@"An unforseen error occured and we were unable to determine the outcome of your payment. Would you like to check the status of your payment now ?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:@"Check Status", nil];
+            
+            alert.tag = UI_ALERT_CHECK_STATUS;
+            [alert show];
             
         }
         
@@ -244,54 +264,19 @@
     
 }
 
--(UIAlertAction*)queryPaymentAction {
+-(void)queryPaymentAction {
     
-    __weak typeof(self) weakSelf = self;
+    [self.paymentManager queryPayment:self.currentPayment
+                       withCompletion:[self paymentCompletionHandler]];
     
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Check Status"
-                                                     style:UIAlertActionStyleDestructive
-                                                   handler:^(UIAlertAction *action) {
-                                                       [weakSelf.paymentManager queryPayment:weakSelf.currentPayment
-                                                                              withCompletion:[weakSelf paymentCompletionHandler]];
-                                                   }];
-    
-    return action;
 }
 
--(UIAlertAction*)reattemptPayment:(PPOPayment*)payment {
+-(void)reattemptPayment:(PPOPayment*)payment {
     
-    __weak typeof(self) weakSelf = self;
-    
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Yes"
-                                                     style:UIAlertActionStyleDestructive
-                                                   handler:^(UIAlertAction *action) {
-                                                       [weakSelf.animationManager hideFeedbackBubble];
-                                                       [weakSelf.paymentManager makePayment:payment
-                                                                                withTimeOut:weakSelf.form.timeout.doubleValue
-                                                                             withCompletion:[weakSelf paymentCompletionHandler]];
-                                                   }];
-    
-    return action;
-}
-
--(void)displayMessage:(NSString*)message withTitle:(NSString*)title withDestructiveButtonAction:(UIAlertAction*)action {
-    
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title
-                                                                   message:message
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    
-    if (action) {
-        [alert addAction:action];
-    }
-    
-    action = [UIAlertAction actionWithTitle:@"Dismiss"
-                                      style:UIAlertActionStyleCancel
-                                    handler:nil];
-    [alert addAction:action];
-    
-    [self presentViewController:alert
-                       animated:YES
-                     completion:nil];
+    [self.animationManager hideFeedbackBubble];
+    [self.paymentManager makePayment:payment
+                         withTimeOut:self.form.timeout.doubleValue
+                      withCompletion:[self paymentCompletionHandler]];
     
 }
 
@@ -299,16 +284,30 @@
     
     switch (outcome.error.code) {
         case PPOPaymentErrorMasterSessionTimedOut: {
-            [self displayMessage:@"Would you like to check the status of this payment ?"
-                       withTitle:@"Session Timeout"
-     withDestructiveButtonAction:[self queryPaymentAction]];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Session Timeout"
+                                                            message:@"Would you like to check the status of this payment ?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:@"Check Status", nil];
+            
+            alert.tag = UI_ALERT_CHECK_STATUS;
+            [alert show];
+    
         }
             break;
             
         case PPOPaymentErrorPaymentProcessing: {
-            [self displayMessage:@"Would you like to check the status of this payment again ?"
-                       withTitle:@"Payment In Progress"
-     withDestructiveButtonAction:[self queryPaymentAction]];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment In Progress"
+                                                            message:@"Would you like to check the status of this payment again ?"
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:@"Check Status", nil];
+            
+            alert.tag = UI_ALERT_CHECK_STATUS;
+            [alert show];
+            
         }
             break;
             
@@ -328,7 +327,14 @@
 
 -(void)retryPayment:(PPOPayment*)payment {
     
-    [self displayMessage:@"Would you like to retry this payment ?" withTitle:@"Payment Failed" withDestructiveButtonAction:[self reattemptPayment:payment]];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed"
+                                                    message:@"Would you like to retry this payment ?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Dismiss"
+                                          otherButtonTitles:@"Try Again", nil];
+    
+    alert.tag = UI_ALERT_TRY_AGAIN;
+    [alert show];
     
 }
 
@@ -379,6 +385,29 @@
         OutcomeViewController *controller = segue.destinationViewController;
         controller.outcome = outcome;
         
+    }
+    
+}
+
+#pragma mark - UIAlertView Delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        
+        switch (alertView.tag) {
+                
+            case UI_ALERT_CHECK_STATUS:
+                [self queryPaymentAction];
+                break;
+                
+            case UI_ALERT_TRY_AGAIN:
+                [self reattemptPayment:self.currentPayment];
+                break;
+                
+            default:
+                break;
+        }
     }
     
 }
