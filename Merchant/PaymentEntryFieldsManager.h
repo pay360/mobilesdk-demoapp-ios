@@ -29,7 +29,8 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) NSArray *textFields;
 
 -(void)reformatAsCardNumber:(FormField *)textField;
--(void)highlightTextFieldBorderOfType:(TEXT_FIELD_TYPE)type withAnimation:(BOOL)animated;
+-(void)highlightTextFieldBorderActive:(TEXT_FIELD_TYPE)type;
+-(void)highlightTextFieldBorderInactive:(TEXT_FIELD_TYPE)type;
 -(void)resetTextFieldBorderOfType:(TEXT_FIELD_TYPE)type;
 
 @end

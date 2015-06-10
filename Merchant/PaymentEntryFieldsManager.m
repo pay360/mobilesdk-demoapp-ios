@@ -22,27 +22,57 @@
 
 @implementation PaymentEntryFieldsManager
 
--(void)highlightTextFieldBorderOfType:(TEXT_FIELD_TYPE)type withAnimation:(BOOL)animated {
+-(void)highlightTextFieldBorderActive:(TEXT_FIELD_TYPE)type {
     
     FormField *textField = self.textFields[type];
     
-    if (!textField.borderIsHighlighted) {
+    if (!textField.borderIsActive || textField.currentBorderColour == nil) {
         
-        textField.borderIsHighlighted = YES;
+        textField.borderIsActive = YES;
         
         textField.layer.borderWidth = 2.0f;
         
-        if (animated) {
-            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
-            animation.fromValue = (id)[UIColor clearColor].CGColor;
-            animation.toValue   = (id)[UIColor redColor].CGColor;
-            animation.duration = .3;
-            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
-            
-            [textField.layer addAnimation:animation forKey:@"Border"];
-        }
+        UIColor *activeColour = [UIColor greenColor];
+        UIColor *fromColour = (textField.currentBorderColour) ? : [UIColor clearColor];
         
-        textField.layer.borderColor = [UIColor redColor].CGColor;
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)fromColour.CGColor;
+        animation.toValue   = (id)activeColour.CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = activeColour.CGColor;
+        
+        textField.currentBorderColour = activeColour;
+    }
+}
+
+-(void)highlightTextFieldBorderInactive:(TEXT_FIELD_TYPE)type {
+    
+    FormField *textField = self.textFields[type];
+    
+    if (textField.borderIsActive || textField.currentBorderColour == nil) {
+        
+        textField.borderIsActive = NO;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        UIColor *inactiveColour = [UIColor redColor];
+        UIColor *fromColour = (textField.currentBorderColour) ? : [UIColor clearColor];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)fromColour.CGColor;
+        animation.toValue   = (id)inactiveColour.CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = inactiveColour.CGColor;
+        
+        textField.currentBorderColour = inactiveColour;
     }
     
 }
@@ -51,14 +81,12 @@
     
     FormField *textField = self.textFields[type];
     
-    if (textField.borderIsHighlighted) {
-        
-        textField.borderIsHighlighted = NO;
+    if (textField.currentBorderColour) {
         
         textField.layer.borderWidth = 2.0f;
         
         CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
-        animation.fromValue = (id)[UIColor redColor].CGColor;
+        animation.fromValue = (id)textField.currentBorderColour.CGColor;
         animation.toValue   = (id)[UIColor clearColor].CGColor;
         animation.duration = .3;
         animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
@@ -66,6 +94,8 @@
         [textField.layer addAnimation:animation forKey:@"Border"];
         
         textField.layer.borderColor = [UIColor clearColor].CGColor;
+        
+        textField.currentBorderColour = nil;
     }
     
 }

@@ -85,6 +85,9 @@
     self.amountLabel.text = [@"£" stringByAppendingString:self.currentPayment.transaction.amount.stringValue];
     self.amountLabel.textColor = [ColourManager ppBlue];
     self.amountLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 40];
+    
+    FormField *textField = self.fieldsManager.textFields[TEXT_FIELD_TYPE_TIMEOUT];
+    textField.text = self.form.timeout;
 }
 
 #pragma mark - Actions
@@ -119,6 +122,10 @@
         
         [self makePayment:self.currentPayment];
         
+        FormField *textField = self.fieldsManager.textFields[TEXT_FIELD_TYPE_TIMEOUT];
+        if (textField.text.length == 0) {
+            textField.text = self.form.timeout;
+        }
     }
         
 }

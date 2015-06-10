@@ -14,7 +14,6 @@
 @interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
 @property (nonatomic, strong) FormFieldsViewControllerAnimationManager *formFieldsAnimationManager;
-@property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
 @end
 
 @implementation FormFieldsViewController
@@ -95,29 +94,34 @@
     
     NSError *error;
     
+    TEXT_FIELD_TYPE type = 0;
+    
     if ((self.textFields[TEXT_FIELD_TYPE_CARD_NUMBER] == textField)) {
+        type = TEXT_FIELD_TYPE_CARD_NUMBER;
         error = [PPOValidator validateCardPan:textField.text];
-        if (error) {
-            [self.fieldsManager highlightTextFieldBorderOfType:TEXT_FIELD_TYPE_CARD_NUMBER withAnimation:YES];
-        } else {
-            [self.fieldsManager resetTextFieldBorderOfType:TEXT_FIELD_TYPE_CARD_NUMBER];
-        }
     } else if ((self.textFields[TEXT_FIELD_TYPE_EXPIRY] == textField)) {
+        type = TEXT_FIELD_TYPE_EXPIRY;
         error = [PPOValidator validateCardExpiry:textField.text];
-        if (error) {
-            [self.fieldsManager highlightTextFieldBorderOfType:TEXT_FIELD_TYPE_EXPIRY withAnimation:YES];
-        } else {
-            [self.fieldsManager resetTextFieldBorderOfType:TEXT_FIELD_TYPE_EXPIRY];
-        }
     } else if ((self.textFields[TEXT_FIELD_TYPE_CVV] == textField)) {
+        type = TEXT_FIELD_TYPE_CVV;
         error = [PPOValidator validateCardCVV:textField.text];
-        if (error) {
-            [self.fieldsManager highlightTextFieldBorderOfType:TEXT_FIELD_TYPE_CVV withAnimation:YES];
-        } else {
-            [self.fieldsManager resetTextFieldBorderOfType:TEXT_FIELD_TYPE_CVV];
-        }
+    } else if ((self.textFields[TEXT_FIELD_TYPE_TIMEOUT] == textField)) {
+        type = TEXT_FIELD_TYPE_TIMEOUT;
     }
     
+    if (type == TEXT_FIELD_TYPE_TIMEOUT) {
+        return;
+    }
+    
+    if (textField.text.length == 0) {
+        [self.fieldsManager resetTextFieldBorderOfType:type];
+    } else {
+        if (error) {
+            [self.fieldsManager highlightTextFieldBorderInactive:type];
+        } else {
+            [self.fieldsManager highlightTextFieldBorderActive:type];
+        }
+    }
 }
 
 @end

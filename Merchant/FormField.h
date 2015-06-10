@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface FormField : UITextField
-@property (nonatomic) BOOL borderIsHighlighted;
+@property (nonatomic) BOOL borderIsActive;
+@property (nonatomic, strong) UIColor *currentBorderColour;
 @end
