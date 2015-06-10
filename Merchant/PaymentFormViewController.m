@@ -43,6 +43,8 @@
     return _paymentManager;
 }
 
+#warning implement in-line validation
+
 -(void)viewDidLoad {
     
     [super viewDidLoad];

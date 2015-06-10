@@ -29,7 +29,7 @@
 		503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5030426F1AE7BFB100CA5B9B /* Main.storyboard */; };
 		504C9CF21B1766F7007C0F32 /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504C9CF11B1766F7007C0F32 /* Paypoint.framework */; };
 		504C9CF51B176712007C0F32 /* PaypointResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 504C9CF31B176707007C0F32 /* PaypointResources.bundle */; };
-		504DD8501AE93765000C47B9 /* CardDetailsFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */; };
+		504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */; };
 		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
 		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
@@ -82,8 +82,8 @@
 		503042701AE7BFB100CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		504C9CF11B1766F7007C0F32 /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paypoint.framework; sourceTree = "<group>"; };
 		504C9CF31B176707007C0F32 /* PaypointResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PaypointResources.bundle; path = Paypoint.framework/PaypointResources.bundle; sourceTree = "<group>"; };
-		504DD84E1AE93765000C47B9 /* CardDetailsFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailsFieldsManager.h; sourceTree = "<group>"; };
-		504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailsFieldsManager.m; sourceTree = "<group>"; };
+		504DD84E1AE93765000C47B9 /* PaymentEntryFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentEntryFieldsManager.h; sourceTree = "<group>"; };
+		504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentEntryFieldsManager.m; sourceTree = "<group>"; };
 		504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorManager.h; sourceTree = "<group>"; };
 		504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkErrorManager.m; sourceTree = "<group>"; };
 		504DD8561AE941BC000C47B9 /* FormFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFieldsViewController.h; sourceTree = "<group>"; };
@@ -376,8 +376,8 @@
 		504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */ = {
 			isa = PBXGroup;
 			children = (
-				504DD84E1AE93765000C47B9 /* CardDetailsFieldsManager.h */,
-				504DD84F1AE93765000C47B9 /* CardDetailsFieldsManager.m */,
+				504DD84E1AE93765000C47B9 /* PaymentEntryFieldsManager.h */,
+				504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */,
 			);
 			name = CardDetailsFieldsManager;
 			sourceTree = "<group>";
@@ -563,7 +563,7 @@
 				5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */,
 				5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */,
 				5030420C1AE7BECA00CA5B9B /* main.m in Sources */,
-				504DD8501AE93765000C47B9 /* CardDetailsFieldsManager.m in Sources */,
+				504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */,
 				504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */,
 				504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */,
 				5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */,

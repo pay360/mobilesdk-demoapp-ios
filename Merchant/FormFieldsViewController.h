@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Paypoint. All rights reserved.
 //
 
-#import "CardDetailsFieldsManager.h"
+#import "PaymentEntryFieldsManager.h"
 #import "FormDetails.h"
 
 @interface FormFieldsViewController : UIViewController

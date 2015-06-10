@@ -10,9 +10,9 @@
 #import "ColourManager.h"
 #import "FormFieldsViewControllerAnimationManager.h"
 
-@interface FormFieldsViewController () <CardDetailsFieldsManagerDeleate>
+@interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
-@property (nonatomic, strong) CardDetailsFieldsManager *fieldsManager;
+@property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
 @property (nonatomic, strong) FormFieldsViewControllerAnimationManager *animationManager;
 @end
 
@@ -58,31 +58,31 @@
 
 #pragma mark - CardDetailsFieldsManager
 
--(CardDetailsFieldsManager *)fieldsManager {
+-(PaymentEntryFieldsManager *)fieldsManager {
     if (_fieldsManager == nil) {
-        _fieldsManager = [CardDetailsFieldsManager new];
+        _fieldsManager = [PaymentEntryFieldsManager new];
         _fieldsManager.delegate = self;
         _fieldsManager.textFields = self.textFields;
     }
     return _fieldsManager;
 }
 
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
     self.form.cardNumber = cardNumber;
     [self.animationManager hideFeedbackBubble];
 }
 
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
     self.form.cvv = cvv;
     [self.animationManager hideFeedbackBubble];
 }
 
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
     self.form.expiry = expiryDate;
     [self.animationManager hideFeedbackBubble];
 }
 
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
     self.form.timeout = timeout;
     [self.animationManager hideFeedbackBubble];
 }
