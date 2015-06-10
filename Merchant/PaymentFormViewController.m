@@ -21,6 +21,37 @@
 
 @implementation PaymentFormViewController
 
+-(PPOPayment *)currentPayment {
+    
+    if (_currentPayment == nil) {
+        
+        PPOBillingAddress *address = [PPOBillingAddress new];
+        address.line1 = @"Street 1";
+        address.line2 = @"Street 2";
+        address.line3 = @"Street 3";
+        address.line4 = @"Street 4";
+        address.city = @"City";
+        address.region = @"Region";
+        address.postcode = @"Postcode";
+        address.countryCode = @"Country Code";
+        
+        PPOTransaction *transaction = [PPOTransaction new];
+        transaction.currency = @"GBP";
+        transaction.amount = @100;
+        transaction.transactionDescription = @"A desc";
+        transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
+        transaction.isDeferred = @NO;
+        
+        PPOPayment *payment = [PPOPayment new];
+        payment.transaction = transaction;
+        payment.address = address;
+        
+        _currentPayment = payment;
+    }
+    
+    return _currentPayment;
+}
+
 -(PPOPaymentManager *)paymentManager {
     
     if (_paymentManager == nil) {
@@ -43,8 +74,6 @@
     return _paymentManager;
 }
 
-#warning implement in-line validation
-
 -(void)viewDidLoad {
     
     [super viewDidLoad];
@@ -52,11 +81,7 @@
     self.title = @"Details";
     self.payNowButton.accessibilityLabel = @"PayNowButton";
     
-    /*
-     *A value of £100 assigned to the UI here, just for aesthetics
-     *The true payment value is delievered via the model, which is built when the payment is initiated (via the paynow button pressed action).
-     */
-    self.amountLabel.text = @"£100";
+    self.amountLabel.text = self.currentPayment.transaction.amount.stringValue;
     self.amountLabel.textColor = [ColourManager ppBlue];
     self.amountLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 40];
 }
@@ -68,11 +93,10 @@
     [self.view endEditing:YES];
     
     /*
-     *Nothing will happen if this button is pressed, and the animation is still underway.
-     *It should be impossible to press the button when the animation is in progress, because a view is placed on top of the button, which blocks gestures.
-     *But an animation state check is being done here anyway.
+     * Nothing will happen if this button is pressed, and the animation is still underway.
+     * It should be impossible to press the button when the animation is in progress, because a view is placed on top of the button, which blocks gestures.
+     * A cynical check is being done here anyway.
     */
-    
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
         
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -84,9 +108,15 @@
         
     } else if (self.animationManager.animationState == LOADING_ANIMATION_STATE_ENDED) {
         
-        PPOPayment *payment = [self buildPaymentExample];
+        FormDetails *formDetails = self.form;
         
-        [self makePayment:payment];
+        self.currentPayment.card = [PPOCreditCard new];
+        self.currentPayment.card.pan = formDetails.cardNumber;
+        self.currentPayment.card.cvv = formDetails.cvv;
+        self.currentPayment.card.expiry = formDetails.expiry;
+        self.currentPayment.card.cardHolderName = @"Dai Jones";
+        
+        [self makePayment:self.currentPayment];
         
     }
         
@@ -131,38 +161,6 @@
         
     }];
     
-}
-
--(PPOPayment*)buildPaymentExample {
-    PPOBillingAddress *address = [PPOBillingAddress new];
-    address.line1 = @"Street 1";
-    address.line2 = @"Street 2";
-    address.line3 = @"Street 3";
-    address.line4 = @"Street 4";
-    address.city = @"City";
-    address.region = @"Region";
-    address.postcode = @"Postcode";
-    address.countryCode = @"Country Code";
-    
-    PPOTransaction *transaction = [PPOTransaction new];
-    transaction.currency = @"GBP";
-    transaction.amount = @100;
-    transaction.transactionDescription = @"A desc";
-    transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
-    transaction.isDeferred = @NO;
-    
-    PPOCreditCard *card = [PPOCreditCard new];
-    card.pan = self.form.cardNumber;
-    card.cvv = self.form.cvv;
-    card.expiry = self.form.expiry;
-    card.cardHolderName = @"Dai Jones";
-    
-    PPOPayment *payment = [PPOPayment new];
-    payment.transaction = transaction;
-    payment.card = card;
-    payment.address = address;
-    
-    return payment;
 }
 
 -(void(^)(PPOOutcome *outcome))paymentCompletionHandler {
@@ -334,7 +332,7 @@
         
         PPOLocalValidationError code = error.code;
         
-        UITextField *textField;
+        FormField *textField;
         
         switch (code) {
             case PPOLocalValidationErrorCardPanInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;

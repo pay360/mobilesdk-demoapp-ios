@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Paypoint. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "FormField.h"
 
 typedef enum : NSUInteger {
     TEXT_FIELD_TYPE_CARD_NUMBER,
@@ -21,12 +21,15 @@ typedef enum : NSUInteger {
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateExpiryDate:(NSString*)expiryDate;
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateCVV:(NSString*)cvv;
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateTimeout:(NSString*)timeout;
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager textFieldDidEndEditing:(FormField*)textField;
 @end
 
 @interface PaymentEntryFieldsManager : NSObject <UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 @property (nonatomic, weak) id <PaymentEntryFieldsManagerDelegate> delegate;
 @property (nonatomic, weak) NSArray *textFields;
 
--(void)reformatAsCardNumber:(UITextField *)textField;
+-(void)reformatAsCardNumber:(FormField *)textField;
+-(void)highlightTextFieldBorderOfType:(TEXT_FIELD_TYPE)type withAnimation:(BOOL)animated;
+-(void)resetTextFieldBorderOfType:(TEXT_FIELD_TYPE)type;
 
 @end

@@ -27,6 +27,7 @@
 		5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042541AE7BF0D00CA5B9B /* TimeManager.m */; };
 		5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */; };
 		503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5030426F1AE7BFB100CA5B9B /* Main.storyboard */; };
+		504C93B81B284A4600511C5B /* FormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 504C93B71B284A4600511C5B /* FormField.m */; };
 		504C9CF21B1766F7007C0F32 /* Paypoint.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 504C9CF11B1766F7007C0F32 /* Paypoint.framework */; };
 		504C9CF51B176712007C0F32 /* PaypointResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 504C9CF31B176707007C0F32 /* PaypointResources.bundle */; };
 		504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */; };
@@ -80,6 +81,8 @@
 		503042551AE7BF0D00CA5B9B /* WelcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WelcomeViewController.h; sourceTree = "<group>"; };
 		503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WelcomeViewController.m; sourceTree = "<group>"; };
 		503042701AE7BFB100CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		504C93B61B284A4600511C5B /* FormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormField.h; sourceTree = "<group>"; };
+		504C93B71B284A4600511C5B /* FormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormField.m; sourceTree = "<group>"; };
 		504C9CF11B1766F7007C0F32 /* Paypoint.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Paypoint.framework; sourceTree = "<group>"; };
 		504C9CF31B176707007C0F32 /* PaypointResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = PaypointResources.bundle; path = Paypoint.framework/PaypointResources.bundle; sourceTree = "<group>"; };
 		504DD84E1AE93765000C47B9 /* PaymentEntryFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentEntryFieldsManager.h; sourceTree = "<group>"; };
@@ -333,6 +336,7 @@
 			isa = PBXGroup;
 			children = (
 				503042821AE7C1B400CA5B9B /* FeedbackBubble */,
+				504C93B91B284A4C00511C5B /* FormField */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -371,6 +375,15 @@
 				5030428B1AE7C1EC00CA5B9B /* Reachability */,
 			);
 			name = Networking;
+			sourceTree = "<group>";
+		};
+		504C93B91B284A4C00511C5B /* FormField */ = {
+			isa = PBXGroup;
+			children = (
+				504C93B61B284A4600511C5B /* FormField.h */,
+				504C93B71B284A4600511C5B /* FormField.m */,
+			);
+			name = FormField;
 			sourceTree = "<group>";
 		};
 		504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */ = {
@@ -555,6 +568,7 @@
 				504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */,
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
+				504C93B81B284A4600511C5B /* FormField.m in Sources */,
 				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,
 				503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */,
 				504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */,

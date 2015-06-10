@@ -8,6 +8,7 @@
 
 #import "PaymentEntryFieldsManager.h"
 #import "TimeManager.h"
+#import "ColourManager.h"
 
 @interface PaymentEntryFieldsManager ()
 @property (nonatomic, strong) UIPickerView *expiryDatePickerView;
@@ -21,11 +22,66 @@
 
 @implementation PaymentEntryFieldsManager
 
+-(void)highlightTextFieldBorderOfType:(TEXT_FIELD_TYPE)type withAnimation:(BOOL)animated {
+    
+    FormField *textField = self.textFields[type];
+    
+    if (!textField.borderIsHighlighted) {
+        
+        textField.borderIsHighlighted = YES;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        if (animated) {
+            CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+            animation.fromValue = (id)[UIColor clearColor].CGColor;
+            animation.toValue   = (id)[UIColor redColor].CGColor;
+            animation.duration = .3;
+            animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+            
+            [textField.layer addAnimation:animation forKey:@"Border"];
+        }
+        
+        textField.layer.borderColor = [UIColor redColor].CGColor;
+    }
+    
+}
+
+-(void)resetTextFieldBorderOfType:(TEXT_FIELD_TYPE)type {
+    
+    FormField *textField = self.textFields[type];
+    
+    if (textField.borderIsHighlighted) {
+        
+        textField.borderIsHighlighted = NO;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)[UIColor redColor].CGColor;
+        animation.toValue   = (id)[UIColor clearColor].CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = [UIColor clearColor].CGColor;
+    }
+    
+}
+
 -(void)setTextFields:(NSArray *)textFields {
     if (![_textFields isEqualToArray:textFields]) {
         _textFields = textFields;
-        for (UITextField *textField in _textFields) {
+        
+        for (FormField *textField in _textFields) {
             textField.delegate = self;
+            textField.textColor = [ColourManager ppBlue];
+            textField.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
+            
+            UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
+            textField.leftView = paddingView;
+            textField.leftViewMode = UITextFieldViewModeAlways;
         }
     }
 }
@@ -80,7 +136,7 @@
 #pragma mark - UITextField Four Digit Spacing
 
 // Source and explanation: http://stackoverflow.com/a/19161529/1709587
--(void)reformatAsCardNumber:(UITextField *)textField
+-(void)reformatAsCardNumber:(FormField *)textField
 {
     if (textField != self.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]) {
         return;
@@ -127,7 +183,7 @@ andPreserveCursorPosition:&targetCursorPosition];
      ];
 }
 
--(BOOL)textField:(UITextField *)textField
+-(BOOL)textField:(FormField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string
 {
@@ -200,7 +256,7 @@ replacementString:(NSString *)string
 
 #pragma mark - UITextField Delegate
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+-(BOOL)textFieldShouldBeginEditing:(FormField *)textField {
     
     switch (textField.tag) {
             
@@ -234,7 +290,7 @@ replacementString:(NSString *)string
     return YES;
 }
 
--(BOOL)textFieldShouldClear:(UITextField *)textField {
+-(BOOL)textFieldShouldClear:(FormField *)textField {
     textField.text = nil;
     
     switch (textField.tag) {
@@ -255,9 +311,9 @@ replacementString:(NSString *)string
     return YES;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+-(BOOL)textFieldShouldReturn:(FormField *)textField {
     
-    UITextField *nextTextField;
+    FormField *nextTextField;
     
     switch (textField.tag) {
         case TEXT_FIELD_TYPE_CARD_NUMBER:
@@ -279,6 +335,10 @@ replacementString:(NSString *)string
     }
     
     return YES;
+}
+
+-(void)textFieldDidEndEditing:(FormField *)textField {
+    [self.delegate paymentEntryFieldsManager:self textFieldDidEndEditing:textField];
 }
 
 #pragma mark - UIPickerView Datasource
@@ -326,7 +386,7 @@ replacementString:(NSString *)string
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    UITextField *textField;
+    FormField *textField;
     
     id selection;
     
