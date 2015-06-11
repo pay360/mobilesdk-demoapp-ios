@@ -9,11 +9,11 @@
 #import "FormFieldsViewController.h"
 #import "ColourManager.h"
 #import "FormFieldsViewControllerAnimationManager.h"
+#import <Paypoint/PPOValidator.h>
 
-@interface FormFieldsViewController () <CardDetailsFieldsManagerDeleate>
+@interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
-@property (nonatomic, strong) CardDetailsFieldsManager *fieldsManager;
-@property (nonatomic, strong) FormFieldsViewControllerAnimationManager *animationManager;
+@property (nonatomic, strong) FormFieldsViewControllerAnimationManager *formFieldsAnimationManager;
 @end
 
 @implementation FormFieldsViewController
@@ -21,19 +21,18 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
     
-    for (UITextField *textField in self.textFields) {
-        textField.textColor = [ColourManager ppBlue];
-        textField.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
-        
-        UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
-        textField.leftView = paddingView;
-        textField.leftViewMode = UITextFieldViewModeAlways;
-    }
+    self.form = [FormDetails new];
     
-    UIColor *blue = [ColourManager ppBlue];
+    self.formFieldsAnimationManager = [FormFieldsViewControllerAnimationManager new];
+    self.formFieldsAnimationManager.rootView = self.view;
+    
+    //This is the delegate of each text field.
+    self.fieldsManager = [PaymentEntryFieldsManager new];
+    self.fieldsManager.delegate = self;
+    self.fieldsManager.textFields = self.textFields;
     
     for (UILabel *titleLabel in self.titleLabels) {
-        titleLabel.textColor = blue;
+        titleLabel.textColor = [ColourManager ppBlue];
         titleLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
     }
     
@@ -41,53 +40,7 @@
     [self.view addGestureRecognizer:tap];
 }
 
-#pragma mark - Actions
-
--(void)backgroundTapped:(UITapGestureRecognizer*)gesture {
-    [self.view endEditing:YES];
-}
-
-#pragma mark - FormDetails
-
--(FormDetails *)form {
-    if (_form == nil) {
-        _form = [FormDetails new];
-    }
-    return _form;
-}
-
-#pragma mark - CardDetailsFieldsManager
-
--(CardDetailsFieldsManager *)fieldsManager {
-    if (_fieldsManager == nil) {
-        _fieldsManager = [CardDetailsFieldsManager new];
-        _fieldsManager.delegate = self;
-        _fieldsManager.textFields = self.textFields;
-    }
-    return _fieldsManager;
-}
-
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
-    self.form.cardNumber = cardNumber;
-    [self.animationManager hideFeedbackBubble];
-}
-
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
-    self.form.cvv = cvv;
-    [self.animationManager hideFeedbackBubble];
-}
-
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
-    self.form.expiry = expiryDate;
-    [self.animationManager hideFeedbackBubble];
-}
-
--(void)cardDetailsFieldsManager:(CardDetailsFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
-    self.form.timeout = timeout;
-    [self.animationManager hideFeedbackBubble];
-}
-
--(IBAction)textFieldEditingChanged:(UITextField *)sender forEvent:(UIEvent *)event {
+-(IBAction)textFieldEditingChanged:(FormField *)sender forEvent:(UIEvent *)event {
     
     switch (sender.tag) {
             
@@ -100,22 +53,75 @@
         case TEXT_FIELD_TYPE_CVV:
             self.form.cvv = sender.text;
             break;
-
+            
         default:
             break;
     }
     
-    [self.animationManager hideFeedbackBubble];
+    [self.formFieldsAnimationManager hideFeedbackBubble];
     
 }
 
--(FormFieldsViewControllerAnimationManager *)animationManager {
-    if (_animationManager == nil) {
-        _animationManager = [[FormFieldsViewControllerAnimationManager alloc] init];
-        _animationManager.rootView = self.view;
-        
+#pragma mark - Actions
+
+-(void)backgroundTapped:(UITapGestureRecognizer*)gesture {
+    [self.view endEditing:YES];
+}
+
+#pragma mark - PaymentEntryFieldsManager Delegate
+
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
+    self.form.cardNumber = cardNumber;
+    [self.formFieldsAnimationManager hideFeedbackBubble];
+}
+
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
+    self.form.cvv = cvv;
+    [self.formFieldsAnimationManager hideFeedbackBubble];
+}
+
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
+    self.form.expiry = expiryDate;
+    [self.formFieldsAnimationManager hideFeedbackBubble];
+}
+
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
+    self.form.timeout = timeout;
+    [self.formFieldsAnimationManager hideFeedbackBubble];
+}
+
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager textFieldDidEndEditing:(FormField *)textField {
+    
+    NSError *error;
+    
+    TEXT_FIELD_TYPE type = 0;
+    
+    if ((self.textFields[TEXT_FIELD_TYPE_CARD_NUMBER] == textField)) {
+        type = TEXT_FIELD_TYPE_CARD_NUMBER;
+        error = [PPOValidator validateCardPan:textField.text];
+    } else if ((self.textFields[TEXT_FIELD_TYPE_EXPIRY] == textField)) {
+        type = TEXT_FIELD_TYPE_EXPIRY;
+        error = [PPOValidator validateCardExpiry:textField.text];
+    } else if ((self.textFields[TEXT_FIELD_TYPE_CVV] == textField)) {
+        type = TEXT_FIELD_TYPE_CVV;
+        error = [PPOValidator validateCardCVV:textField.text];
+    } else if ((self.textFields[TEXT_FIELD_TYPE_TIMEOUT] == textField)) {
+        type = TEXT_FIELD_TYPE_TIMEOUT;
     }
-    return _animationManager;
+    
+    if (type == TEXT_FIELD_TYPE_TIMEOUT) {
+        return;
+    }
+    
+    if (textField.text.length == 0) {
+        [self.fieldsManager resetTextFieldBorderOfType:type];
+    } else {
+        if (error) {
+            [self.fieldsManager highlightTextFieldBorderInactive:type];
+        } else {
+            [self.fieldsManager highlightTextFieldBorderActive:type];
+        }
+    }
 }
 
 @end

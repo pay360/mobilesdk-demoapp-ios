@@ -1,15 +1,16 @@
 //
-//  CardDetailsFieldsManager.m
+//  PaymentEntryFieldsManager.m
 //  Merchant
 //
 //  Created by Robert Nash on 23/04/2015.
 //  Copyright (c) 2015 Paypoint. All rights reserved.
 //
 
-#import "CardDetailsFieldsManager.h"
+#import "PaymentEntryFieldsManager.h"
 #import "TimeManager.h"
+#import "ColourManager.h"
 
-@interface CardDetailsFieldsManager ()
+@interface PaymentEntryFieldsManager ()
 @property (nonatomic, strong) UIPickerView *expiryDatePickerView;
 @property (nonatomic, strong) UIPickerView *timeoutPickerView;
 @property (nonatomic, strong) NSArray *expiryDatePickerViewSelections;
@@ -19,13 +20,98 @@
 @property (nonatomic, strong) TimeManager *timeController;
 @end
 
-@implementation CardDetailsFieldsManager
+@implementation PaymentEntryFieldsManager
+
+-(void)highlightTextFieldBorderActive:(TEXT_FIELD_TYPE)type {
+    
+    FormField *textField = self.textFields[type];
+    
+    if (!textField.borderIsActive || textField.currentBorderColour == nil) {
+        
+        textField.borderIsActive = YES;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        UIColor *activeColour = [UIColor greenColor];
+        UIColor *fromColour = (textField.currentBorderColour) ? : [UIColor clearColor];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)fromColour.CGColor;
+        animation.toValue   = (id)activeColour.CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = activeColour.CGColor;
+        
+        textField.currentBorderColour = activeColour;
+    }
+}
+
+-(void)highlightTextFieldBorderInactive:(TEXT_FIELD_TYPE)type {
+    
+    FormField *textField = self.textFields[type];
+    
+    if (textField.borderIsActive || textField.currentBorderColour == nil) {
+        
+        textField.borderIsActive = NO;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        UIColor *inactiveColour = [UIColor redColor];
+        UIColor *fromColour = (textField.currentBorderColour) ? : [UIColor clearColor];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)fromColour.CGColor;
+        animation.toValue   = (id)inactiveColour.CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = inactiveColour.CGColor;
+        
+        textField.currentBorderColour = inactiveColour;
+    }
+    
+}
+
+-(void)resetTextFieldBorderOfType:(TEXT_FIELD_TYPE)type {
+    
+    FormField *textField = self.textFields[type];
+    
+    if (textField.currentBorderColour) {
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)textField.currentBorderColour.CGColor;
+        animation.toValue   = (id)[UIColor clearColor].CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = [UIColor clearColor].CGColor;
+        
+        textField.currentBorderColour = nil;
+    }
+    
+}
 
 -(void)setTextFields:(NSArray *)textFields {
     if (![_textFields isEqualToArray:textFields]) {
         _textFields = textFields;
-        for (UITextField *textField in _textFields) {
+        
+        for (FormField *textField in _textFields) {
             textField.delegate = self;
+            textField.textColor = [ColourManager ppBlue];
+            textField.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
+            
+            UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];
+            textField.leftView = paddingView;
+            textField.leftViewMode = UITextFieldViewModeAlways;
         }
     }
 }
@@ -80,7 +166,7 @@
 #pragma mark - UITextField Four Digit Spacing
 
 // Source and explanation: http://stackoverflow.com/a/19161529/1709587
--(void)reformatAsCardNumber:(UITextField *)textField
+-(void)reformatAsCardNumber:(FormField *)textField
 {
     if (textField != self.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]) {
         return;
@@ -127,7 +213,7 @@ andPreserveCursorPosition:&targetCursorPosition];
      ];
 }
 
--(BOOL)textField:(UITextField *)textField
+-(BOOL)textField:(FormField *)textField
 shouldChangeCharactersInRange:(NSRange)range
 replacementString:(NSString *)string
 {
@@ -200,7 +286,7 @@ replacementString:(NSString *)string
 
 #pragma mark - UITextField Delegate
 
--(BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+-(BOOL)textFieldShouldBeginEditing:(FormField *)textField {
     
     switch (textField.tag) {
             
@@ -211,7 +297,7 @@ replacementString:(NSString *)string
                 NSDate *selection = self.expiryDatePickerViewSelections[selected];
                 NSString *date = [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
                 textField.text = date;
-                [self.delegate cardDetailsFieldsManager:self didUpdateExpiryDate:date];
+                [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:date];
             }
         }
             break;
@@ -222,7 +308,7 @@ replacementString:(NSString *)string
             if (selected >= 0 && selected < self.timeoutPickerViewSelections.count) {
                 NSNumber *selection = self.timeoutPickerViewSelections[selected];
                 textField.text = selection.stringValue;
-                [self.delegate cardDetailsFieldsManager:self didUpdateTimeout:selection.stringValue];
+                [self.delegate paymentEntryFieldsManager:self didUpdateTimeout:selection.stringValue];
             }
         }
             break;
@@ -234,30 +320,30 @@ replacementString:(NSString *)string
     return YES;
 }
 
--(BOOL)textFieldShouldClear:(UITextField *)textField {
+-(BOOL)textFieldShouldClear:(FormField *)textField {
     textField.text = nil;
     
     switch (textField.tag) {
         case TEXT_FIELD_TYPE_CARD_NUMBER:
-            [self.delegate cardDetailsFieldsManager:self didUpdateCardNumber:nil];
+            [self.delegate paymentEntryFieldsManager:self didUpdateCardNumber:nil];
             break;
         case TEXT_FIELD_TYPE_EXPIRY:
-            [self.delegate cardDetailsFieldsManager:self didUpdateExpiryDate:nil];
+            [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:nil];
             break;
         case TEXT_FIELD_TYPE_CVV:
-            [self.delegate cardDetailsFieldsManager:self didUpdateCVV:nil];
+            [self.delegate paymentEntryFieldsManager:self didUpdateCVV:nil];
             break;
         case TEXT_FIELD_TYPE_TIMEOUT:
-            [self.delegate cardDetailsFieldsManager:self didUpdateTimeout:nil];
+            [self.delegate paymentEntryFieldsManager:self didUpdateTimeout:nil];
             break;
     }
     
     return YES;
 }
 
--(BOOL)textFieldShouldReturn:(UITextField *)textField {
+-(BOOL)textFieldShouldReturn:(FormField *)textField {
     
-    UITextField *nextTextField;
+    FormField *nextTextField;
     
     switch (textField.tag) {
         case TEXT_FIELD_TYPE_CARD_NUMBER:
@@ -279,6 +365,10 @@ replacementString:(NSString *)string
     }
     
     return YES;
+}
+
+-(void)textFieldDidEndEditing:(FormField *)textField {
+    [self.delegate paymentEntryFieldsManager:self textFieldDidEndEditing:textField];
 }
 
 #pragma mark - UIPickerView Datasource
@@ -326,7 +416,7 @@ replacementString:(NSString *)string
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    UITextField *textField;
+    FormField *textField;
     
     id selection;
     
@@ -335,18 +425,18 @@ replacementString:(NSString *)string
         selection = self.expiryDatePickerViewSelections[row];
         if ([selection isKindOfClass:[NSNull class]]) {
             textField.text = nil;
-            [self.delegate cardDetailsFieldsManager:self didUpdateExpiryDate:nil];
+            [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:nil];
         } else if ([selection isKindOfClass:[NSDate class]]) {
             NSString *dateString = [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
             textField.text = dateString;
-            [self.delegate cardDetailsFieldsManager:self didUpdateExpiryDate:dateString];
+            [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:dateString];
         }
     } else {
         textField = self.textFields[TEXT_FIELD_TYPE_TIMEOUT];
         selection = self.timeoutPickerViewSelections[row];
         if ([selection isKindOfClass:[NSNumber class]]) {
             textField.text = ((NSNumber*)selection).stringValue;
-            [self.delegate cardDetailsFieldsManager:self didUpdateTimeout:((NSNumber*)selection).stringValue];
+            [self.delegate paymentEntryFieldsManager:self didUpdateTimeout:((NSNumber*)selection).stringValue];
         }
     }
 }

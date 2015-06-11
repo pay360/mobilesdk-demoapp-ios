@@ -67,8 +67,7 @@
                 strongSelf.paypointLogoImageView.transform = CGAffineTransformMakeScale(1.9, 1.9);
             }];
             
-        } completion:^(BOOL finished) {
-        }];
+        } completion:nil];
         
         if (weakSelf.animationShouldEndAsSoonHasItHasFinishedStarting) {
             [weakSelf endLoadingAnimationWithCompletion:weakSelf.endAnimationCompletion];
