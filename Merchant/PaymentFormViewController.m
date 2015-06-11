@@ -312,12 +312,12 @@
             break;
             
         default: {
-            //__weak typeof(self) weakSelf = self;
+            __weak typeof(self) weakSelf = self;
             [self.animationManager showFeedbackBubbleWithText:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                                                withCompletion:^{
-//                                                   if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
-//                                                       [weakSelf retryPayment:outcome.payment];
-//                                                   }
+                                                   if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+                                                       [weakSelf retryPayment:outcome.payment];
+                                                   }
                                                }];
         }
             break;
