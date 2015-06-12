@@ -1,6 +1,6 @@
 //
 //  OutcomeViewController.m
-//  Paypoint
+//  Paypoint/Users/cliffeo/mobilesdk-demoapp-ios/Pods/PayPointPayments/PaypointSDK/PPOCustomField.m
 //
 //  Created by Robert Nash on 17/04/2015.
 //  Copyright (c) 2015 Paypoint. All rights reserved.
@@ -8,8 +8,7 @@
 
 #import "OutcomeViewController.h"
 #import "ColourManager.h"
-
-#import <Paypoint/PPOOutcome.h>
+#import <PayPointPayments/Paypoint.h>
 
 @interface OutcomeViewController ()
 @property (nonatomic, strong) IBOutlet UILabel *tickLabel;

@@ -7,7 +7,7 @@
 //
 
 #import "Reachability.h"
-#import <Paypoint/Paypoint.h>
+#import <PayPointPayments/Paypoint.h>
 
 #define INSTALLATION_ID @"5300065"
 
