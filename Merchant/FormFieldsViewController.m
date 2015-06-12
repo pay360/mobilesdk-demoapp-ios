@@ -9,7 +9,7 @@
 #import "FormFieldsViewController.h"
 #import "ColourManager.h"
 #import "FormFieldsViewControllerAnimationManager.h"
-#import <Paypoint/PPOValidator.h>
+#import <PayPointPayments/PPOValidator.h>
 
 @interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
