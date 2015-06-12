@@ -144,7 +144,10 @@
     NSError *invalid = [PPOValidator validatePayment:payment];
     
     if (invalid) {
-        PPOOutcome *outcome = [[PPOOutcome alloc] initWithError:invalid forPayment:payment];
+        PPOOutcome *outcome = [PPOOutcome new];
+        outcome.error = invalid;
+        outcome.payment = payment;
+        
         [self handleOutcomeGeneratedByPaymentsSDK:outcome];
         return;
     }
