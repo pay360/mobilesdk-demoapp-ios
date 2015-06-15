@@ -14,6 +14,10 @@
 #import "MerchantServer.h"
 #import "EnvironmentManager.h"
 
+#import <PayPointPayments/PPOPaymentManager.h>
+#import <PayPointPayments/PPOPaymentBaseURLManager.h>
+#import <PayPointPayments/PPOValidator.h>
+
 #define UI_ALERT_CHECK_STATUS 1
 #define UI_ALERT_TRY_AGAIN 2
 
@@ -61,16 +65,14 @@
     if (_paymentManager == nil) {
         
         /*
-         *A selection of environments are available.
-         *Envionrments differ by baseURL.
-         *A list of baseURL's are accessible via 'PPOEnvironment' keys.
+         *A custom environment can be used.
          */
-        PPOEnvironment currentEnvironment = [EnvironmentManager currentEnvironment];
+        NSURL *baseURL;
         
         /*
-         *Alternatively, a custom URL can be passed in here.
+         *Or a selection of PayPoint environments are available.
          */
-        NSURL *baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:currentEnvironment];
+        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:[EnvironmentManager currentEnvironment]];
         
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
         

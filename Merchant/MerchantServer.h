@@ -7,10 +7,10 @@
 //
 
 #import "Reachability.h"
-#import <PayPointPayments/Paypoint.h>
 
-#define INSTALLATION_ID @"5300065"
+#define INSTALLATION_ID @"5300302"
 
+@class PPOCredentials;
 @interface MerchantServer : NSObject
 
 +(void)getCredentialsWithCompletion:(void(^)(PPOCredentials *credentials, NSError *retrievalError))completion;

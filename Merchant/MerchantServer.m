@@ -7,6 +7,7 @@
 //
 
 #import "MerchantServer.h"
+#import <PayPointPayments/PPOCredentials.h>
 
 @implementation MerchantServer
 
@@ -15,7 +16,7 @@
     __block NSString *token;
     __block PPOCredentials *c;
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://localhost:5000/merchant/getToken/%@", INSTALLATION_ID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://developer.paypoint.com/payments/explore/rest/mockmobilemerchant/getToken/%@", INSTALLATION_ID]];
         
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
