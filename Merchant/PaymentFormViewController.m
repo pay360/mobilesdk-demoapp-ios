@@ -72,7 +72,7 @@
         /*
          *Or a selection of PayPoint environments are available.
          */
-        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:[EnvironmentManager currentEnvironment]];
+        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:(PPOEnvironment)[EnvironmentManager currentEnvironment]];
         
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
         
@@ -349,7 +349,7 @@
     
     return ^ {
         
-        PPOLocalValidationError code = error.code;
+        PPOLocalValidationError code = (PPOLocalValidationError)error.code;
         
         FormField *textField;
         
