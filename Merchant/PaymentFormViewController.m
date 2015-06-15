@@ -41,7 +41,7 @@
         address.city = @"City";
         address.region = @"Region";
         address.postcode = @"Postcode";
-        address.countryCode = @"Country Code";
+        address.countryCode = @"GBR";
         
         PPOTransaction *transaction = [PPOTransaction new];
         transaction.currency = @"GBP";
