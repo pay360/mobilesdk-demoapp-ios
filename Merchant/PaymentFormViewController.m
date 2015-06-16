@@ -86,6 +86,8 @@
     
     self.title = @"Details";
     self.payNowButton.accessibilityLabel = @"PayNowButton";
+    self.payNowButton.backgroundColor = [ColourManager ppYellow];
+    self.payNowButton.titleLabel.font = [UIFont fontWithName:@"FoundryContext-Regular" size:20.0f];
     
     self.amountLabel.text = [@"£" stringByAppendingString:self.currentPayment.transaction.amount.stringValue];
     self.amountLabel.textColor = [ColourManager ppBlue];
@@ -97,7 +99,7 @@
 
 #pragma mark - Actions
 
--(IBAction)payNowButtonPressed:(UIBarButtonItem *)button {
+-(IBAction)payNowButtonPressed:(UIButton *)button {
     
     [self.view endEditing:YES];
     
@@ -169,7 +171,7 @@
         payment.credentials = credentials;
         
         /*
-         *The PaypointSDK performs paramater validation, to the best extent possible, before any network request is made.
+         *The PaypointSDK performs paramater validation before any network request is made.
          */
         [weakSelf.paymentManager makePayment:payment
                                  withTimeOut:self.form.timeout.doubleValue
