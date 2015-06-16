@@ -12,7 +12,6 @@
 #import "NetworkErrorManager.h"
 #import "ColourManager.h"
 #import "MerchantServer.h"
-#import "EnvironmentManager.h"
 
 #import <PayPointPayments/PPOPaymentManager.h>
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
@@ -72,7 +71,7 @@
         /*
          *Or a selection of PayPoint environments are available.
          */
-        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:(PPOEnvironment)[EnvironmentManager currentEnvironment]];
+        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:PPOEnvironmentMerchantIntegrationTestingEnvironment];
         
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
         

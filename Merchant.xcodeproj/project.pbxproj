@@ -11,7 +11,6 @@
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
 		503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042321AE7BF0D00CA5B9B /* ColourManager.m */; };
-		503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */; };
 		5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */; };
 		5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042371AE7BF0D00CA5B9B /* FontAwesome.otf */; };
 		5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042391AE7BF0D00CA5B9B /* FormDetails.m */; };
@@ -52,8 +51,6 @@
 		503042191AE7BECA00CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		503042311AE7BF0D00CA5B9B /* ColourManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourManager.h; sourceTree = "<group>"; };
 		503042321AE7BF0D00CA5B9B /* ColourManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourManager.m; sourceTree = "<group>"; };
-		503042331AE7BF0D00CA5B9B /* EnvironmentManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EnvironmentManager.h; sourceTree = "<group>"; };
-		503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EnvironmentManager.m; sourceTree = "<group>"; };
 		503042351AE7BF0D00CA5B9B /* FeedbackBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackBubble.h; sourceTree = "<group>"; };
 		503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackBubble.m; sourceTree = "<group>"; };
 		503042371AE7BF0D00CA5B9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
@@ -182,15 +179,6 @@
 				503042321AE7BF0D00CA5B9B /* ColourManager.m */,
 			);
 			name = ColourManager;
-			sourceTree = "<group>";
-		};
-		503042811AE7C1AE00CA5B9B /* EnvironmentManager */ = {
-			isa = PBXGroup;
-			children = (
-				503042331AE7BF0D00CA5B9B /* EnvironmentManager.h */,
-				503042341AE7BF0D00CA5B9B /* EnvironmentManager.m */,
-			);
-			name = EnvironmentManager;
 			sourceTree = "<group>";
 		};
 		503042821AE7C1B400CA5B9B /* FeedbackBubble */ = {
@@ -324,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				503042801AE7C1A900CA5B9B /* ColourManager */,
-				503042811AE7C1AE00CA5B9B /* EnvironmentManager */,
 				503042861AE7C1CE00CA5B9B /* ImageManager */,
 				5030428E1AE7C1FE00CA5B9B /* TimeManager */,
 				504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */,
@@ -520,6 +507,7 @@
 				TargetAttributes = {
 					503042051AE7BECA00CA5B9B = {
 						CreatedOnToolsVersion = 6.3;
+						DevelopmentTeam = GGEF6W7K94;
 					};
 				};
 			};
@@ -605,7 +593,6 @@
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				504C93B81B284A4600511C5B /* FormField.m in Sources */,
 				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,
-				503042591AE7BF0D00CA5B9B /* EnvironmentManager.m in Sources */,
 				504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */,
 				5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */,
 				5030426A1AE7BF0D00CA5B9B /* Reachability.m in Sources */,
