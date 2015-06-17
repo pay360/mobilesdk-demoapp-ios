@@ -85,11 +85,6 @@
     [self.formFieldsAnimationManager hideFeedbackBubble];
 }
 
--(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateTimeout:(NSString *)timeout {
-    self.form.timeout = timeout;
-    [self.formFieldsAnimationManager hideFeedbackBubble];
-}
-
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager textFieldDidEndEditing:(FormField *)textField {
     
     NSError *error;
@@ -105,12 +100,6 @@
     } else if ((self.textFields[TEXT_FIELD_TYPE_CVV] == textField)) {
         type = TEXT_FIELD_TYPE_CVV;
         error = [PPOValidator validateCardCVV:textField.text];
-    } else if ((self.textFields[TEXT_FIELD_TYPE_TIMEOUT] == textField)) {
-        type = TEXT_FIELD_TYPE_TIMEOUT;
-    }
-    
-    if (type == TEXT_FIELD_TYPE_TIMEOUT) {
-        return;
     }
     
     if (textField.text.length == 0) {

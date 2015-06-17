@@ -12,9 +12,7 @@
 
 @interface PaymentEntryFieldsManager ()
 @property (nonatomic, strong) UIPickerView *expiryDatePickerView;
-@property (nonatomic, strong) UIPickerView *timeoutPickerView;
 @property (nonatomic, strong) NSArray *expiryDatePickerViewSelections;
-@property (nonatomic, strong) NSArray *timeoutPickerViewSelections;
 @property (nonatomic, strong) NSString *previousTextFieldContent;
 @property (nonatomic, strong) UITextRange *previousSelection;
 @property (nonatomic, strong) TimeManager *timeController;
@@ -132,17 +130,6 @@
     return _expiryDatePickerViewSelections;
 }
 
--(NSArray *)timeoutPickerViewSelections {
-    if (_timeoutPickerViewSelections == nil) {
-        NSMutableArray *collector = [@[] mutableCopy];
-        for (NSUInteger i = 60; i>0; i--) {
-            [collector addObject:@(i)];
-        }
-        _timeoutPickerViewSelections = [collector copy];
-    }
-    return _timeoutPickerViewSelections;
-}
-
 -(UIPickerView *)expiryDatePickerView {
     if (_expiryDatePickerView == nil) {
         _expiryDatePickerView = [[UIPickerView alloc] init];
@@ -151,16 +138,6 @@
         _expiryDatePickerView.dataSource = self;
     }
     return _expiryDatePickerView;
-}
-
--(UIPickerView *)timeoutPickerView {
-    if (_timeoutPickerView == nil) {
-        _timeoutPickerView = [[UIPickerView alloc] init];
-        _timeoutPickerView.showsSelectionIndicator = YES;
-        _timeoutPickerView.delegate = self;
-        _timeoutPickerView.dataSource = self;
-    }
-    return _timeoutPickerView;
 }
 
 #pragma mark - UITextField Four Digit Spacing
@@ -302,17 +279,6 @@ replacementString:(NSString *)string
         }
             break;
             
-        case TEXT_FIELD_TYPE_TIMEOUT: {
-            textField.inputView = self.timeoutPickerView;
-            NSInteger selected = [self.timeoutPickerView selectedRowInComponent:0];
-            if (selected >= 0 && selected < self.timeoutPickerViewSelections.count) {
-                NSNumber *selection = self.timeoutPickerViewSelections[selected];
-                textField.text = selection.stringValue;
-                [self.delegate paymentEntryFieldsManager:self didUpdateTimeout:selection.stringValue];
-            }
-        }
-            break;
-            
         default:
             break;
     }
@@ -333,9 +299,6 @@ replacementString:(NSString *)string
         case TEXT_FIELD_TYPE_CVV:
             [self.delegate paymentEntryFieldsManager:self didUpdateCVV:nil];
             break;
-        case TEXT_FIELD_TYPE_TIMEOUT:
-            [self.delegate paymentEntryFieldsManager:self didUpdateTimeout:nil];
-            break;
     }
     
     return YES;
@@ -351,12 +314,6 @@ replacementString:(NSString *)string
             break;
         case TEXT_FIELD_TYPE_EXPIRY:
             nextTextField = self.textFields[TEXT_FIELD_TYPE_CVV];
-            break;
-        case TEXT_FIELD_TYPE_CVV:
-            nextTextField = self.textFields[TEXT_FIELD_TYPE_TIMEOUT];
-            break;
-        case TEXT_FIELD_TYPE_TIMEOUT:
-            [textField resignFirstResponder];
             break;
     }
     
@@ -378,35 +335,17 @@ replacementString:(NSString *)string
 }
 
 -(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    
-    if (pickerView == self.expiryDatePickerView) {
-        return self.expiryDatePickerViewSelections.count;
-    } else {
-        return self.timeoutPickerViewSelections.count;
-    }
+    return self.expiryDatePickerViewSelections.count;
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
-    id selection;
+    id selection = self.expiryDatePickerViewSelections[row];
     
-    if (pickerView == self.expiryDatePickerView) {
-        
-        selection = self.expiryDatePickerViewSelections[row];
-        
-        if ([selection isKindOfClass:[NSDate class]]) {
-            return [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
-        } else if ([selection isKindOfClass:[NSNull class]]) {
-            return @"--/--";
-        }
-        
-    } else {
-        
-        selection = self.timeoutPickerViewSelections[row];
-        
-        if ([selection isKindOfClass:[NSNumber class]]) {
-            return ((NSNumber*)selection).stringValue;
-        }
+    if ([selection isKindOfClass:[NSDate class]]) {
+        return [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
+    } else if ([selection isKindOfClass:[NSNull class]]) {
+        return @"--/--";
     }
     
     return nil;
@@ -416,28 +355,15 @@ replacementString:(NSString *)string
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    FormField *textField;
-    
-    id selection;
-    
-    if (pickerView == self.expiryDatePickerView) {
-        textField = self.textFields[TEXT_FIELD_TYPE_EXPIRY];
-        selection = self.expiryDatePickerViewSelections[row];
-        if ([selection isKindOfClass:[NSNull class]]) {
-            textField.text = nil;
-            [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:nil];
-        } else if ([selection isKindOfClass:[NSDate class]]) {
-            NSString *dateString = [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
-            textField.text = dateString;
-            [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:dateString];
-        }
-    } else {
-        textField = self.textFields[TEXT_FIELD_TYPE_TIMEOUT];
-        selection = self.timeoutPickerViewSelections[row];
-        if ([selection isKindOfClass:[NSNumber class]]) {
-            textField.text = ((NSNumber*)selection).stringValue;
-            [self.delegate paymentEntryFieldsManager:self didUpdateTimeout:((NSNumber*)selection).stringValue];
-        }
+    FormField *textField = self.textFields[TEXT_FIELD_TYPE_EXPIRY];
+    id selection = self.expiryDatePickerViewSelections[row];
+    if ([selection isKindOfClass:[NSNull class]]) {
+        textField.text = nil;
+        [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:nil];
+    } else if ([selection isKindOfClass:[NSDate class]]) {
+        NSString *dateString = [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
+        textField.text = dateString;
+        [self.delegate paymentEntryFieldsManager:self didUpdateExpiryDate:dateString];
     }
 }
 

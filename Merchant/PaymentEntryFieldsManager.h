@@ -11,8 +11,7 @@
 typedef enum : NSUInteger {
     TEXT_FIELD_TYPE_CARD_NUMBER,
     TEXT_FIELD_TYPE_EXPIRY,
-    TEXT_FIELD_TYPE_CVV,
-    TEXT_FIELD_TYPE_TIMEOUT
+    TEXT_FIELD_TYPE_CVV
 } TEXT_FIELD_TYPE;
 
 @class PaymentEntryFieldsManager;
@@ -20,7 +19,6 @@ typedef enum : NSUInteger {
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateCardNumber:(NSString*)cardNumber;
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateExpiryDate:(NSString*)expiryDate;
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateCVV:(NSString*)cvv;
--(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager didUpdateTimeout:(NSString*)timeout;
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager*)manager textFieldDidEndEditing:(FormField*)textField;
 @end
 

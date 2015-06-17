@@ -24,7 +24,6 @@
             <string>FoundryContext-Regular</string>
             <string>FoundryContext-Regular</string>
             <string>FoundryContext-Regular</string>
-            <string>FoundryContext-Regular</string>
         </mutableArray>
         <mutableArray key="FontAwesome.otf">
             <string>FontAwesome</string>
@@ -118,44 +117,25 @@
                                             <action selector="textFieldEditingChanged:forEvent:" destination="Hvy-su-ZqX" eventType="editingChanged" id="Kgi-9o-CRH"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timeout" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h2g-59-cH2" userLabel="Timeout">
-                                        <rect key="frame" x="356" y="92" width="62.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="ZGR-Ar-GUT" userLabel="Timeout TextField" customClass="FormField">
-                                        <rect key="frame" x="356" y="121" width="122" height="44"/>
-                                        <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="fWw-0D-Zu5" firstAttribute="top" secondItem="dIc-fc-liF" secondAttribute="bottom" constant="20" id="1ac-l6-1UB"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="leading" secondItem="g16-bF-lby" secondAttribute="trailing" constant="8" id="7Zi-ey-vZG"/>
-                                    <constraint firstItem="g16-bF-lby" firstAttribute="width" secondItem="ZGR-Ar-GUT" secondAttribute="width" multiplier="1.4" id="9iH-xc-YNi"/>
                                     <constraint firstItem="dIc-fc-liF" firstAttribute="leading" secondItem="stx-RV-E4F" secondAttribute="leading" id="ATW-7j-nJb"/>
                                     <constraint firstAttribute="trailing" secondItem="dIc-fc-liF" secondAttribute="trailing" id="Etz-Bl-L8p"/>
-                                    <constraint firstItem="g16-bF-lby" firstAttribute="height" secondItem="ZGR-Ar-GUT" secondAttribute="height" id="KCm-ME-Zxl"/>
                                     <constraint firstAttribute="bottom" secondItem="g16-bF-lby" secondAttribute="bottom" id="NQK-vM-SrG"/>
                                     <constraint firstItem="dIc-fc-liF" firstAttribute="top" secondItem="Xnc-dm-aZD" secondAttribute="bottom" constant="8" id="O34-p0-ieI"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="width" secondItem="g16-bF-lby" secondAttribute="width" id="VPd-Dn-WHb"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="leading" secondItem="Jfd-IT-Zbp" secondAttribute="leading" id="WIS-GT-MjC"/>
-                                    <constraint firstItem="403-0q-WCq" firstAttribute="top" secondItem="ZGR-Ar-GUT" secondAttribute="top" id="XPP-Ng-E8o"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="height" secondItem="g16-bF-lby" secondAttribute="height" id="Y4u-bO-C1z"/>
                                     <constraint firstItem="g16-bF-lby" firstAttribute="width" secondItem="dIc-fc-liF" secondAttribute="width" multiplier="0.3" id="d9l-db-90i"/>
-                                    <constraint firstItem="ZGR-Ar-GUT" firstAttribute="top" secondItem="h2g-59-cH2" secondAttribute="bottom" constant="8" id="dpo-Dd-aKd"/>
                                     <constraint firstItem="Xnc-dm-aZD" firstAttribute="top" secondItem="stx-RV-E4F" secondAttribute="top" id="dsL-Ud-FaV"/>
                                     <constraint firstItem="g16-bF-lby" firstAttribute="leading" secondItem="stx-RV-E4F" secondAttribute="leading" id="ffr-kd-sOl"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="top" secondItem="Jfd-IT-Zbp" secondAttribute="bottom" constant="8" id="h2R-cl-vEE"/>
                                     <constraint firstItem="403-0q-WCq" firstAttribute="bottom" secondItem="g16-bF-lby" secondAttribute="bottom" id="kCp-J8-p8H"/>
                                     <constraint firstItem="fWw-0D-Zu5" firstAttribute="leading" secondItem="stx-RV-E4F" secondAttribute="leading" id="oUV-U9-o9f"/>
                                     <constraint firstItem="g16-bF-lby" firstAttribute="top" secondItem="fWw-0D-Zu5" secondAttribute="bottom" constant="8" id="pDf-pt-iPt"/>
-                                    <constraint firstItem="ZGR-Ar-GUT" firstAttribute="leading" secondItem="h2g-59-cH2" secondAttribute="leading" id="qDU-iC-GgF"/>
-                                    <constraint firstItem="ZGR-Ar-GUT" firstAttribute="leading" secondItem="403-0q-WCq" secondAttribute="trailing" constant="8" id="r7f-Lh-h8y"/>
                                     <constraint firstItem="Xnc-dm-aZD" firstAttribute="leading" secondItem="stx-RV-E4F" secondAttribute="leading" id="zSO-h6-Teu"/>
                                 </constraints>
                             </view>
@@ -261,7 +241,6 @@
                         <outletCollection property="textFields" destination="dIc-fc-liF" id="HE7-Ao-yVt"/>
                         <outletCollection property="textFields" destination="g16-bF-lby" id="JDD-OP-uYh"/>
                         <outletCollection property="textFields" destination="403-0q-WCq" id="0S0-vp-OCI"/>
-                        <outletCollection property="textFields" destination="ZGR-Ar-GUT" id="iqd-EN-ZZN"/>
                         <segue destination="hPe-sB-buh" kind="show" identifier="OutcomeViewControllerSegueID" id="t7Q-sA-en6"/>
                     </connections>
                 </viewController>
