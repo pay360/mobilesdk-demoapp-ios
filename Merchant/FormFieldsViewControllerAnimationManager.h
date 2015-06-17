@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface FormFieldsViewControllerAnimationManager : NSObject
-@property (nonatomic, weak) UIImageView *paypointLogoImageView;
+@property (nonatomic, weak) UIImageView *formPaypointLogoImageView;
+@property (nonatomic, weak) UIImageView *loadingPaypointLogoImageView;
 @property (nonatomic, weak) UIView *rootView;
 
 -(void)showFeedbackBubbleWithText:(NSString*)text withCompletion:(void(^)(void))completion;

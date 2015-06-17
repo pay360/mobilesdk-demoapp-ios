@@ -376,7 +376,8 @@
         _paymentFormAnimationManager.rootView = self.view;
         _paymentFormAnimationManager.loadingView = self.loadingView;
         _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
-        _paymentFormAnimationManager.paypointLogoImageView = self.paypointLogoImageView;
+        _paymentFormAnimationManager.formPaypointLogoImageView = self.formPaypointLogo;
+        _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPaypointLogoImageView;
     }
     return _paymentFormAnimationManager;
 }

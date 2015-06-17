@@ -37,13 +37,15 @@
     
     self.loadingView.hidden = NO;
     
+    self.loadingPaypointLogoImageView.alpha = 1;
+    
     __weak typeof(self) weakSelf = self;
     
     [UIView animateWithDuration:duration/6 delay:0 options:UIViewAnimationOptionCurveLinear animations:^{
         
-        weakSelf.loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.4];
+        weakSelf.loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6];
         
-        weakSelf.paypointLogoImageView.transform = CGAffineTransformMakeScale(1.9, 1.9);
+        weakSelf.loadingPaypointLogoImageView.transform = CGAffineTransformMakeScale(1.3, 1.3);
         
     } completion:^(BOOL finished) {
         
@@ -60,11 +62,11 @@
         [UIView animateKeyframesWithDuration:duration/2 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
             
             [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.5 animations:^{
-                strongSelf.paypointLogoImageView.transform = CGAffineTransformMakeScale(2.2, 2.2);
+                strongSelf.loadingPaypointLogoImageView.transform = CGAffineTransformMakeScale(1.6, 1.6);
             }];
             
             [UIView addKeyframeWithRelativeStartTime:0.5 relativeDuration:0.5 animations:^{
-                strongSelf.paypointLogoImageView.transform = CGAffineTransformMakeScale(1.9, 1.9);
+                strongSelf.loadingPaypointLogoImageView.transform = CGAffineTransformMakeScale(1.3, 1.3);
             }];
             
         } completion:nil];
@@ -90,19 +92,20 @@
         
         self.animationState = LOADING_ANIMATION_STATE_ENDING;
         
-        [self.paypointLogoImageView.layer removeAllAnimations];
+        [self.loadingPaypointLogoImageView.layer removeAllAnimations];
         
-        CALayer *currentLayer = self.paypointLogoImageView.layer.presentationLayer;
+        CALayer *currentLayer = self.loadingPaypointLogoImageView.layer.presentationLayer;
         
-        self.paypointLogoImageView.layer.transform = currentLayer.transform;
+        self.loadingPaypointLogoImageView.layer.transform = currentLayer.transform;
         
         __weak typeof(self) weakSelf = self;
         
         [UIView animateWithDuration:.6 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             
+            weakSelf.loadingPaypointLogoImageView.alpha = 0;
             weakSelf.loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
             weakSelf.loadingMessageLabel.alpha = 0;
-            weakSelf.paypointLogoImageView.transform = CGAffineTransformIdentity;
+            weakSelf.loadingPaypointLogoImageView.transform = CGAffineTransformIdentity;
             
         } completion:^(BOOL finished) {
             

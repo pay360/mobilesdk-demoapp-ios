@@ -9,7 +9,7 @@
 #import "FormFieldsViewControllerAnimationManager.h"
 #import "FeedbackBubble.h"
 
-#define SHIFT_LEFT -6.0f
+#define SHIFT_LEFT -1.0f
 #define SHIFT_RIGHT 300.0
 #define REMOVE_VIEW(view) [view removeFromSuperview], view = nil
 
@@ -70,7 +70,7 @@
     self.feedbackBubbleLeadingEdgeConstraint = [NSLayoutConstraint constraintWithItem:view
                                                                             attribute:NSLayoutAttributeLeading
                                                                             relatedBy:NSLayoutRelationEqual
-                                                                               toItem:self.paypointLogoImageView
+                                                                               toItem:self.formPaypointLogoImageView
                                                                             attribute:NSLayoutAttributeTrailing
                                                                            multiplier:1
                                                                              constant:SHIFT_RIGHT];
@@ -98,10 +98,10 @@
     [collector addObject:[NSLayoutConstraint constraintWithItem:view
                                                       attribute:NSLayoutAttributeCenterY
                                                       relatedBy:NSLayoutRelationEqual
-                                                         toItem:self.paypointLogoImageView
+                                                         toItem:self.formPaypointLogoImageView
                                                       attribute:NSLayoutAttributeCenterY
                                                      multiplier:1
-                                                       constant:-55.0]];
+                                                       constant:-45.0]];
     
     [collector addObjectsFromArray:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[view(==190)]"
                                                                            options:0
