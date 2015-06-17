@@ -43,7 +43,7 @@
 
 /* Begin PBXFileReference section */
 		11DD9E16EE5436A898267B55 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		503042061AE7BECA00CA5B9B /* Merchant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Merchant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		503042061AE7BECA00CA5B9B /* SDK Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDK Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5030420D1AE7BECA00CA5B9B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		503041FD1AE7BEC900CA5B9B = {
 			isa = PBXGroup;
 			children = (
-				5092F37B1AFA52BB004FFF62 /* Targets */,
+				503042081AE7BECA00CA5B9B /* Merchant */,
 				5092F37A1AFA52B0004FFF62 /* LinkedFrameworks */,
 				503042071AE7BECA00CA5B9B /* Products */,
 				1B02B3AF86CC6424DB0C6DB0 /* Frameworks */,
@@ -138,7 +138,7 @@
 		503042071AE7BECA00CA5B9B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				503042061AE7BECA00CA5B9B /* Merchant.app */,
+				503042061AE7BECA00CA5B9B /* SDK Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -457,14 +457,6 @@
 			name = LinkedFrameworks;
 			sourceTree = "<group>";
 		};
-		5092F37B1AFA52BB004FFF62 /* Targets */ = {
-			isa = PBXGroup;
-			children = (
-				503042081AE7BECA00CA5B9B /* Merchant */,
-			);
-			name = Targets;
-			sourceTree = "<group>";
-		};
 		653A396F6693444099A64ACB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,7 +485,7 @@
 			);
 			name = Merchant;
 			productName = Merchant;
-			productReference = 503042061AE7BECA00CA5B9B /* Merchant.app */;
+			productReference = 503042061AE7BECA00CA5B9B /* SDK Demo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -728,7 +720,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SDK Demo";
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -753,7 +745,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LINK_WITH_STANDARD_LIBRARIES = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "SDK Demo";
 				PROVISIONING_PROFILE = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
