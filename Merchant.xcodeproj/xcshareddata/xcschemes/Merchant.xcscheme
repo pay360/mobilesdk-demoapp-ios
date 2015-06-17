@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "503042051AE7BECA00CA5B9B"
-               BuildableName = "Merchant.app"
+               BuildableName = "SDK Demo.app"
                BlueprintName = "Merchant"
                ReferencedContainer = "container:Merchant.xcodeproj">
             </BuildableReference>
@@ -81,7 +81,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "503042051AE7BECA00CA5B9B"
-            BuildableName = "Merchant.app"
+            BuildableName = "SDK Demo.app"
             BlueprintName = "Merchant"
             ReferencedContainer = "container:Merchant.xcodeproj">
          </BuildableReference>
@@ -101,7 +101,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "503042051AE7BECA00CA5B9B"
-            BuildableName = "Merchant.app"
+            BuildableName = "SDK Demo.app"
             BlueprintName = "Merchant"
             ReferencedContainer = "container:Merchant.xcodeproj">
          </BuildableReference>
@@ -120,7 +120,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "503042051AE7BECA00CA5B9B"
-            BuildableName = "Merchant.app"
+            BuildableName = "SDK Demo.app"
             BlueprintName = "Merchant"
             ReferencedContainer = "container:Merchant.xcodeproj">
          </BuildableReference>
