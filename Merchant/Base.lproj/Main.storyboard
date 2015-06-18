@@ -220,9 +220,9 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="ZL7-ca-meC"/>
                                 <exclude reference="N8v-Rt-2a7"/>
                                 <exclude reference="Z0r-d9-Cfq"/>
-                                <exclude reference="ZL7-ca-meC"/>
                             </mask>
                         </variation>
                     </view>
@@ -419,9 +419,15 @@
                             <constraint firstItem="bzD-IG-BM2" firstAttribute="top" secondItem="nBK-M3-bdp" secondAttribute="top" id="DcO-Wy-EiU"/>
                             <constraint firstItem="OCo-RS-oti" firstAttribute="top" secondItem="bzD-IG-BM2" secondAttribute="bottom" id="PYf-ta-Dod"/>
                             <constraint firstAttribute="centerX" secondItem="Sr6-Wy-XeS" secondAttribute="centerX" id="SiD-Mg-LCm"/>
+                            <constraint firstAttribute="centerY" secondItem="Sr6-Wy-XeS" secondAttribute="centerY" id="YdI-iK-SHp"/>
                             <constraint firstItem="bzD-IG-BM2" firstAttribute="leading" secondItem="nBK-M3-bdp" secondAttribute="leading" id="yOp-5H-Jnw"/>
                             <constraint firstAttribute="trailing" secondItem="bzD-IG-BM2" secondAttribute="trailing" id="zvC-AR-Qx5"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="BPG-PG-eOT"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ovh-yy-ZcZ">
                         <barButtonItem key="rightBarButtonItem" title="Demo" id="eEZ-OA-Rec">
