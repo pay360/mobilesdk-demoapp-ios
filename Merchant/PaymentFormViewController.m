@@ -85,7 +85,7 @@
         
         FormDetails *formDetails = self.form;
         
-        self.currentPayment.card = [PPOCreditCard new];
+        self.currentPayment.card = [PPOCard new];
         self.currentPayment.card.pan = formDetails.cardNumber;
         self.currentPayment.card.cvv = formDetails.cvv;
         self.currentPayment.card.expiry = formDetails.expiry;
