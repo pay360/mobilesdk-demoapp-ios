@@ -16,7 +16,7 @@
     __block NSString *token;
     __block PPOCredentials *c;
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://developer.paypoint.com/payments/explore/rest/mockmobilemerchant/getToken/%@", INSTALLATION_ID]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://developer.paypoint.com/payments/explore/rest/mockmobilemerchant/getToken/%@", [MerchantServer installationID]]];
     
     NSLog(@"Getting token at URL: %@", url);
     
@@ -42,7 +42,7 @@
         
         if (token.length > 0) {
             c = [PPOCredentials new];
-            c.installationID = INSTALLATION_ID;
+            c.installationID = [MerchantServer installationID];
             c.token = token;
         }
         
@@ -52,6 +52,17 @@
     
     [task resume];
     
+}
+
++(NSString*)installationID {
+    
+    id value = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"InstallationID"];
+    
+    if (value && [value isKindOfClass:[NSString class]]) {
+        return value;
+    }
+    
+    return nil;
 }
 
 @end
