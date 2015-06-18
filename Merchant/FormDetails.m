@@ -12,13 +12,6 @@
 
 @implementation FormDetails
 
--(NSString *)timeout {
-    if (_timeout == nil) {
-        _timeout = @"60";
-    }
-    return _timeout;
-}
-
 -(BOOL)isComplete {
     
     NSError *error = [PPOValidator validateCardPan:self.cardNumber];
