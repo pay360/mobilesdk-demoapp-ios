@@ -12,10 +12,9 @@
 /*
  * The UI logic for the payment form has been pushed up into this superclass, away
  * from 'PaymentFormViewController'. Mainly so that it does not clutter the payment
- * logic. Hopefully this makes the code easier read.
+ * logic, which we would like to be the main focus on this demo. 
  */
 @interface FormFieldsViewController : UIViewController
 @property (strong, nonatomic) IBOutletCollection(FormField) NSArray *textFields;
 @property (nonatomic, strong) FormDetails *form;
-@property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
 @end
