@@ -69,7 +69,7 @@
     [self.view endEditing:YES];
     
     /*
-     * Nothing will happen if this button is pressed, and the animation is still underway.
+     * Nothing will happen if this button is pressed and the animation is still underway.
      * It should be impossible to press the button when the animation is in progress, because a view is placed on top of the button, which blocks gestures.
     */
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
@@ -83,6 +83,12 @@
         
     } else if (self.animationManager.animationState == LOADING_ANIMATION_STATE_ENDED) {
         
+        /*!
+         * The 'form' model object represents the data acquired by each FormField.h
+         * in our payment form. We utilise the PaypointSDK to perform inline validation.
+         * This is handled in our implementation of the PaymentEntryFieldsManager protocol, which can
+         * be found in our superclass.
+         */
         FormDetails *formDetails = self.form;
         
         self.currentPayment.card = [PPOCard new];
@@ -91,51 +97,58 @@
         self.currentPayment.card.expiry = formDetails.expiry;
         self.currentPayment.card.cardHolderName = @"Dai Jones";
         
-        [self makePayment:self.currentPayment];
+        NSError *invalid = [PPOValidator validatePayment:self.currentPayment];
+        
+        if (invalid) {
+            PPOOutcome *outcome = [PPOOutcome new];
+            outcome.error = invalid;
+            outcome.payment = self.currentPayment;
+            
+            [self handleLocalValidationOutcome:outcome];
+        } else {
+            [self.animationManager hideFeedbackBubble];
+            [self.animationManager beginLoadingAnimation];
+            
+            __weak typeof(self) weakSelf = self;
+            
+            [self fetchTokenForPayment:self.currentPayment withCompletion:^(NSError *error) {
+                
+                if (error) {
+                    [weakSelf handleErrorGeneratedByMerchantDemoApp:error];
+                } else {
+                    if (self.currentPayment.credentials) {
+                        [self makePayment:self.currentPayment];
+                    }
+                }
+            }];
+        }
 
     }
         
 }
 
--(void)makePayment:(PPOPayment*)payment {
-    
-    /*
-     *Payments require credentials.
-     *Optional validation can be performed here, before we begin this process.
-     */
-    NSError *invalid = [PPOValidator validatePayment:payment];
-    
-    if (invalid) {
-        PPOOutcome *outcome = [PPOOutcome new];
-        outcome.error = invalid;
-        outcome.payment = payment;
-        
-        [self handleOutcomeGeneratedByPaymentsSDK:outcome];
-        return;
-    }
-    
-    [self.animationManager hideFeedbackBubble];
-    [self.animationManager beginLoadingAnimation];
-    
-    __weak typeof (self) weakSelf = self;
+-(void)fetchTokenForPayment:(PPOPayment*)payment withCompletion:(void(^)(NSError *error))completion {
     
     [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
         
-        if (retrievalError) {
-            [weakSelf handleErrorGeneratedByMerchantDemoApp:retrievalError];
-            return;
-        }
+        NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
         
         payment.credentials = credentials;
         
-        /*
-         *The PaypointSDK performs paramater validation before any network request is made.
-         */
-        [weakSelf.paymentManager makePayment:payment
-                                 withTimeOut:self.form.timeout.doubleValue
-                              withCompletion:[weakSelf paymentCompletionHandler]];
+        completion(retrievalError);
         
     }];
+    
+}
+
+-(void)makePayment:(PPOPayment*)payment {
+    
+    /*
+     *The PaypointSDK performs paramater validation before any network request is made.
+     */
+    [self.paymentManager makePayment:payment
+                         withTimeOut:60.0f
+                      withCompletion:[self paymentCompletionHandler]];
     
 }
 
@@ -169,7 +182,9 @@
 }
 
 -(void(^)(PPOOutcome *outcome))paymentCompletionHandler {
+    
     __weak typeof (self) weakSelf = self;
+    
     return ^ (PPOOutcome *outcome) {
         if (outcome.error) {
             [weakSelf handleOutcomeGeneratedByPaymentsSDK:outcome];
@@ -286,13 +301,6 @@
     
 }
 
--(void)queryPaymentAction {
-    
-    [self.paymentManager queryPayment:self.currentPayment
-                       withCompletion:[self paymentCompletionHandler]];
-    
-}
-
 -(void)askUserRetryPayment:(PPOPayment*)payment {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed"
@@ -367,26 +375,20 @@
         switch (alertView.tag) {
                 
             case UI_ALERT_CHECK_STATUS:
-                [self queryPaymentAction];
+                [self.paymentManager queryPayment:self.currentPayment
+                                   withCompletion:[self paymentCompletionHandler]];
                 break;
                 
-            case UI_ALERT_TRY_AGAIN:
-                [self reattemptPayment:self.currentPayment];
+            case UI_ALERT_TRY_AGAIN: {
+                [self.animationManager hideFeedbackBubble];
+                [self makePayment:self.currentPayment];
+            }
                 break;
                 
             default:
                 break;
         }
     }
-    
-}
-
--(void)reattemptPayment:(PPOPayment*)payment {
-    
-    [self.animationManager hideFeedbackBubble];
-    [self.paymentManager makePayment:payment
-                         withTimeOut:self.form.timeout.doubleValue
-                      withCompletion:[self paymentCompletionHandler]];
     
 }
 
