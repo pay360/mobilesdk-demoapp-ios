@@ -102,7 +102,6 @@
             
             [self handleLocalValidationOutcome:outcome];
         } else {
-#warning hide dialogue
             [self.paymentFormAnimationManager beginLoadingAnimation];
             
             __weak typeof(self) weakSelf = self;
@@ -265,15 +264,15 @@
             
         default: {
             
-#warning show dialogue
-            
-            //[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
-            
-            /*
-             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
-             [weakSelf askUserRetryPayment:outcome.payment];
-             }
-             */
+            __weak typeof(self) weakSelf = self;
+            [self showDialogueWithTitle:@"Error"
+                               withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                               animated:YES
+                         withCompletion:^{
+                             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+                                 [weakSelf askUserRetryPayment:outcome.payment];
+                             }
+                         }];
             
         }
             break;

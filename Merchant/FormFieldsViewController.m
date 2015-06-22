@@ -45,15 +45,13 @@
             break;
             
         case TEXT_FIELD_TYPE_AMOUNT:
-            self.form.amount = @(sender.text.doubleValue);
+            self.form.amount = (sender.text.length) ? @(sender.text.doubleValue) : nil;
             break;
             
         default:
             break;
     }
-    
-#warning hide dialogue
-    
+
 }
 
 #pragma mark - Actions
@@ -66,22 +64,18 @@
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
     self.form.cardNumber = cardNumber;
-#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
     self.form.cvv = cvv;
-#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
     self.form.expiry = expiryDate;
-#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateAmount:(NSNumber *)amount {
     self.form.amount = amount;
-#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager textFieldDidEndEditing:(FormField *)textField {
