@@ -31,8 +31,6 @@
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
 @property (weak, nonatomic) IBOutlet PaymentFormTableView *tableView;
 @property (nonatomic, strong) FormDetails *form;
-//@property (nonatomic, strong) NSString *previousTextFieldContent;
-//@property (nonatomic, strong) UITextRange *previousSelection;
 @end
 
 @implementation PaymentFormViewController
@@ -69,7 +67,39 @@
     [super viewDidLoad];
     
     self.title = @"Details";
+}
+
+-(void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillHide:)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+}
+
+-(void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)keyboardDidShow:(NSNotification *)notif {
+    CGSize keyboardSize = [notif.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    [self updateTableViewInsets:keyboardSize.height];
+}
+
+- (void)keyboardWillHide:(NSNotification *)notif {
+    [self updateTableViewInsets:0];
+}
+
+-(void)updateTableViewInsets:(CGFloat)height {
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, height, 0.0);
+    self.tableView.contentInset = contentInsets;
+    self.tableView.scrollIndicatorInsets = contentInsets;
 }
 
 #pragma mark - PaymentFormViewControllerAnimationManager
@@ -559,15 +589,6 @@
 }
 
 #pragma mark - UITextField
-
-//-(BOOL)textField:(FormField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-//    // Note textField's current state before performing the change, in case
-//    // reformatTextField wants to revert it
-//    self.previousTextFieldContent = textField.text;
-//    self.previousSelection = textField.selectedTextRange;
-//    
-//    return YES;
-//}
 
 -(BOOL)textFieldShouldClear:(PaymentFormField *)textField {
     textField.text = nil;
