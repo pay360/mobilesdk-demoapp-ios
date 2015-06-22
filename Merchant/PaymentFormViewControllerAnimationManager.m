@@ -124,4 +124,14 @@
     
 }
 
++(CAKeyframeAnimation*)shakeAnimation {
+    CAKeyframeAnimation *animation = [CAKeyframeAnimation animationWithKeyPath:@"transform"];
+    animation.values = @[[NSValue valueWithCATransform3D:CATransform3DMakeTranslation(-10.0, 0.0, 0.0)],
+                         [NSValue valueWithCATransform3D:CATransform3DMakeTranslation(10.0, 0.0, 0.0)]];
+    animation.autoreverses = YES;
+    animation.repeatCount = 2;
+    animation.duration = 0.07;
+    return animation;
+}
+
 @end

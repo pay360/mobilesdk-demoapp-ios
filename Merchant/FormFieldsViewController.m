@@ -8,14 +8,12 @@
 
 #import "FormFieldsViewController.h"
 #import "ColourManager.h"
-#import "FormFieldsViewControllerAnimationManager.h"
 
 #import <PayPointPayments/PPOValidator.h>
 
 @interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
 @property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
 @property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
-@property (nonatomic, strong) FormFieldsViewControllerAnimationManager *formFieldsAnimationManager;
 @end
 
 @implementation FormFieldsViewController
@@ -24,9 +22,6 @@
     [super viewDidLoad];
     
     self.form = [FormDetails new];
-    
-    self.formFieldsAnimationManager = [FormFieldsViewControllerAnimationManager new];
-    self.formFieldsAnimationManager.rootView = self.view;
     
     //This is the delegate of each text field.
     self.fieldsManager = [PaymentEntryFieldsManager new];
@@ -64,7 +59,7 @@
             break;
     }
     
-    [self.formFieldsAnimationManager hideFeedbackBubble];
+#warning hide dialogue
     
 }
 
@@ -78,22 +73,22 @@
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCardNumber:(NSString *)cardNumber {
     self.form.cardNumber = cardNumber;
-    [self.formFieldsAnimationManager hideFeedbackBubble];
+#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateCVV:(NSString *)cvv {
     self.form.cvv = cvv;
-    [self.formFieldsAnimationManager hideFeedbackBubble];
+#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
     self.form.expiry = expiryDate;
-    [self.formFieldsAnimationManager hideFeedbackBubble];
+#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateAmount:(NSNumber *)amount {
     self.form.amount = amount;
-    [self.formFieldsAnimationManager hideFeedbackBubble];
+#warning hide dialogue
 }
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager textFieldDidEndEditing:(FormField *)textField {

@@ -11,7 +11,6 @@
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
 		503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042321AE7BF0D00CA5B9B /* ColourManager.m */; };
-		5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */; };
 		5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042371AE7BF0D00CA5B9B /* FontAwesome.otf */; };
 		5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042391AE7BF0D00CA5B9B /* FormDetails.m */; };
 		503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */; };
@@ -21,7 +20,6 @@
 		503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */; };
 		503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */; };
 		5030426A1AE7BF0D00CA5B9B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424E1AE7BF0D00CA5B9B /* Reachability.m */; };
-		5030426B1AE7BF0D00CA5B9B /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042501AE7BF0D00CA5B9B /* StyleKit.m */; };
 		5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042521AE7BF0D00CA5B9B /* PaymentFormViewController.m */; };
 		5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042541AE7BF0D00CA5B9B /* TimeManager.m */; };
 		5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */; };
@@ -31,7 +29,6 @@
 		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
 		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
-		504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */; };
 		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
 		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
 		5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D21AE7ED8D00D41911 /* UIKit.framework */; };
@@ -51,8 +48,6 @@
 		503042191AE7BECA00CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		503042311AE7BF0D00CA5B9B /* ColourManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColourManager.h; sourceTree = "<group>"; };
 		503042321AE7BF0D00CA5B9B /* ColourManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColourManager.m; sourceTree = "<group>"; };
-		503042351AE7BF0D00CA5B9B /* FeedbackBubble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeedbackBubble.h; sourceTree = "<group>"; };
-		503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedbackBubble.m; sourceTree = "<group>"; };
 		503042371AE7BF0D00CA5B9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		503042381AE7BF0D00CA5B9B /* FormDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormDetails.h; sourceTree = "<group>"; };
 		503042391AE7BF0D00CA5B9B /* FormDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormDetails.m; sourceTree = "<group>"; };
@@ -69,8 +64,6 @@
 		5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutcomeViewController.m; sourceTree = "<group>"; };
 		5030424D1AE7BF0D00CA5B9B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		5030424E1AE7BF0D00CA5B9B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		5030424F1AE7BF0D00CA5B9B /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
-		503042501AE7BF0D00CA5B9B /* StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKit.m; sourceTree = "<group>"; };
 		503042511AE7BF0D00CA5B9B /* PaymentFormViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormViewController.h; sourceTree = "<group>"; };
 		503042521AE7BF0D00CA5B9B /* PaymentFormViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormViewController.m; sourceTree = "<group>"; };
 		503042531AE7BF0D00CA5B9B /* TimeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeManager.h; sourceTree = "<group>"; };
@@ -88,8 +81,6 @@
 		504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewController.m; sourceTree = "<group>"; };
 		504DD85A1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormViewControllerAnimationManager.h; sourceTree = "<group>"; };
 		504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormViewControllerAnimationManager.m; sourceTree = "<group>"; };
-		504DD85E1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFieldsViewControllerAnimationManager.h; sourceTree = "<group>"; };
-		504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewControllerAnimationManager.m; sourceTree = "<group>"; };
 		5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5081F3D21AE7ED8D00D41911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -154,7 +145,6 @@
 				503042941AE7C23900CA5B9B /* ViewControllers */,
 				503042961AE7C25000CA5B9B /* Networking */,
 				503042951AE7C24200CA5B9B /* UIKitExtensions */,
-				5030428C1AE7C1F200CA5B9B /* StyleKit */,
 				503042091AE7BECA00CA5B9B /* Supporting Files */,
 			);
 			path = Merchant;
@@ -179,15 +169,6 @@
 				503042321AE7BF0D00CA5B9B /* ColourManager.m */,
 			);
 			name = ColourManager;
-			sourceTree = "<group>";
-		};
-		503042821AE7C1B400CA5B9B /* FeedbackBubble */ = {
-			isa = PBXGroup;
-			children = (
-				503042351AE7BF0D00CA5B9B /* FeedbackBubble.h */,
-				503042361AE7BF0D00CA5B9B /* FeedbackBubble.m */,
-			);
-			name = FeedbackBubble;
 			sourceTree = "<group>";
 		};
 		503042831AE7C1BC00CA5B9B /* Fonts */ = {
@@ -263,15 +244,6 @@
 			name = Reachability;
 			sourceTree = "<group>";
 		};
-		5030428C1AE7C1F200CA5B9B /* StyleKit */ = {
-			isa = PBXGroup;
-			children = (
-				5030424F1AE7BF0D00CA5B9B /* StyleKit.h */,
-				503042501AE7BF0D00CA5B9B /* StyleKit.m */,
-			);
-			name = StyleKit;
-			sourceTree = "<group>";
-		};
 		5030428D1AE7C1F700CA5B9B /* PaymentFormViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,7 +296,6 @@
 		503042921AE7C22400CA5B9B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				503042821AE7C1B400CA5B9B /* FeedbackBubble */,
 				504C93B91B284A4C00511C5B /* FormField */,
 			);
 			name = Views;
@@ -411,15 +382,6 @@
 			name = PaymentFormAnimationManager;
 			sourceTree = "<group>";
 		};
-		504DD8611AE949EC000C47B9 /* FormFieldsViewControllerAnimationManager */ = {
-			isa = PBXGroup;
-			children = (
-				504DD85E1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.h */,
-				504DD85F1AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m */,
-			);
-			name = FormFieldsViewControllerAnimationManager;
-			sourceTree = "<group>";
-		};
 		504DD8621AE94BD2000C47B9 /* Form */ = {
 			isa = PBXGroup;
 			children = (
@@ -432,18 +394,9 @@
 		504DD8631AE94C3E000C47B9 /* AnimationManagers */ = {
 			isa = PBXGroup;
 			children = (
-				504DD8641AE94C52000C47B9 /* PaymentForm */,
-			);
-			name = AnimationManagers;
-			sourceTree = "<group>";
-		};
-		504DD8641AE94C52000C47B9 /* PaymentForm */ = {
-			isa = PBXGroup;
-			children = (
-				504DD8611AE949EC000C47B9 /* FormFieldsViewControllerAnimationManager */,
 				504DD85D1AE94790000C47B9 /* PaymentFormAnimationManager */,
 			);
-			name = PaymentForm;
+			name = AnimationManagers;
 			sourceTree = "<group>";
 		};
 		5092F37A1AFA52B0004FFF62 /* LinkedFrameworks */ = {
@@ -576,9 +529,7 @@
 			files = (
 				50D495141B0237CD004AD686 /* AppDelegate.m in Sources */,
 				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
-				5030426B1AE7BF0D00CA5B9B /* StyleKit.m in Sources */,
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
-				5030425A1AE7BF0D00CA5B9B /* FeedbackBubble.m in Sources */,
 				504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */,
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
@@ -591,7 +542,6 @@
 				5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */,
 				5030420C1AE7BECA00CA5B9B /* main.m in Sources */,
 				504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */,
-				504DD8601AE949E9000C47B9 /* FormFieldsViewControllerAnimationManager.m in Sources */,
 				504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */,
 				5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */,
 				503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */,

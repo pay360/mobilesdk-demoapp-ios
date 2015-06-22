@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Paypoint. All rights reserved.
 //
 
-#import "FormFieldsViewControllerAnimationManager.h"
+#import <UIKit/UIKit.h>
 
 typedef enum : NSUInteger {
     LOADING_ANIMATION_STATE_STARTING,
@@ -15,15 +15,18 @@ typedef enum : NSUInteger {
     LOADING_ANIMATION_STATE_ENDED
 } LOADING_ANIMATION_STATE;
 
-@interface PaymentFormViewControllerAnimationManager : FormFieldsViewControllerAnimationManager
+@interface PaymentFormViewControllerAnimationManager : NSObject
 
 @property (nonatomic, readonly) LOADING_ANIMATION_STATE animationState;
+@property (nonatomic, weak) UIView *rootView;
 @property (nonatomic, weak) UIView *loadingView;
 @property (nonatomic, weak) UILabel *loadingMessageLabel;
+@property (nonatomic, weak) UIImageView *loadingPaypointLogoImageView;
 
 -(instancetype)init;
 
 -(void)beginLoadingAnimation;
 -(void)endLoadingAnimationWithCompletion:(void(^)(void))completion;
++(CAKeyframeAnimation*)shakeAnimation;
 
 @end

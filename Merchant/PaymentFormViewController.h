@@ -15,5 +15,4 @@
 @property (weak, nonatomic) IBOutlet UILabel *loadingMessageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *loadingPaypointLogoImageView;
 @property (weak, nonatomic) IBOutlet UIButton *payNowButton;
-@property (weak, nonatomic) IBOutlet UIImageView *formPaypointLogo;
 @end

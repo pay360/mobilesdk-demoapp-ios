@@ -107,8 +107,8 @@
             
             [self handleLocalValidationOutcome:outcome];
         } else {
-            [self.animationManager hideFeedbackBubble];
-            [self.animationManager beginLoadingAnimation];
+#warning hide dialogue
+            [self.paymentFormAnimationManager beginLoadingAnimation];
             
             __weak typeof(self) weakSelf = self;
             
@@ -269,13 +269,15 @@
             break;
             
         default: {
-            __weak typeof(self) weakSelf = self;
-            [self.animationManager showFeedbackBubbleWithText:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
-                                               withCompletion:^{
-                                                   if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
-                                                       [weakSelf askUserRetryPayment:outcome.payment];
-                                                   }
-                                               }];
+#warning show dialogue
+            //[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+            
+            /*
+             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+             [weakSelf askUserRetryPayment:outcome.payment];
+             }
+             */
+            
         }
             break;
     }
@@ -283,9 +285,11 @@
 }
 
 -(void)handleLocalValidationOutcome:(PPOOutcome*)outcome {
+
+#warning show dialogue
     
-    [self.animationManager showFeedbackBubbleWithText:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
-                                       withCompletion:[self shakeUIForValidationError:outcome.error]];
+    //[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+    //[self shakeUIForValidationError:outcome.error]
     
 }
 
@@ -335,7 +339,7 @@
         }
         
         if (textField) {
-            [textField.layer addAnimation:[FormFieldsViewControllerAnimationManager shakeAnimation] forKey:@"transform"];
+            [textField.layer addAnimation:[PaymentFormViewControllerAnimationManager shakeAnimation] forKey:@"transform"];
         }
     };
 }
@@ -348,7 +352,6 @@
         _paymentFormAnimationManager.rootView = self.view;
         _paymentFormAnimationManager.loadingView = self.loadingView;
         _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
-        _paymentFormAnimationManager.formPaypointLogoImageView = self.formPaypointLogo;
         _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPaypointLogoImageView;
     }
     return _paymentFormAnimationManager;
@@ -382,7 +385,7 @@
                 break;
                 
             case UI_ALERT_TRY_AGAIN: {
-                [self.animationManager hideFeedbackBubble];
+#warning hide dialogue
                 [self makePayment:self.currentPayment];
             }
                 break;
