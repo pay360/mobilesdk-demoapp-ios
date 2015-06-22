@@ -12,6 +12,13 @@
 
 @implementation FormDetails
 
+-(NSNumber *)amount {
+    if (_amount == nil) {
+        _amount = @(100.0);
+    }
+    return _amount;
+}
+
 -(BOOL)isComplete {
     
     NSError *error = [PPOValidator validateCardPan:self.cardNumber];

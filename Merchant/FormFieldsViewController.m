@@ -56,6 +56,10 @@
             self.form.cvv = sender.text;
             break;
             
+        case TEXT_FIELD_TYPE_AMOUNT:
+            self.form.amount = @(sender.text.doubleValue);
+            break;
+            
         default:
             break;
     }
@@ -84,6 +88,11 @@
 
 -(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateExpiryDate:(NSString *)expiryDate {
     self.form.expiry = expiryDate;
+    [self.formFieldsAnimationManager hideFeedbackBubble];
+}
+
+-(void)paymentEntryFieldsManager:(PaymentEntryFieldsManager *)manager didUpdateAmount:(NSNumber *)amount {
+    self.form.amount = amount;
     [self.formFieldsAnimationManager hideFeedbackBubble];
 }
 

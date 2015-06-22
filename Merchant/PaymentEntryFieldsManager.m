@@ -299,6 +299,9 @@ replacementString:(NSString *)string
         case TEXT_FIELD_TYPE_CVV:
             [self.delegate paymentEntryFieldsManager:self didUpdateCVV:nil];
             break;
+        case TEXT_FIELD_TYPE_AMOUNT:
+            [self.delegate paymentEntryFieldsManager:self didUpdateAmount:nil];
+            break;
     }
     
     return YES;
@@ -314,6 +317,9 @@ replacementString:(NSString *)string
             break;
         case TEXT_FIELD_TYPE_EXPIRY:
             nextTextField = self.textFields[TEXT_FIELD_TYPE_CVV];
+            break;
+        case TEXT_FIELD_TYPE_CVV:
+            nextTextField = self.textFields[TEXT_FIELD_TYPE_AMOUNT];
             break;
     }
     

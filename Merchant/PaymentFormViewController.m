@@ -95,6 +95,7 @@
         self.currentPayment.card.pan = formDetails.cardNumber;
         self.currentPayment.card.cvv = formDetails.cvv;
         self.currentPayment.card.expiry = formDetails.expiry;
+        self.currentPayment.transaction.amount = formDetails.amount;
         self.currentPayment.card.cardHolderName = @"Dai Jones";
         
         NSError *invalid = [PPOValidator validatePayment:self.currentPayment];
@@ -328,6 +329,7 @@
             case PPOLocalValidationErrorCardPanInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
             case PPOLocalValidationErrorCardExpiryDateInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_EXPIRY]; break;
             case PPOLocalValidationErrorCVVInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CVV]; break;
+            case PPOLocalValidationErrorPaymentAmountInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_AMOUNT]; break;
             default:
                 break;
         }
