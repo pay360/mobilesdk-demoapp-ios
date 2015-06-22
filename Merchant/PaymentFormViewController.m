@@ -28,6 +28,7 @@
 typedef enum : NSUInteger {
     TABLE_ROW_CARD_PAN,
     TABLE_ROW_CARD_DETAILS,
+    TABLE_ROW_EMPTYNESS,
     TABLE_ROW_PAYMENT,
 } TABLE_ROW;
 
@@ -200,7 +201,7 @@ typedef enum : NSUInteger {
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return 4;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -215,6 +216,10 @@ typedef enum : NSUInteger {
             return [self dequeeCardDetailsCell:tableView atIndexPath:indexPath];
             break;
             
+        case TABLE_ROW_EMPTYNESS:
+            return [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+            break;
+            
         case TABLE_ROW_PAYMENT:
             return [self dequeePaymentCell:tableView atIndexPath:indexPath];
             break;
@@ -224,6 +229,36 @@ typedef enum : NSUInteger {
             break;
     }
 
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (indexPath.row) {
+            
+        case TABLE_ROW_CARD_PAN:
+            return 82.0f;
+            break;
+            
+        case TABLE_ROW_CARD_DETAILS:
+            return 86.0f;
+            break;
+            
+        case TABLE_ROW_EMPTYNESS: {
+            CGFloat value = tableView.frame.size.height - 82.0f - 86.0f - 117.0f;
+            if (value < 0.0f) value = 0.0f;
+            return value;
+        }
+            break;
+            
+        case TABLE_ROW_PAYMENT:
+            return 117.0f;
+            break;
+            
+        default:
+            return 0.0f;
+            break;
+    }
+    
 }
 
 -(CardPanTableViewCell*)dequeeCardPanCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {

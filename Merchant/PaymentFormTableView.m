@@ -13,8 +13,8 @@
 -(void)awakeFromNib {
     [super awakeFromNib];
     
-    self.rowHeight = UITableViewAutomaticDimension;
-    self.estimatedRowHeight = 92.0f;
+    //self.rowHeight = UITableViewAutomaticDimension;
+    //self.estimatedRowHeight = 92.0f;
 }
 
 @end
