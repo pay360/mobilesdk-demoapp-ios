@@ -180,14 +180,14 @@
                                             <outlet property="expirytextField" destination="uS1-7P-CRF" id="pII-ST-pqU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTableViewCellID" rowHeight="61" id="JD9-Z5-HF3" customClass="PaymentTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTableViewCellID" rowHeight="92" id="JD9-Z5-HF3" customClass="PaymentTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JD9-Z5-HF3" id="kx0-pn-pwV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHR-w6-d8T" userLabel="ActionButton" customClass="ActionButton">
-                                                    <rect key="frame" x="492" y="8" width="100" height="44"/>
+                                                    <rect key="frame" x="492" y="24" width="100" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="gxi-a8-t2p"/>
                                                         <constraint firstAttribute="width" constant="100" id="rdM-Je-CZH"/>
@@ -201,13 +201,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
-                                                    <rect key="frame" x="362" y="20.5" width="10" height="20.5"/>
+                                                    <rect key="frame" x="362" y="36" width="10" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="100.0" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-Ko-Nwr" userLabel="Amount TextField" customClass="PaymentFormField">
-                                                    <rect key="frame" x="382" y="8" width="100" height="44"/>
+                                                    <rect key="frame" x="382" y="24" width="100" height="44"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                     <constraints>
@@ -224,11 +224,11 @@
                                             <constraints>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="centerY" secondItem="3y5-Rh-YJL" secondAttribute="centerY" id="2Dw-Ot-8A0"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="leading" secondItem="W1Y-Ko-Nwr" secondAttribute="trailing" constant="10" id="3b0-cl-cuc"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YHR-w6-d8T" secondAttribute="bottom" constant="0.5" id="Djh-kb-y3Z"/>
+                                                <constraint firstItem="YHR-w6-d8T" firstAttribute="top" secondItem="kx0-pn-pwV" secondAttribute="topMargin" constant="16" id="I3h-xJ-Iya"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="width" secondItem="W1Y-Ko-Nwr" secondAttribute="width" id="Ure-hI-RhV"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="bottom" secondItem="W1Y-Ko-Nwr" secondAttribute="bottom" id="aYw-8F-oYd"/>
-                                                <constraint firstItem="YHR-w6-d8T" firstAttribute="top" secondItem="kx0-pn-pwV" secondAttribute="topMargin" id="aub-XL-uNU"/>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="leading" secondItem="3y5-Rh-YJL" secondAttribute="trailing" constant="10" id="fOO-is-wi6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YHR-w6-d8T" secondAttribute="bottom" constant="16" id="yFY-yS-6xz"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="trailing" secondItem="kx0-pn-pwV" secondAttribute="trailingMargin" id="zMa-M2-zfO"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -246,13 +246,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i51-DV-6OE">
-                                        <rect key="frame" x="191" y="173" width="218" height="54"/>
+                                        <rect key="frame" x="191" y="153" width="218" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
-                                        <rect key="frame" x="247" y="287" width="105" height="150"/>
+                                        <rect key="frame" x="247" y="257" width="105" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Re3-OC-rIJ"/>
                                             <constraint firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="85:121" id="haL-DP-A7a"/>
@@ -261,18 +261,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="ngT-QS-pwN" firstAttribute="top" secondItem="i51-DV-6OE" secondAttribute="bottom" constant="60" id="Hk1-Fp-0rW"/>
+                                    <constraint firstItem="ngT-QS-pwN" firstAttribute="top" secondItem="i51-DV-6OE" secondAttribute="bottom" constant="50" id="Hk1-Fp-0rW"/>
                                     <constraint firstItem="ngT-QS-pwN" firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="85:121" id="NDa-IL-no1"/>
                                     <constraint firstAttribute="centerX" secondItem="i51-DV-6OE" secondAttribute="centerX" id="Tus-8l-p1S"/>
-                                    <constraint firstItem="i51-DV-6OE" firstAttribute="centerY" secondItem="ngT-QS-pwN" secondAttribute="centerY" constant="-119" id="g9d-Eh-xLW"/>
-                                    <constraint firstAttribute="centerY" secondItem="i51-DV-6OE" secondAttribute="centerY" constant="100" id="gHn-le-KSj"/>
+                                    <constraint firstAttribute="centerY" secondItem="i51-DV-6OE" secondAttribute="centerY" constant="120" id="gHn-le-KSj"/>
                                     <constraint firstItem="i51-DV-6OE" firstAttribute="centerX" secondItem="ngT-QS-pwN" secondAttribute="centerX" id="jxL-4o-LqI"/>
                                 </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="g9d-Eh-xLW"/>
-                                    </mask>
-                                </variation>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
