@@ -78,9 +78,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yaE-Tx-K0K" userLabel="Card Number TextField" customClass="FormField">
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yaE-Tx-K0K" userLabel="Card Number TextField" customClass="PaymentFormField">
                                                     <rect key="frame" x="8" y="30" width="584" height="44"/>
-                                                    <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration" label="CardPanTextField"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="GNt-xr-F1O"/>
@@ -88,6 +88,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                                                     <connections>
+                                                        <action selector="textFieldEditingChanged:" destination="AeN-DP-ExJ" eventType="editingChanged" id="S1Y-KD-TPQ"/>
                                                         <outlet property="delegate" destination="lAs-rb-kLm" id="IWJ-WB-zBt"/>
                                                     </connections>
                                                 </textField>
@@ -117,9 +118,9 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM/YY" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uS1-7P-CRF" userLabel="Expiry TextField" customClass="FormField">
+                                                        <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM/YY" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uS1-7P-CRF" userLabel="Expiry TextField" customClass="PaymentFormField">
                                                             <rect key="frame" x="0.0" y="22" width="175" height="44"/>
-                                                            <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <accessibility key="accessibilityConfiguration" label="CardExpiryTextField"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="cUt-Bd-43k"/>
@@ -136,9 +137,9 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-1v-v3b" userLabel="CVV TextField" customClass="FormField">
+                                                        <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-1v-v3b" userLabel="CVV TextField" customClass="PaymentFormField">
                                                             <rect key="frame" x="194.5" y="22" width="175" height="44"/>
-                                                            <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="iYR-Ad-7gl"/>
@@ -174,6 +175,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="v8h-7C-3YE" secondAttribute="bottom" constant="9.5" id="v4m-Q9-XWQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="expirytextField" destination="uS1-7P-CRF" id="pII-ST-pqU"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTableViewCellID" rowHeight="61" id="JD9-Z5-HF3" customClass="PaymentTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -201,9 +205,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="100.0" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-Ko-Nwr" userLabel="Amount TextField" customClass="FormField">
+                                                <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="100.0" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-Ko-Nwr" userLabel="Amount TextField" customClass="PaymentFormField">
                                                     <rect key="frame" x="382" y="8" width="100" height="44"/>
-                                                    <color key="backgroundColor" red="0.98823529409999999" green="0.79607843140000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Mra-W8-RPg"/>

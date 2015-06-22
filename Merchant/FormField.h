@@ -8,7 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum : NSUInteger {
+    TEXT_FIELD_TYPE_CARD_NUMBER,
+    TEXT_FIELD_TYPE_EXPIRY,
+    TEXT_FIELD_TYPE_CVV,
+    TEXT_FIELD_TYPE_AMOUNT
+} TEXT_FIELD_TYPE;
+
 @interface FormField : UITextField
-@property (nonatomic) BOOL borderIsActive;
-@property (nonatomic, strong) UIColor *currentBorderColour;
+
++(void)reformatAsCardNumber:(FormField *)textField;
+
 @end

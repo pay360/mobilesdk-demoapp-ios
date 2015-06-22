@@ -12,6 +12,7 @@
 		501B855C1B3838D100A5BA33 /* CardDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B855B1B3838D100A5BA33 /* CardDetailsTableViewCell.m */; };
 		501B85601B383CAD00A5BA33 /* PaymentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B855F1B383CAD00A5BA33 /* PaymentTableViewCell.m */; };
 		501B85641B383D9300A5BA33 /* PaymentFormTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B85631B383D9300A5BA33 /* PaymentFormTableView.m */; };
+		501B85681B384B3600A5BA33 /* PaymentFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B85671B384B3600A5BA33 /* PaymentFormField.m */; };
 		5030420C1AE7BECA00CA5B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420B1AE7BECA00CA5B9B /* main.m */; };
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
@@ -30,7 +31,6 @@
 		5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042561AE7BF0D00CA5B9B /* WelcomeViewController.m */; };
 		503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5030426F1AE7BFB100CA5B9B /* Main.storyboard */; };
 		504C93B81B284A4600511C5B /* FormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 504C93B71B284A4600511C5B /* FormField.m */; };
-		504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */; };
 		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
 		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
@@ -58,6 +58,8 @@
 		501B855F1B383CAD00A5BA33 /* PaymentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTableViewCell.m; sourceTree = "<group>"; };
 		501B85621B383D9300A5BA33 /* PaymentFormTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormTableView.h; sourceTree = "<group>"; };
 		501B85631B383D9300A5BA33 /* PaymentFormTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormTableView.m; sourceTree = "<group>"; };
+		501B85661B384B3600A5BA33 /* PaymentFormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormField.h; sourceTree = "<group>"; };
+		501B85671B384B3600A5BA33 /* PaymentFormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormField.m; sourceTree = "<group>"; };
 		503042061AE7BECA00CA5B9B /* SDK Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDK Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -91,8 +93,6 @@
 		503042701AE7BFB100CA5B9B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		504C93B61B284A4600511C5B /* FormField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormField.h; sourceTree = "<group>"; };
 		504C93B71B284A4600511C5B /* FormField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormField.m; sourceTree = "<group>"; };
-		504DD84E1AE93765000C47B9 /* PaymentEntryFieldsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentEntryFieldsManager.h; sourceTree = "<group>"; };
-		504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentEntryFieldsManager.m; sourceTree = "<group>"; };
 		504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorManager.h; sourceTree = "<group>"; };
 		504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkErrorManager.m; sourceTree = "<group>"; };
 		504DD85A1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormViewControllerAnimationManager.h; sourceTree = "<group>"; };
@@ -192,6 +192,15 @@
 				501B85631B383D9300A5BA33 /* PaymentFormTableView.m */,
 			);
 			name = PaymentFormTableView;
+			sourceTree = "<group>";
+		};
+		501B85691B384B3900A5BA33 /* PaymentFormField */ = {
+			isa = PBXGroup;
+			children = (
+				501B85661B384B3600A5BA33 /* PaymentFormField.h */,
+				501B85671B384B3600A5BA33 /* PaymentFormField.m */,
+			);
+			name = PaymentFormField;
 			sourceTree = "<group>";
 		};
 		503041FD1AE7BEC900CA5B9B = {
@@ -365,7 +374,6 @@
 				503042801AE7C1A900CA5B9B /* ColourManager */,
 				503042861AE7C1CE00CA5B9B /* ImageManager */,
 				5030428E1AE7C1FE00CA5B9B /* TimeManager */,
-				504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */,
 				504DD8551AE940E2000C47B9 /* NetworkErrorManager */,
 				504DD8631AE94C3E000C47B9 /* AnimationManagers */,
 			);
@@ -376,6 +384,7 @@
 			isa = PBXGroup;
 			children = (
 				504C93B91B284A4C00511C5B /* FormField */,
+				501B85691B384B3900A5BA33 /* PaymentFormField */,
 				50B5F9C11B3817E100601202 /* DialogueView */,
 				50B5F9C71B38183500601202 /* ActionButton */,
 				50B5F9CB1B38199B00601202 /* TitleLabel */,
@@ -428,15 +437,6 @@
 				504C93B71B284A4600511C5B /* FormField.m */,
 			);
 			name = FormField;
-			sourceTree = "<group>";
-		};
-		504DD8511AE93769000C47B9 /* CardDetailsFieldsManager */ = {
-			isa = PBXGroup;
-			children = (
-				504DD84E1AE93765000C47B9 /* PaymentEntryFieldsManager.h */,
-				504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */,
-			);
-			name = CardDetailsFieldsManager;
 			sourceTree = "<group>";
 		};
 		504DD8551AE940E2000C47B9 /* NetworkErrorManager */ = {
@@ -636,6 +636,7 @@
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
 				50B5F9C61B38183300601202 /* ActionButton.m in Sources */,
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
+				501B85681B384B3600A5BA33 /* PaymentFormField.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				504C93B81B284A4600511C5B /* FormField.m in Sources */,
 				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,
@@ -650,7 +651,6 @@
 				501B85641B383D9300A5BA33 /* PaymentFormTableView.m in Sources */,
 				5030420C1AE7BECA00CA5B9B /* main.m in Sources */,
 				50B5F9C01B3817DE00601202 /* DialogueView.m in Sources */,
-				504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */,
 				504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */,
 				50B5F9CA1B38199800601202 /* TitleLabel.m in Sources */,
 				5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */,

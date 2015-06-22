@@ -7,7 +7,12 @@
 //
 
 #import "CardPanTableViewCell.h"
+#import "PaymentFormField.h"
 
 @implementation CardPanTableViewCell
+
+- (IBAction)textFieldEditingChanged:(PaymentFormField *)sender {
+    [PaymentFormField reformatAsCardNumber:sender];
+}
 
 @end

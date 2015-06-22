@@ -15,6 +15,8 @@
 #import "DialogueView.h"
 #import "PaymentFormTableView.h"
 #import "FormDetails.h"
+#import "PaymentFormField.h"
+#import "TimeManager.h"
 
 #import <PayPointPayments/PPOPaymentManager.h>
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
@@ -29,6 +31,9 @@
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
 @property (weak, nonatomic) IBOutlet PaymentFormTableView *tableView;
 @property (nonatomic, strong) FormDetails *form;
+@property (nonatomic, strong) TimeManager *timeController;
+@property (nonatomic, strong) NSString *previousTextFieldContent;
+@property (nonatomic, strong) UITextRange *previousSelection;
 @end
 
 @implementation PaymentFormViewController
@@ -540,6 +545,172 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+}
+
+-(TimeManager *)timeController {
+    if (_timeController == nil) {
+        _timeController = [TimeManager new];
+    }
+    return _timeController;
+}
+
+#pragma mark - UITextField
+
+//-(BOOL)textField:(FormField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+//    // Note textField's current state before performing the change, in case
+//    // reformatTextField wants to revert it
+//    self.previousTextFieldContent = textField.text;
+//    self.previousSelection = textField.selectedTextRange;
+//    
+//    return YES;
+//}
+
+-(BOOL)textFieldShouldClear:(PaymentFormField *)textField {
+    textField.text = nil;
+    
+    switch (textField.tag) {
+        case TEXT_FIELD_TYPE_CARD_NUMBER:
+            self.form.cardNumber = nil;
+            break;
+        case TEXT_FIELD_TYPE_EXPIRY:
+            self.form.expiry = nil;
+            break;
+        case TEXT_FIELD_TYPE_CVV:
+            self.form.cvv = nil;
+            break;
+        case TEXT_FIELD_TYPE_AMOUNT:
+            self.form.amount = nil;
+            break;
+    }
+    
+    return YES;
+}
+
+-(BOOL)textFieldShouldReturn:(PaymentFormField *)textField {
+    
+    FormField *nextTextField;
+    
+//    switch (textField.tag) {
+//        case TEXT_FIELD_TYPE_CARD_NUMBER:
+//            nextTextField = self.textFields[TEXT_FIELD_TYPE_EXPIRY];
+//            break;
+//        case TEXT_FIELD_TYPE_EXPIRY:
+//            nextTextField = self.textFields[TEXT_FIELD_TYPE_CVV];
+//            break;
+//        case TEXT_FIELD_TYPE_CVV:
+//            nextTextField = self.textFields[TEXT_FIELD_TYPE_AMOUNT];
+//            break;
+//    }
+    
+    if (nextTextField) {
+        [nextTextField becomeFirstResponder];
+    }
+    
+    return YES;
+}
+
+-(void)textFieldDidEndEditing:(PaymentFormField *)textField {
+    
+    NSError *error;
+    
+    TEXT_FIELD_TYPE type = 0;
+    
+    if (textField.tag == TEXT_FIELD_TYPE_CARD_NUMBER) {
+        type = TEXT_FIELD_TYPE_CARD_NUMBER;
+        error = [PPOValidator validateCardPan:textField.text];
+    } else if (textField.tag == TEXT_FIELD_TYPE_EXPIRY) {
+        type = TEXT_FIELD_TYPE_EXPIRY;
+        error = [PPOValidator validateCardExpiry:textField.text];
+    } else if (textField.tag == TEXT_FIELD_TYPE_CVV) {
+        type = TEXT_FIELD_TYPE_CVV;
+        error = [PPOValidator validateCardCVV:textField.text];
+    } else if (textField.tag == TEXT_FIELD_TYPE_AMOUNT) {
+        type = TEXT_FIELD_TYPE_AMOUNT;
+        error = [PPOValidator validateAmount:@(textField.text.doubleValue)];
+    }
+    
+    if (textField.text.length == 0) {
+        [self resetTextFieldBorder:textField];
+    } else {
+        if (error) {
+            [self highlightTextFieldBorderInactive:textField];
+        } else {
+            [self highlightTextFieldBorderActive:textField];
+        }
+    }
+    
+}
+
+-(void)highlightTextFieldBorderActive:(PaymentFormField*)textField {
+    
+    if (!textField.borderIsActive || textField.currentBorderColour == nil) {
+        
+        textField.borderIsActive = YES;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        UIColor *activeColour = [UIColor greenColor];
+        UIColor *fromColour = (textField.currentBorderColour) ? : [UIColor clearColor];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)fromColour.CGColor;
+        animation.toValue   = (id)activeColour.CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = activeColour.CGColor;
+        
+        textField.currentBorderColour = activeColour;
+    }
+}
+
+-(void)highlightTextFieldBorderInactive:(PaymentFormField*)textField {
+    
+    if (textField.borderIsActive || textField.currentBorderColour == nil) {
+        
+        textField.borderIsActive = NO;
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        UIColor *inactiveColour = [UIColor redColor];
+        UIColor *fromColour = (textField.currentBorderColour) ? : [UIColor clearColor];
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)fromColour.CGColor;
+        animation.toValue   = (id)inactiveColour.CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = inactiveColour.CGColor;
+        
+        textField.currentBorderColour = inactiveColour;
+    }
+    
+}
+
+-(void)resetTextFieldBorder:(PaymentFormField*)textField {
+    
+    if (textField.currentBorderColour) {
+        
+        textField.layer.borderWidth = 2.0f;
+        
+        CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"borderColor"];
+        animation.fromValue = (id)textField.currentBorderColour.CGColor;
+        animation.toValue   = (id)[UIColor clearColor].CGColor;
+        animation.duration = .3;
+        animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+        
+        [textField.layer addAnimation:animation forKey:@"Border"];
+        
+        textField.layer.borderColor = [UIColor clearColor].CGColor;
+        
+        textField.currentBorderColour = nil;
+    }
     
 }
 
