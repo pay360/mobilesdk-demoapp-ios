@@ -8,6 +8,9 @@
 
 #import "TableViewCell.h"
 
+@class FormDetails;
 @interface CardDetailsTableViewCell : TableViewCell
+
+-(void)configureWithForm:(FormDetails*)form;
 
 @end

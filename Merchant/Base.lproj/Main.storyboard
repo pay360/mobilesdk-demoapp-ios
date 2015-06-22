@@ -147,6 +147,7 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                                                             <connections>
+                                                                <action selector="textFieldEditingChanged:" destination="NtM-7h-x9c" eventType="editingChanged" id="syn-cC-8jZ"/>
                                                                 <outlet property="delegate" destination="lAs-rb-kLm" id="tno-U4-Stt"/>
                                                             </connections>
                                                         </textField>
@@ -215,6 +216,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                                                     <connections>
+                                                        <action selector="textFieldEditingChanged:" destination="JD9-Z5-HF3" eventType="editingChanged" id="JgJ-tc-a7f"/>
                                                         <outlet property="delegate" destination="lAs-rb-kLm" id="VpL-aM-Ur4"/>
                                                     </connections>
                                                 </textField>

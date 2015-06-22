@@ -7,9 +7,11 @@
 //
 
 #import "PaymentTableViewCell.h"
-
+#import "PaymentFormField.h"
+#import "FormDetails.h"
 @interface PaymentTableViewCell ()
 @property (weak, nonatomic) IBOutlet ActionButton *actionButton;
+@property (nonatomic, weak) FormDetails *form;
 @end
 
 @implementation PaymentTableViewCell
@@ -20,6 +22,14 @@
 
 -(IBAction)actionButtonPressed:(ActionButton*)button {
     [self.delegate paymentTableViewCell:self actionButtonPressed:button];
+}
+
+-(void)configureWithForm:(FormDetails *)form {
+    self.form = form;
+}
+
+- (IBAction)textFieldEditingChanged:(PaymentFormField *)sender {
+    self.form.amount = (sender.text.length) ? @(sender.text.doubleValue) : nil;
 }
 
 @end

@@ -8,11 +8,21 @@
 
 #import "CardPanTableViewCell.h"
 #import "PaymentFormField.h"
+#import "FormDetails.h"
+
+@interface CardPanTableViewCell ()
+@property (nonatomic, weak) FormDetails *form;
+@end
 
 @implementation CardPanTableViewCell
 
 - (IBAction)textFieldEditingChanged:(PaymentFormField *)sender {
     [PaymentFormField reformatAsCardNumber:sender];
+    self.form.cardNumber = sender.text;
+}
+
+-(void)configureWithForm:(FormDetails *)form {
+    self.form = form;
 }
 
 @end

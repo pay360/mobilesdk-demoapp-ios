@@ -9,6 +9,7 @@
 #import "TableViewCell.h"
 #import "ActionButton.h"
 
+@class FormDetails;
 @class PaymentTableViewCell;
 @protocol PaymentTableViewCellDelegate <NSObject>
 -(void)paymentTableViewCell:(PaymentTableViewCell*)cell
@@ -17,4 +18,5 @@
 
 @interface PaymentTableViewCell : TableViewCell
 @property (nonatomic, weak) id <PaymentTableViewCellDelegate> delegate;
+-(void)configureWithForm:(FormDetails*)form;
 @end

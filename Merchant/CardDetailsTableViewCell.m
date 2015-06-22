@@ -9,16 +9,20 @@
 #import "CardDetailsTableViewCell.h"
 #import "FormField.h"
 #import "TimeManager.h"
+#import "FormDetails.h"
+#import "PaymentFormField.h"
 
 @interface CardDetailsTableViewCell () <UIPickerViewDelegate, UIPickerViewDataSource>
 @property (weak, nonatomic) IBOutlet FormField *expirytextField;
 @property (nonatomic, strong) UIPickerView *expiryDatePickerView;
 @property (nonatomic, strong) NSArray *expiryDatePickerViewSelections;
 @property (nonatomic, strong) TimeManager *timeController;
+@property (nonatomic, weak) FormDetails *form;
 @end
 
-@implementation CardDetailsTableViewCell
-
+@implementation CardDetailsTableViewCell {
+    BOOL _isSetup;
+}
 
 -(NSArray *)expiryDatePickerViewSelections {
     if (_expiryDatePickerViewSelections == nil) {
@@ -39,7 +43,24 @@
     return _expiryDatePickerView;
 }
 
--(void)awakeFromNib {
+-(TimeManager *)timeController {
+    if (_timeController == nil) {
+        _timeController = [TimeManager new];
+    }
+    
+    return _timeController;
+}
+
+- (IBAction)textFieldEditingChanged:(PaymentFormField *)sender {
+    if (sender.tag == TEXT_FIELD_TYPE_CVV) {
+        self.form.cvv = sender.text;
+    }
+}
+
+-(void)setup {
+    if (_isSetup) {
+        return;
+    }
     
     self.expirytextField.inputView = self.expiryDatePickerView;
     NSInteger selected = [self.expiryDatePickerView selectedRowInComponent:0];
@@ -47,10 +68,16 @@
         NSDate *selection = self.expiryDatePickerViewSelections[selected];
         NSString *date = [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
         self.expirytextField.text = date;
-#warning model not updating here
-        //self.form.expiry = date;
+        self.form.expiry = date;
     }
     
+}
+
+-(void)configureWithForm:(FormDetails *)form {
+    self.form = form;
+    if (!_isSetup) {
+        [self setup];
+    }
 }
 
 #pragma mark - UIPickerView Datasource
@@ -80,18 +107,14 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
     
-    FormField *textField = self.expirytextField;
     id selection = self.expiryDatePickerViewSelections[row];
     if ([selection isKindOfClass:[NSNull class]]) {
-        textField.text = nil;
-#warning not updating model here
-        
+        self.expirytextField.text = nil;
+        self.form.expiry = nil;
     } else if ([selection isKindOfClass:[NSDate class]]) {
         NSString *dateString = [self.timeController.cardExpiryDateFormatter stringFromDate:selection];
-        textField.text = dateString;
-        
-#warning not updating model here
-        
+        self.expirytextField.text = dateString;
+        self.form.expiry = dateString;
     }
 }
 

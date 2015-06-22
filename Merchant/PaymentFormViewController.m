@@ -25,18 +25,24 @@
 #define UI_ALERT_CHECK_STATUS 1
 #define UI_ALERT_TRY_AGAIN 2
 
-@interface PaymentFormViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface PaymentFormViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, PaymentTableViewCellDelegate>
 @property (nonatomic, strong) PPOPaymentManager *paymentManager;
 @property (nonatomic, strong) PPOPayment *currentPayment;
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
 @property (weak, nonatomic) IBOutlet PaymentFormTableView *tableView;
 @property (nonatomic, strong) FormDetails *form;
-@property (nonatomic, strong) TimeManager *timeController;
-@property (nonatomic, strong) NSString *previousTextFieldContent;
-@property (nonatomic, strong) UITextRange *previousSelection;
+//@property (nonatomic, strong) NSString *previousTextFieldContent;
+//@property (nonatomic, strong) UITextRange *previousSelection;
 @end
 
 @implementation PaymentFormViewController
+
+-(FormDetails *)form {
+    if (_form == nil) {
+        _form = [FormDetails new];
+    }
+    return _form;
+}
 
 -(PPOPaymentManager *)paymentManager {
     
@@ -66,16 +72,157 @@
     
 }
 
-#pragma mark - Actions
+#pragma mark - PaymentFormViewControllerAnimationManager
 
--(IBAction)payNowButtonPressed:(UIButton *)button {
+-(PaymentFormViewControllerAnimationManager *)animationManager {
+    if (_paymentFormAnimationManager == nil) {
+        _paymentFormAnimationManager = [[PaymentFormViewControllerAnimationManager alloc] init];
+        _paymentFormAnimationManager.rootView = self.view;
+        _paymentFormAnimationManager.loadingView = self.loadingView;
+        _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
+        _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPaypointLogoImageView;
+    }
+    return _paymentFormAnimationManager;
+}
+
+#pragma mark - Storyboard
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if ([segue.identifier isEqualToString:@"OutcomeViewControllerSegueID"] && [sender isKindOfClass:[PPOOutcome class]]) {
+        
+        PPOOutcome *outcome = (PPOOutcome*)sender;
+        OutcomeViewController *controller = segue.destinationViewController;
+        controller.outcome = outcome;
+        
+    }
+    
+}
+
+#pragma mark - UIAlertView Delegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
+    if (alertView.cancelButtonIndex != buttonIndex) {
+        
+        switch (alertView.tag) {
+                
+            case UI_ALERT_CHECK_STATUS:
+                [self.paymentManager queryPayment:self.currentPayment
+                                   withCompletion:[self paymentCompletionHandler]];
+                break;
+                
+            case UI_ALERT_TRY_AGAIN:
+                [self makePayment:self.currentPayment];
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+    
+}
+
+#pragma mark - CurrentPayment
+
+-(PPOPayment *)currentPayment {
+    
+    if (_currentPayment == nil) {
+        
+        PPOBillingAddress *address = [PPOBillingAddress new];
+        address.line1 = @"Street 1";
+        address.line2 = @"Street 2";
+        address.line3 = @"Street 3";
+        address.line4 = @"Street 4";
+        address.city = @"City";
+        address.region = @"Region";
+        address.postcode = @"Postcode";
+        address.countryCode = @"GBR";
+        
+        PPOTransaction *transaction = [PPOTransaction new];
+        transaction.currency = @"GBP";
+        transaction.amount = @100;
+        transaction.transactionDescription = @"A desc";
+        transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
+        transaction.isDeferred = @NO;
+        
+        PPOPayment *payment = [PPOPayment new];
+        payment.transaction = transaction;
+        payment.address = address;
+        
+        _currentPayment = payment;
+    }
+    
+    return _currentPayment;
+}
+
+#pragma mark - TableView
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (indexPath.row) {
+            
+        case 0:
+            return [self dequeeCardPanCell:tableView atIndexPath:indexPath];
+            break;
+            
+        case 1:
+            return [self dequeeCardDetailsCell:tableView atIndexPath:indexPath];
+            break;
+            
+        case 2:
+            return [self dequeePaymentCell:tableView atIndexPath:indexPath];
+            break;
+            
+        default:
+            return nil;
+            break;
+    }
+
+}
+
+-(CardPanTableViewCell*)dequeeCardPanCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
+    CardPanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CardPanTableViewCell cellIdentifier]];
+    [cell configureWithForm:self.form];
+    return cell;
+}
+
+-(CardDetailsTableViewCell*)dequeeCardDetailsCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
+    CardDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CardDetailsTableViewCell cellIdentifier]];
+    [cell configureWithForm:self.form];
+    return cell;
+}
+
+-(PaymentTableViewCell*)dequeePaymentCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
+    PaymentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[PaymentTableViewCell cellIdentifier]];
+    cell.delegate = self;
+    [cell configureWithForm:self.form];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.view endEditing:YES];
+}
+
+#pragma mark - PaymentTableViewCell
+
+-(void)paymentTableViewCell:(PaymentTableViewCell *)cell actionButtonPressed:(ActionButton *)button {
     
     [self.view endEditing:YES];
     
     /*
      * Nothing will happen if this button is pressed and the animation is still underway.
      * It should be impossible to press the button when the animation is in progress, because a view is placed on top of the button, which blocks gestures.
-    */
+     */
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
         
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -126,9 +273,9 @@
                 }
             }];
         }
-
-    }
         
+    }
+    
 }
 
 -(void)fetchTokenForPayment:(PPOPayment*)payment withCompletion:(void(^)(NSError *error))completion {
@@ -290,7 +437,7 @@
 }
 
 -(void)handleLocalValidationOutcome:(PPOOutcome*)outcome {
-   
+    
     [self showDialogueWithTitle:@"Error"
                        withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                        animated:YES
@@ -409,150 +556,6 @@
     alert.tag = UI_ALERT_TRY_AGAIN;
     [alert show];
     
-}
-
-#pragma mark - PaymentFormViewControllerAnimationManager
-
--(PaymentFormViewControllerAnimationManager *)animationManager {
-    if (_paymentFormAnimationManager == nil) {
-        _paymentFormAnimationManager = [[PaymentFormViewControllerAnimationManager alloc] init];
-        _paymentFormAnimationManager.rootView = self.view;
-        _paymentFormAnimationManager.loadingView = self.loadingView;
-        _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
-        _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPaypointLogoImageView;
-    }
-    return _paymentFormAnimationManager;
-}
-
-#pragma mark - Storyboard
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
-    if ([segue.identifier isEqualToString:@"OutcomeViewControllerSegueID"] && [sender isKindOfClass:[PPOOutcome class]]) {
-        
-        PPOOutcome *outcome = (PPOOutcome*)sender;
-        OutcomeViewController *controller = segue.destinationViewController;
-        controller.outcome = outcome;
-        
-    }
-    
-}
-
-#pragma mark - UIAlertView Delegate
-
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
-    if (alertView.cancelButtonIndex != buttonIndex) {
-        
-        switch (alertView.tag) {
-                
-            case UI_ALERT_CHECK_STATUS:
-                [self.paymentManager queryPayment:self.currentPayment
-                                   withCompletion:[self paymentCompletionHandler]];
-                break;
-                
-            case UI_ALERT_TRY_AGAIN:
-                [self makePayment:self.currentPayment];
-                break;
-                
-            default:
-                break;
-        }
-        
-    }
-    
-}
-
-#pragma mark - CurrentPayment
-
--(PPOPayment *)currentPayment {
-    
-    if (_currentPayment == nil) {
-        
-        PPOBillingAddress *address = [PPOBillingAddress new];
-        address.line1 = @"Street 1";
-        address.line2 = @"Street 2";
-        address.line3 = @"Street 3";
-        address.line4 = @"Street 4";
-        address.city = @"City";
-        address.region = @"Region";
-        address.postcode = @"Postcode";
-        address.countryCode = @"GBR";
-        
-        PPOTransaction *transaction = [PPOTransaction new];
-        transaction.currency = @"GBP";
-        transaction.amount = @100;
-        transaction.transactionDescription = @"A desc";
-        transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
-        transaction.isDeferred = @NO;
-        
-        PPOPayment *payment = [PPOPayment new];
-        payment.transaction = transaction;
-        payment.address = address;
-        
-        _currentPayment = payment;
-    }
-    
-    return _currentPayment;
-}
-
-#pragma mark - TableView
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    switch (indexPath.row) {
-            
-        case 0:
-            return [self dequeeCardPanCell:tableView atIndexPath:indexPath];
-            break;
-            
-        case 1:
-            return [self dequeeCardDetailsCell:tableView atIndexPath:indexPath];
-            break;
-            
-        case 2:
-            return [self dequeePaymentCell:tableView atIndexPath:indexPath];
-            break;
-            
-        default:
-            return nil;
-            break;
-    }
-
-}
-
--(CardPanTableViewCell*)dequeeCardPanCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
-    CardPanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CardPanTableViewCell cellIdentifier]];
-    return cell;
-}
-
--(CardDetailsTableViewCell*)dequeeCardDetailsCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
-    CardDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CardDetailsTableViewCell cellIdentifier]];
-    return cell;
-}
-
--(PaymentTableViewCell*)dequeePaymentCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
-    PaymentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[PaymentTableViewCell cellIdentifier]];
-    return cell;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-}
-
--(TimeManager *)timeController {
-    if (_timeController == nil) {
-        _timeController = [TimeManager new];
-    }
-    return _timeController;
 }
 
 #pragma mark - UITextField

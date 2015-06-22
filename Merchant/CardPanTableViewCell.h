@@ -8,6 +8,9 @@
 
 #import "TableViewCell.h"
 
+@class FormDetails;
 @interface CardPanTableViewCell : TableViewCell
+
+-(void)configureWithForm:(FormDetails*)form;
 
 @end
