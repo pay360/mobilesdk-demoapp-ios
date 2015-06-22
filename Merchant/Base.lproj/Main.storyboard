@@ -66,7 +66,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardPanTableViewCellID" rowHeight="92" id="AeN-DP-ExJ" customClass="CardPanTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardPanTableViewCellID" rowHeight="82" id="AeN-DP-ExJ" customClass="CardPanTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AeN-DP-ExJ" id="XCL-Ko-TJD">
@@ -98,12 +98,12 @@
                                                 <constraint firstItem="QdB-hT-4Ia" firstAttribute="leading" secondItem="yaE-Tx-K0K" secondAttribute="leading" id="Eoa-n8-qFI"/>
                                                 <constraint firstItem="QdB-hT-4Ia" firstAttribute="leading" secondItem="XCL-Ko-TJD" secondAttribute="leadingMargin" id="Gb2-LC-Gdg"/>
                                                 <constraint firstItem="QdB-hT-4Ia" firstAttribute="top" secondItem="XCL-Ko-TJD" secondAttribute="topMargin" id="UxH-ag-qlO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="yaE-Tx-K0K" secondAttribute="bottom" constant="9.5" id="bdr-Lf-cAu"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="yaE-Tx-K0K" secondAttribute="bottom" id="bdr-Lf-cAu"/>
                                                 <constraint firstItem="yaE-Tx-K0K" firstAttribute="trailing" secondItem="XCL-Ko-TJD" secondAttribute="trailingMargin" id="lCU-k4-Tcs"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardDetailsTableViewCellID" rowHeight="92" id="NtM-7h-x9c" customClass="CardDetailsTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardDetailsTableViewCellID" rowHeight="86" id="NtM-7h-x9c" customClass="CardDetailsTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NtM-7h-x9c" id="WsM-jc-lYp">
@@ -138,7 +138,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-1v-v3b" userLabel="CVV TextField" customClass="PaymentFormField">
-                                                            <rect key="frame" x="194.5" y="22" width="175" height="44"/>
+                                                            <rect key="frame" x="195" y="22" width="175" height="44"/>
                                                             <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                             <constraints>
@@ -173,21 +173,21 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="v8h-7C-3YE" secondAttribute="trailing" id="1Z4-kV-Us3"/>
                                                 <constraint firstItem="v8h-7C-3YE" firstAttribute="top" secondItem="WsM-jc-lYp" secondAttribute="topMargin" id="Fsy-tc-Xfx"/>
                                                 <constraint firstItem="v8h-7C-3YE" firstAttribute="leading" secondItem="WsM-jc-lYp" secondAttribute="leadingMargin" id="bR9-O4-cve"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="v8h-7C-3YE" secondAttribute="bottom" constant="9.5" id="v4m-Q9-XWQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="v8h-7C-3YE" secondAttribute="bottom" constant="4" id="v4m-Q9-XWQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="expirytextField" destination="uS1-7P-CRF" id="pII-ST-pqU"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTableViewCellID" rowHeight="92" id="JD9-Z5-HF3" customClass="PaymentTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTableViewCellID" rowHeight="117" id="JD9-Z5-HF3" customClass="PaymentTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JD9-Z5-HF3" id="kx0-pn-pwV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHR-w6-d8T" userLabel="ActionButton" customClass="ActionButton">
-                                                    <rect key="frame" x="492" y="24" width="100" height="44"/>
+                                                    <rect key="frame" x="492" y="62" width="100" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="gxi-a8-t2p"/>
                                                         <constraint firstAttribute="width" constant="100" id="rdM-Je-CZH"/>
@@ -201,13 +201,13 @@
                                                     </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
-                                                    <rect key="frame" x="362" y="36" width="10" height="20.5"/>
+                                                    <rect key="frame" x="472" y="20" width="10" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="100.0" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-Ko-Nwr" userLabel="Amount TextField" customClass="PaymentFormField">
-                                                    <rect key="frame" x="382" y="24" width="100" height="44"/>
+                                                    <rect key="frame" x="492" y="8" width="100" height="44"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                     <constraints>
@@ -223,12 +223,13 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="centerY" secondItem="3y5-Rh-YJL" secondAttribute="centerY" id="2Dw-Ot-8A0"/>
-                                                <constraint firstItem="YHR-w6-d8T" firstAttribute="leading" secondItem="W1Y-Ko-Nwr" secondAttribute="trailing" constant="10" id="3b0-cl-cuc"/>
-                                                <constraint firstItem="YHR-w6-d8T" firstAttribute="top" secondItem="kx0-pn-pwV" secondAttribute="topMargin" constant="16" id="I3h-xJ-Iya"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YHR-w6-d8T" secondAttribute="bottom" constant="3" id="4vk-cI-4Cz"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="W1Y-Ko-Nwr" secondAttribute="trailing" id="FCr-oD-Mz3"/>
+                                                <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="top" secondItem="kx0-pn-pwV" secondAttribute="topMargin" id="L9P-Xx-En1"/>
+                                                <constraint firstItem="YHR-w6-d8T" firstAttribute="top" secondItem="W1Y-Ko-Nwr" secondAttribute="bottom" constant="10" id="PDw-hk-uYd"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="width" secondItem="W1Y-Ko-Nwr" secondAttribute="width" id="Ure-hI-RhV"/>
-                                                <constraint firstItem="YHR-w6-d8T" firstAttribute="bottom" secondItem="W1Y-Ko-Nwr" secondAttribute="bottom" id="aYw-8F-oYd"/>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="leading" secondItem="3y5-Rh-YJL" secondAttribute="trailing" constant="10" id="fOO-is-wi6"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YHR-w6-d8T" secondAttribute="bottom" constant="16" id="yFY-yS-6xz"/>
+                                                <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="trailing" secondItem="YHR-w6-d8T" secondAttribute="trailing" id="jlf-Et-Zbs"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="trailing" secondItem="kx0-pn-pwV" secondAttribute="trailingMargin" id="zMa-M2-zfO"/>
                                             </constraints>
                                         </tableViewCellContentView>

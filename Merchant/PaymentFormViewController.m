@@ -25,7 +25,13 @@
 #define UI_ALERT_CHECK_STATUS 1
 #define UI_ALERT_TRY_AGAIN 2
 
-@interface PaymentFormViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, PaymentTableViewCellDelegate>
+typedef enum : NSUInteger {
+    TABLE_ROW_CARD_PAN,
+    TABLE_ROW_CARD_DETAILS,
+    TABLE_ROW_PAYMENT,
+} TABLE_ROW;
+
+@interface PaymentFormViewController () <UITextFieldDelegate, UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate, PaymentTableViewCellDelegate>
 @property (nonatomic, strong) PPOPaymentManager *paymentManager;
 @property (nonatomic, strong) PPOPayment *currentPayment;
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
@@ -73,8 +79,8 @@
     [super viewWillAppear:animated];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(keyboardDidShow:)
-                                                 name:UIKeyboardDidShowNotification
+                                             selector:@selector(keyboardWillShow:)
+                                                 name:UIKeyboardWillShowNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -87,7 +93,7 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)keyboardDidShow:(NSNotification *)notif {
+- (void)keyboardWillShow:(NSNotification *)notif {
     CGSize keyboardSize = [notif.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     [self updateTableViewInsets:keyboardSize.height];
 }
@@ -201,15 +207,15 @@
     
     switch (indexPath.row) {
             
-        case 0:
+        case TABLE_ROW_CARD_PAN:
             return [self dequeeCardPanCell:tableView atIndexPath:indexPath];
             break;
             
-        case 1:
+        case TABLE_ROW_CARD_DETAILS:
             return [self dequeeCardDetailsCell:tableView atIndexPath:indexPath];
             break;
             
-        case 2:
+        case TABLE_ROW_PAYMENT:
             return [self dequeePaymentCell:tableView atIndexPath:indexPath];
             break;
             
@@ -662,6 +668,38 @@
         } else {
             [self highlightTextFieldBorderActive:textField];
         }
+    }
+    
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    
+    NSIndexPath *indexPath;
+    
+    switch (textField.tag) {
+            
+        case TEXT_FIELD_TYPE_CARD_NUMBER:
+            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_CARD_PAN inSection:0];
+            break;
+            
+        case TEXT_FIELD_TYPE_EXPIRY:
+            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_CARD_DETAILS inSection:0];
+            break;
+            
+        case TEXT_FIELD_TYPE_CVV:
+            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_PAYMENT inSection:0];
+            break;
+            
+        case TEXT_FIELD_TYPE_AMOUNT:
+            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_PAYMENT inSection:0];
+            break;
+            
+        default:
+            break;
+    }
+    
+    if (indexPath) {
+        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
     }
     
 }
