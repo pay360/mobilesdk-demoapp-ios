@@ -6,13 +6,11 @@
 //  Copyright (c) 2015 Paypoint. All rights reserved.
 //
 
-#import "FormFieldsViewController.h"
 #import "PaymentFormViewControllerAnimationManager.h"
 #import "ActionButton.h"
 
-@interface PaymentFormViewController : FormFieldsViewController
+@interface PaymentFormViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UILabel *loadingMessageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *loadingPaypointLogoImageView;
-@property (weak, nonatomic) IBOutlet ActionButton *payNowButton;
 @end

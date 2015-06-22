@@ -8,6 +8,18 @@
 
 #import "PaymentTableViewCell.h"
 
+@interface PaymentTableViewCell ()
+@property (weak, nonatomic) IBOutlet ActionButton *actionButton;
+@end
+
 @implementation PaymentTableViewCell
+
+-(void)awakeFromNib {
+    self.actionButton.accessibilityLabel = @"PayNowButton";
+}
+
+-(IBAction)actionButtonPressed:(ActionButton*)button {
+    [self.delegate paymentTableViewCell:self actionButtonPressed:button];
+}
 
 @end

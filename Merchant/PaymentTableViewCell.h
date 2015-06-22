@@ -7,7 +7,14 @@
 //
 
 #import "TableViewCell.h"
+#import "ActionButton.h"
+
+@class PaymentTableViewCell;
+@protocol PaymentTableViewCellDelegate <NSObject>
+-(void)paymentTableViewCell:(PaymentTableViewCell*)cell
+        actionButtonPressed:(ActionButton*)button;
+@end
 
 @interface PaymentTableViewCell : TableViewCell
-
+@property (nonatomic, weak) id <PaymentTableViewCellDelegate> delegate;
 @end

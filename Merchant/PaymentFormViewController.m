@@ -14,6 +14,7 @@
 #import "MerchantServer.h"
 #import "DialogueView.h"
 #import "PaymentFormTableView.h"
+#import "FormDetails.h"
 
 #import <PayPointPayments/PPOPaymentManager.h>
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
@@ -27,6 +28,7 @@
 @property (nonatomic, strong) PPOPayment *currentPayment;
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
 @property (weak, nonatomic) IBOutlet PaymentFormTableView *tableView;
+@property (nonatomic, strong) FormDetails *form;
 @end
 
 @implementation PaymentFormViewController
@@ -56,7 +58,6 @@
     [super viewDidLoad];
     
     self.title = @"Details";
-    self.payNowButton.accessibilityLabel = @"PayNowButton";
     
 }
 

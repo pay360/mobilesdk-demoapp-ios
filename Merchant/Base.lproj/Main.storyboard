@@ -87,6 +87,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="lAs-rb-kLm" id="IWJ-WB-zBt"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -123,6 +126,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="lAs-rb-kLm" id="eqx-nZ-KeZ"/>
+                                                            </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-mc-3sz" userLabel="CVV" customClass="TitleLabel">
                                                             <rect key="frame" x="195" y="0.0" width="34.5" height="20.5"/>
@@ -139,6 +145,9 @@
                                                             </constraints>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="lAs-rb-kLm" id="tno-U4-Stt"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -172,7 +181,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JD9-Z5-HF3" id="kx0-pn-pwV">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHR-w6-d8T" userLabel="PayNowButton" customClass="ActionButton">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YHR-w6-d8T" userLabel="ActionButton" customClass="ActionButton">
                                                     <rect key="frame" x="492" y="8" width="100" height="44"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="gxi-a8-t2p"/>
@@ -182,6 +191,9 @@
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="actionButtonPressed:" destination="JD9-Z5-HF3" eventType="touchUpInside" id="EGs-cb-dgd"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
                                                     <rect key="frame" x="362" y="20.5" width="10" height="20.5"/>
@@ -198,6 +210,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="lAs-rb-kLm" id="VpL-aM-Ur4"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -211,6 +226,9 @@
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="trailing" secondItem="kx0-pn-pwV" secondAttribute="trailingMargin" id="zMa-M2-zfO"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="actionButton" destination="YHR-w6-d8T" id="XBD-53-pHo"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -264,6 +282,9 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loadingMessageLabel" destination="i51-DV-6OE" id="RFS-7X-G0Q"/>
+                        <outlet property="loadingPaypointLogoImageView" destination="ngT-QS-pwN" id="cvo-Ri-8o9"/>
+                        <outlet property="loadingView" destination="8A9-Pr-Qf5" id="f6P-9c-qV7"/>
                         <outlet property="tableView" destination="UeZ-j5-oAa" id="KqO-zp-vDX"/>
                         <segue destination="hPe-sB-buh" kind="show" identifier="OutcomeViewControllerSegueID" id="Xq4-EE-l09"/>
                     </connections>

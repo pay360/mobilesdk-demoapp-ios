@@ -32,7 +32,6 @@
 		504C93B81B284A4600511C5B /* FormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 504C93B71B284A4600511C5B /* FormField.m */; };
 		504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */; };
 		504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */; };
-		504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */; };
 		504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */; };
 		5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */; };
 		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
@@ -96,8 +95,6 @@
 		504DD84F1AE93765000C47B9 /* PaymentEntryFieldsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentEntryFieldsManager.m; sourceTree = "<group>"; };
 		504DD8521AE940DF000C47B9 /* NetworkErrorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkErrorManager.h; sourceTree = "<group>"; };
 		504DD8531AE940DF000C47B9 /* NetworkErrorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkErrorManager.m; sourceTree = "<group>"; };
-		504DD8561AE941BC000C47B9 /* FormFieldsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormFieldsViewController.h; sourceTree = "<group>"; };
-		504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormFieldsViewController.m; sourceTree = "<group>"; };
 		504DD85A1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormViewControllerAnimationManager.h; sourceTree = "<group>"; };
 		504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormViewControllerAnimationManager.m; sourceTree = "<group>"; };
 		5081F3CE1AE7ED7C00D41911 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
@@ -451,15 +448,6 @@
 			name = NetworkErrorManager;
 			sourceTree = "<group>";
 		};
-		504DD8591AE941BF000C47B9 /* FormFieldsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				504DD8561AE941BC000C47B9 /* FormFieldsViewController.h */,
-				504DD8571AE941BC000C47B9 /* FormFieldsViewController.m */,
-			);
-			name = FormFieldsViewController;
-			sourceTree = "<group>";
-		};
 		504DD85D1AE94790000C47B9 /* PaymentFormAnimationManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -472,7 +460,6 @@
 		504DD8621AE94BD2000C47B9 /* Form */ = {
 			isa = PBXGroup;
 			children = (
-				504DD8591AE941BF000C47B9 /* FormFieldsViewController */,
 				5030428D1AE7C1F700CA5B9B /* PaymentFormViewController */,
 			);
 			name = Form;
@@ -648,7 +635,6 @@
 				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
 				50B5F9C61B38183300601202 /* ActionButton.m in Sources */,
-				504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */,
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				504C93B81B284A4600511C5B /* FormField.m in Sources */,
