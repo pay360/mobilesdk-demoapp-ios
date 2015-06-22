@@ -12,6 +12,7 @@
 #import "NetworkErrorManager.h"
 #import "ColourManager.h"
 #import "MerchantServer.h"
+#import "DialogueView.h"
 
 #import <PayPointPayments/PPOPaymentManager.h>
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
@@ -54,12 +55,6 @@
     
     self.title = @"Details";
     self.payNowButton.accessibilityLabel = @"PayNowButton";
-    self.payNowButton.backgroundColor = [ColourManager ppYellow];
-    self.payNowButton.titleLabel.font = [UIFont fontWithName:@"FoundryContext-Regular" size:20.0f];
-    
-    self.amountLabel.text = [@"£" stringByAppendingString:self.currentPayment.transaction.amount.stringValue];
-    self.amountLabel.textColor = [ColourManager ppBlue];
-    self.amountLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 40];
 }
 
 #pragma mark - Actions
@@ -269,7 +264,9 @@
             break;
             
         default: {
+            
 #warning show dialogue
+            
             //[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
             
             /*
@@ -285,11 +282,98 @@
 }
 
 -(void)handleLocalValidationOutcome:(PPOOutcome*)outcome {
-
-#warning show dialogue
+   
+    [self showDialogueWithTitle:@"Error"
+                       withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                       animated:YES
+                 withCompletion:^{
+                     
+                 }];
     
-    //[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
-    //[self shakeUIForValidationError:outcome.error]
+}
+
+-(void)showDialogueWithTitle:(NSString*)title
+                    withBody:(NSString*)body
+                    animated:(BOOL)animated
+              withCompletion:(void(^)(void))completion {
+    
+    UIView *backgroundView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    backgroundView.translatesAutoresizingMaskIntoConstraints = YES;
+    backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.4];
+    [[[UIApplication sharedApplication] keyWindow] addSubview:backgroundView];
+    
+    DialogueView *dialogueView = [DialogueView dialogueView];
+    dialogueView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    dialogueView.actionButtonHandler = ^ (ActionButton *button) {
+        
+        if (animated) {
+            [UIView animateWithDuration:.3 animations:^{
+                backgroundView.alpha = 0;
+            } completion:^(BOOL finished) {
+                [backgroundView removeFromSuperview];
+                completion();
+            }];
+        } else {
+            [backgroundView removeFromSuperview];
+            completion();
+        }
+    };
+    
+    [dialogueView updateBody:body
+                 updateTitle:title];
+    
+    if (animated) {
+        backgroundView.alpha = 0;
+    }
+    
+    [backgroundView addSubview:dialogueView];
+    
+    NSLayoutConstraint *constraint;
+    
+    constraint = [NSLayoutConstraint constraintWithItem:dialogueView
+                                              attribute:NSLayoutAttributeCenterX
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:backgroundView
+                                              attribute:NSLayoutAttributeCenterX
+                                             multiplier:1
+                                               constant:0];
+    
+    [backgroundView addConstraint:constraint];
+    
+    constraint = [NSLayoutConstraint constraintWithItem:dialogueView
+                                              attribute:NSLayoutAttributeCenterY
+                                              relatedBy:NSLayoutRelationEqual
+                                                 toItem:backgroundView
+                                              attribute:NSLayoutAttributeCenterY
+                                             multiplier:1
+                                               constant:0];
+    
+    [backgroundView addConstraint:constraint];
+    
+    NSArray *constraints;
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(dialogueView);
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[dialogueView]-(>=20)-|"
+                                                          options:0
+                                                          metrics:nil
+                                                            views:views];
+    
+    [backgroundView addConstraints:constraints];
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-(>=20)-[dialogueView]-(>=20)-|"
+                                                          options:0
+                                                          metrics:nil
+                                                            views:views];
+    
+    [backgroundView addConstraints:constraints];
+    
+    if (animated) {
+        [UIView animateWithDuration:.3 animations:^{
+            backgroundView.alpha = 1;
+        }];
+    }
     
 }
 
@@ -317,31 +401,6 @@
     alert.tag = UI_ALERT_TRY_AGAIN;
     [alert show];
     
-}
-
--(void(^)(void))shakeUIForValidationError:(NSError*)error {
-    
-    __weak typeof(self) weakSelf = self;
-    
-    return ^ {
-        
-        PPOLocalValidationError code = (PPOLocalValidationError)error.code;
-        
-        FormField *textField;
-        
-        switch (code) {
-            case PPOLocalValidationErrorCardPanInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CARD_NUMBER]; break;
-            case PPOLocalValidationErrorCardExpiryDateInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_EXPIRY]; break;
-            case PPOLocalValidationErrorCVVInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_CVV]; break;
-            case PPOLocalValidationErrorPaymentAmountInvalid: textField = weakSelf.textFields[TEXT_FIELD_TYPE_AMOUNT]; break;
-            default:
-                break;
-        }
-        
-        if (textField) {
-            [textField.layer addAnimation:[PaymentFormViewControllerAnimationManager shakeAnimation] forKey:@"transform"];
-        }
-    };
 }
 
 #pragma mark - PaymentFormViewControllerAnimationManager

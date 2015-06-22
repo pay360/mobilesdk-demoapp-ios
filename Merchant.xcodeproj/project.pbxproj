@@ -33,6 +33,10 @@
 		5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */; };
 		5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5081F3D21AE7ED8D00D41911 /* UIKit.framework */; };
 		508F40EB1AFD123B00CF2AAA /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 508F40E91AFD122B00CF2AAA /* MessageUI.framework */; };
+		50B5F9C01B3817DE00601202 /* DialogueView.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9BF1B3817DE00601202 /* DialogueView.m */; };
+		50B5F9C31B3817EA00601202 /* DialogueView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 50B5F9C21B3817EA00601202 /* DialogueView.xib */; };
+		50B5F9C61B38183300601202 /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C51B38183300601202 /* ActionButton.m */; };
+		50B5F9CA1B38199800601202 /* TitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C91B38199800601202 /* TitleLabel.m */; };
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
 		50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50F2212E1B14AE690031AF1B /* FOUCONRG.otf */; };
 		55DD575DF7137283D5E4650F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods.a */; };
@@ -85,6 +89,13 @@
 		5081F3D01AE7ED7F00D41911 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		5081F3D21AE7ED8D00D41911 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		508F40E91AFD122B00CF2AAA /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		50B5F9BE1B3817DE00601202 /* DialogueView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogueView.h; sourceTree = "<group>"; };
+		50B5F9BF1B3817DE00601202 /* DialogueView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogueView.m; sourceTree = "<group>"; };
+		50B5F9C21B3817EA00601202 /* DialogueView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogueView.xib; sourceTree = "<group>"; };
+		50B5F9C41B38183300601202 /* ActionButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionButton.h; sourceTree = "<group>"; };
+		50B5F9C51B38183300601202 /* ActionButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionButton.m; sourceTree = "<group>"; };
+		50B5F9C81B38199800601202 /* TitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleLabel.h; sourceTree = "<group>"; };
+		50B5F9C91B38199800601202 /* TitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLabel.m; sourceTree = "<group>"; };
 		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		50F2212E1B14AE690031AF1B /* FOUCONRG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRG.otf; sourceTree = "<group>"; };
 		634D5C8FC38E16517A523F19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -297,6 +308,9 @@
 			isa = PBXGroup;
 			children = (
 				504C93B91B284A4C00511C5B /* FormField */,
+				50B5F9C11B3817E100601202 /* DialogueView */,
+				50B5F9C71B38183500601202 /* ActionButton */,
+				50B5F9CB1B38199B00601202 /* TitleLabel */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -410,6 +424,34 @@
 			name = LinkedFrameworks;
 			sourceTree = "<group>";
 		};
+		50B5F9C11B3817E100601202 /* DialogueView */ = {
+			isa = PBXGroup;
+			children = (
+				50B5F9BE1B3817DE00601202 /* DialogueView.h */,
+				50B5F9BF1B3817DE00601202 /* DialogueView.m */,
+				50B5F9C21B3817EA00601202 /* DialogueView.xib */,
+			);
+			name = DialogueView;
+			sourceTree = "<group>";
+		};
+		50B5F9C71B38183500601202 /* ActionButton */ = {
+			isa = PBXGroup;
+			children = (
+				50B5F9C41B38183300601202 /* ActionButton.h */,
+				50B5F9C51B38183300601202 /* ActionButton.m */,
+			);
+			name = ActionButton;
+			sourceTree = "<group>";
+		};
+		50B5F9CB1B38199B00601202 /* TitleLabel */ = {
+			isa = PBXGroup;
+			children = (
+				50B5F9C81B38199800601202 /* TitleLabel.h */,
+				50B5F9C91B38199800601202 /* TitleLabel.m */,
+			);
+			name = TitleLabel;
+			sourceTree = "<group>";
+		};
 		653A396F6693444099A64ACB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -479,6 +521,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */,
+				50B5F9C31B3817EA00601202 /* DialogueView.xib in Resources */,
 				503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */,
 				5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */,
 				503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */,
@@ -530,6 +573,7 @@
 				50D495141B0237CD004AD686 /* AppDelegate.m in Sources */,
 				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
+				50B5F9C61B38183300601202 /* ActionButton.m in Sources */,
 				504DD8581AE941BC000C47B9 /* FormFieldsViewController.m in Sources */,
 				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
@@ -541,8 +585,10 @@
 				5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */,
 				5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */,
 				5030420C1AE7BECA00CA5B9B /* main.m in Sources */,
+				50B5F9C01B3817DE00601202 /* DialogueView.m in Sources */,
 				504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */,
 				504DD85C1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m in Sources */,
+				50B5F9CA1B38199800601202 /* TitleLabel.m in Sources */,
 				5030426D1AE7BF0D00CA5B9B /* TimeManager.m in Sources */,
 				503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */,
 			);

@@ -65,7 +65,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="stx-RV-E4F" userLabel="Container">
                                 <rect key="frame" x="16" y="84" width="568" height="165"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnc-dm-aZD" userLabel="Card Number">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xnc-dm-aZD" userLabel="Card Number" customClass="TitleLabel">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -84,7 +84,7 @@
                                             <action selector="textFieldEditingChanged:forEvent:" destination="Hvy-su-ZqX" eventType="editingChanged" id="1Th-12-eIc"/>
                                         </connections>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWw-0D-Zu5" userLabel="Expiry">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fWw-0D-Zu5" userLabel="Expiry" customClass="TitleLabel">
                                         <rect key="frame" x="0.0" y="92" width="47.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -100,7 +100,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" keyboardAppearance="alert" returnKeyType="done"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfd-IT-Zbp" userLabel="CVV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfd-IT-Zbp" userLabel="CVV" customClass="TitleLabel">
                                         <rect key="frame" x="178" y="92" width="34.5" height="20.5"/>
                                         <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -151,13 +151,13 @@
                                     <action selector="textFieldEditingChanged:forEvent:" destination="Hvy-su-ZqX" eventType="editingChanged" id="xFi-Ca-QhG"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-hk-fxk" userLabel="Currency">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-hk-fxk" userLabel="Currency" customClass="TitleLabel">
                                 <rect key="frame" x="354" y="558" width="10" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOp-Bj-qy6" userLabel="PayNowButton">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOp-Bj-qy6" userLabel="PayNowButton" customClass="ActionButton">
                                 <rect key="frame" x="484" y="546" width="100" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="At5-Ho-zOc"/>
@@ -239,14 +239,10 @@
                         <outlet property="loadingPaypointLogoImageView" destination="7hU-7B-TBh" id="h04-bk-3dp"/>
                         <outlet property="loadingView" destination="dt5-p4-akc" id="OSz-6y-aV7"/>
                         <outlet property="payNowButton" destination="kOp-Bj-qy6" id="CGw-DW-vKo"/>
-                        <outletCollection property="titleLabels" destination="Xnc-dm-aZD" id="D8i-7i-gtG"/>
-                        <outletCollection property="titleLabels" destination="fWw-0D-Zu5" id="kMt-rg-rON"/>
-                        <outletCollection property="titleLabels" destination="Jfd-IT-Zbp" id="mez-Vv-OGr"/>
                         <outletCollection property="textFields" destination="dIc-fc-liF" id="HE7-Ao-yVt"/>
                         <outletCollection property="textFields" destination="g16-bF-lby" id="JDD-OP-uYh"/>
                         <outletCollection property="textFields" destination="403-0q-WCq" id="0S0-vp-OCI"/>
                         <outletCollection property="textFields" destination="bJ2-Ok-z2Z" id="ysa-nQ-HUg"/>
-                        <outletCollection property="titleLabels" destination="Gpg-hk-fxk" id="fCm-Yg-Z4H"/>
                         <segue destination="hPe-sB-buh" kind="show" identifier="OutcomeViewControllerSegueID" id="t7Q-sA-en6"/>
                     </connections>
                 </viewController>

@@ -12,7 +12,6 @@
 #import <PayPointPayments/PPOValidator.h>
 
 @interface FormFieldsViewController () <PaymentEntryFieldsManagerDelegate>
-@property (strong, nonatomic) IBOutletCollection(UILabel) NSArray *titleLabels;
 @property (nonatomic, strong) PaymentEntryFieldsManager *fieldsManager;
 @end
 
@@ -23,15 +22,9 @@
     
     self.form = [FormDetails new];
     
-    //This is the delegate of each text field.
     self.fieldsManager = [PaymentEntryFieldsManager new];
     self.fieldsManager.delegate = self;
     self.fieldsManager.textFields = self.textFields;
-    
-    for (UILabel *titleLabel in self.titleLabels) {
-        titleLabel.textColor = [ColourManager ppBlue];
-        titleLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
-    }
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)];
     [self.view addGestureRecognizer:tap];

@@ -8,11 +8,11 @@
 
 #import "FormFieldsViewController.h"
 #import "PaymentFormViewControllerAnimationManager.h"
+#import "ActionButton.h"
 
 @interface PaymentFormViewController : FormFieldsViewController
-@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UIView *loadingView;
 @property (weak, nonatomic) IBOutlet UILabel *loadingMessageLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *loadingPaypointLogoImageView;
-@property (weak, nonatomic) IBOutlet UIButton *payNowButton;
+@property (weak, nonatomic) IBOutlet ActionButton *payNowButton;
 @end
