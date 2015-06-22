@@ -154,7 +154,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gpg-hk-fxk" userLabel="Currency" customClass="TitleLabel">
                                 <rect key="frame" x="354" y="558" width="10" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kOp-Bj-qy6" userLabel="PayNowButton" customClass="ActionButton">
@@ -171,13 +171,6 @@
                                     <action selector="payNowButtonPressed:" destination="Hvy-su-ZqX" eventType="touchUpInside" id="a7B-gV-RyL"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="YOV-oe-2YB">
-                                <rect key="frame" x="16" y="440" width="105" height="150"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="SQK-be-X0z"/>
-                                    <constraint firstAttribute="width" secondItem="YOV-oe-2YB" secondAttribute="height" multiplier="85:121" id="eum-8e-sTe"/>
-                                </constraints>
-                            </imageView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dt5-p4-akc" userLabel="LoadingContainer">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
@@ -213,17 +206,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="YAo-PT-0yj" firstAttribute="top" secondItem="kOp-Bj-qy6" secondAttribute="bottom" constant="10" id="0rL-tS-jnp"/>
                             <constraint firstItem="kOp-Bj-qy6" firstAttribute="bottom" secondItem="bJ2-Ok-z2Z" secondAttribute="bottom" id="2BA-VN-BjU"/>
                             <constraint firstItem="kOp-Bj-qy6" firstAttribute="leading" secondItem="bJ2-Ok-z2Z" secondAttribute="trailing" constant="10" id="839-Pp-pFs"/>
-                            <constraint firstItem="YAo-PT-0yj" firstAttribute="top" secondItem="YOV-oe-2YB" secondAttribute="bottom" constant="10" id="94c-6I-wQU"/>
                             <constraint firstItem="dt5-p4-akc" firstAttribute="leading" secondItem="5uF-Um-0e8" secondAttribute="leading" id="EWS-fo-ozG"/>
                             <constraint firstAttribute="trailing" secondItem="dt5-p4-akc" secondAttribute="trailing" id="J8q-Vq-g19"/>
-                            <constraint firstItem="YOV-oe-2YB" firstAttribute="leading" secondItem="5uF-Um-0e8" secondAttribute="leadingMargin" id="Ogm-rx-N4s"/>
                             <constraint firstItem="kOp-Bj-qy6" firstAttribute="trailing" secondItem="stx-RV-E4F" secondAttribute="trailing" id="PtT-VF-Yvc"/>
                             <constraint firstItem="kOp-Bj-qy6" firstAttribute="width" secondItem="bJ2-Ok-z2Z" secondAttribute="width" id="VTN-52-Soa"/>
                             <constraint firstItem="stx-RV-E4F" firstAttribute="trailing" secondItem="5uF-Um-0e8" secondAttribute="trailingMargin" id="Wog-8b-yeX"/>
                             <constraint firstItem="dt5-p4-akc" firstAttribute="top" secondItem="5uF-Um-0e8" secondAttribute="top" id="YuA-ZC-T2t"/>
-                            <constraint firstItem="kOp-Bj-qy6" firstAttribute="bottom" secondItem="YOV-oe-2YB" secondAttribute="bottom" id="feB-wb-oK9"/>
                             <constraint firstItem="YAo-PT-0yj" firstAttribute="top" secondItem="dt5-p4-akc" secondAttribute="bottom" id="gsr-SZ-QIz"/>
                             <constraint firstItem="bJ2-Ok-z2Z" firstAttribute="leading" secondItem="Gpg-hk-fxk" secondAttribute="trailing" constant="10" id="ljm-bF-Yud"/>
                             <constraint firstItem="bJ2-Ok-z2Z" firstAttribute="centerY" secondItem="Gpg-hk-fxk" secondAttribute="centerY" id="nbr-BC-o0B"/>
@@ -234,7 +225,6 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="oHP-Z5-iyw"/>
                     <connections>
-                        <outlet property="formPaypointLogo" destination="YOV-oe-2YB" id="PjA-Vo-07w"/>
                         <outlet property="loadingMessageLabel" destination="36q-9B-nvh" id="nXR-8f-9K2"/>
                         <outlet property="loadingPaypointLogoImageView" destination="7hU-7B-TBh" id="h04-bk-3dp"/>
                         <outlet property="loadingView" destination="dt5-p4-akc" id="OSz-6y-aV7"/>
