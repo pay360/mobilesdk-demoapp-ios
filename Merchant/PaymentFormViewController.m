@@ -13,6 +13,7 @@
 #import "ColourManager.h"
 #import "MerchantServer.h"
 #import "DialogueView.h"
+#import "PaymentFormTableView.h"
 
 #import <PayPointPayments/PPOPaymentManager.h>
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
@@ -21,10 +22,11 @@
 #define UI_ALERT_CHECK_STATUS 1
 #define UI_ALERT_TRY_AGAIN 2
 
-@interface PaymentFormViewController () <UIAlertViewDelegate>
+@interface PaymentFormViewController () <UIAlertViewDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) PPOPaymentManager *paymentManager;
 @property (nonatomic, strong) PPOPayment *currentPayment;
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
+@property (weak, nonatomic) IBOutlet PaymentFormTableView *tableView;
 @end
 
 @implementation PaymentFormViewController
@@ -55,6 +57,7 @@
     
     self.title = @"Details";
     self.payNowButton.accessibilityLabel = @"PayNowButton";
+    
 }
 
 #pragma mark - Actions
@@ -442,15 +445,14 @@
                                    withCompletion:[self paymentCompletionHandler]];
                 break;
                 
-            case UI_ALERT_TRY_AGAIN: {
-#warning hide dialogue
+            case UI_ALERT_TRY_AGAIN:
                 [self makePayment:self.currentPayment];
-            }
                 break;
                 
             default:
                 break;
         }
+        
     }
     
 }
@@ -486,6 +488,58 @@
     }
     
     return _currentPayment;
+}
+
+#pragma mark - TableView
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 3;
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    switch (indexPath.row) {
+            
+        case 0:
+            return [self dequeeCardPanCell:tableView atIndexPath:indexPath];
+            break;
+            
+        case 1:
+            return [self dequeeCardDetailsCell:tableView atIndexPath:indexPath];
+            break;
+            
+        case 2:
+            return [self dequeePaymentCell:tableView atIndexPath:indexPath];
+            break;
+            
+        default:
+            return nil;
+            break;
+    }
+
+}
+
+-(CardPanTableViewCell*)dequeeCardPanCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
+    CardPanTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CardPanTableViewCell cellIdentifier]];
+    return cell;
+}
+
+-(CardDetailsTableViewCell*)dequeeCardDetailsCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
+    CardDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[CardDetailsTableViewCell cellIdentifier]];
+    return cell;
+}
+
+-(PaymentTableViewCell*)dequeePaymentCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
+    PaymentTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[PaymentTableViewCell cellIdentifier]];
+    return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 @end

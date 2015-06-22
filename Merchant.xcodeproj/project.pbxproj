@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501B85531B38384200A5BA33 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B85521B38384200A5BA33 /* TableViewCell.m */; };
+		501B85581B38385800A5BA33 /* CardPanTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B85571B38385800A5BA33 /* CardPanTableViewCell.m */; };
+		501B855C1B3838D100A5BA33 /* CardDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B855B1B3838D100A5BA33 /* CardDetailsTableViewCell.m */; };
+		501B85601B383CAD00A5BA33 /* PaymentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B855F1B383CAD00A5BA33 /* PaymentTableViewCell.m */; };
+		501B85641B383D9300A5BA33 /* PaymentFormTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 501B85631B383D9300A5BA33 /* PaymentFormTableView.m */; };
 		5030420C1AE7BECA00CA5B9B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030420B1AE7BECA00CA5B9B /* main.m */; };
 		503042171AE7BECA00CA5B9B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 503042161AE7BECA00CA5B9B /* Images.xcassets */; };
 		5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 503042181AE7BECA00CA5B9B /* LaunchScreen.xib */; };
@@ -44,6 +49,16 @@
 
 /* Begin PBXFileReference section */
 		11DD9E16EE5436A898267B55 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		501B85511B38384200A5BA33 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		501B85521B38384200A5BA33 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		501B85561B38385800A5BA33 /* CardPanTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardPanTableViewCell.h; sourceTree = "<group>"; };
+		501B85571B38385800A5BA33 /* CardPanTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardPanTableViewCell.m; sourceTree = "<group>"; };
+		501B855A1B3838D100A5BA33 /* CardDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardDetailsTableViewCell.h; sourceTree = "<group>"; };
+		501B855B1B3838D100A5BA33 /* CardDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardDetailsTableViewCell.m; sourceTree = "<group>"; };
+		501B855E1B383CAD00A5BA33 /* PaymentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentTableViewCell.h; sourceTree = "<group>"; };
+		501B855F1B383CAD00A5BA33 /* PaymentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentTableViewCell.m; sourceTree = "<group>"; };
+		501B85621B383D9300A5BA33 /* PaymentFormTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentFormTableView.h; sourceTree = "<group>"; };
+		501B85631B383D9300A5BA33 /* PaymentFormTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentFormTableView.m; sourceTree = "<group>"; };
 		503042061AE7BECA00CA5B9B /* SDK Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SDK Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5030420A1AE7BECA00CA5B9B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5030420B1AE7BECA00CA5B9B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -124,6 +139,62 @@
 				634D5C8FC38E16517A523F19 /* libPods.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		501B85541B38384500A5BA33 /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				501B85511B38384200A5BA33 /* TableViewCell.h */,
+				501B85521B38384200A5BA33 /* TableViewCell.m */,
+			);
+			name = TableViewCell;
+			sourceTree = "<group>";
+		};
+		501B85551B38384800A5BA33 /* TableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				501B85541B38384500A5BA33 /* TableViewCell */,
+				501B85591B38385B00A5BA33 /* CardPanTableViewCell */,
+				501B855D1B3838D400A5BA33 /* CardDetailsTableViewCell */,
+				501B85611B383CB000A5BA33 /* PaymentTableViewCell */,
+			);
+			name = TableViewCells;
+			sourceTree = "<group>";
+		};
+		501B85591B38385B00A5BA33 /* CardPanTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				501B85561B38385800A5BA33 /* CardPanTableViewCell.h */,
+				501B85571B38385800A5BA33 /* CardPanTableViewCell.m */,
+			);
+			name = CardPanTableViewCell;
+			sourceTree = "<group>";
+		};
+		501B855D1B3838D400A5BA33 /* CardDetailsTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				501B855A1B3838D100A5BA33 /* CardDetailsTableViewCell.h */,
+				501B855B1B3838D100A5BA33 /* CardDetailsTableViewCell.m */,
+			);
+			name = CardDetailsTableViewCell;
+			sourceTree = "<group>";
+		};
+		501B85611B383CB000A5BA33 /* PaymentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				501B855E1B383CAD00A5BA33 /* PaymentTableViewCell.h */,
+				501B855F1B383CAD00A5BA33 /* PaymentTableViewCell.m */,
+			);
+			name = PaymentTableViewCell;
+			sourceTree = "<group>";
+		};
+		501B85651B383D9500A5BA33 /* PaymentFormTableView */ = {
+			isa = PBXGroup;
+			children = (
+				501B85621B383D9300A5BA33 /* PaymentFormTableView.h */,
+				501B85631B383D9300A5BA33 /* PaymentFormTableView.m */,
+			);
+			name = PaymentFormTableView;
 			sourceTree = "<group>";
 		};
 		503041FD1AE7BEC900CA5B9B = {
@@ -311,6 +382,8 @@
 				50B5F9C11B3817E100601202 /* DialogueView */,
 				50B5F9C71B38183500601202 /* ActionButton */,
 				50B5F9CB1B38199B00601202 /* TitleLabel */,
+				501B85551B38384800A5BA33 /* TableViewCells */,
+				501B85651B383D9500A5BA33 /* PaymentFormTableView */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -570,6 +643,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				501B855C1B3838D100A5BA33 /* CardDetailsTableViewCell.m in Sources */,
 				50D495141B0237CD004AD686 /* AppDelegate.m in Sources */,
 				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
@@ -579,11 +653,15 @@
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				504C93B81B284A4600511C5B /* FormField.m in Sources */,
 				503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */,
+				501B85531B38384200A5BA33 /* TableViewCell.m in Sources */,
+				501B85601B383CAD00A5BA33 /* PaymentTableViewCell.m in Sources */,
 				504DD8541AE940DF000C47B9 /* NetworkErrorManager.m in Sources */,
 				5030426E1AE7BF0D00CA5B9B /* WelcomeViewController.m in Sources */,
 				5030426A1AE7BF0D00CA5B9B /* Reachability.m in Sources */,
 				5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */,
+				501B85581B38385800A5BA33 /* CardPanTableViewCell.m in Sources */,
 				5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */,
+				501B85641B383D9300A5BA33 /* PaymentFormTableView.m in Sources */,
 				5030420C1AE7BECA00CA5B9B /* main.m in Sources */,
 				50B5F9C01B3817DE00601202 /* DialogueView.m in Sources */,
 				504DD8501AE93765000C47B9 /* PaymentEntryFieldsManager.m in Sources */,
