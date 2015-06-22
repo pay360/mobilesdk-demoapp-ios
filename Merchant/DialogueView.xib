@@ -25,7 +25,7 @@
                         <action selector="closeButtonPressed:" destination="iN0-l3-epB" eventType="touchUpInside" id="4t2-Aw-AQp"/>
                     </connections>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="560" translatesAutoresizingMaskIntoConstraints="NO" id="Ds9-pF-JgD" customClass="TitleLabel">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ds9-pF-JgD" customClass="TitleLabel">
                     <rect key="frame" x="20" y="72" width="560" height="455.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -34,7 +34,7 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZHg-ky-x6n" userLabel="TitleView">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="52"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="32.5" translatesAutoresizingMaskIntoConstraints="NO" id="AD1-ro-h9y">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD1-ro-h9y">
                             <rect key="frame" x="284" y="15" width="32.5" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -57,7 +57,7 @@
                 <constraint firstItem="Ds9-pF-JgD" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="5h9-A9-vMN"/>
                 <constraint firstAttribute="trailing" secondItem="Ds9-pF-JgD" secondAttribute="trailing" constant="20" id="5xd-5c-bvS"/>
                 <constraint firstAttribute="centerX" secondItem="Ds9-pF-JgD" secondAttribute="centerX" id="6t0-bd-0xi"/>
-                <constraint firstItem="Ds9-pF-JgD" firstAttribute="top" secondItem="ZHg-ky-x6n" secondAttribute="bottom" constant="20.5" id="I6c-Mu-D7s"/>
+                <constraint firstItem="Ds9-pF-JgD" firstAttribute="top" secondItem="ZHg-ky-x6n" secondAttribute="bottom" constant="20" id="I6c-Mu-D7s"/>
                 <constraint firstAttribute="bottom" secondItem="kan-fv-x6S" secondAttribute="bottom" constant="8" id="IMT-dc-ZP7"/>
                 <constraint firstAttribute="trailing" secondItem="ZHg-ky-x6n" secondAttribute="trailing" id="Wej-4s-yUp"/>
                 <constraint firstItem="ZHg-ky-x6n" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kCX-dm-mjq"/>

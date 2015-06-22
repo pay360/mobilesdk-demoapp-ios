@@ -236,7 +236,7 @@ typedef enum : NSUInteger {
     switch (indexPath.row) {
             
         case TABLE_ROW_CARD_PAN:
-            return 82.0f;
+            return 83.0f;
             break;
             
         case TABLE_ROW_CARD_DETAILS:
@@ -529,7 +529,6 @@ typedef enum : NSUInteger {
     [[[UIApplication sharedApplication] keyWindow] addSubview:backgroundView];
     
     DialogueView *dialogueView = [DialogueView dialogueView];
-    dialogueView.translatesAutoresizingMaskIntoConstraints = NO;
     
     dialogueView.actionButtonHandler = ^ (ActionButton *button) {
         
@@ -551,7 +550,10 @@ typedef enum : NSUInteger {
     
     if (animated) {
         backgroundView.alpha = 0;
+    
     }
+    
+    dialogueView.translatesAutoresizingMaskIntoConstraints = NO;
     
     [backgroundView addSubview:dialogueView];
     
@@ -594,7 +596,7 @@ typedef enum : NSUInteger {
                                                             views:views];
     
     [backgroundView addConstraints:constraints];
-    
+        
     if (animated) {
         [UIView animateWithDuration:.3 animations:^{
             backgroundView.alpha = 1;
@@ -722,7 +724,7 @@ typedef enum : NSUInteger {
             break;
             
         case TEXT_FIELD_TYPE_CVV:
-            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_PAYMENT inSection:0];
+            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_CARD_DETAILS inSection:0];
             break;
             
         case TEXT_FIELD_TYPE_AMOUNT:

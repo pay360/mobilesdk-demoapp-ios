@@ -72,7 +72,7 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AeN-DP-ExJ" id="XCL-Ko-TJD">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdB-hT-4Ia" userLabel="Card Number" customClass="TitleLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdB-hT-4Ia" userLabel="Card Number" customClass="TitleLabel">
                                                     <rect key="frame" x="8" y="8" width="100" height="14"/>
                                                     <fontDescription key="fontDescription" name="FoundryContext-Regular" family="Foundry Context" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,7 +98,7 @@
                                                 <constraint firstItem="QdB-hT-4Ia" firstAttribute="leading" secondItem="yaE-Tx-K0K" secondAttribute="leading" id="Eoa-n8-qFI"/>
                                                 <constraint firstItem="QdB-hT-4Ia" firstAttribute="leading" secondItem="XCL-Ko-TJD" secondAttribute="leadingMargin" id="Gb2-LC-Gdg"/>
                                                 <constraint firstItem="QdB-hT-4Ia" firstAttribute="top" secondItem="XCL-Ko-TJD" secondAttribute="topMargin" id="UxH-ag-qlO"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="yaE-Tx-K0K" secondAttribute="bottom" id="bdr-Lf-cAu"/>
+                                                <constraint firstItem="yaE-Tx-K0K" firstAttribute="bottom" secondItem="XCL-Ko-TJD" secondAttribute="bottomMargin" id="et2-BO-urq"/>
                                                 <constraint firstItem="yaE-Tx-K0K" firstAttribute="trailing" secondItem="XCL-Ko-TJD" secondAttribute="trailingMargin" id="lCU-k4-Tcs"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -173,7 +173,7 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="v8h-7C-3YE" secondAttribute="trailing" id="1Z4-kV-Us3"/>
                                                 <constraint firstItem="v8h-7C-3YE" firstAttribute="top" secondItem="WsM-jc-lYp" secondAttribute="topMargin" id="Fsy-tc-Xfx"/>
                                                 <constraint firstItem="v8h-7C-3YE" firstAttribute="leading" secondItem="WsM-jc-lYp" secondAttribute="leadingMargin" id="bR9-O4-cve"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="v8h-7C-3YE" secondAttribute="bottom" constant="4" id="v4m-Q9-XWQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="v8h-7C-3YE" secondAttribute="bottom" constant="4" id="wrB-tH-doe"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -207,7 +207,7 @@
                                                         <action selector="actionButtonPressed:" destination="JD9-Z5-HF3" eventType="touchUpInside" id="EGs-cb-dgd"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
                                                     <rect key="frame" x="472" y="20" width="10" height="20.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -230,12 +230,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="centerY" secondItem="3y5-Rh-YJL" secondAttribute="centerY" id="2Dw-Ot-8A0"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="YHR-w6-d8T" secondAttribute="bottom" constant="3" id="4vk-cI-4Cz"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="W1Y-Ko-Nwr" secondAttribute="trailing" id="FCr-oD-Mz3"/>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="top" secondItem="kx0-pn-pwV" secondAttribute="topMargin" id="L9P-Xx-En1"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="top" secondItem="W1Y-Ko-Nwr" secondAttribute="bottom" constant="10" id="PDw-hk-uYd"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="width" secondItem="W1Y-Ko-Nwr" secondAttribute="width" id="Ure-hI-RhV"/>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="leading" secondItem="3y5-Rh-YJL" secondAttribute="trailing" constant="10" id="fOO-is-wi6"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YHR-w6-d8T" secondAttribute="bottom" constant="3" id="jkY-ru-Mxc"/>
                                                 <constraint firstItem="W1Y-Ko-Nwr" firstAttribute="trailing" secondItem="YHR-w6-d8T" secondAttribute="trailing" id="jlf-Et-Zbs"/>
                                                 <constraint firstItem="YHR-w6-d8T" firstAttribute="trailing" secondItem="kx0-pn-pwV" secondAttribute="trailingMargin" id="zMa-M2-zfO"/>
                                             </constraints>
