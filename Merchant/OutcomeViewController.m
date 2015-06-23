@@ -38,9 +38,7 @@
     self.cardNumberLabel.text = (self.outcome.lastFour) ? [NSString stringWithFormat:@"**** **** **** %@", self.outcome.lastFour] : @"";
     self.merchantRefLabel.text = (self.outcome.merchantRef) ?: @"";
     self.transactionIDLabel.text = (self.outcome.identifier) ?: @"";
-    self.amountLabel.text = (self.outcome.amount.stringValue) ? [NSString stringWithFormat:@"£%@.00", self.outcome.amount.stringValue] : @"";
-    
-    
+    self.amountLabel.text = (self.outcome.amount.stringValue) ? [NSString stringWithFormat:@"£%.2f", self.outcome.amount.doubleValue] : @"";
 }
 
 - (void)restartButtonPressed:(id)sender {
