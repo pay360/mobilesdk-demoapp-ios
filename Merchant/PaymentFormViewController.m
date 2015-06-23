@@ -244,7 +244,7 @@ typedef enum : NSUInteger {
             break;
             
         case TABLE_ROW_EMPTYNESS: {
-            CGFloat value = tableView.frame.size.height - 82.0f - 86.0f - 117.0f;
+            CGFloat value = self.view.frame.size.height - 82.0f - 86.0f - 117.0f;
             if (value < 0.0f) value = 0.0f;
             return value;
         }
@@ -259,6 +259,12 @@ typedef enum : NSUInteger {
             break;
     }
     
+}
+
+-(void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:TABLE_ROW_EMPTYNESS inSection:0]]
+                          withRowAnimation:UITableViewRowAnimationNone];
 }
 
 -(CardPanTableViewCell*)dequeeCardPanCell:(UITableView*)tableView atIndexPath:(NSIndexPath*)indexPath {
