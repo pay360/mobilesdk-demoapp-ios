@@ -11,5 +11,6 @@
 @interface TableViewCell : UITableViewCell
 
 +(NSString*)cellIdentifier;
++(CGFloat)rowHeight;
 
 @end

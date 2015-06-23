@@ -94,12 +94,12 @@ typedef enum : NSUInteger {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
-- (void)keyboardWillShow:(NSNotification *)notif {
+-(void)keyboardWillShow:(NSNotification *)notif {
     CGSize keyboardSize = [notif.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
     [self updateTableViewInsets:keyboardSize.height];
 }
 
-- (void)keyboardWillHide:(NSNotification *)notif {
+-(void)keyboardWillHide:(NSNotification *)notif {
     [self updateTableViewInsets:0];
 }
 
@@ -236,22 +236,25 @@ typedef enum : NSUInteger {
     switch (indexPath.row) {
             
         case TABLE_ROW_CARD_PAN:
-            return 83.0f;
+            return [CardPanTableViewCell rowHeight];
             break;
             
         case TABLE_ROW_CARD_DETAILS:
-            return 86.0f;
+            return [CardDetailsTableViewCell rowHeight];
             break;
             
         case TABLE_ROW_EMPTYNESS: {
-            CGFloat value = self.view.frame.size.height - 82.0f - 86.0f - 117.0f;
+            CGFloat value = tableView.frame.size.height -
+                            [CardPanTableViewCell rowHeight] -
+                            [CardDetailsTableViewCell rowHeight] -
+                            [PaymentTableViewCell rowHeight];
             if (value < 0.0f) value = 0.0f;
             return value;
         }
             break;
             
         case TABLE_ROW_PAYMENT:
-            return 117.0f;
+            return [PaymentTableViewCell rowHeight];
             break;
             
         default:

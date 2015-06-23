@@ -21,6 +21,10 @@
     self.form.cardNumber = sender.text;
 }
 
++(CGFloat)rowHeight {
+    return 83.0f;
+}
+
 -(void)configureWithForm:(FormDetails *)form {
     self.form = form;
 }

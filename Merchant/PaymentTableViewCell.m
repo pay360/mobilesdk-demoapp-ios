@@ -28,6 +28,10 @@
     self.form = form;
 }
 
++(CGFloat)rowHeight {
+    return 117.0f;
+}
+
 - (IBAction)textFieldEditingChanged:(PaymentFormField *)sender {
     self.form.amount = (sender.text.length) ? @(sender.text.doubleValue) : nil;
 }
