@@ -745,9 +745,13 @@ typedef enum : NSUInteger {
     }
     
     if (indexPath) {
-        [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+        [self performSelector:@selector(scrollToIndexPath:) withObject:indexPath afterDelay:.3];
     }
     
+}
+
+-(void)scrollToIndexPath:(NSIndexPath*)indexPath {
+    [self.tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
 }
 
 -(void)highlightTextFieldBorderActive:(PaymentFormField*)textField {
