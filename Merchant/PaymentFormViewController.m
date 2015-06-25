@@ -38,6 +38,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, strong) PaymentFormViewControllerAnimationManager *paymentFormAnimationManager;
 @property (weak, nonatomic) IBOutlet PaymentFormTableView *tableView;
 @property (nonatomic, strong) FormDetails *form;
+@property (nonatomic, weak) UITextField *fieldFirstResponder;
 @end
 
 @implementation PaymentFormViewController
@@ -70,9 +71,7 @@ typedef enum : NSUInteger {
 }
 
 -(void)viewDidLoad {
-    
     [super viewDidLoad];
-    
     self.title = @"Details";
 }
 
@@ -82,6 +81,11 @@ typedef enum : NSUInteger {
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillShow:)
                                                  name:UIKeyboardWillShowNotification
+                                               object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardDidShow:)
+                                                 name:UIKeyboardDidShowNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -95,8 +99,37 @@ typedef enum : NSUInteger {
 }
 
 -(void)keyboardWillShow:(NSNotification *)notif {
-    CGSize keyboardSize = [notif.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    [self updateTableViewInsets:keyboardSize.height];
+    CGRect beginFrame = [notif.userInfo[UIKeyboardFrameBeginUserInfoKey] CGRectValue];
+    [self updateTableViewInsets:CGRectGetHeight(beginFrame)];
+}
+
+-(void)keyboardDidShow:(NSNotification *)notif {
+    [self performSelector:@selector(scrollToIndexPath:)
+               withObject:[self indexPathForTextField:self.fieldFirstResponder]
+               afterDelay:.1];
+}
+
+-(NSIndexPath *)indexPathForTextField:(UITextField*)textField {
+    
+    switch (textField.tag) {
+            
+        case TEXT_FIELD_TYPE_CARD_NUMBER:
+            return [NSIndexPath indexPathForRow:TABLE_ROW_CARD_PAN inSection:0];
+            break;
+        case TEXT_FIELD_TYPE_EXPIRY:
+            return [NSIndexPath indexPathForRow:TABLE_ROW_CARD_DETAILS inSection:0];
+            break;
+        case TEXT_FIELD_TYPE_CVV:
+            return [NSIndexPath indexPathForRow:TABLE_ROW_CARD_DETAILS inSection:0];
+            break;
+        case TEXT_FIELD_TYPE_AMOUNT:
+            return [NSIndexPath indexPathForRow:TABLE_ROW_PAYMENT inSection:0];
+            break;
+            
+        default:
+            return nil;
+            break;
+    }
 }
 
 -(void)keyboardWillHide:(NSNotification *)notif {
@@ -244,12 +277,11 @@ typedef enum : NSUInteger {
             break;
             
         case TABLE_ROW_EMPTYNESS: {
-            CGFloat value = tableView.frame.size.height -
+            CGFloat value = CGRectGetHeight(tableView.frame) -
                             [CardPanTableViewCell rowHeight] -
                             [CardDetailsTableViewCell rowHeight] -
                             [PaymentTableViewCell rowHeight];
-            if (value < 0.0f) value = 0.0f;
-            return value;
+            return MAX(0, value);
         }
             break;
             
@@ -546,12 +578,13 @@ typedef enum : NSUInteger {
                 backgroundView.alpha = 0;
             } completion:^(BOOL finished) {
                 [backgroundView removeFromSuperview];
-                completion();
+                if (completion) completion();
             }];
         } else {
             [backgroundView removeFromSuperview];
-            completion();
+            if (completion) completion();
         }
+        
     };
     
     [dialogueView updateBody:body
@@ -663,30 +696,9 @@ typedef enum : NSUInteger {
     return YES;
 }
 
--(BOOL)textFieldShouldReturn:(PaymentFormField *)textField {
-    
-    FormField *nextTextField;
-    
-//    switch (textField.tag) {
-//        case TEXT_FIELD_TYPE_CARD_NUMBER:
-//            nextTextField = self.textFields[TEXT_FIELD_TYPE_EXPIRY];
-//            break;
-//        case TEXT_FIELD_TYPE_EXPIRY:
-//            nextTextField = self.textFields[TEXT_FIELD_TYPE_CVV];
-//            break;
-//        case TEXT_FIELD_TYPE_CVV:
-//            nextTextField = self.textFields[TEXT_FIELD_TYPE_AMOUNT];
-//            break;
-//    }
-    
-    if (nextTextField) {
-        [nextTextField becomeFirstResponder];
-    }
-    
-    return YES;
-}
-
 -(void)textFieldDidEndEditing:(PaymentFormField *)textField {
+    
+    self.fieldFirstResponder = nil;
     
     NSError *error;
     
@@ -720,6 +732,8 @@ typedef enum : NSUInteger {
 
 -(void)textFieldDidBeginEditing:(UITextField *)textField {
     
+    self.fieldFirstResponder = textField;
+    
     NSIndexPath *indexPath;
     
     switch (textField.tag) {
@@ -745,7 +759,7 @@ typedef enum : NSUInteger {
     }
     
     if (indexPath) {
-        [self performSelector:@selector(scrollToIndexPath:) withObject:indexPath afterDelay:.3];
+        //[self performSelector:@selector(scrollToIndexPath:) withObject:indexPath afterDelay:.3];
     }
     
 }

@@ -35,7 +35,7 @@
     self.tickLabel.text = @"\uF00C";
     self.tickLabel.textColor = [ColourManager ppYellow];
     
-    self.cardNumberLabel.text = (self.outcome.lastFour) ? [NSString stringWithFormat:@"**** **** **** %@", self.outcome.lastFour] : @"";
+    self.cardNumberLabel.text = (self.outcome.maskedPan.length) ? self.outcome.maskedPan : @"";
     self.merchantRefLabel.text = (self.outcome.merchantRef) ?: @"";
     self.transactionIDLabel.text = (self.outcome.identifier) ?: @"";
     self.amountLabel.text = (self.outcome.amount.stringValue) ? [NSString stringWithFormat:@"£%.2f", self.outcome.amount.doubleValue] : @"";

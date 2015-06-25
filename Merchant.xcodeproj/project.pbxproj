@@ -407,7 +407,7 @@
 			children = (
 				503042881AE7C1DA00CA5B9B /* NavigationViewController */,
 				5030428F1AE7C20300CA5B9B /* WelcomeViewController */,
-				504DD8621AE94BD2000C47B9 /* Form */,
+				5030428D1AE7C1F700CA5B9B /* PaymentFormViewController */,
 				5030428A1AE7C1E600CA5B9B /* OutcomeViewController */,
 			);
 			name = ViewControllers;
@@ -455,14 +455,6 @@
 				504DD85B1AE9478D000C47B9 /* PaymentFormViewControllerAnimationManager.m */,
 			);
 			name = PaymentFormAnimationManager;
-			sourceTree = "<group>";
-		};
-		504DD8621AE94BD2000C47B9 /* Form */ = {
-			isa = PBXGroup;
-			children = (
-				5030428D1AE7C1F700CA5B9B /* PaymentFormViewController */,
-			);
-			name = Form;
 			sourceTree = "<group>";
 		};
 		504DD8631AE94C3E000C47B9 /* AnimationManagers */ = {
