@@ -182,9 +182,8 @@ typedef enum : NSUInteger {
                                    withCompletion:[self paymentCompletionHandler]];
                 break;
                 
-            case UI_ALERT_TRY_AGAIN: {
-                [self preparePayment:self.currentPayment];
-            }
+            case UI_ALERT_TRY_AGAIN:
+                [self makePayment:self.currentPayment];
                 break;
                 
             default:
@@ -347,59 +346,47 @@ typedef enum : NSUInteger {
         
     } else if (self.animationManager.animationState == LOADING_ANIMATION_STATE_ENDED) {
         
-        [self preparePayment:self.currentPayment];
+        /*!
+         * The 'form' model object represents the data acquired by each FormField.h
+         * in our payment form. We utilise the PaypointSDK to perform inline validation.
+         * This is handled in our implementation of the PaymentEntryFieldsManager protocol, which can
+         * be found in our superclass.
+         */
+        FormDetails *formDetails = self.form;
         
-    }
-    
-}
-
--(void)preparePayment:(PPOPayment*)payment {
-    
-    /*!
-     * The 'form' model object represents the data acquired by each FormField.h
-     * in our payment form. We utilise the PaypointSDK to perform inline validation.
-     * This is handled in our implementation of the PaymentEntryFieldsManager protocol, which can
-     * be found in our superclass.
-     */
-    FormDetails *formDetails = self.form;
-    
-    payment.card = [PPOCard new];
-    payment.card.pan = formDetails.cardNumber;
-    payment.card.cvv = formDetails.cvv;
-    payment.card.expiry = formDetails.expiry;
-    payment.transaction.amount = formDetails.amount;
-    payment.card.cardHolderName = @"Dai Jones";
-    
-    NSError *invalid = [PPOValidator validatePayment:payment];
-    
-    if (invalid) {
-        PPOOutcome *outcome = [PPOOutcome new];
-        outcome.error = invalid;
-        outcome.payment = payment;
+        self.currentPayment.card = [PPOCard new];
+        self.currentPayment.card.pan = formDetails.cardNumber;
+        self.currentPayment.card.cvv = formDetails.cvv;
+        self.currentPayment.card.expiry = formDetails.expiry;
+        self.currentPayment.transaction.amount = formDetails.amount;
+        self.currentPayment.card.cardHolderName = @"Dai Jones";
         
-        [self handleLocalValidationOutcome:outcome];
-    } else {
-        [self.paymentFormAnimationManager beginLoadingAnimation];
+        NSError *invalid = [PPOValidator validatePayment:self.currentPayment];
         
-        __weak typeof(self) weakSelf = self;
-        
-        [self fetchTokenForPayment:payment withCompletion:^(NSError *error) {
+        if (invalid) {
+            PPOOutcome *outcome = [PPOOutcome new];
+            outcome.error = invalid;
+            outcome.payment = self.currentPayment;
             
-            if (error) {
-                [weakSelf handleErrorGeneratedByMerchantDemoApp:error];
-            } else {
-                if (payment.credentials) {
-                    /*
-                     *The PaypointSDK performs paramater validation before any network request is made.
-                     */
-                    [weakSelf.paymentManager makePayment:payment
-                                             withTimeOut:60.0f
-                                          withCompletion:[weakSelf paymentCompletionHandler]];
-                    
+            [self handleLocalValidationOutcome:outcome];
+        } else {
+            [self.paymentFormAnimationManager beginLoadingAnimation];
+            
+            __weak typeof(self) weakSelf = self;
+            
+            [self fetchTokenForPayment:self.currentPayment withCompletion:^(NSError *error) {
+                
+                if (error) {
+                    [weakSelf handleErrorGeneratedByMerchantDemoApp:error];
+                } else {
+                    if (self.currentPayment.credentials) {
+                        [self makePayment:self.currentPayment];
+                    }
                 }
-            }
-            
-        }];
+                
+            }];
+        }
+        
     }
     
 }
@@ -445,6 +432,15 @@ typedef enum : NSUInteger {
         
     }];
     
+}
+
+-(void)makePayment:(PPOPayment*)payment {
+    /*
+     *The PaypointSDK performs paramater validation before any network request is made.
+     */
+    [self.paymentManager makePayment:self.currentPayment
+                         withTimeOut:60.0f
+                      withCompletion:[self paymentCompletionHandler]];
 }
 
 -(void(^)(PPOOutcome *outcome))paymentCompletionHandler {
