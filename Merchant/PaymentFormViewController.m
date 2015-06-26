@@ -215,7 +215,6 @@ typedef enum : NSUInteger {
         transaction.amount = @100;
         transaction.transactionDescription = @"A desc";
         transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
-        transaction.isDeferred = @NO;
         
         PPOPayment *payment = [PPOPayment new];
         payment.transaction = transaction;
