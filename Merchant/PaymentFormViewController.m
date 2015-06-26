@@ -374,10 +374,14 @@ typedef enum : NSUInteger {
             
             __weak typeof(self) weakSelf = self;
             
-            [self fetchTokenForPayment:self.currentPayment withCompletion:^(NSError *error) {
+            [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
                 
-                if (error) {
-                    [weakSelf handleErrorGeneratedByMerchantDemoApp:error];
+                NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
+                
+                self.currentPayment.credentials = credentials;
+                
+                if (retrievalError || !credentials) {
+                    [weakSelf handleErrorGeneratedByMerchantDemoApp:retrievalError];
                 } else {
                     if (self.currentPayment.credentials) {
                         [self makePayment:self.currentPayment];
@@ -385,23 +389,10 @@ typedef enum : NSUInteger {
                 }
                 
             }];
+
         }
         
     }
-    
-}
-
--(void)fetchTokenForPayment:(PPOPayment*)payment withCompletion:(void(^)(NSError *error))completion {
-    
-    [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
-        
-        NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
-        
-        payment.credentials = credentials;
-        
-        completion(retrievalError);
-        
-    }];
     
 }
 
@@ -411,17 +402,26 @@ typedef enum : NSUInteger {
         
         if ([error.domain isEqualToString:NSURLErrorDomain]) {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials Acquisition"
-                                                            message:@"The attempt to retrieve your Paypoint credentials failed with a network error. Please check your signal."
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials"
+                                                            message:@"The attempt to retrieve your credentials failed with a network error. Please check your signal."
                                                            delegate:self
                                                   cancelButtonTitle:@"Dismiss"
                                                   otherButtonTitles:nil, nil];
             
             [alert show];
             
+        } else if (!error) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials"
+                                                            message:@"There has been a problem retrieving your credentials and it wasn't a networking issue..."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            
         } else {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials Acquisition"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials"
                                                             message:error.localizedDescription
                                                            delegate:self
                                                   cancelButtonTitle:@"Dismiss"
