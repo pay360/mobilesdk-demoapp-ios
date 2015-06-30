@@ -41,7 +41,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) UITextField *fieldFirstResponder;
 @end
 
-@implementation PaymentFormViewController
+@implementation PaymentFormViewController 
 
 -(FormDetails *)form {
     if (_form == nil) {
@@ -215,7 +215,6 @@ typedef enum : NSUInteger {
         transaction.amount = @100;
         transaction.transactionDescription = @"A desc";
         transaction.merchantRef = [NSString stringWithFormat:@"mer_%.0f", [[NSDate date] timeIntervalSince1970]];
-        transaction.isDeferred = @NO;
         
         PPOPayment *payment = [PPOPayment new];
         payment.transaction = transaction;
@@ -374,44 +373,25 @@ typedef enum : NSUInteger {
             
             __weak typeof(self) weakSelf = self;
             
-            [self fetchTokenForPayment:self.currentPayment withCompletion:^(NSError *error) {
+            [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
                 
-                if (error) {
-                    [weakSelf handleErrorGeneratedByMerchantDemoApp:error];
+                NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
+                
+                self.currentPayment.credentials = credentials;
+                
+                if (retrievalError || !credentials) {
+                    [weakSelf handleErrorGeneratedByMerchantDemoApp:retrievalError];
                 } else {
                     if (self.currentPayment.credentials) {
                         [self makePayment:self.currentPayment];
                     }
                 }
+                
             }];
+
         }
         
     }
-    
-}
-
--(void)fetchTokenForPayment:(PPOPayment*)payment withCompletion:(void(^)(NSError *error))completion {
-    
-    [MerchantServer getCredentialsWithCompletion:^(PPOCredentials *credentials, NSError *retrievalError) {
-        
-        NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
-        
-        payment.credentials = credentials;
-        
-        completion(retrievalError);
-        
-    }];
-    
-}
-
--(void)makePayment:(PPOPayment*)payment {
-    
-    /*
-     *The PaypointSDK performs paramater validation before any network request is made.
-     */
-    [self.paymentManager makePayment:payment
-                         withTimeOut:60.0f
-                      withCompletion:[self paymentCompletionHandler]];
     
 }
 
@@ -421,17 +401,26 @@ typedef enum : NSUInteger {
         
         if ([error.domain isEqualToString:NSURLErrorDomain]) {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials Acquisition"
-                                                            message:@"The attempt to retrieve your Paypoint credentials failed with a network error. Please check your signal."
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials"
+                                                            message:@"The attempt to retrieve your credentials failed with a network error. Please check your signal."
                                                            delegate:self
                                                   cancelButtonTitle:@"Dismiss"
                                                   otherButtonTitles:nil, nil];
             
             [alert show];
             
+        } else if (!error) {
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials"
+                                                            message:@"There has been a problem retrieving your credentials and it wasn't a networking issue..."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil, nil];
+            [alert show];
+            
         } else {
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials Acquisition"
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Credentials"
                                                             message:error.localizedDescription
                                                            delegate:self
                                                   cancelButtonTitle:@"Dismiss"
@@ -442,6 +431,15 @@ typedef enum : NSUInteger {
         
     }];
     
+}
+
+-(void)makePayment:(PPOPayment*)payment {
+    /*
+     *The PaypointSDK performs paramater validation before any network request is made.
+     */
+    [self.paymentManager makePayment:self.currentPayment
+                         withTimeOut:60.0f
+                      withCompletion:[self paymentCompletionHandler]];
 }
 
 -(void(^)(PPOOutcome *outcome))paymentCompletionHandler {
