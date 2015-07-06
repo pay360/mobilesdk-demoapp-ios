@@ -675,6 +675,27 @@ typedef enum : NSUInteger {
     return YES;
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *value;
+    
+    if (string.length == 0) {
+        return YES;
+    }
+    
+    if (textField.tag == TEXT_FIELD_TYPE_CARD_NUMBER) {
+        value = [self.form.cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return !(value && value.length >= 19);
+    }
+    
+    if (textField.tag == TEXT_FIELD_TYPE_CVV) {
+        value = [self.form.cvv stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return !(value && value.length >= 4);
+    }
+    
+    return YES;
+}
+
 -(void)textFieldDidEndEditing:(PaymentFormField *)textField {
     
     self.fieldFirstResponder = nil;
