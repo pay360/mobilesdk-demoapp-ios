@@ -12,12 +12,21 @@
 @interface PaymentTableViewCell ()
 @property (weak, nonatomic) IBOutlet ActionButton *actionButton;
 @property (nonatomic, weak) FormDetails *form;
+@property (weak, nonatomic) IBOutlet PaymentFormField *textField;
 @end
 
 @implementation PaymentTableViewCell
 
 -(void)awakeFromNib {
     self.actionButton.accessibilityLabel = @"PayNowButton";
+    
+    NSDictionary *dic = @{
+                          NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:30.0f],
+                          NSForegroundColorAttributeName : [UIColor darkGrayColor]
+                          };
+    
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"£100" attributes:dic];
+
 }
 
 -(IBAction)actionButtonPressed:(ActionButton*)button {

@@ -63,8 +63,18 @@ typedef enum : NSUInteger {
 }
 
 -(void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     self.title = @"Details";
+    
+    NSDictionary *dic = @{
+                          NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:16.0f],
+                          NSForegroundColorAttributeName : [UIColor whiteColor]
+                          };
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:dic];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
