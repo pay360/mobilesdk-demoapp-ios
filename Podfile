@@ -4,7 +4,6 @@ platform :ios, '7.0'
 inhibit_all_warnings!
 
 xcodeproj 'Merchant'
-#pod 'PayPointPayments',:local => '../mobilesdk-ios'
 
 paypointVersion = '1.0.0-rc1'
 
