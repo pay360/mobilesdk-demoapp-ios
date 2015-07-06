@@ -184,8 +184,12 @@ typedef enum : NSUInteger {
                                    withCompletion:[self paymentCompletionHandler]];
                 break;
                 
-            case UI_ALERT_TRY_AGAIN:
-                [self makePayment:self.currentPayment];
+            case UI_ALERT_TRY_AGAIN: {
+                if (self.currentPayment.credentials) {
+                    [self.paymentFormAnimationManager beginLoadingAnimation];
+                    [self makePayment:self.currentPayment];
+                }
+            }
                 break;
                 
             default:
@@ -518,7 +522,7 @@ typedef enum : NSUInteger {
                                withBody:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                                animated:YES
                          withCompletion:^{
-                             
+                             [self askUserRetryPayment:self.currentPayment];
                          }];
             
         }
