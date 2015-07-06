@@ -19,7 +19,6 @@
 		503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042321AE7BF0D00CA5B9B /* ColourManager.m */; };
 		5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042371AE7BF0D00CA5B9B /* FontAwesome.otf */; };
 		5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042391AE7BF0D00CA5B9B /* FormDetails.m */; };
-		503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */; };
 		503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042441AE7BF0D00CA5B9B /* ImageManager.m */; };
 		503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042461AE7BF0D00CA5B9B /* MerchantServer.m */; };
 		503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042481AE7BF0D00CA5B9B /* NavigationViewController.m */; };
@@ -42,7 +41,6 @@
 		50B5F9C61B38183300601202 /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C51B38183300601202 /* ActionButton.m */; };
 		50B5F9CA1B38199800601202 /* TitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C91B38199800601202 /* TitleLabel.m */; };
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
-		50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50F2212E1B14AE690031AF1B /* FOUCONRG.otf */; };
 		55DD575DF7137283D5E4650F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,7 +69,6 @@
 		503042371AE7BF0D00CA5B9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		503042381AE7BF0D00CA5B9B /* FormDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormDetails.h; sourceTree = "<group>"; };
 		503042391AE7BF0D00CA5B9B /* FormDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormDetails.m; sourceTree = "<group>"; };
-		503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoundConExtBol.ttf; sourceTree = "<group>"; };
 		503042431AE7BF0D00CA5B9B /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
 		503042441AE7BF0D00CA5B9B /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		503042451AE7BF0D00CA5B9B /* MerchantServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantServer.h; sourceTree = "<group>"; };
@@ -109,7 +106,6 @@
 		50B5F9C81B38199800601202 /* TitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleLabel.h; sourceTree = "<group>"; };
 		50B5F9C91B38199800601202 /* TitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLabel.m; sourceTree = "<group>"; };
 		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		50F2212E1B14AE690031AF1B /* FOUCONRG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRG.otf; sourceTree = "<group>"; };
 		634D5C8FC38E16517A523F19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E812B9A072370A3B32C4CF9D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -263,8 +259,6 @@
 			isa = PBXGroup;
 			children = (
 				503042371AE7BF0D00CA5B9B /* FontAwesome.otf */,
-				503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */,
-				50F2212E1B14AE690031AF1B /* FOUCONRG.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -572,9 +566,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */,
 				50B5F9C31B3817EA00601202 /* DialogueView.xib in Resources */,
-				503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */,
 				5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */,
 				503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */,
 				5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */,
