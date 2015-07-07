@@ -25,7 +25,7 @@
                           NSForegroundColorAttributeName : [UIColor darkGrayColor]
                           };
     
-    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"£100" attributes:dic];
+    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"100.00" attributes:dic];
 
 }
 
