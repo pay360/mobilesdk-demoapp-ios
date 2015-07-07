@@ -185,7 +185,7 @@ typedef enum : NSUInteger {
                 break;
                 
             case UI_ALERT_TRY_AGAIN: {
-                if (self.currentPayment.credentials) {
+                if (self.currentPayment.credentials && [PPOPaymentManager isSafeToRetryPaymentWithOutcome:nil]) {
                     [self.paymentFormAnimationManager beginLoadingAnimation];
                     [self makePayment:self.currentPayment];
                 }
@@ -437,7 +437,7 @@ typedef enum : NSUInteger {
     
     return ^ (PPOOutcome *outcome) {
         if (outcome.error) {
-            [weakSelf handleErrorGeneratedByPaymentsSDK:outcome.error];
+            [weakSelf handleOutcomeGeneratedByPaymentsSDK:outcome];
         } else {
             [weakSelf.animationManager endLoadingAnimationWithCompletion:^{
                 [weakSelf performSegueWithIdentifier:@"OutcomeViewControllerSegueID" sender:outcome];
@@ -448,25 +448,25 @@ typedef enum : NSUInteger {
 
 #pragma mark - Outcome Error Handling
 
--(void)handleErrorGeneratedByPaymentsSDK:(NSError*)error {
+-(void)handleOutcomeGeneratedByPaymentsSDK:(PPOOutcome*)outcome {
     
     __weak typeof(self) weakSelf = self;
     
     [self.animationManager endLoadingAnimationWithCompletion:^{
         
-        if (error && [error.domain isEqualToString:PPOPaymentErrorDomain]) {
+        if (outcome.error && [outcome.error.domain isEqualToString:PPOPaymentErrorDomain]) {
             
-            [weakSelf handlePaymentError:error];
-            
-        }
-        else if (error && [error.domain isEqualToString:PPOLocalValidationErrorDomain]) {
-            
-            [weakSelf handleLocalValidationError:error];
+            [weakSelf handlePaymentOutcome:outcome];
             
         }
-        else if ([error.domain isEqualToString:NSURLErrorDomain]) {
+        else if (outcome.error && [outcome.error.domain isEqualToString:PPOLocalValidationErrorDomain]) {
             
-            [weakSelf handleNetworkError:error];
+            [weakSelf handleLocalValidationError:outcome.error];
+            
+        }
+        else if ([outcome.error.domain isEqualToString:NSURLErrorDomain]) {
+            
+            [weakSelf handleNetworkError:outcome.error];
             
         }
         else {
@@ -486,9 +486,9 @@ typedef enum : NSUInteger {
     
 }
 
--(void)handlePaymentError:(NSError*)error {
+-(void)handlePaymentOutcome:(PPOOutcome*)outcome {
     
-    switch (error.code) {
+    switch (outcome.error.code) {
         case PPOPaymentErrorMasterSessionTimedOut: {
             
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Session Timeout"
@@ -519,10 +519,12 @@ typedef enum : NSUInteger {
             
         default: {
             [self showDialogueWithTitle:@"Error"
-                               withBody:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                               withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                                animated:YES
                          withCompletion:^{
-                             [self askUserRetryPayment:self.currentPayment];
+                             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+                                 [self askUserRetryPayment:self.currentPayment];
+                             }
                          }];
             
         }
