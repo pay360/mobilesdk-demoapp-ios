@@ -550,9 +550,21 @@ typedef enum : NSUInteger {
               withCompletion:(void(^)(void))completion {
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    backgroundView.translatesAutoresizingMaskIntoConstraints = YES;
+    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.4];
     [[[UIApplication sharedApplication] keyWindow] addSubview:backgroundView];
+    
+    NSArray *constraints;
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(backgroundView);
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[backgroundView]-0-|" options:0 metrics:nil views:views];
+    
+    [[[UIApplication sharedApplication] keyWindow] addConstraints:constraints];
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[backgroundView]-0-|" options:0 metrics:nil views:views];
+    
+    [[[UIApplication sharedApplication] keyWindow] addConstraints:constraints];
     
     DialogueView *dialogueView = [DialogueView dialogueView];
     
@@ -606,9 +618,7 @@ typedef enum : NSUInteger {
     
     [backgroundView addConstraint:constraint];
     
-    NSArray *constraints;
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(dialogueView);
+    views = NSDictionaryOfVariableBindings(dialogueView);
     
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[dialogueView]-(>=20)-|"
                                                           options:0
