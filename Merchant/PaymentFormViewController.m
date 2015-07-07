@@ -369,13 +369,13 @@ typedef enum : NSUInteger {
                 
                 NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
                 
-                self.currentPayment.credentials = credentials;
+                weakSelf.currentPayment.credentials = credentials;
                 
                 if (retrievalError || !credentials) {
                     [weakSelf handleErrorGeneratedByMerchantDemoApp:retrievalError];
                 } else {
-                    if (self.currentPayment.credentials) {
-                        [self makePayment:self.currentPayment];
+                    if (weakSelf.currentPayment.credentials) {
+                        [weakSelf makePayment:weakSelf.currentPayment];
                     }
                 }
                 
