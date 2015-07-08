@@ -19,8 +19,8 @@
     // Override point for customization after application launch.
     
     NSDictionary *dic = @{
-                          NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:18.0f],
-                          NSForegroundColorAttributeName : [UIColor whiteColor]
+                          NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:18.0f]
+//                          NSForegroundColorAttributeName : [UIColor whiteColor]
                           };
     
     [[UIBarButtonItem appearance] setTitleTextAttributes:dic

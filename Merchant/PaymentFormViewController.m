@@ -22,8 +22,7 @@
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
 #import <PayPointPayments/PPOValidator.h>
 
-#define UI_ALERT_CHECK_STATUS 1
-#define UI_ALERT_TRY_AGAIN 2
+#define UI_ALERT_CHECK_STATUS -1
 
 typedef enum : NSUInteger {
     TABLE_ROW_CARD_PAN,
@@ -51,13 +50,9 @@ typedef enum : NSUInteger {
 }
 
 -(PPOPaymentManager *)paymentManager {
-    
     if (_paymentManager == nil) {
-        
         NSURL *baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:PPOEnvironmentMerchantIntegrationTestingEnvironment];
-        
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
-        
     }
     return _paymentManager;
 }
@@ -68,12 +63,10 @@ typedef enum : NSUInteger {
     
     self.title = @"Details";
     
-    NSDictionary *dic = @{
-                          NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:16.0f],
-                          NSForegroundColorAttributeName : [UIColor whiteColor]
-                          };
-    
-    [self.navigationController.navigationBar setTitleTextAttributes:dic];
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:16.0f],
+                                                                      NSForegroundColorAttributeName : [UIColor whiteColor]
+                                                                      }];
 
 }
 
@@ -160,15 +153,11 @@ typedef enum : NSUInteger {
 #pragma mark - Storyboard
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([segue.identifier isEqualToString:@"OutcomeViewControllerSegueID"] && [sender isKindOfClass:[PPOOutcome class]]) {
-        
         PPOOutcome *outcome = (PPOOutcome*)sender;
         OutcomeViewController *controller = segue.destinationViewController;
         controller.outcome = outcome;
-        
     }
-    
 }
 
 #pragma mark - UIAlertView Delegate
@@ -177,23 +166,9 @@ typedef enum : NSUInteger {
     
     if (alertView.cancelButtonIndex != buttonIndex) {
         
-        switch (alertView.tag) {
-                
-            case UI_ALERT_CHECK_STATUS:
-                [self.paymentManager queryPayment:self.currentPayment
-                                   withCompletion:[self paymentCompletionHandler]];
-                break;
-                
-            case UI_ALERT_TRY_AGAIN: {
-                if (self.currentPayment.credentials && [PPOPaymentManager isSafeToRetryPaymentWithOutcome:nil]) {
-                    [self.paymentFormAnimationManager beginLoadingAnimation];
-                    [self makePayment:self.currentPayment];
-                }
-            }
-                break;
-                
-            default:
-                break;
+        if (alertView.tag == UI_ALERT_CHECK_STATUS) {
+            [self.paymentManager queryPayment:self.currentPayment
+                               withCompletion:[self paymentCompletionHandler]];
         }
         
     }
@@ -517,6 +492,17 @@ typedef enum : NSUInteger {
         }
             break;
             
+        case PPOPaymentValidationError: {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Invalid"
+                                                            message:@"Please check your payment parameters."
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil, nil];
+            
+            [alert show];
+        }
+            break;
+            
         default: {
             [self showDialogueWithTitle:@"Error"
                                withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
@@ -658,12 +644,11 @@ typedef enum : NSUInteger {
 -(void)askUserRetryPayment:(PPOPayment*)payment {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed"
-                                                    message:@"Would you like to retry this payment ?"
+                                                    message:@"No money has been taken."
                                                    delegate:self
                                           cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:@"Try Again", nil];
+                                          otherButtonTitles:nil, nil];
     
-    alert.tag = UI_ALERT_TRY_AGAIN;
     [alert show];
     
 }
@@ -712,25 +697,23 @@ typedef enum : NSUInteger {
     return YES;
 }
 
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.fieldFirstResponder = textField;
+}
+
 -(void)textFieldDidEndEditing:(PaymentFormField *)textField {
     
     self.fieldFirstResponder = nil;
     
     NSError *error;
     
-    TEXT_FIELD_TYPE type = 0;
-    
     if (textField.tag == TEXT_FIELD_TYPE_CARD_NUMBER) {
-        type = TEXT_FIELD_TYPE_CARD_NUMBER;
         error = [PPOValidator validateCardPan:textField.text];
     } else if (textField.tag == TEXT_FIELD_TYPE_EXPIRY) {
-        type = TEXT_FIELD_TYPE_EXPIRY;
         error = [PPOValidator validateCardExpiry:textField.text];
     } else if (textField.tag == TEXT_FIELD_TYPE_CVV) {
-        type = TEXT_FIELD_TYPE_CVV;
         error = [PPOValidator validateCardCVV:textField.text];
     } else if (textField.tag == TEXT_FIELD_TYPE_AMOUNT) {
-        type = TEXT_FIELD_TYPE_AMOUNT;
         error = [PPOValidator validateAmount:@(textField.text.doubleValue)];
     }
     
