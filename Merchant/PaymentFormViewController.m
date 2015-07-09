@@ -509,12 +509,16 @@ typedef enum : NSUInteger {
             
             message = [NSString stringWithFormat:@"Error code: %li\n\nError message: %@", (long)outcome.error.code, [outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]];
             
+            NSMutableString *mutableString = [@"" mutableCopy];
+            [mutableString appendString:message];
+            
             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
-                NSMutableString *mutableString = [@"" mutableCopy];
-                [mutableString appendString:message];
                 [mutableString appendString:@"\n\nNo money has been taken."];
-                message = [mutableString copy];
+            } else {
+                [mutableString appendString:@"\n\nPlease contact the merchant to find out if the payment completed."];
             }
+            
+            message = [mutableString copy];
             
             [self showDialogueWithTitle:@"Error"
                                withBody:message
