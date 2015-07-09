@@ -19,14 +19,7 @@
 
 -(void)awakeFromNib {
     self.actionButton.accessibilityLabel = @"PayNowButton";
-    
-    NSDictionary *dic = @{
-                          NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:30.0f],
-                          NSForegroundColorAttributeName : [UIColor darkGrayColor]
-                          };
-    
-    self.textField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"100.00" attributes:dic];
-
+    self.textField.placeholder = @"100.00";
 }
 
 -(IBAction)actionButtonPressed:(ActionButton*)button {
