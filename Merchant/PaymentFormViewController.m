@@ -494,7 +494,7 @@ typedef enum : NSUInteger {
             
         case PPOPaymentValidationError: {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Invalid"
-                                                            message:@"Please check your payment parameters."
+                                                            message:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                                                            delegate:self
                                                   cancelButtonTitle:@"Dismiss"
                                                   otherButtonTitles:nil, nil];
