@@ -694,6 +694,15 @@ typedef enum : NSUInteger {
         return !(value && value.length >= 4);
     }
     
+    if (textField.tag == TEXT_FIELD_TYPE_AMOUNT) {
+        value = self.form.amount.stringValue;
+        NSArray *components = [value componentsSeparatedByString:@"."];
+        if (components.count > 1) {
+            NSString *last = components.lastObject;
+            return !(last.length >= 2);
+        }
+    }
+    
     return YES;
 }
 
