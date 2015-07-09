@@ -504,13 +504,22 @@ typedef enum : NSUInteger {
             break;
             
         default: {
+            
+            NSString *message;
+            
+            message = [NSString stringWithFormat:@"Error code: %li\n\nError message: %@", (long)outcome.error.code, [outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]];
+            
+            if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+                NSMutableString *mutableString = [@"" mutableCopy];
+                [mutableString appendString:message];
+                [mutableString appendString:@"\n\nNo money has been taken."];
+                message = [mutableString copy];
+            }
+            
             [self showDialogueWithTitle:@"Error"
-                               withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                               withBody:message
                                animated:YES
                          withCompletion:^{
-                             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
-                                 [self askUserRetryPayment:self.currentPayment];
-                             }
                          }];
             
         }
@@ -637,18 +646,6 @@ typedef enum : NSUInteger {
                                           otherButtonTitles:@"Check Status", nil];
     
     alert.tag = UI_ALERT_CHECK_STATUS;
-    [alert show];
-    
-}
-
--(void)askUserRetryPayment:(PPOPayment*)payment {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed"
-                                                    message:@"No money has been taken."
-                                                   delegate:self
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:nil, nil];
-    
     [alert show];
     
 }
