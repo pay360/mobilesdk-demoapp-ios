@@ -22,8 +22,7 @@
 #import <PayPointPayments/PPOPaymentBaseURLManager.h>
 #import <PayPointPayments/PPOValidator.h>
 
-#define UI_ALERT_CHECK_STATUS 1
-#define UI_ALERT_TRY_AGAIN 2
+#define UI_ALERT_CHECK_STATUS -1
 
 typedef enum : NSUInteger {
     TABLE_ROW_CARD_PAN,
@@ -51,28 +50,24 @@ typedef enum : NSUInteger {
 }
 
 -(PPOPaymentManager *)paymentManager {
-    
     if (_paymentManager == nil) {
-        
-        /*
-         *A custom environment can be used.
-         */
-        NSURL *baseURL;
-        
-        /*
-         *Or a selection of PayPoint environments are available.
-         */
-        baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:PPOEnvironmentMerchantIntegrationTestingEnvironment];
-        
+        NSURL *baseURL = [PPOPaymentBaseURLManager baseURLForEnvironment:PPOEnvironmentMerchantIntegrationTestingEnvironment];
         _paymentManager = [[PPOPaymentManager alloc] initWithBaseURL:baseURL];
-        
     }
     return _paymentManager;
 }
 
 -(void)viewDidLoad {
+    
     [super viewDidLoad];
+    
     self.title = @"Details";
+    
+    [self.navigationController.navigationBar setTitleTextAttributes:@{
+                                                                      NSFontAttributeName : [UIFont fontWithName:@"AvenirNext-Medium" size:16.0f],
+                                                                      NSForegroundColorAttributeName : [UIColor whiteColor]
+                                                                      }];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated {
@@ -158,15 +153,11 @@ typedef enum : NSUInteger {
 #pragma mark - Storyboard
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    
     if ([segue.identifier isEqualToString:@"OutcomeViewControllerSegueID"] && [sender isKindOfClass:[PPOOutcome class]]) {
-        
         PPOOutcome *outcome = (PPOOutcome*)sender;
         OutcomeViewController *controller = segue.destinationViewController;
         controller.outcome = outcome;
-        
     }
-    
 }
 
 #pragma mark - UIAlertView Delegate
@@ -175,19 +166,9 @@ typedef enum : NSUInteger {
     
     if (alertView.cancelButtonIndex != buttonIndex) {
         
-        switch (alertView.tag) {
-                
-            case UI_ALERT_CHECK_STATUS:
-                [self.paymentManager queryPayment:self.currentPayment
-                                   withCompletion:[self paymentCompletionHandler]];
-                break;
-                
-            case UI_ALERT_TRY_AGAIN:
-                [self makePayment:self.currentPayment];
-                break;
-                
-            default:
-                break;
+        if (alertView.tag == UI_ALERT_CHECK_STATUS) {
+            [self.paymentManager queryPayment:self.currentPayment
+                               withCompletion:[self paymentCompletionHandler]];
         }
         
     }
@@ -329,11 +310,7 @@ typedef enum : NSUInteger {
 -(void)paymentTableViewCell:(PaymentTableViewCell *)cell actionButtonPressed:(ActionButton *)button {
     
     [self.view endEditing:YES];
-    
-    /*
-     * Nothing will happen if this button is pressed and the animation is still underway.
-     * It should be impossible to press the button when the animation is in progress, because a view is placed on top of the button, which blocks gestures.
-     */
+
     if ([[Reachability reachabilityForInternetConnection] currentReachabilityStatus] == NotReachable) {
         
         [[[UIAlertView alloc] initWithTitle:@"Error"
@@ -345,12 +322,6 @@ typedef enum : NSUInteger {
         
     } else if (self.animationManager.animationState == LOADING_ANIMATION_STATE_ENDED) {
         
-        /*!
-         * The 'form' model object represents the data acquired by each FormField.h
-         * in our payment form. We utilise the PaypointSDK to perform inline validation.
-         * This is handled in our implementation of the PaymentEntryFieldsManager protocol, which can
-         * be found in our superclass.
-         */
         FormDetails *formDetails = self.form;
         
         self.currentPayment.card = [PPOCard new];
@@ -363,11 +334,7 @@ typedef enum : NSUInteger {
         NSError *invalid = [PPOValidator validatePayment:self.currentPayment];
         
         if (invalid) {
-            PPOOutcome *outcome = [PPOOutcome new];
-            outcome.error = invalid;
-            outcome.payment = self.currentPayment;
-            
-            [self handleLocalValidationOutcome:outcome];
+            [self handleLocalValidationError:invalid];
         } else {
             [self.paymentFormAnimationManager beginLoadingAnimation];
             
@@ -377,13 +344,13 @@ typedef enum : NSUInteger {
                 
                 NSLog(@"Got token with length: %lu chars", (unsigned long)credentials.token.length);
                 
-                self.currentPayment.credentials = credentials;
+                weakSelf.currentPayment.credentials = credentials;
                 
                 if (retrievalError || !credentials) {
                     [weakSelf handleErrorGeneratedByMerchantDemoApp:retrievalError];
                 } else {
-                    if (self.currentPayment.credentials) {
-                        [self makePayment:self.currentPayment];
+                    if (weakSelf.currentPayment.credentials) {
+                        [weakSelf makePayment:weakSelf.currentPayment];
                     }
                 }
                 
@@ -434,9 +401,6 @@ typedef enum : NSUInteger {
 }
 
 -(void)makePayment:(PPOPayment*)payment {
-    /*
-     *The PaypointSDK performs paramater validation before any network request is made.
-     */
     [self.paymentManager makePayment:self.currentPayment
                          withTimeOut:60.0f
                       withCompletion:[self paymentCompletionHandler]];
@@ -457,7 +421,7 @@ typedef enum : NSUInteger {
     };
 }
 
-#pragma mark - Outcome Handling
+#pragma mark - Outcome Error Handling
 
 -(void)handleOutcomeGeneratedByPaymentsSDK:(PPOOutcome*)outcome {
     
@@ -472,12 +436,12 @@ typedef enum : NSUInteger {
         }
         else if (outcome.error && [outcome.error.domain isEqualToString:PPOLocalValidationErrorDomain]) {
             
-            [weakSelf handleLocalValidationOutcome:outcome];
+            [weakSelf handleLocalValidationError:outcome.error];
             
         }
         else if ([outcome.error.domain isEqualToString:NSURLErrorDomain]) {
             
-            [weakSelf handleNetworkErrorOutcome:outcome];
+            [weakSelf handleNetworkError:outcome.error];
             
         }
         else {
@@ -528,16 +492,38 @@ typedef enum : NSUInteger {
         }
             break;
             
+        case PPOPaymentValidationError: {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Invalid"
+                                                            message:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                                                           delegate:self
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil, nil];
+            
+            [alert show];
+        }
+            break;
+            
         default: {
             
-            __weak typeof(self) weakSelf = self;
+            NSString *message;
+            
+            message = [outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey];
+            
+            NSMutableString *mutableString = [@"" mutableCopy];
+            [mutableString appendString:message];
+            
+            if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
+                [mutableString appendString:@"\nNo money has been taken from your account."];
+            } else {
+                [mutableString appendString:@"\nPlease contact the merchant to find out if the payment completed."];
+            }
+            
+            message = [mutableString copy];
+            
             [self showDialogueWithTitle:@"Error"
-                               withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                               withBody:message
                                animated:YES
                          withCompletion:^{
-                             if ([PPOPaymentManager isSafeToRetryPaymentWithOutcome:outcome]) {
-                                 [weakSelf askUserRetryPayment:outcome.payment];
-                             }
                          }];
             
         }
@@ -546,10 +532,10 @@ typedef enum : NSUInteger {
     
 }
 
--(void)handleLocalValidationOutcome:(PPOOutcome*)outcome {
+-(void)handleLocalValidationError:(NSError*)error {
     
     [self showDialogueWithTitle:@"Error"
-                       withBody:[outcome.error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
+                       withBody:[error.userInfo objectForKey:NSLocalizedFailureReasonErrorKey]
                        animated:YES
                  withCompletion:^{
                      
@@ -563,9 +549,21 @@ typedef enum : NSUInteger {
               withCompletion:(void(^)(void))completion {
     
     UIView *backgroundView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    backgroundView.translatesAutoresizingMaskIntoConstraints = YES;
+    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
     backgroundView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.4];
     [[[UIApplication sharedApplication] keyWindow] addSubview:backgroundView];
+    
+    NSArray *constraints;
+    
+    NSDictionary *views = NSDictionaryOfVariableBindings(backgroundView);
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[backgroundView]-0-|" options:0 metrics:nil views:views];
+    
+    [[[UIApplication sharedApplication] keyWindow] addConstraints:constraints];
+    
+    constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[backgroundView]-0-|" options:0 metrics:nil views:views];
+    
+    [[[UIApplication sharedApplication] keyWindow] addConstraints:constraints];
     
     DialogueView *dialogueView = [DialogueView dialogueView];
     
@@ -619,9 +617,7 @@ typedef enum : NSUInteger {
     
     [backgroundView addConstraint:constraint];
     
-    NSArray *constraints;
-    
-    NSDictionary *views = NSDictionaryOfVariableBindings(dialogueView);
+    views = NSDictionaryOfVariableBindings(dialogueView);
     
     constraints = [NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(>=20)-[dialogueView]-(>=20)-|"
                                                           options:0
@@ -645,7 +641,7 @@ typedef enum : NSUInteger {
     
 }
 
--(void)handleNetworkErrorOutcome:(PPOOutcome*)outcome {
+-(void)handleNetworkError:(NSError*)error {
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Network Error"
                                                     message:@"Please check your signal."
@@ -654,19 +650,6 @@ typedef enum : NSUInteger {
                                           otherButtonTitles:@"Check Status", nil];
     
     alert.tag = UI_ALERT_CHECK_STATUS;
-    [alert show];
-    
-}
-
--(void)askUserRetryPayment:(PPOPayment*)payment {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Payment Failed"
-                                                    message:@"Would you like to retry this payment ?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"Dismiss"
-                                          otherButtonTitles:@"Try Again", nil];
-    
-    alert.tag = UI_ALERT_TRY_AGAIN;
     [alert show];
     
 }
@@ -694,25 +677,53 @@ typedef enum : NSUInteger {
     return YES;
 }
 
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    
+    NSString *value;
+    
+    if (string.length == 0) {
+        return YES;
+    }
+    
+    if (textField.tag == TEXT_FIELD_TYPE_CARD_NUMBER) {
+        value = [self.form.cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return !(value && value.length >= 19);
+    }
+    
+    if (textField.tag == TEXT_FIELD_TYPE_CVV) {
+        value = [self.form.cvv stringByReplacingOccurrencesOfString:@" " withString:@""];
+        return !(value && value.length >= 4);
+    }
+    
+    if (textField.tag == TEXT_FIELD_TYPE_AMOUNT) {
+        value = self.form.amount.stringValue;
+        NSArray *components = [value componentsSeparatedByString:@"."];
+        if (components.count > 1) {
+            NSString *last = components.lastObject;
+            return !(last.length >= 2);
+        }
+    }
+    
+    return YES;
+}
+
+-(void)textFieldDidBeginEditing:(UITextField *)textField {
+    self.fieldFirstResponder = textField;
+}
+
 -(void)textFieldDidEndEditing:(PaymentFormField *)textField {
     
     self.fieldFirstResponder = nil;
     
     NSError *error;
     
-    TEXT_FIELD_TYPE type = 0;
-    
     if (textField.tag == TEXT_FIELD_TYPE_CARD_NUMBER) {
-        type = TEXT_FIELD_TYPE_CARD_NUMBER;
         error = [PPOValidator validateCardPan:textField.text];
     } else if (textField.tag == TEXT_FIELD_TYPE_EXPIRY) {
-        type = TEXT_FIELD_TYPE_EXPIRY;
         error = [PPOValidator validateCardExpiry:textField.text];
     } else if (textField.tag == TEXT_FIELD_TYPE_CVV) {
-        type = TEXT_FIELD_TYPE_CVV;
         error = [PPOValidator validateCardCVV:textField.text];
     } else if (textField.tag == TEXT_FIELD_TYPE_AMOUNT) {
-        type = TEXT_FIELD_TYPE_AMOUNT;
         error = [PPOValidator validateAmount:@(textField.text.doubleValue)];
     }
     
@@ -724,40 +735,6 @@ typedef enum : NSUInteger {
         } else {
             [self highlightTextFieldBorderActive:textField];
         }
-    }
-    
-}
-
--(void)textFieldDidBeginEditing:(UITextField *)textField {
-    
-    self.fieldFirstResponder = textField;
-    
-    NSIndexPath *indexPath;
-    
-    switch (textField.tag) {
-            
-        case TEXT_FIELD_TYPE_CARD_NUMBER:
-            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_CARD_PAN inSection:0];
-            break;
-            
-        case TEXT_FIELD_TYPE_EXPIRY:
-            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_CARD_DETAILS inSection:0];
-            break;
-            
-        case TEXT_FIELD_TYPE_CVV:
-            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_CARD_DETAILS inSection:0];
-            break;
-            
-        case TEXT_FIELD_TYPE_AMOUNT:
-            indexPath = [NSIndexPath indexPathForRow:TABLE_ROW_PAYMENT inSection:0];
-            break;
-            
-        default:
-            break;
-    }
-    
-    if (indexPath) {
-        //[self performSelector:@selector(scrollToIndexPath:) withObject:indexPath afterDelay:.3];
     }
     
 }

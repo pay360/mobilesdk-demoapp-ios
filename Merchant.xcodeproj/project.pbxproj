@@ -19,11 +19,9 @@
 		503042581AE7BF0D00CA5B9B /* ColourManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042321AE7BF0D00CA5B9B /* ColourManager.m */; };
 		5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */ = {isa = PBXBuildFile; fileRef = 503042371AE7BF0D00CA5B9B /* FontAwesome.otf */; };
 		5030425C1AE7BF0D00CA5B9B /* FormDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042391AE7BF0D00CA5B9B /* FormDetails.m */; };
-		503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */; };
 		503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042441AE7BF0D00CA5B9B /* ImageManager.m */; };
 		503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042461AE7BF0D00CA5B9B /* MerchantServer.m */; };
 		503042671AE7BF0D00CA5B9B /* NavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042481AE7BF0D00CA5B9B /* NavigationViewController.m */; };
-		503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */; };
 		503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */; };
 		5030426A1AE7BF0D00CA5B9B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 5030424E1AE7BF0D00CA5B9B /* Reachability.m */; };
 		5030426C1AE7BF0D00CA5B9B /* PaymentFormViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 503042521AE7BF0D00CA5B9B /* PaymentFormViewController.m */; };
@@ -42,7 +40,6 @@
 		50B5F9C61B38183300601202 /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C51B38183300601202 /* ActionButton.m */; };
 		50B5F9CA1B38199800601202 /* TitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C91B38199800601202 /* TitleLabel.m */; };
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
-		50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50F2212E1B14AE690031AF1B /* FOUCONRG.otf */; };
 		55DD575DF7137283D5E4650F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -71,15 +68,12 @@
 		503042371AE7BF0D00CA5B9B /* FontAwesome.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.otf; sourceTree = "<group>"; };
 		503042381AE7BF0D00CA5B9B /* FormDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormDetails.h; sourceTree = "<group>"; };
 		503042391AE7BF0D00CA5B9B /* FormDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormDetails.m; sourceTree = "<group>"; };
-		503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FoundConExtBol.ttf; sourceTree = "<group>"; };
 		503042431AE7BF0D00CA5B9B /* ImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageManager.h; sourceTree = "<group>"; };
 		503042441AE7BF0D00CA5B9B /* ImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageManager.m; sourceTree = "<group>"; };
 		503042451AE7BF0D00CA5B9B /* MerchantServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MerchantServer.h; sourceTree = "<group>"; };
 		503042461AE7BF0D00CA5B9B /* MerchantServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MerchantServer.m; sourceTree = "<group>"; };
 		503042471AE7BF0D00CA5B9B /* NavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavigationViewController.h; sourceTree = "<group>"; };
 		503042481AE7BF0D00CA5B9B /* NavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavigationViewController.m; sourceTree = "<group>"; };
-		503042491AE7BF0D00CA5B9B /* NSString+strip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+strip.h"; sourceTree = "<group>"; };
-		5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+strip.m"; sourceTree = "<group>"; };
 		5030424B1AE7BF0D00CA5B9B /* OutcomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutcomeViewController.h; sourceTree = "<group>"; };
 		5030424C1AE7BF0D00CA5B9B /* OutcomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutcomeViewController.m; sourceTree = "<group>"; };
 		5030424D1AE7BF0D00CA5B9B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
@@ -109,7 +103,6 @@
 		50B5F9C81B38199800601202 /* TitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleLabel.h; sourceTree = "<group>"; };
 		50B5F9C91B38199800601202 /* TitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLabel.m; sourceTree = "<group>"; };
 		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		50F2212E1B14AE690031AF1B /* FOUCONRG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FOUCONRG.otf; sourceTree = "<group>"; };
 		634D5C8FC38E16517A523F19 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E812B9A072370A3B32C4CF9D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -232,7 +225,6 @@
 				503042931AE7C23100CA5B9B /* Model */,
 				503042941AE7C23900CA5B9B /* ViewControllers */,
 				503042961AE7C25000CA5B9B /* Networking */,
-				503042951AE7C24200CA5B9B /* UIKitExtensions */,
 				503042091AE7BECA00CA5B9B /* Supporting Files */,
 			);
 			path = Merchant;
@@ -263,8 +255,6 @@
 			isa = PBXGroup;
 			children = (
 				503042371AE7BF0D00CA5B9B /* FontAwesome.otf */,
-				503042421AE7BF0D00CA5B9B /* FoundConExtBol.ttf */,
-				50F2212E1B14AE690031AF1B /* FOUCONRG.otf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -303,15 +293,6 @@
 				503042481AE7BF0D00CA5B9B /* NavigationViewController.m */,
 			);
 			name = NavigationViewController;
-			sourceTree = "<group>";
-		};
-		503042891AE7C1E000CA5B9B /* NSString+strip */ = {
-			isa = PBXGroup;
-			children = (
-				503042491AE7BF0D00CA5B9B /* NSString+strip.h */,
-				5030424A1AE7BF0D00CA5B9B /* NSString+strip.m */,
-			);
-			name = "NSString+strip";
 			sourceTree = "<group>";
 		};
 		5030428A1AE7C1E600CA5B9B /* OutcomeViewController */ = {
@@ -411,14 +392,6 @@
 				5030428A1AE7C1E600CA5B9B /* OutcomeViewController */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		503042951AE7C24200CA5B9B /* UIKitExtensions */ = {
-			isa = PBXGroup;
-			children = (
-				503042891AE7C1E000CA5B9B /* NSString+strip */,
-			);
-			name = UIKitExtensions;
 			sourceTree = "<group>";
 		};
 		503042961AE7C25000CA5B9B /* Networking */ = {
@@ -573,9 +546,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50F2212F1B14AE690031AF1B /* FOUCONRG.otf in Resources */,
 				50B5F9C31B3817EA00601202 /* DialogueView.xib in Resources */,
-				503042641AE7BF0D00CA5B9B /* FoundConExtBol.ttf in Resources */,
 				5030421A1AE7BECA00CA5B9B /* LaunchScreen.xib in Resources */,
 				503042711AE7BFB100CA5B9B /* Main.storyboard in Resources */,
 				5030425B1AE7BF0D00CA5B9B /* FontAwesome.otf in Resources */,
@@ -628,7 +599,6 @@
 				503042691AE7BF0D00CA5B9B /* OutcomeViewController.m in Sources */,
 				503042661AE7BF0D00CA5B9B /* MerchantServer.m in Sources */,
 				50B5F9C61B38183300601202 /* ActionButton.m in Sources */,
-				503042681AE7BF0D00CA5B9B /* NSString+strip.m in Sources */,
 				501B85681B384B3600A5BA33 /* PaymentFormField.m in Sources */,
 				503042651AE7BF0D00CA5B9B /* ImageManager.m in Sources */,
 				504C93B81B284A4600511C5B /* FormField.m in Sources */,

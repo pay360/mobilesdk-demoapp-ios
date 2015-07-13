@@ -16,7 +16,9 @@ Sign up for an Explorer account at [PayPoint Explorer](https://developer.paypoin
 
 Replace the installation id in the info.plist with the Cashier API installation id you are provided with after sign up.
 
-That's it! You should now be able to run up the demo app and make test payments.
+That's it! 
+
+You should now be able to run up the demo app and make test payments.
 
 A set of test cards for MITE (Merchant Integration Test Environment) are available here:
 [MITE test cards](https://developer.paypoint.com/payments/docs/#getting_started/test_cards)

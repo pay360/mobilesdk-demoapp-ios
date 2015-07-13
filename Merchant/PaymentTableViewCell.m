@@ -12,12 +12,14 @@
 @interface PaymentTableViewCell ()
 @property (weak, nonatomic) IBOutlet ActionButton *actionButton;
 @property (nonatomic, weak) FormDetails *form;
+@property (weak, nonatomic) IBOutlet PaymentFormField *textField;
 @end
 
 @implementation PaymentTableViewCell
 
 -(void)awakeFromNib {
     self.actionButton.accessibilityLabel = @"PayNowButton";
+    self.textField.placeholder = @"100.00";
 }
 
 -(IBAction)actionButtonPressed:(ActionButton*)button {

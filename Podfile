@@ -5,7 +5,7 @@ inhibit_all_warnings!
 
 xcodeproj 'Merchant'
 
-paypointVersion = '1.0.0-rc1'
+paypointVersion = '1.0.0'
 
 if ENV['DEVENV'] == 'ci' 
 	pod 'PayPointPayments',:git => 'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git',:branch => 'master'

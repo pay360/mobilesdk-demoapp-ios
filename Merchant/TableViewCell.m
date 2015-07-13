@@ -14,4 +14,8 @@
     return [NSStringFromClass([self class]) stringByAppendingString:@"ID"];
 }
 
++(CGFloat)rowHeight {
+    return 0.0f;
+}
+
 @end

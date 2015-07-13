@@ -8,7 +8,6 @@
 
 #import "FormDetails.h"
 #import <PayPointPayments/PPOValidator.h>
-#import "NSString+strip.h"
 
 @implementation FormDetails
 
