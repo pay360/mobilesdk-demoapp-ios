@@ -1,18 +1,18 @@
-# Paypoint Advanced Payments iOS SDK Demo
+# Pay360 by Capita Advanced Payments iOS SDK Demo
 
 ## Requirements
 
 * XCode 5+  
 
-#PayPoint Advanced Payments iOS SDK Demo
+#Pay360 by Capita Advanced Payments iOS SDK Demo
 
-Demonstrates how to integrate the [PayPoint Advanced Payments iOS SDK](https://github.com/paypoint/mobilesdk-ios) into your app.
+Demonstrates how to integrate the [Pay360 by Capita Advanced Payments iOS SDK](https://github.com/paypoint/mobilesdk-ios) into your app.
 
 ##Quickstart
 
 This project requires [Cocoapods](https://cocoapods.org)
 
-Sign up for an Explorer account at [PayPoint Explorer](https://developer.paypoint.com/payments/explore/#/register)
+Sign up for an Explorer account at [Pay360 by Capita Explorer](https://developer.paypoint.com/payments/explore/#/register)
 
 Replace the installation id in the info.plist with the Cashier API installation id you are provided with after sign up.
 
