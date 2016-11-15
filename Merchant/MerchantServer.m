@@ -1,13 +1,13 @@
 //
 //  NetworkManager.m
-//  Paypoint
+//  Pay360
 //
 //  Created by Robert Nash on 08/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "MerchantServer.h"
-#import <PayPointPayments/PPOCredentials.h>
+#import <Pay360Payments/PPOCredentials.h>
 
 @implementation MerchantServer
 
@@ -16,7 +16,7 @@
     __block NSString *token;
     __block PPOCredentials *c;
     
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://developer.paypoint.com/payments/explore/rest/mockmobilemerchant/getToken/%@", [MerchantServer installationID]]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"https://dev.mite.pay360.com/explore/rest/mockmobilemerchant/getToken/%@", [MerchantServer installationID]]];
     
     NSLog(@"Getting token at URL: %@", url);
     

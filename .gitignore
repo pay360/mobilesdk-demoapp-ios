@@ -22,3 +22,4 @@ Paypoint.framework
 Paypoint.framework.zip
 Pods
 Podfile.lock
+.DS_Store

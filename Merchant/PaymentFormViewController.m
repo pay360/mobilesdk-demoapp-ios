@@ -1,9 +1,9 @@
 //
 //  SubmitFormViewController.m
-//  Paypoint
+//  Pay360
 //
 //  Created by Robert Nash on 08/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "PaymentFormViewController.h"
@@ -145,7 +145,7 @@ typedef enum : NSUInteger {
         _paymentFormAnimationManager.rootView = self.view;
         _paymentFormAnimationManager.loadingView = self.loadingView;
         _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
-        _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPaypointLogoImageView;
+        _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPay360LogoImageView;
     }
     return _paymentFormAnimationManager;
 }
