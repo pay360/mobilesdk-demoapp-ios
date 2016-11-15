@@ -11,8 +11,8 @@
 #import "PaymentFormViewController.h"
 
 @interface WelcomeViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *paypointLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *paypointLogo;
+@property (weak, nonatomic) IBOutlet UILabel *pay360Label;
+@property (weak, nonatomic) IBOutlet UIImageView *pay360Logo;
 @property (weak, nonatomic) IBOutlet UIView *logoContainer;
 @property (weak, nonatomic) IBOutlet UIView *splashView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *demoButton;
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.demoButton.accessibilityLabel = @"DemoButton";
-    self.paypointLabel.textColor = [ColourManager ppBlue];
+    self.pay360Label.textColor = [ColourManager ppBlue];
     
 }
 

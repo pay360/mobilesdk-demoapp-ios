@@ -4,16 +4,17 @@ platform :ios, '7.0'
 inhibit_all_warnings!
 
 xcodeproj 'Merchant'
+#pod 'Pay360Payments',:local => '../mobilesdk-ios'
 
-paypointVersion = '1.0.0'
+pay360Version = '1.0.0-rc1'
 
 if ENV['DEVENV'] == 'ci' 
-	pod 'PayPointPayments',:git => 'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git',:branch => 'master'
+	pod 'Pay360Payments',:git => 'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git',:branch => 'master'
 elsif  ENV['DEVENV'] == 'ci-release'
-        pod 'PayPointPayments',:git =>'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git', :tag=>paypointVersion 
+        pod 'Pay360Payments',:git =>'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git', :tag=>pay360Version 
 elsif ENV['DEVENV'] == 'local'
-        pod 'PayPointPayments', :path => '../mobilesdk-ios'
+        pod 'Pay360Payments', :path => '../mobilesdk-ios'
 else   
-        pod 'PayPointPayments',:git => 'https://github.com/paypoint/mobilesdk-ios.git', :tag => paypointVersion 
+        pod 'Pay360Payments',:git => 'https://github.com/pay360/mobilesdk-ios.git', :tag => pay360Version 
 end  
 

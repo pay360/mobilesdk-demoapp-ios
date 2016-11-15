@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) UIView *rootView;
 @property (nonatomic, weak) UIView *loadingView;
 @property (nonatomic, weak) UILabel *loadingMessageLabel;
-@property (nonatomic, weak) UIImageView *loadingPaypointLogoImageView;
+@property (nonatomic, weak) UIImageView *loadingPay360LogoImageView;
 
 -(instancetype)init;
 

@@ -18,9 +18,9 @@
 #import "PaymentFormField.h"
 #import "TimeManager.h"
 
-#import <PayPointPayments/PPOPaymentManager.h>
-#import <PayPointPayments/PPOPaymentBaseURLManager.h>
-#import <PayPointPayments/PPOValidator.h>
+#import <Pay360Payments/PPOPaymentManager.h>
+#import <Pay360Payments/PPOPaymentBaseURLManager.h>
+#import <Pay360Payments/PPOValidator.h>
 
 #define UI_ALERT_CHECK_STATUS -1
 
@@ -145,7 +145,7 @@ typedef enum : NSUInteger {
         _paymentFormAnimationManager.rootView = self.view;
         _paymentFormAnimationManager.loadingView = self.loadingView;
         _paymentFormAnimationManager.loadingMessageLabel = self.loadingMessageLabel;
-        _paymentFormAnimationManager.loadingPaypointLogoImageView = self.loadingPay360LogoImageView;
+        _paymentFormAnimationManager.loadingPay360LogoImageView = self.loadingPay360LogoImageView;
     }
     return _paymentFormAnimationManager;
 }

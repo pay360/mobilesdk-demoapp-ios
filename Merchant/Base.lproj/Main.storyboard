@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kg6-9s-Dkw">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -248,7 +249,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
                                         <rect key="frame" x="247" y="257" width="105" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Re3-OC-rIJ"/>
@@ -435,17 +436,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
                                 <rect key="frame" x="181" y="225" width="238" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
                                         <rect key="frame" x="0.0" y="0.0" width="105" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="APt-CJ-gMc"/>
                                             <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="7:10" id="PML-C1-GOO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPoint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pay360" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
                                         <rect key="frame" x="113" y="29" width="125" height="44"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="32"/>
                                         <color key="textColor" red="0.1333333333" green="0.22195129080000001" blue="0.52703445474999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -493,8 +494,8 @@
                     <connections>
                         <outlet property="demoButton" destination="eEZ-OA-Rec" id="vwF-vC-tQB"/>
                         <outlet property="logoContainer" destination="Sr6-Wy-XeS" id="xLh-mM-V9a"/>
-                        <outlet property="paypointLabel" destination="oAu-8w-IWe" id="DMg-gY-kgC"/>
-                        <outlet property="paypointLogo" destination="cFW-3y-6r3" id="OSC-sT-gwM"/>
+                        <outlet property="pay360Label" destination="oAu-8w-IWe" id="u4K-Le-9gG"/>
+                        <outlet property="pay360Logo" destination="cFW-3y-6r3" id="lvS-3W-eMg"/>
                         <outlet property="splashView" destination="bzD-IG-BM2" id="cK4-Kk-mRz"/>
                     </connections>
                 </viewController>
@@ -504,6 +505,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Paypoint_logo" width="170" height="242"/>
+        <image name="Pay360_logo" width="170" height="242"/>
     </resources>
 </document>
