@@ -10,15 +10,15 @@
 
 @implementation ColourManager
 
-+(UIColor*)ppYellow {
-    return [UIColor colorWithRed:245/255.0f green:212/255.0f blue:14/255.0f alpha:1];
++(UIColor*)pay360Yellow {
+    return [UIColor colorWithRed:240/255.0f green:171/255.0f blue:0/255.0f alpha:1];
 }
 
-+(UIColor*)ppBlue {
-    return [UIColor colorWithRed:46/255.0f green:37/255.0f blue:86/255.0f alpha:1];
++(UIColor*)pay360Blue {
+    return [UIColor colorWithRed:4/255.0f green:71/255.0f blue:111/255.0f alpha:1];
 }
 
-+(UIColor*)ppLightGrey:(CGFloat)alpha {
++(UIColor*)pay360LightGrey:(CGFloat)alpha {
     return [UIColor colorWithRed:165/255.0f green:157/255.0f blue:149/255.0f alpha:alpha];
 }
 

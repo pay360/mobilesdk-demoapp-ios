@@ -14,7 +14,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
         
-    UIColor *blue = [ColourManager ppBlue];
+    UIColor *blue = [ColourManager pay360Blue];
     
     UIColor *white = [UIColor whiteColor];
     self.navigationBar.translucent = NO;

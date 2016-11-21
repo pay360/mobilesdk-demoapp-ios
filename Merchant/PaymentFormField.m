@@ -13,8 +13,8 @@
 
 -(void)awakeFromNib {
     
-    self.backgroundColor = [ColourManager ppYellow];
-    self.textColor = [ColourManager ppBlue];
+    self.backgroundColor = [ColourManager pay360Yellow];
+    self.textColor = [ColourManager pay360Blue];
     self.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
     
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 12, 20)];

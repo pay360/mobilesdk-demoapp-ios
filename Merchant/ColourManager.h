@@ -10,10 +10,10 @@
 
 @interface ColourManager : NSObject
 
-+(UIColor*)ppYellow;
++(UIColor*)pay360Yellow;
 
-+(UIColor*)ppBlue;
++(UIColor*)pay360Blue;
 
-+(UIColor*)ppLightGrey:(CGFloat)alpha;
++(UIColor*)pay360LightGrey:(CGFloat)alpha;
 
 @end

@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.demoButton.accessibilityLabel = @"DemoButton";
-    self.pay360Label.textColor = [ColourManager ppBlue];
+    self.pay360Label.textColor = [ColourManager pay360Blue];
     
 }
 

@@ -33,7 +33,7 @@
     self.navigationItem.leftBarButtonItem.accessibilityLabel = @"RestartButton";
     
     self.tickLabel.text = @"\uF00C";
-    self.tickLabel.textColor = [ColourManager ppYellow];
+    self.tickLabel.textColor = [ColourManager pay360Yellow];
     
     self.cardNumberLabel.text = (self.outcome.maskedPan.length) ? self.outcome.maskedPan : @"";
     self.merchantRefLabel.text = (self.outcome.merchantRef) ?: @"";
