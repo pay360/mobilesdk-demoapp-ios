@@ -515,11 +515,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0630;
-				ORGANIZATIONNAME = Pay360;
+				ORGANIZATIONNAME = "Pay360 Limited";
 				TargetAttributes = {
 					503042051AE7BECA00CA5B9B = {
 						CreatedOnToolsVersion = 6.3;
-						DevelopmentTeam = L6J9NZ94U6;
+						DevelopmentTeam = KE8AQG6C84;
 					};
 				};
 			};
