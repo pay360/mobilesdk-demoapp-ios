@@ -250,17 +250,17 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
-                                        <rect key="frame" x="247" y="257" width="105" height="150"/>
+                                        <rect key="frame" x="225" y="257" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Re3-OC-rIJ"/>
-                                            <constraint firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="85:121" id="haL-DP-A7a"/>
+                                            <constraint firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="1:1" id="haL-DP-A7a"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ngT-QS-pwN" firstAttribute="top" secondItem="i51-DV-6OE" secondAttribute="bottom" constant="50" id="Hk1-Fp-0rW"/>
-                                    <constraint firstItem="ngT-QS-pwN" firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="85:121" id="NDa-IL-no1"/>
+                                    <constraint firstItem="ngT-QS-pwN" firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="1:1" id="NDa-IL-no1"/>
                                     <constraint firstAttribute="centerX" secondItem="i51-DV-6OE" secondAttribute="centerX" id="Tus-8l-p1S"/>
                                     <constraint firstAttribute="centerY" secondItem="i51-DV-6OE" secondAttribute="centerY" constant="120" id="gHn-le-KSj"/>
                                     <constraint firstItem="i51-DV-6OE" firstAttribute="centerX" secondItem="ngT-QS-pwN" secondAttribute="centerX" id="jxL-4o-LqI"/>
@@ -440,10 +440,10 @@
                                 <rect key="frame" x="181" y="225" width="238" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="150"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="APt-CJ-gMc"/>
-                                            <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="7:10" id="PML-C1-GOO"/>
+                                            <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="1:1" id="PML-C1-GOO"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pay360" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
