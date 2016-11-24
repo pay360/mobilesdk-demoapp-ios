@@ -8,7 +8,7 @@ xcodeproj 'Merchant'
 #	pod 'Pay360Payments',:local => '../mobilesdk-ios'
 #end
 
-pay360Version = ‘2.0.0’
+pay360Version = '2.0.0'
 
 target "Merchant" do
 	if ENV['DEVENV'] == 'ci' 
@@ -25,7 +25,7 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = ‘7.0’
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '7.0'
     end
   end
 end
