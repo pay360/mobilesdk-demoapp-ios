@@ -40,8 +40,8 @@
 		50B5F9C61B38183300601202 /* ActionButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C51B38183300601202 /* ActionButton.m */; };
 		50B5F9CA1B38199800601202 /* TitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 50B5F9C91B38199800601202 /* TitleLabel.m */; };
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
-		50D8D41D3267308DA516D2FE /* Pay360Payments in Frameworks */ = {isa = PBXBuildFile; fileRef = F24DB1C770227C568940B15C /* Pay360Payments */; };
-		55DD575DF7137283D5E4650F /* Pay360Payments in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* Pay360Payments */; };
+		50D8D41D3267308DA516D2FE /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F24DB1C770227C568940B15C /* libPods-Merchant.a */; };
+		55DD575DF7137283D5E4650F /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods-Merchant.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,10 +103,10 @@
 		50B5F9C81B38199800601202 /* TitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TitleLabel.h; sourceTree = "<group>"; };
 		50B5F9C91B38199800601202 /* TitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TitleLabel.m; sourceTree = "<group>"; };
 		50D495131B0237CD004AD686 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		634D5C8FC38E16517A523F19 /* Pay360Payments */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = Pay360Payments; sourceTree = BUILT_PRODUCTS_DIR; };
+		634D5C8FC38E16517A523F19 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../../../../../build/Debug-iphoneos/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D7F6914968F75654E3B838 /* Pods-Merchant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.release.xcconfig"; sourceTree = "<group>"; };
 		A62301DFB28AEAD8365C1786 /* Pods-Merchant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.debug.xcconfig"; sourceTree = "<group>"; };
-		F24DB1C770227C568940B15C /* Pay360Payments */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = Pay360Payments; sourceTree = BUILT_PRODUCTS_DIR; };
+		F24DB1C770227C568940B15C /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../../../../../build/Debug-iphonesimulator/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,8 +118,8 @@
 				5081F3D31AE7ED8D00D41911 /* UIKit.framework in Frameworks */,
 				5081F3D11AE7ED7F00D41911 /* CoreGraphics.framework in Frameworks */,
 				5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */,
-				55DD575DF7137283D5E4650F /* Pay360Payments in Frameworks */,
-				50D8D41D3267308DA516D2FE /* Pay360Payments in Frameworks */,
+				55DD575DF7137283D5E4650F /* libPods-Merchant.a in Frameworks */,
+				50D8D41D3267308DA516D2FE /* libPods-Merchant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,8 +129,8 @@
 		1B02B3AF86CC6424DB0C6DB0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				634D5C8FC38E16517A523F19 /* Pay360Payments */,
-				F24DB1C770227C568940B15C /* Pay360Payments */,
+				634D5C8FC38E16517A523F19 /* libPods-Merchant.a */,
+				F24DB1C770227C568940B15C /* libPods-Merchant.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
