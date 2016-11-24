@@ -42,6 +42,7 @@
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
 		50D8D41D3267308DA516D2FE /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F24DB1C770227C568940B15C /* libPods-Merchant.a */; };
 		55DD575DF7137283D5E4650F /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods-Merchant.a */; };
+		D3700CD3E488366A9754DF36 /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA5218EB777FF402B65826 /* libPods-Merchant.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +107,7 @@
 		634D5C8FC38E16517A523F19 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../../../../../build/Debug-iphoneos/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D7F6914968F75654E3B838 /* Pods-Merchant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.release.xcconfig"; sourceTree = "<group>"; };
 		A62301DFB28AEAD8365C1786 /* Pods-Merchant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.debug.xcconfig"; sourceTree = "<group>"; };
+		D1EA5218EB777FF402B65826 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../Debug-iphonesimulator/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24DB1C770227C568940B15C /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../../../../../build/Debug-iphonesimulator/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -120,6 +122,7 @@
 				5081F3CF1AE7ED7C00D41911 /* SystemConfiguration.framework in Frameworks */,
 				55DD575DF7137283D5E4650F /* libPods-Merchant.a in Frameworks */,
 				50D8D41D3267308DA516D2FE /* libPods-Merchant.a in Frameworks */,
+				D3700CD3E488366A9754DF36 /* libPods-Merchant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +134,7 @@
 			children = (
 				634D5C8FC38E16517A523F19 /* libPods-Merchant.a */,
 				F24DB1C770227C568940B15C /* libPods-Merchant.a */,
+				D1EA5218EB777FF402B65826 /* libPods-Merchant.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

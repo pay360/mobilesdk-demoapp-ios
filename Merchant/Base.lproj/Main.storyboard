@@ -505,6 +505,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Pay360_logo" width="170" height="242"/>
+        <image name="Pay360_logo" width="242" height="242"/>
     </resources>
 </document>
