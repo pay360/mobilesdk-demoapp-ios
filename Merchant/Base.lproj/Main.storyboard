@@ -436,30 +436,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
+                            <view contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
                                 <rect key="frame" x="181" y="225" width="238" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Pay360_logo_version_1" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
                                         <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="APt-CJ-gMc"/>
                                             <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="1:1" id="PML-C1-GOO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Pay360" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
-                                        <rect key="frame" x="113" y="29" width="125" height="44"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="32"/>
-                                        <color key="textColor" red="0.1333333333" green="0.22195129080000001" blue="0.52703445474999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="oAu-8w-IWe" firstAttribute="leading" secondItem="cFW-3y-6r3" secondAttribute="trailing" constant="8" id="Gf8-0H-CaT"/>
-                                    <constraint firstItem="oAu-8w-IWe" firstAttribute="centerY" secondItem="cFW-3y-6r3" secondAttribute="centerY" constant="-24" id="K3g-6V-3RT"/>
                                     <constraint firstAttribute="bottom" secondItem="cFW-3y-6r3" secondAttribute="bottom" id="YJm-zY-9ag"/>
                                     <constraint firstItem="cFW-3y-6r3" firstAttribute="top" secondItem="Sr6-Wy-XeS" secondAttribute="top" id="egH-zP-3rQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="oAu-8w-IWe" secondAttribute="trailing" id="fVF-Sj-Wui"/>
                                     <constraint firstItem="cFW-3y-6r3" firstAttribute="leading" secondItem="Sr6-Wy-XeS" secondAttribute="leading" id="jLr-xi-XLz"/>
                                 </constraints>
                             </view>
@@ -494,7 +485,6 @@
                     <connections>
                         <outlet property="demoButton" destination="eEZ-OA-Rec" id="vwF-vC-tQB"/>
                         <outlet property="logoContainer" destination="Sr6-Wy-XeS" id="xLh-mM-V9a"/>
-                        <outlet property="pay360Label" destination="oAu-8w-IWe" id="u4K-Le-9gG"/>
                         <outlet property="pay360Logo" destination="cFW-3y-6r3" id="lvS-3W-eMg"/>
                         <outlet property="splashView" destination="bzD-IG-BM2" id="cK4-Kk-mRz"/>
                     </connections>
@@ -506,5 +496,6 @@
     </scenes>
     <resources>
         <image name="Pay360_logo" width="242" height="242"/>
+        <image name="Pay360_logo_version_1" width="420" height="242"/>
     </resources>
 </document>
