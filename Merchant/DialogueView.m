@@ -3,7 +3,7 @@
 //  Merchant
 //
 //  Created by Robert Nash on 22/06/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "DialogueView.h"
@@ -27,7 +27,7 @@
 }
 
 -(void)awakeFromNib {
-    self.titleView.backgroundColor = [ColourManager ppBlue];
+    self.titleView.backgroundColor = [ColourManager pay360Blue];
     self.titleViewTitleLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
     self.titleViewTitleLabel.textColor = [UIColor whiteColor];
 }

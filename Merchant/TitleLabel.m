@@ -3,7 +3,7 @@
 //  Merchant
 //
 //  Created by Robert Nash on 22/06/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "TitleLabel.h"
@@ -13,7 +13,7 @@
 
 -(void)awakeFromNib {
     
-    self.textColor = [ColourManager ppBlue];
+    self.textColor = [ColourManager pay360Blue];
     self.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
     
 }

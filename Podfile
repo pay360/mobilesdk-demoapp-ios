@@ -4,17 +4,28 @@ platform :ios, '7.0'
 inhibit_all_warnings!
 
 xcodeproj 'Merchant'
+#target "Merchant" do
+#	pod 'Pay360Payments',:local => '../mobilesdk-ios'
+#end
 
-paypointVersion = '1.0.0'
+pay360Version = '2.0.0'
 
 target "Merchant" do
 	if ENV['DEVENV'] == 'ci' 
-		pod 'PayPointPayments',:git => 'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git',:branch => 'master'
+		pod 'Pay360Payments',:git => 'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git',:branch => 'master'
 	elsif  ENV['DEVENV'] == 'ci-release'
-        	pod 'PayPointPayments',:git =>'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git', :tag=>paypointVersion 
+        	pod 'Pay360Payments',:git =>'ssh://git@stash.paypoint.net:7999/blu/mobilesdk-ios.git', :tag=>pay360Version 
 	elsif ENV['DEVENV'] == 'local'
-        	pod 'PayPointPayments', :path => '../mobilesdk-ios'
+        	pod 'Pay360Payments', :path => '../mobilesdk-ios'
 	else   
-        	pod 'PayPointPayments',:git => 'https://github.com/paypoint/mobilesdk-ios.git', :tag => paypointVersion 
+        	pod 'Pay360Payments',:git => 'https://github.com/pay360/mobilesdk-ios.git', :tag => pay360Version 
 	end  
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '7.0'
+    end
+  end
 end

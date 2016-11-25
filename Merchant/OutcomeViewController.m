@@ -1,14 +1,14 @@
 //
 //  OutcomeViewController.m
-//  Paypoint/Users/cliffeo/mobilesdk-demoapp-ios/Pods/PayPointPayments/PaypointSDK/PPOCustomField.m
+//  Pay360/Users/cliffeo/mobilesdk-demoapp-ios/Pods/Pay360Payments/Pay360SDK/PPOCustomField.m
 //
 //  Created by Robert Nash on 17/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "OutcomeViewController.h"
 #import "ColourManager.h"
-#import <PayPointPayments/Paypoint.h>
+#import <Pay360Payments/Pay360.h>
 
 @interface OutcomeViewController ()
 @property (nonatomic, strong) IBOutlet UILabel *tickLabel;
@@ -33,7 +33,7 @@
     self.navigationItem.leftBarButtonItem.accessibilityLabel = @"RestartButton";
     
     self.tickLabel.text = @"\uF00C";
-    self.tickLabel.textColor = [ColourManager ppYellow];
+    self.tickLabel.textColor = [ColourManager pay360Yellow];
     
     self.cardNumberLabel.text = (self.outcome.maskedPan.length) ? self.outcome.maskedPan : @"";
     self.merchantRefLabel.text = (self.outcome.merchantRef) ?: @"";

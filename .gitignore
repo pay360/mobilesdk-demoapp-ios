@@ -1,8 +1,8 @@
-# Xcode
+]# Xcode
 #
 build/
 Products/
-Lipo/PaypointSDK.framework
+Lipo/Pay360SDK.framework
 *.pbxuser
 !default.pbxuser
 *.mode1v3
@@ -18,7 +18,8 @@ DerivedData
 *.hmap
 *.ipa
 *.xcuserstate
-Paypoint.framework
-Paypoint.framework.zip
+Pay360.framework
+Pay360.framework.zip
 Pods
 Podfile.lock
+.DS_Store

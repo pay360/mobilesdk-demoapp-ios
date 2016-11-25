@@ -3,7 +3,7 @@
 //  Merchant
 //
 //  Created by Robert Nash on 23/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "PaymentFormViewControllerAnimationManager.h"
@@ -37,7 +37,7 @@
     
     self.loadingView.hidden = NO;
     
-    self.loadingPaypointLogoImageView.alpha = 1;
+    self.loadingPay360LogoImageView.alpha = 1;
     
     __weak typeof(self) weakSelf = self;
     
@@ -45,7 +45,7 @@
         
         weakSelf.loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:.6];
         
-        weakSelf.loadingPaypointLogoImageView.transform = CGAffineTransformMakeScale(1.3, 1.3);
+        weakSelf.loadingPay360LogoImageView.transform = CGAffineTransformMakeScale(1.3, 1.3);
         
     } completion:^(BOOL finished) {
         
@@ -62,11 +62,11 @@
         [UIView animateKeyframesWithDuration:duration/2 delay:0.0 options:UIViewKeyframeAnimationOptionRepeat animations:^{
             
             [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:0.5 animations:^{
-                strongSelf.loadingPaypointLogoImageView.transform = CGAffineTransformMakeScale(1.6, 1.6);
+                strongSelf.loadingPay360LogoImageView.transform = CGAffineTransformMakeScale(1.6, 1.6);
             }];
             
             [UIView addKeyframeWithRelativeStartTime:0.5 relativeDuration:0.5 animations:^{
-                strongSelf.loadingPaypointLogoImageView.transform = CGAffineTransformMakeScale(1.3, 1.3);
+                strongSelf.loadingPay360LogoImageView.transform = CGAffineTransformMakeScale(1.3, 1.3);
             }];
             
         } completion:nil];
@@ -92,20 +92,20 @@
         
         self.animationState = LOADING_ANIMATION_STATE_ENDING;
         
-        [self.loadingPaypointLogoImageView.layer removeAllAnimations];
+        [self.loadingPay360LogoImageView.layer removeAllAnimations];
         
-        CALayer *currentLayer = self.loadingPaypointLogoImageView.layer.presentationLayer;
+        CALayer *currentLayer = self.loadingPay360LogoImageView.layer.presentationLayer;
         
-        self.loadingPaypointLogoImageView.layer.transform = currentLayer.transform;
+        self.loadingPay360LogoImageView.layer.transform = currentLayer.transform;
         
         __weak typeof(self) weakSelf = self;
         
         [UIView animateWithDuration:.6 delay:0 options:UIViewAnimationOptionBeginFromCurrentState animations:^{
             
-            weakSelf.loadingPaypointLogoImageView.alpha = 0;
+            weakSelf.loadingPay360LogoImageView.alpha = 0;
             weakSelf.loadingView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0];
             weakSelf.loadingMessageLabel.alpha = 0;
-            weakSelf.loadingPaypointLogoImageView.transform = CGAffineTransformIdentity;
+            weakSelf.loadingPay360LogoImageView.transform = CGAffineTransformIdentity;
             
         } completion:^(BOOL finished) {
             

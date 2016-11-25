@@ -1,9 +1,9 @@
 //
 //  WelcomeViewController.m
-//  Paypoint
+//  Pay360
 //
 //  Created by Robert Nash on 16/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "WelcomeViewController.h"
@@ -11,8 +11,8 @@
 #import "PaymentFormViewController.h"
 
 @interface WelcomeViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *paypointLabel;
-@property (weak, nonatomic) IBOutlet UIImageView *paypointLogo;
+@property (weak, nonatomic) IBOutlet UILabel *pay360Label;
+@property (weak, nonatomic) IBOutlet UIImageView *pay360Logo;
 @property (weak, nonatomic) IBOutlet UIView *logoContainer;
 @property (weak, nonatomic) IBOutlet UIView *splashView;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *demoButton;
@@ -24,7 +24,7 @@
     [super viewDidLoad];
     
     self.demoButton.accessibilityLabel = @"DemoButton";
-    self.paypointLabel.textColor = [ColourManager ppBlue];
+    self.pay360Label.textColor = [ColourManager pay360Blue];
     
 }
 

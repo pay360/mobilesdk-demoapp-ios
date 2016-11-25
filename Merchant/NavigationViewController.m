@@ -1,9 +1,9 @@
 //
 //  NavigationViewController.m
-//  Paypoint
+//  Pay360
 //
 //  Created by Robert Nash on 15/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import "NavigationViewController.h"
@@ -14,7 +14,7 @@
 -(void)viewDidLoad {
     [super viewDidLoad];
         
-    UIColor *blue = [ColourManager ppBlue];
+    UIColor *blue = [ColourManager pay360Blue];
     
     UIColor *white = [UIColor whiteColor];
     self.navigationBar.translucent = NO;

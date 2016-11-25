@@ -3,7 +3,7 @@
 //  Merchant
 //
 //  Created by Robert Nash on 23/04/2015.
-//  Copyright (c) 2015 Paypoint. All rights reserved.
+//  Copyright (c) 2016 Pay360 by Capita. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -21,7 +21,7 @@ typedef enum : NSUInteger {
 @property (nonatomic, weak) UIView *rootView;
 @property (nonatomic, weak) UIView *loadingView;
 @property (nonatomic, weak) UILabel *loadingMessageLabel;
-@property (nonatomic, weak) UIImageView *loadingPaypointLogoImageView;
+@property (nonatomic, weak) UIImageView *loadingPay360LogoImageView;
 
 -(instancetype)init;
 

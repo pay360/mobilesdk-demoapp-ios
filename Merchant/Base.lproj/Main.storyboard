@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kg6-9s-Dkw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kg6-9s-Dkw">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
@@ -58,7 +58,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdB-hT-4Ia" userLabel="Card Number" customClass="TitleLabel">
-                                                    <rect key="frame" x="8" y="8" width="106.5" height="14"/>
+                                                    <rect key="frame" x="8" y="8" width="107" height="14"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -98,8 +98,8 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v8h-7C-3YE" userLabel="Container">
                                                     <rect key="frame" x="8" y="8" width="584" height="66"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Expiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kP-rb-Vvo" userLabel="Expiry" customClass="TitleLabel">
-                                                            <rect key="frame" x="0.0" y="0.0" width="48.5" height="20.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Expiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kP-rb-Vvo" userLabel="Expiry" customClass="TitleLabel">
+                                                            <rect key="frame" x="0.0" y="0.0" width="49" height="21"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -118,7 +118,7 @@
                                                             </connections>
                                                         </textField>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-mc-3sz" userLabel="CVV" customClass="TitleLabel">
-                                                            <rect key="frame" x="195" y="0.0" width="33.5" height="20.5"/>
+                                                            <rect key="frame" x="195" y="0.0" width="34" height="21"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -196,8 +196,8 @@
                                                         <action selector="actionButtonPressed:" destination="JD9-Z5-HF3" eventType="touchUpInside" id="EGs-cb-dgd"/>
                                                     </connections>
                                                 </button>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
-                                                    <rect key="frame" x="472" y="18.5" width="10" height="23.5"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
+                                                    <rect key="frame" x="472" y="19" width="10" height="24"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -249,18 +249,18 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
-                                        <rect key="frame" x="247" y="257" width="105" height="150"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
+                                        <rect key="frame" x="225" y="257" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Re3-OC-rIJ"/>
-                                            <constraint firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="85:121" id="haL-DP-A7a"/>
+                                            <constraint firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="1:1" id="haL-DP-A7a"/>
                                         </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ngT-QS-pwN" firstAttribute="top" secondItem="i51-DV-6OE" secondAttribute="bottom" constant="50" id="Hk1-Fp-0rW"/>
-                                    <constraint firstItem="ngT-QS-pwN" firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="85:121" id="NDa-IL-no1"/>
+                                    <constraint firstItem="ngT-QS-pwN" firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="1:1" id="NDa-IL-no1"/>
                                     <constraint firstAttribute="centerX" secondItem="i51-DV-6OE" secondAttribute="centerX" id="Tus-8l-p1S"/>
                                     <constraint firstAttribute="centerY" secondItem="i51-DV-6OE" secondAttribute="centerY" constant="120" id="gHn-le-KSj"/>
                                     <constraint firstItem="i51-DV-6OE" firstAttribute="centerX" secondItem="ngT-QS-pwN" secondAttribute="centerX" id="jxL-4o-LqI"/>
@@ -281,7 +281,7 @@
                     </view>
                     <connections>
                         <outlet property="loadingMessageLabel" destination="i51-DV-6OE" id="RFS-7X-G0Q"/>
-                        <outlet property="loadingPaypointLogoImageView" destination="ngT-QS-pwN" id="cvo-Ri-8o9"/>
+                        <outlet property="loadingPay360LogoImageView" destination="ngT-QS-pwN" id="6fq-Wz-UN6"/>
                         <outlet property="loadingView" destination="8A9-Pr-Qf5" id="f6P-9c-qV7"/>
                         <outlet property="tableView" destination="UeZ-j5-oAa" id="KqO-zp-vDX"/>
                         <segue destination="hPe-sB-buh" kind="show" identifier="OutcomeViewControllerSegueID" id="Xq4-EE-l09"/>
@@ -304,9 +304,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOQ-QO-NTO" userLabel="Container">
-                                <rect key="frame" x="164" y="156" width="272" height="237.5"/>
+                                <rect key="frame" x="164" y="156" width="272" height="238"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-eZ-fhV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="L" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hyh-eZ-fhV">
                                         <rect key="frame" x="102" y="0.0" width="67" height="120"/>
                                         <accessibility key="accessibilityConfiguration" label="TickLogo"/>
                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="120"/>
@@ -314,52 +314,52 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3z9-Yi-qjn" userLabel="Container">
-                                        <rect key="frame" x="0.0" y="120" width="272" height="117.5"/>
+                                        <rect key="frame" x="0.0" y="120" width="272" height="118"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2U-ku-ZzU">
-                                                <rect key="frame" x="0.0" y="0.0" width="112" height="23.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="112" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Merchant Ref:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4V-DS-ZOs">
-                                                <rect key="frame" x="0.0" y="31" width="107.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Merchant Ref:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4V-DS-ZOs">
+                                                <rect key="frame" x="0.0" y="31" width="108" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-4Q-ojk">
-                                                <rect key="frame" x="0.0" y="63" width="115" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Transaction ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-4Q-ojk">
+                                                <rect key="frame" x="0.0" y="63" width="115" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOL-JB-s2O">
-                                                <rect key="frame" x="0.0" y="94" width="68" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOL-JB-s2O">
+                                                <rect key="frame" x="0.0" y="94" width="68" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** 4938" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-T0-3go">
-                                                <rect key="frame" x="129" y="0.0" width="143" height="23.5"/>
+                                                <rect key="frame" x="129" y="0.0" width="143" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A7KpS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If3-lU-KyP">
-                                                <rect key="frame" x="129" y="31" width="53" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A7KpS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If3-lU-KyP">
+                                                <rect key="frame" x="129" y="31" width="53" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="109293" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-f4-Dgp">
-                                                <rect key="frame" x="129" y="63" width="59.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="109293" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-f4-Dgp">
+                                                <rect key="frame" x="129" y="63" width="60" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0N-UG-caf">
-                                                <rect key="frame" x="129" y="94" width="39.5" height="23.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="£100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0N-UG-caf">
+                                                <rect key="frame" x="129" y="94" width="40" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -436,36 +436,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
+                            <view contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
                                 <rect key="frame" x="181" y="225" width="238" height="150"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Paypoint_logo" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
-                                        <rect key="frame" x="0.0" y="0.0" width="105" height="150"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Pay360_logo_version_1" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="APt-CJ-gMc"/>
-                                            <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="7:10" id="PML-C1-GOO"/>
+                                            <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="1:1" id="PML-C1-GOO"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PayPoint" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAu-8w-IWe">
-                                        <rect key="frame" x="113" y="29" width="125" height="44"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="32"/>
-                                        <color key="textColor" red="0.1333333333" green="0.22195129080000001" blue="0.52703445474999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="oAu-8w-IWe" firstAttribute="leading" secondItem="cFW-3y-6r3" secondAttribute="trailing" constant="8" id="Gf8-0H-CaT"/>
-                                    <constraint firstItem="oAu-8w-IWe" firstAttribute="centerY" secondItem="cFW-3y-6r3" secondAttribute="centerY" constant="-24" id="K3g-6V-3RT"/>
                                     <constraint firstAttribute="bottom" secondItem="cFW-3y-6r3" secondAttribute="bottom" id="YJm-zY-9ag"/>
                                     <constraint firstItem="cFW-3y-6r3" firstAttribute="top" secondItem="Sr6-Wy-XeS" secondAttribute="top" id="egH-zP-3rQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="oAu-8w-IWe" secondAttribute="trailing" id="fVF-Sj-Wui"/>
                                     <constraint firstItem="cFW-3y-6r3" firstAttribute="leading" secondItem="Sr6-Wy-XeS" secondAttribute="leading" id="jLr-xi-XLz"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzD-IG-BM2" userLabel="Splash">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.18039215689999999" green="0.1450980392" blue="0.33725490200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.015686274509803921" green="0.27843137254901962" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -494,8 +485,7 @@
                     <connections>
                         <outlet property="demoButton" destination="eEZ-OA-Rec" id="vwF-vC-tQB"/>
                         <outlet property="logoContainer" destination="Sr6-Wy-XeS" id="xLh-mM-V9a"/>
-                        <outlet property="paypointLabel" destination="oAu-8w-IWe" id="DMg-gY-kgC"/>
-                        <outlet property="paypointLogo" destination="cFW-3y-6r3" id="OSC-sT-gwM"/>
+                        <outlet property="pay360Logo" destination="cFW-3y-6r3" id="lvS-3W-eMg"/>
                         <outlet property="splashView" destination="bzD-IG-BM2" id="cK4-Kk-mRz"/>
                     </connections>
                 </viewController>
@@ -505,6 +495,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Paypoint_logo" width="170" height="242"/>
+        <image name="Pay360_logo" width="242" height="242"/>
+        <image name="Pay360_logo_version_1" width="420" height="242"/>
     </resources>
 </document>
