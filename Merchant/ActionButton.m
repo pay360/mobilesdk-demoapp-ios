@@ -12,10 +12,10 @@
 @implementation ActionButton
 
 -(void)awakeFromNib {
+    [super awakeFromNib];
     
     self.backgroundColor = [ColourManager pay360Yellow];
     self.titleLabel.font = [UIFont fontWithName:@"FoundryContext-Regular" size:20.0f];
-    
 }
 
 @end

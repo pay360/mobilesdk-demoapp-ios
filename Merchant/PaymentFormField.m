@@ -12,7 +12,7 @@
 @implementation PaymentFormField
 
 -(void)awakeFromNib {
-    
+    [super awakeFromNib];
     self.backgroundColor = [ColourManager pay360Yellow];
     self.textColor = [ColourManager pay360Blue];
     self.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];

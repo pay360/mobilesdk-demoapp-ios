@@ -18,6 +18,7 @@
 @implementation PaymentTableViewCell
 
 -(void)awakeFromNib {
+    [super awakeFromNib];
     self.actionButton.accessibilityLabel = @"PayNowButton";
     self.textField.placeholder = @"100.00";
 }

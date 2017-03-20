@@ -12,6 +12,7 @@
 @implementation TitleLabel
 
 -(void)awakeFromNib {
+    [super awakeFromNib];
     
     self.textColor = [ColourManager pay360Blue];
     self.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];

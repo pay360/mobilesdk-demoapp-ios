@@ -27,6 +27,7 @@
 }
 
 -(void)awakeFromNib {
+    [super awakeFromNib];
     self.titleView.backgroundColor = [ColourManager pay360Blue];
     self.titleViewTitleLabel.font = [UIFont fontWithName: @"FoundryContext-Regular" size: 18];
     self.titleViewTitleLabel.textColor = [UIColor whiteColor];
