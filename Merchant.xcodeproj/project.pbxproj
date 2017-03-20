@@ -42,6 +42,7 @@
 		50D495141B0237CD004AD686 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 50D495131B0237CD004AD686 /* AppDelegate.m */; };
 		50D8D41D3267308DA516D2FE /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F24DB1C770227C568940B15C /* libPods-Merchant.a */; };
 		55DD575DF7137283D5E4650F /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 634D5C8FC38E16517A523F19 /* libPods-Merchant.a */; };
+		B91C7EDF10A8D861BE10C55B /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD6D5E15EEDF0A1470B1097F /* libPods-Merchant.a */; };
 		D3700CD3E488366A9754DF36 /* libPods-Merchant.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA5218EB777FF402B65826 /* libPods-Merchant.a */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +108,7 @@
 		634D5C8FC38E16517A523F19 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../../../../../build/Debug-iphoneos/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0D7F6914968F75654E3B838 /* Pods-Merchant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.release.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.release.xcconfig"; sourceTree = "<group>"; };
 		A62301DFB28AEAD8365C1786 /* Pods-Merchant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Merchant.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Merchant/Pods-Merchant.debug.xcconfig"; sourceTree = "<group>"; };
+		AD6D5E15EEDF0A1470B1097F /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1EA5218EB777FF402B65826 /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../Debug-iphonesimulator/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F24DB1C770227C568940B15C /* libPods-Merchant.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Merchant.a"; path = "../../../../../build/Debug-iphonesimulator/libPods-Merchant.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -123,6 +125,7 @@
 				55DD575DF7137283D5E4650F /* libPods-Merchant.a in Frameworks */,
 				50D8D41D3267308DA516D2FE /* libPods-Merchant.a in Frameworks */,
 				D3700CD3E488366A9754DF36 /* libPods-Merchant.a in Frameworks */,
+				B91C7EDF10A8D861BE10C55B /* libPods-Merchant.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,6 +138,7 @@
 				634D5C8FC38E16517A523F19 /* libPods-Merchant.a */,
 				F24DB1C770227C568940B15C /* libPods-Merchant.a */,
 				D1EA5218EB777FF402B65826 /* libPods-Merchant.a */,
+				AD6D5E15EEDF0A1470B1097F /* libPods-Merchant.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -501,7 +505,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 503042291AE7BECA00CA5B9B /* Build configuration list for PBXNativeTarget "Merchant" */;
 			buildPhases = (
-				B7C113AFE734BC1B7580237A /* 📦 Check Pods Manifest.lock */,
+				B7C113AFE734BC1B7580237A /* [CP] Check Pods Manifest.lock */,
 				002DFF259C2C798E915A046A /* [CP] Check Pods Manifest.lock */,
 				503042021AE7BECA00CA5B9B /* Sources */,
 				503042031AE7BECA00CA5B9B /* Frameworks */,
@@ -629,19 +633,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Merchant/Pods-Merchant-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B7C113AFE734BC1B7580237A /* 📦 Check Pods Manifest.lock */ = {
+		B7C113AFE734BC1B7580237A /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		EB5028A8AF1FB399F7BB4FEE /* 📦 Copy Pods Resources */ = {
