@@ -1,16 +1,20 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Kg6-9s-Dkw">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Kg6-9s-Dkw">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <mutableArray key="FontAwesome.otf">
+        <array key="FontAwesome.otf">
             <string>FontAwesome</string>
-        </mutableArray>
+        </array>
     </customFonts>
     <scenes>
         <!--Navigation View Controller-->
@@ -43,15 +47,15 @@
                         <viewControllerLayoutGuide type="bottom" id="fTM-2Y-LQz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ibQ-1B-nK7">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UeZ-j5-oAa" customClass="PaymentFormTableView">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="92" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="UeZ-j5-oAa" customClass="PaymentFormTableView">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardPanTableViewCellID" rowHeight="82" id="AeN-DP-ExJ" customClass="CardPanTableViewCell">
-                                        <rect key="frame" x="0.0" y="86" width="600" height="82"/>
+                                        <rect key="frame" x="0.0" y="22" width="600" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AeN-DP-ExJ" id="XCL-Ko-TJD">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="82"/>
@@ -60,12 +64,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Card Number" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdB-hT-4Ia" userLabel="Card Number" customClass="TitleLabel">
                                                     <rect key="frame" x="8" y="8" width="107" height="14"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="yaE-Tx-K0K" userLabel="Card Number TextField" customClass="PaymentFormField">
                                                     <rect key="frame" x="8" y="30" width="584" height="44"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <accessibility key="accessibilityConfiguration" label="CardPanTextField"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="GNt-xr-F1O"/>
@@ -89,7 +93,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CardDetailsTableViewCellID" rowHeight="86" id="NtM-7h-x9c" customClass="CardDetailsTableViewCell">
-                                        <rect key="frame" x="0.0" y="168" width="600" height="86"/>
+                                        <rect key="frame" x="0.0" y="104" width="600" height="86"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NtM-7h-x9c" id="WsM-jc-lYp">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="86"/>
@@ -101,12 +105,12 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="Expiry" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kP-rb-Vvo" userLabel="Expiry" customClass="TitleLabel">
                                                             <rect key="frame" x="0.0" y="0.0" width="49" height="21"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" clipsSubviews="YES" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="MM/YY" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uS1-7P-CRF" userLabel="Expiry TextField" customClass="PaymentFormField">
                                                             <rect key="frame" x="0.0" y="22" width="175" height="44"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <accessibility key="accessibilityConfiguration" label="CardExpiryTextField"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="cUt-Bd-43k"/>
@@ -120,12 +124,12 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="CVV" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-mc-3sz" userLabel="CVV" customClass="TitleLabel">
                                                             <rect key="frame" x="195" y="0.0" width="34" height="21"/>
                                                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <textField opaque="NO" clipsSubviews="YES" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-1v-v3b" userLabel="CVV TextField" customClass="PaymentFormField">
                                                             <rect key="frame" x="195" y="22" width="175" height="44"/>
-                                                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="iYR-Ad-7gl"/>
@@ -138,7 +142,7 @@
                                                             </connections>
                                                         </textField>
                                                     </subviews>
-                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="1kP-rb-Vvo" firstAttribute="top" secondItem="v8h-7C-3YE" secondAttribute="top" id="2uZ-5e-N5y"/>
                                                         <constraint firstItem="uS1-7P-CRF" firstAttribute="top" secondItem="1kP-rb-Vvo" secondAttribute="bottom" constant="1.5" id="Hdh-jl-Tah"/>
@@ -167,7 +171,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="Cell" id="ZP8-Gr-40T">
-                                        <rect key="frame" x="0.0" y="254" width="600" height="92"/>
+                                        <rect key="frame" x="0.0" y="190" width="600" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZP8-Gr-40T" id="q2P-n4-c8e">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="92"/>
@@ -175,7 +179,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="PaymentTableViewCellID" rowHeight="117" id="JD9-Z5-HF3" customClass="PaymentTableViewCell">
-                                        <rect key="frame" x="0.0" y="346" width="600" height="117"/>
+                                        <rect key="frame" x="0.0" y="282" width="600" height="117"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JD9-Z5-HF3" id="kx0-pn-pwV">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="117"/>
@@ -189,8 +193,8 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="18"/>
                                                     <state key="normal" title="Pay Now">
-                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </state>
                                                     <connections>
                                                         <action selector="actionButtonPressed:" destination="JD9-Z5-HF3" eventType="touchUpInside" id="EGs-cb-dgd"/>
@@ -199,12 +203,12 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" misplaced="YES" text="£" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3y5-Rh-YJL" userLabel="Currency" customClass="TitleLabel">
                                                     <rect key="frame" x="472" y="19" width="10" height="24"/>
                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="W1Y-Ko-Nwr" userLabel="Amount TextField" customClass="PaymentFormField">
                                                     <rect key="frame" x="492" y="8" width="100" height="44"/>
-                                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="0.66666666666666663" green="0.66666666666666663" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <accessibility key="accessibilityConfiguration" label="CardCVVTextField"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="Mra-W8-RPg"/>
@@ -240,16 +244,16 @@
                                     <outlet property="delegate" destination="lAs-rb-kLm" id="vtE-Gi-SUh"/>
                                 </connections>
                             </tableView>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8A9-Pr-Qf5" userLabel="LoadingContainer">
+                            <view hidden="YES" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8A9-Pr-Qf5" userLabel="LoadingContainer">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
-                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Processing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i51-DV-6OE">
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" alpha="0.0" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Processing" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i51-DV-6OE">
                                         <rect key="frame" x="191" y="153" width="218" height="54"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="45"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Pay360_logo" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-QS-pwN">
                                         <rect key="frame" x="225" y="257" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Re3-OC-rIJ"/>
@@ -257,7 +261,7 @@
                                         </constraints>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="ngT-QS-pwN" firstAttribute="top" secondItem="i51-DV-6OE" secondAttribute="bottom" constant="50" id="Hk1-Fp-0rW"/>
                                     <constraint firstItem="ngT-QS-pwN" firstAttribute="width" secondItem="ngT-QS-pwN" secondAttribute="height" multiplier="1:1" id="NDa-IL-no1"/>
@@ -267,7 +271,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="UeZ-j5-oAa" secondAttribute="trailing" id="H5C-3G-MhR"/>
                             <constraint firstAttribute="trailing" secondItem="8A9-Pr-Qf5" secondAttribute="trailing" id="Nuf-Iu-6iT"/>
@@ -300,7 +304,7 @@
                         <viewControllerLayoutGuide type="bottom" id="fXU-Pm-TXM"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yru-QC-5J3">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOQ-QO-NTO" userLabel="Container">
@@ -310,7 +314,7 @@
                                         <rect key="frame" x="102" y="0.0" width="67" height="120"/>
                                         <accessibility key="accessibilityConfiguration" label="TickLogo"/>
                                         <fontDescription key="fontDescription" name="FontAwesome" family="FontAwesome" pointSize="120"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3z9-Yi-qjn" userLabel="Container">
@@ -319,53 +323,53 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y2U-ku-ZzU">
                                                 <rect key="frame" x="0.0" y="0.0" width="112" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Merchant Ref:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F4V-DS-ZOs">
                                                 <rect key="frame" x="0.0" y="31" width="108" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Transaction ID:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zwd-4Q-ojk">
                                                 <rect key="frame" x="0.0" y="63" width="115" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Amount:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOL-JB-s2O">
                                                 <rect key="frame" x="0.0" y="94" width="68" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="**** **** **** 4938" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rkM-T0-3go">
                                                 <rect key="frame" x="129" y="0.0" width="143" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A7KpS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="If3-lU-KyP">
                                                 <rect key="frame" x="129" y="31" width="53" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="109293" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mfK-f4-Dgp">
                                                 <rect key="frame" x="129" y="63" width="60" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="£100" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0N-UG-caf">
                                                 <rect key="frame" x="129" y="94" width="40" height="24"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="If3-lU-KyP" firstAttribute="centerY" secondItem="F4V-DS-ZOs" secondAttribute="centerY" id="0ZH-rx-p2d"/>
                                             <constraint firstItem="F4V-DS-ZOs" firstAttribute="top" secondItem="y2U-ku-ZzU" secondAttribute="bottom" constant="8" id="2RV-0r-u85"/>
@@ -395,7 +399,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="3z9-Yi-qjn" firstAttribute="top" secondItem="Hyh-eZ-fhV" secondAttribute="bottom" id="78M-Gf-s7q"/>
                                     <constraint firstItem="Hyh-eZ-fhV" firstAttribute="top" secondItem="mOQ-QO-NTO" secondAttribute="top" id="LEx-Ih-3eo"/>
@@ -406,7 +410,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="centerY" secondItem="mOQ-QO-NTO" secondAttribute="centerY" constant="25" id="mxA-ak-nY2"/>
                             <constraint firstAttribute="centerX" secondItem="mOQ-QO-NTO" secondAttribute="centerX" id="p8x-Hv-FQg"/>
@@ -427,53 +431,27 @@
         <!--Welcome View Controller-->
         <scene sceneID="Uga-xf-V1z">
             <objects>
-                <viewController id="Fv3-mh-BaG" customClass="WelcomeViewController" sceneMemberID="viewController">
+                <viewController extendedLayoutIncludesOpaqueBars="YES" id="Fv3-mh-BaG" customClass="WelcomeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NH2-Mu-Aad"/>
                         <viewControllerLayoutGuide type="bottom" id="OCo-RS-oti"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nBK-M3-bdp">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sr6-Wy-XeS" userLabel="Container">
-                                <rect key="frame" x="181" y="225" width="238" height="150"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Pay360_logo_version_1" translatesAutoresizingMaskIntoConstraints="NO" id="cFW-3y-6r3">
-                                        <rect key="frame" x="0.0" y="0.0" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="150" id="APt-CJ-gMc"/>
-                                            <constraint firstAttribute="width" secondItem="cFW-3y-6r3" secondAttribute="height" multiplier="1:1" id="PML-C1-GOO"/>
-                                        </constraints>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="cFW-3y-6r3" secondAttribute="bottom" id="YJm-zY-9ag"/>
-                                    <constraint firstItem="cFW-3y-6r3" firstAttribute="top" secondItem="Sr6-Wy-XeS" secondAttribute="top" id="egH-zP-3rQ"/>
-                                    <constraint firstItem="cFW-3y-6r3" firstAttribute="leading" secondItem="Sr6-Wy-XeS" secondAttribute="leading" id="jLr-xi-XLz"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bzD-IG-BM2" userLabel="Splash">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.015686274509803921" green="0.27843137254901962" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" red="0.015686274509803921" green="0.27843137254901962" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Sr6-Wy-XeS" firstAttribute="top" secondItem="NH2-Mu-Aad" secondAttribute="bottom" constant="161" id="BPG-PG-eOT"/>
                             <constraint firstItem="bzD-IG-BM2" firstAttribute="top" secondItem="nBK-M3-bdp" secondAttribute="top" id="DcO-Wy-EiU"/>
                             <constraint firstItem="OCo-RS-oti" firstAttribute="top" secondItem="bzD-IG-BM2" secondAttribute="bottom" id="PYf-ta-Dod"/>
-                            <constraint firstAttribute="centerX" secondItem="Sr6-Wy-XeS" secondAttribute="centerX" id="SiD-Mg-LCm"/>
-                            <constraint firstAttribute="centerY" secondItem="Sr6-Wy-XeS" secondAttribute="centerY" id="YdI-iK-SHp"/>
                             <constraint firstItem="bzD-IG-BM2" firstAttribute="leading" secondItem="nBK-M3-bdp" secondAttribute="leading" id="yOp-5H-Jnw"/>
                             <constraint firstAttribute="trailing" secondItem="bzD-IG-BM2" secondAttribute="trailing" id="zvC-AR-Qx5"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="BPG-PG-eOT"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ovh-yy-ZcZ">
                         <barButtonItem key="rightBarButtonItem" title="Demo" id="eEZ-OA-Rec">
@@ -484,8 +462,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="demoButton" destination="eEZ-OA-Rec" id="vwF-vC-tQB"/>
-                        <outlet property="logoContainer" destination="Sr6-Wy-XeS" id="xLh-mM-V9a"/>
-                        <outlet property="pay360Logo" destination="cFW-3y-6r3" id="lvS-3W-eMg"/>
                         <outlet property="splashView" destination="bzD-IG-BM2" id="cK4-Kk-mRz"/>
                     </connections>
                 </viewController>
@@ -496,6 +472,5 @@
     </scenes>
     <resources>
         <image name="Pay360_logo" width="242" height="242"/>
-        <image name="Pay360_logo_version_1" width="420" height="242"/>
     </resources>
 </document>
